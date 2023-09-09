@@ -1,0 +1,5 @@
+@import "vec2";
+
+@mixin overflow($args: null) {
+	@include vec2((overflow-x, overflow-y), $args);
+}

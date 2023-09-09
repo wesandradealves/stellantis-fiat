@@ -1,0 +1,342 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: $background-light;
+  min-height: $min-mobile-height;
+  padding-top: calc(#{$header-size} + 14px) !important;
+  padding-bottom: calc(#{$header-size} + 14px) !important;
+
+  @include desktop {
+    //min-height: 700px;
+    padding-top: toRem(50) !important;
+  }
+}
+
+.galleryTitle {
+  font-family: 'DIN Next LT Pro', Roboto, Helvetica Neue,
+  sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: $background-secondary;
+  font-size: 32px;
+  font-weight: 100;
+
+  strong {
+    color: $primary;
+    margin-left: 5px;
+  }
+}
+
+.expandedGallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $background-black;
+  z-index: 1001;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include desktop {
+    background-color: rgba($background-black, 0.9);
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    z-index: 100;
+    color: $text-primary;
+  }
+
+  .controls {
+    margin: 26px 0 0 !important;
+    padding: 0 #{$section-horizontal-padding} !important;
+    max-width: 100vw;
+  }
+
+  .swiperMobile {
+    padding: 0 !important;
+  }
+}
+
+.arrowRight,
+.arrowLeft {
+  background-color: $background-secondary;
+}
+
+.controlsDesktop {
+  button {
+    position: absolute;
+    z-index: 1003;
+
+    &.arrowRight {
+      right: 30px;
+      top: calc(50% - 18px);
+
+    }
+
+    &.arrowLeft {
+      left: 30px;
+      top: calc(50% - 18px);
+    }
+  }
+}
+
+.expandIcon {
+  position: absolute;
+  background-color: $background-galleryButton;
+  z-index: 2;
+  margin: 1rem;
+  right: 8px;
+  top: -4px;
+  border-radius: 5px;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    padding-top: 3px;
+  }
+}
+
+.videoHolder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.controls {
+  position: relative;
+  margin-top: 0.3rem;
+  margin-bottom: 2rem;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  .bullet {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      @include bulletActive($mobile-outline);
+    }
+
+    @include desktop {
+      &:hover {
+        @include bulletActive($mobile-outline);
+      }
+    }
+
+    span {
+      transition: all $transition-time-quick $transition-easing;
+      display: block;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.mainImage {
+  width: 100%;
+  position: relative;
+  height: 68vw;
+  max-height: 100%;
+
+  @include desktop {
+    width: 79%;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin-right: toRem(16);
+  }
+
+  //width: 79%;
+  //position: relative;
+  //
+  //@include desktop {
+  //  height: auto;
+  //  margin-right: toRem(16);
+  //}
+  //
+  div,
+  img,
+  picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 99.8% !important;
+    @include desktop {
+      object-fit: contain;
+
+    }
+
+  }
+}
+
+.galleryContainer {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  @include desktop {
+    padding: 0 7rem;
+    margin-top: toRem(26);
+
+  }
+
+  p {
+    color: $text-light;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @include desktop {
+      color: $background-secondary;
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      text-align: start;
+      padding-left: 0.5rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.aligner {
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumbsDesktop {
+
+    width: 40%;
+
+
+    .masonryGrid {
+      display: -webkit-box; /* Not needed if autoprefixing */
+      display: -ms-flexbox; /* Not needed if autoprefixing */
+      display: flex;
+      width: auto;
+
+      .masonryGridColumn {
+        background-clip: padding-box;
+
+        button {
+          opacity: 0.7;
+          transition: opacity $transition-time-quick $transition-easing;
+          width: 100%;
+          margin-bottom: 0.2rem;
+
+          img {
+            max-width: 100%;
+          }
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiperMobile {
+  padding: 0.5rem 0 0;
+  background-color: $background-light;
+
+  .swiperSlide {
+    min-width: 150px;
+
+    button {
+      width: 150px;
+      height: 120px;
+
+      img {
+        max-width: 100%;
+        margin-top: 3px;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &.active {
+        opacity: 1;
+
+        img {
+          outline: 5px solid $mobile-outline;
+          transition: 0.1s;
+        }
+      }
+    }
+  }
+}
+
+.expandedSlide {
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include desktop {
+    height: 100vh;
+    padding: calc(#{$section-horizontal-padding-desktop} / 2) #{$section-horizontal-padding-desktop};
+    img {
+      max-height: calc(
+              100vh - #{$section-horizontal-padding-desktop} / 2
+      );
+    }
+  }
+}
+
+.scrollCta {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: $text-primary;
+
+  svg {
+    margin-top: 9px;
+    @include animationMargin;
+  }
+}
+
+.masonryGrid {
+  margin-top: -15px;
+
+  img,
+  picture {
+    object-fit: contain;
+  }
+}
+
+.graphismBlue {
+  border: 1px red solid;
+  position: relative;
+  top: 1rem;
+  background: transparent;
+  width: 102%;
+}

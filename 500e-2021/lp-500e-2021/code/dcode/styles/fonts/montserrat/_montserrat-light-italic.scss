@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'montserrat-light-italic';
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.eot');
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-light-italic.svg#light-italic') format('svg');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}

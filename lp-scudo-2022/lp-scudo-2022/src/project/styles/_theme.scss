@@ -1,0 +1,101 @@
+$background-primary: #929292;
+$background-secondary: #212652;
+
+$background-black: #0b0c0d;
+$background-light: #edede3;
+
+$background-dark: #212652;
+$background-white: #edede3;
+
+$background-galleryButton: #A31445;
+$mobile-outline: #891039;
+
+$border-dark: #707070;
+
+$text-button: #edede3;
+$text-light: #edede3;
+$mainstories-box-color: #edede3;
+
+$bullet-color: #cccdce;
+$primary-on-light: #FD7D31;
+$primary: #4b4b4b;
+$secondary: #4b4b4b;
+$text-primary: #edede3;
+$text-dark: #4b4b4b;
+$text-violetRed: #070606;
+$text-black: #4b4b4b;
+$text-secondary: #22274f;
+$text-on-primary: #3a369e;
+$text-menu-link: #231e1c;
+$text-red: #FF1430;
+$hr-color: #4b4b4b;
+$border-color: #17131e;
+$font: 'Futura', Roboto, Helvetica Neue, sans-serif;
+$font-secondary: Helvetica Neue, Arial, sans-serif;
+$fontawesome: 'font awesome';
+$fontawesome-brands: 'font awesome brands';
+$scrollbar-track: rgba($primary, 0.23);
+$scrollbar-body: $primary;
+$border-primary: #4b4b4b;
+/*$border-primary: #F6BB43;*/
+$border-size: clamp(8px, 2vh, 18px);
+
+$aspect-ratio: '25 / 16';
+
+$section-horizontal-padding: clamp(40px, 4vw, 90px);
+$section-horizontal-padding-desktop: clamp(70px, 4vw, 90px);
+
+$min-mobile-height: 568px;
+
+$container-max-width: 1280px;
+
+$font-weight-thin: 100;
+$font-weight-ultralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+$font-weight-extrablack: 900;
+
+$header-size: 44px;
+$header-size-desktop: 65px;
+
+$transition-time: 400ms;
+$transition-time-quick: 200ms;
+$transition-time-quickest: 50ms;
+$transition-easing: ease-in-out;
+
+$nav-width: 240px;
+
+$screen-xsm-min: 374.1px;
+$screen-sm-min: 576.1px;
+$screen-md-min: 768.1px;
+$screen-lg-min: 992.1px;
+$screen-desktop-min: 1024.1px;
+$screen-xl-min: 1200.1px;
+$screen-xxl-min: 1600.1px;
+$screen-xxxl-min: 1920.1px;
+$screen-max-size: 2560px;
+
+$border-size: clamp(8px, 2vh, 18px);
+$btn-radius-layout: 10px 0;
+$thumb-radius-layout: 0px 10px;
+$section-horizontal-padding: clamp(40px, 4vw, 90px);
+$section-horizontal-padding-desktop: clamp(70px, 4vw, 90px);
+
+$min-mobile-height: 568px;
+$container-max-width: 1280px;
+$header-size: 44px;
+$header-size-desktop: 65px;
+$nav-width: 224px;
+
+
+@mixin scrollCtaFontSize {
+  font-size: toRem(22);
+
+  @include xsm {
+    font-size: clamp(#{toRem(24), 2vw, #{toRem(32)}
+    });
+}
+}

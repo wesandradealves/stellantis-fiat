@@ -1,0 +1,137 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: 100%;
+  position: relative;
+  background: url('../../assets/bg-footer.svg') 49% 100% var.$black no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: mixin.calcSizeVw(20, $ww);
+
+  .listShared {
+    display: flex;
+    margin: mixin.calcSizeVw(40, $ww) 0 mixin.calcSizeVw(30, $ww) 0;
+
+    li {
+      list-style: none;
+      margin-right: mixin.calcSizeVw(50, $ww);
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  p {
+    font-family: var.$bold;
+    color: var.$white;
+    font-size: mixin.calcSizeVw(18, $ww);
+    font-weight: 500;
+    line-height: mixin.calcSizeVw(22, $ww);
+    text-align: center;
+  }
+
+  .logo {
+    width: mixin.calcSizeVw(50, $ww);
+    margin: mixin.calcSizeVw(30, $ww) 0 mixin.calcSizeVw(40, $ww) 0;
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  $ww: 1360;
+
+  .container {
+    padding-bottom: mixin.calcSizeVw(20, $ww);
+  
+    .listShared {
+      margin: mixin.calcSizeVw(40, $ww) 0 mixin.calcSizeVw(30, $ww) 0;
+  
+      li {
+        margin-right: mixin.calcSizeVw(50, $ww);
+      }
+    }
+  
+    p {
+      font-size: mixin.calcSizeVw(18, $ww);
+      line-height: mixin.calcSizeVw(22, $ww);
+    }
+  
+    .logo {
+      width: mixin.calcSizeVw(50, $ww);
+      margin: mixin.calcSizeVw(30, $ww) 0 mixin.calcSizeVw(40, $ww) 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  .container {
+    background-size: mixin.calcSizeVw(200, $ww);
+  
+    .listShared {
+      margin: mixin.calcSizeVw(40, $ww) 0 mixin.calcSizeVw(30, $ww) 0;
+  
+      li {
+        margin-right: mixin.calcSizeVw(50, $ww);
+      }
+    }
+  
+    p {
+      font-size: mixin.calcSizeVw(16, $ww);
+      line-height: mixin.calcSizeVw(20, $ww);
+    }
+  
+    .logo {
+      width: mixin.calcSizeVw(40, $ww);
+      margin: mixin.calcSizeVw(30, $ww) 0 mixin.calcSizeVw(40, $ww) 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    background-size: 150px;
+    background-position: 42% 100%;
+
+    .listShared {
+      margin: 40px 0 0 0;
+
+      li {
+        width: 20px;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        margin-right: 40px;
+
+        a{
+          display: inherit;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    p {
+      font-size: mixin.calcSizeVw(18, $ww);
+      line-height: mixin.calcSizeVw(22, $ww);
+    }
+
+    .logo {
+      width: 50px;
+      margin: 40px 0 60px 0;
+    }
+  }
+}

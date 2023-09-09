@@ -1,0 +1,79 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.container {
+  width: 100%;
+  max-width: 1290px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 15px auto;
+
+  .thumb {
+    width: 63.0434%;
+    position: relative;
+    display: flex;
+
+    img {
+      width: 100% !important;
+      position: relative !important;
+    }
+  }
+
+  .content {
+    width: 32.3757%;
+    margin-left: 4.5807%;
+    flex: 1;
+    color: var.$white;
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 20px;
+
+      &.category {
+        font-size: 14px;
+        line-height: 32px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+    }
+
+    h4 {
+      font-family: var.$bold;
+      font-size: 28px;
+      line-height: 32px;
+      font-weight: bold;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  .container {
+    max-width: 1100px;
+
+    .content {
+      p {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 20px;
+
+        &.category {
+          font-size: 14px;
+          line-height: 32px;
+        }
+      }
+
+      h4 {
+        font-size: 28px;
+        line-height: 32px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

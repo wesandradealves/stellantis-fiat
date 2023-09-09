@@ -1,0 +1,10 @@
+@mixin bg-checker($color1: darken(white, 8), $color2: transparent, $size: 10px) {
+	background-image: (
+		linear-gradient(45deg, $color1 25%, $color2 25%),
+		linear-gradient(-45deg, $color1 25%, $color2 25%),
+		linear-gradient(45deg, $color2 75%, $color1 75%),
+		linear-gradient(-45deg, $color2 75%, $color1 75%)
+	);
+	background-size: $size * 2 $size * 2;
+	background-position: 0 0, 0 $size, $size -#{$size}, -#{$size} 0;
+}

@@ -1,0 +1,13 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  padding: 0 toRem(40);
+  max-width: $screen-lg-min;
+  margin: 0 auto;
+
+  &.flexMiddle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

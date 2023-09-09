@@ -1,0 +1,479 @@
+.VersionsPage {
+	$thumbOnCenter: true;
+	@include relative;
+	@include span(12/12);
+
+	.title-s {
+		width: 55%;
+		padding-top: 15px;
+	}
+
+  &-flagPaper {
+    position: absolute;
+    right: 15px;
+    bottom: -25px;
+    z-index: 99;
+    height: 40px;
+  }
+
+  &-flag {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
+  }
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+    &-content.swiper {
+      @include span(12/12);
+    }
+    &-content2 {
+      @include span(8/12, 3/12);
+    }
+    &-arrowPrev {
+      @include span-shift(3/12);
+      margin-left: -2%;
+    }
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+    &-flag {
+      left: -15%;  
+    }
+		&-content {
+			@include span-shift(1/12);
+		}
+    &-content.swiper {
+      @include span(10/12);
+      margin-left: 8.33%;
+    }
+    &-content2 {
+      @include span(11/12, 1/12);
+			width: 83%;
+    }
+    &-arrowPrev {
+      @include span-shift(1/12);
+    }
+	}
+
+	// BACKGROUND
+	// ~~~~~~~~~~
+
+	&-background {
+		@include size(100% 20vh);
+		@include absolute(0 null null 0);
+		background-color: _('VersionsPage.backgroundColor') or #ffbc41;
+		border-radius: 0 0 0 0;
+	}
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+  &-content.swiper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: _color('_002');
+  }
+
+	// QUOTE
+	// ~~~~~
+
+	&-quote {
+		@include span(10/12, 1/12);
+		@include margin(20px null);
+	}
+	// ARROW
+	// ~~~~~
+
+	&-arrow {
+		@include absolute;
+		@include span(12/12);
+		@include size(null 100%);
+	}
+
+	&-arrowPrev,
+	&-arrowNext {
+		@include absolute(0 6.7% 0 null);
+		@include margin(auto);
+		@include size(2.5vw);
+		display: block;
+		padding: 5px;
+	}
+
+	&-arrowPrev {
+		@include offset(null initial null 2.3%);
+		@include flip(horizontal);
+		left: 7.3%;
+    margin-left: -1%;
+	}
+  
+  &-arrowNext {
+    margin-right: -1%;
+  }
+
+	// CARD
+	// ~~~~
+
+	&-card {
+		@include relative;
+		@include span(12/12);
+		background-color: _color('_016');
+		border-radius: 0 0 0 0;
+	}
+
+	&-cardTail {
+		@include triangle(
+			$direction: bottom,
+			$offset: -2px 0 null,
+			$color: _('VersionsPage.backgroundColor'),
+			$size: 0.55em
+		);
+		margin: auto;
+		z-index: 1;
+		content: ' ';
+	}
+
+	&-cardHeader {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include size(null 100px);
+		@include margin(36px null null null);
+		z-index: 3;
+	}
+
+	&-cardHeaderTitle {
+		@include font-responsive((16 / 375) * 100vw, 10px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-cardHeaderText {
+		@include margin(12px null null null);
+		@include font-responsive((15 / 375) * 100vw, 11px, 17px, 15px, 6px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 300;
+		color: #5e6168;
+	}
+
+	&-cardCanvas {
+		@include relative(-20px null null null);
+		@include span(10/12, 1.5/12);
+		padding-bottom: 20px;
+		z-index: 2;
+	}
+
+	&-cardCanvasContainer {
+		@include relative;
+		padding-top: 0;
+		// ...
+		transform: scale(1.05);
+		opacity: 0;
+	}
+
+	&-cardCanvasContainer > canvas {
+		@include size(100% null);
+		@include aspect-ratio(768, 433);
+		// border: 1px dashed red;
+	}
+
+	&-cardCanvasLoading {
+		@include absolute(50% null null 50%);
+		transform: translate(-50%, -50%);
+		z-index: 99;
+	}
+
+	// HELP
+	// ~~~~
+
+	&-help {
+		@include absolute(null null 0 null);
+		@include span(6/12, 3/12);
+		pointer-events: none;
+		transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 3;
+		// border: 1px dashed green;
+
+		& .base {
+			position: absolute;
+			width: 100%;
+			height: auto;
+			-o-object-fit: contain;
+			object-fit: contain;
+			bottom: 50px;
+			z-index: 0;
+			transition: all 1000ms ease;
+			// border: 1px dashed black;
+		}
+	}
+
+	&-helpIcon {
+		@include relative;
+		@include margin(null 10px null null);
+		display: block;
+		color: #ffffff;
+	}
+
+	&-helpText {
+		@include font-responsive((11 / 375) * 100vw, 10px, 15px, 11px, 1.33px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 300;
+		text-align: center;
+		color: #ffffff;
+
+		& img {
+			width: 50%;
+			margin: 0 auto 17.5px;
+			transition: all 1000ms ease;
+			// border: 1px dashed black;
+		}
+	}
+
+	&-help.is-hidden {
+		opacity: 0;
+	}
+
+	// VIEW 360
+	// ~~~~~~~~
+
+	&-view360 {
+		@include relative;
+		@include span(10/12, 1/12);
+	}
+
+	// THUMBS
+	// ~~~~~~
+
+	&-thumb {
+		@include relative;
+		@include column(12/12);
+		@include overflow(hidden);
+		@include padding(em(18px) null null null);
+		width: 97%;
+		left: 2%;
+	}
+
+	&-thumbList {
+		@include relative;
+		@include column(12/12);
+		@include margin(30px null 30px null);
+	}
+
+	&-thumbItem {
+		@include relative;
+	}
+
+	&-thumbItem::before {
+		@include size(100% 100%);
+		@include absolute(0 null null 0);
+		background-color: _color('_011');
+		transition: transform 0.6s $ease-out-back;
+		border-radius: 0;
+		display: block;
+		content: ' ';
+	}
+
+	&-thumbItem::after {
+		@include triangle($direction: top, $offset: 0 0 null, $color: _color('_011'), $size: 0.55em);
+		transition: transform 0.6s $ease-out-back 0.2s;
+		margin: auto;
+		@if $thumbOnCenter {
+			content: ' ';
+		}
+	}
+	.sdesign &-thumbItem::after {
+		@include triangle($direction: top, $offset: 0 0 null, $color: _color('_011'), $size: 0.55em);
+	}
+
+	&-thumbItem.is-active::before {
+		transform: translateY(-4px);
+	}
+
+	&-thumbItem.is-active::after {
+		transform: translateY(-0.66em);
+	}
+
+	&-thumbBox {
+		@include relative;
+		@include overflow(hidden);
+		@include padding(4% 4% 2% 4%);
+		background-color: _color('_016');
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+		border-radius: 0;
+		z-index: 1;
+	}
+
+	.sdesign &-thumbItem::before {
+		background-color: _color('_011') !important;
+	}
+
+	&-thumbLink {
+		text-decoration: none;
+	}
+
+	&-thumbPicture {
+		@include relative;
+	}
+
+	&-thumbImage {
+		@include relative;
+		@include size(90%);
+		@include padding(5%);
+		@include margin(0 auto);
+		@include aspect-ratio(100, 95);
+		transition: transform 0.6s $ease-out-quart;
+		display: block;
+	}
+
+	&-thumbImage:hover,
+	&-thumbItem.is-active &-thumbImage {
+		transform: scale3d(1.1, 1.1, 1);
+		transform-origin: center center;
+		opacity: 1;
+	}
+
+	&-thumbCaption {
+		@include margin(3% null null null);
+		@include font-responsive((11 / 375) * 100vw, 10px, 15px, 11px, 1.33px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		text-align: center;
+		display: block;
+		color: #5e6168;
+	}
+
+	// SWITCH
+	// ~~~~~~
+
+	&-switch {
+		@include relative;
+		@include span(8/12, 2/12);
+		@include margin(null null 35px null);
+	}
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		.title-s {
+			width: 25%;
+		}
+
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+		&-content2 {
+			@include relative(null null null 0);
+			@include span(11/12, 1/12);
+			width: 83%;
+		}
+
+		&-help {
+			@include offset(null null -25px null);
+			@include span(8/12, 2/12);
+		}
+
+		&-helpText {
+			@include font-responsive((12 / 1920) * 100vw, 13px, 15px, 12px, 1.33px);
+		}
+
+		&-cardCanvas {
+			@include relative(30px null null null);
+			@include span(8/12, 2/12);
+			@include margin(75px null null null);
+		}
+
+		&-cardCanvasContainer {
+			@include padding(0 null null null);
+		}
+
+		&-cardCanvasContainer > canvas {
+			@include aspect-ratio(498.6, 280.5);
+		}
+
+		&-cardHeader {
+			@include absolute;
+			@include size(null initial);
+		}
+
+		&-cardHeaderText {
+			@include margin(null null 0 null);
+		}
+
+		&-thumb {
+			@include padding(0 null null null);
+		}
+
+		&-thumbCaption {
+			@include font-responsive((12 / 1920) * 100vw, 10px, 15px, 12px, 1.33px);
+		}
+
+		&-switch {
+			@include span(5/12, 3.5/12);
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		/* For mobile phones: */
+    &-content.swiper {
+      height: 40vw;
+    }
+
+    &-content.buttons {
+      margin-top: 20vw;
+    }
+
+		&-help {
+			width: 90%;
+			margin-left: 5%;
+			bottom: -5px !important;
+
+			& .base-mobile {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				-o-object-fit: contain;
+				object-fit: contain;
+				bottom: 10px;
+				z-index: 0;
+				transition: all 1000ms ease;
+			}
+		}
+
+		&-helpText {
+			& img {
+				width: 17vw;
+        max-width: 52px;
+				margin: 0 auto -35% auto;
+				transition: all 1000ms ease;
+			}
+		}
+	}
+
+	&-cardCanvas {
+		top: 10px;
+	}
+
+  &-cardCanvasContainer {
+    bottom: 5px;
+  }
+}

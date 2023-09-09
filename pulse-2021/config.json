@@ -1,0 +1,21 @@
+﻿{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node"
+        }
+      },
+      "external-access": [
+        {
+          "user": "lp-pulse",
+          "pass": "VlcAg6lvQvab52V7!"
+        }
+      ],
+      "folder": "lp-pulse-2021/",
+      "slug": "lp-pulse-2021",
+      "render": "server-side"
+    }
+  ]
+}

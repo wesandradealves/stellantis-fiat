@@ -1,0 +1,8 @@
+@import "shift";
+
+@mixin span-shift(
+	$ratios: 0,
+	$gutter: _layout('grid.gutterWidth') or 1%,
+	$important: false) {
+	@include shift($ratios, span, $gutter, $important);
+}

@@ -1,0 +1,11 @@
+@mixin zoom($value: 1) {
+	$zoom: $value * 100;
+	-ms-zoom: $value;
+	-ms-transform-origin: 0 0;
+	-moz-transform: scale($value);
+	-moz-transform-origin: 0 #{$zoom}px;
+	-o-transform: scale($value);
+	-o-transform-origin: 0 #{$zoom}px;
+	-webkit-transform: scale($value);
+	-webkit-transform-origin: 0 0;
+}

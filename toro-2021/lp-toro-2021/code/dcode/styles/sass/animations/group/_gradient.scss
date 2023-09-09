@@ -1,0 +1,16 @@
+@import "../easing";
+
+// Keyframes
+// ------------------------------------------------------------------------
+@keyframes gradient {
+	0% { background-position: 7% 0%; }
+	50% { background-position: 94% 100%; }
+	100% { background-position: 7% 0%; }
+}
+
+// Classes
+// ------------------------------------------------------------------------
+// N/A yet.
+.Gradient {
+	$ref: &;
+}

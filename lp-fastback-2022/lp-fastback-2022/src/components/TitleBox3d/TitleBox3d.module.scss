@@ -1,0 +1,35 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+  max-width: max-content;
+  margin-bottom: 10px;
+}
+
+.firstLayer {
+  background-color: #ffba0d;
+  border: 1px solid $border-primary;
+  padding: 0 #{toRem(10)};
+  width: 100%;
+  z-index: 1;
+
+  position: relative;
+
+  h2 {
+		white-space: nowrap;
+    margin: 0 5px 0 5px;
+    font-size: clamp(#{toRem(28)}, 8vw, #{toRem(50)});
+  }
+}
+
+.secondLayer {
+  border: 1px solid $border-primary;
+  background-color: transparent;
+
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  left: 5px;
+  top: 4px;
+  position: absolute;
+}

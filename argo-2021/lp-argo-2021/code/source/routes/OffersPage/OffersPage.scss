@@ -1,0 +1,95 @@
+.OffersPage {
+	@include relative;
+	@include span(12/12);
+	@include overflow(hidden);
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// BACKGROUND
+	// ~~~~~~~~~~
+
+	&-background {
+		@include span(12/12);
+		@include size(null 66vh);
+		@include min-size(null 500px);
+		@include absolute;//(0 null null 0);
+		background-color: _('OffersPage.backgroundColor') or #ffbc41;
+		border-radius: 0 0 0 0;
+	}
+
+	&-quote {
+		@include span(10/12, 1/12);
+		@include margin(20px null);
+	}
+
+
+	// CARD
+	// ~~~~
+
+	&-card {
+		@include relative;
+		@include span(12/12);
+		@include margin(null null 63px null);
+	}
+
+	&-cardList {
+		@include span(10/12, 1/12);
+		@include margin(0 null);
+		@include padding(null 0);
+		@include clearfix;
+		// display: flex;
+		// justify-content: center;
+	}
+
+	&-cardItem {
+		@include span(12/12);
+		@include size(null 100%);
+		// @include min-size(311px 520px);
+		// @include aspect-ratio(311, 520);
+		display: inline-block;
+	}
+
+	&-cardOffer {
+		display: block;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		&-background {
+			@include size(null 34vw);
+			@include max-size(null 730px);
+		}
+
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+	}
+}

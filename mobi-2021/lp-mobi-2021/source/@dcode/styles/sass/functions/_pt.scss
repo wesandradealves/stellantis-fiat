@@ -1,0 +1,7 @@
+@import "strip-units";
+
+@function pt($value, $base: 16) {
+	$value: strip-units($value);
+	$result: ($value * (12 / $base)) * 1pt;
+	@return $result;
+}

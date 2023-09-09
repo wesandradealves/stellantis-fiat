@@ -1,0 +1,10 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.title {
+  font-family: $font-secondary;
+  //font-size="20" font-weight="900" letter-spacing="0.048em"
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.048em;
+  text-transform: uppercase;
+}

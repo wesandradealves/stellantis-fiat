@@ -1,0 +1,105 @@
+.GalleryC2A {
+	$backgroundColor: _color('_016');
+	$closeButtonBorderColor: _color('_011');
+	$closeButtonBorderColorHover: _color('_011');
+	$closeButtonColor: _color('_011');
+	$closeButtonColorHover: _color('_011');
+	$textColor: #2E2E2E;
+
+	@include absolute;
+	@include span(12/12);
+	@include padding(20px 25px);
+	background-color: $backgroundColor;
+	border-radius: 0;
+	box-shadow: 4px 5px 14px -5px rgba(0,0,0,0.41);
+	z-index: 1;
+
+	&-container {
+		@include relative;
+		@include span(12/12);
+	}
+
+	&-closeButton {
+		@include absolute(-10px -15px null null);
+		@include size(25px);
+		@include font-responsive((18 / 1920) * 100vw, 10px, 21px, 18px, -2%);
+		@include padding(0);
+		transition: color 0.3s ease-out 0ms, border-color 0.3s ease-out 0ms;
+		background-color: transparent;
+		cursor: pointer;
+		border-radius: 50%;
+		border: 2px solid $closeButtonBorderColor;
+		color: $closeButtonColor;
+		text-align: center;
+	}
+
+	&-closeButton:hover {
+		border-color: $closeButtonBorderColorHover;
+		color: $closeButtonColorHover;
+	}
+
+	&-text {
+		@include font-responsive((11 / 375) * 100vw, 10px, 13px, 12px, 5px);
+		@include margin(0 auto 15px auto);
+		text-align: center;
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: $textColor;
+	}
+
+	&-callToAction {
+		@include ButtonAylen(
+			$backgroundColor: _color('_008'),
+			$textColor: #ffffff,
+			$hoverTextColor: #ffffff,
+			$width: 100%,
+			$textAlign: center,
+			$margin: 0 auto 0 auto,
+			$padding: 0.8em 0.5em,
+			$borderRadius: 0,
+			$hoverStripeColor1: _color('_008'),
+			$hoverStripeColor2: _color('_008'),
+			$usePseudoHover: true,
+			$usePseudoFocus: true,
+		);
+		@include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+
+		&-text {
+			@include font-responsive((11 / 1920) * 100vw, 10px, 13px, 12px, 5px);
+		}
+
+		&-callToAction {
+			@include ButtonAylen(
+				$backgroundColor: _color('_008'),
+				$textColor: #ffffff,
+				$hoverTextColor: #ffffff,
+				$width: 100%,
+				$textAlign: center,
+				$margin: 0 auto 0 auto,
+				$padding: 0.8em 0.5em,
+				$borderRadius: 0,
+				$hoverStripeColor1: _color('_008'),
+				$hoverStripeColor2: _color('_008'),
+				$usePseudoHover: false,
+				$usePseudoFocus: false,
+			);
+			@include font-responsive((12 / 1920) * 100vw, 11px, 15px, 12px, null);
+			font-family: 'FuturaPT Bold', sans-serif;
+			font-weight: 700;
+		}
+
+		&-closeButton:hover {
+			border-color: $closeButtonBorderColor;
+			color: $closeButtonColor;
+		}
+	}
+}

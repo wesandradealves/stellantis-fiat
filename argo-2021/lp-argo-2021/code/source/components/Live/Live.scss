@@ -1,0 +1,642 @@
+@media (min-width: 737px) 
+{
+     .is-desktop.is-menu-open {
+     .Live-box {
+        width: 36%;
+    }
+}}
+
+.Live {
+	@include relative;
+	@include span(12/12);
+	margin-bottom: 20px;
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// STATES
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+
+		&-background {
+			border-radius: 0 20px 0 20px;
+			height: 90%;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// BACKGROUND
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-background {
+		@include size(100% 70vh);
+		@include absolute(0 null null 0);
+		background-color: _('TipPage.backgroundColor') or #ffbc41;
+		border-radius: 20px 0 0 20px;
+	}
+
+	&-video {
+		border-radius: 35px;
+		margin-left: 4%;
+		width: 67%
+	}
+
+	&-title {
+		@include relative;
+		@include margin(0 null 8px null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-text {
+		@include relative;
+		@include margin(2px null 23px null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+	&-box {
+		position: absolute;
+		top: 20%;
+		left: 62%;
+		padding: 40px;
+		background: white;
+		border-radius: 27px 0 0 27px;
+        margin-left: 20px;
+        width: 46%;
+    }
+
+
+
+    .SwitchButton  {
+        padding-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        float: left;
+        margin-left: 0px;
+        margin-top: 10px;
+
+
+        
+    }
+
+    &-switch {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        width: 52%;
+        padding-right: 0px;
+        float: left;
+    }
+
+    @media (min-width: 737px) 
+     {
+
+        &-imglive {
+            display: none;
+            }
+            
+
+     }
+    
+ 
+
+ 	 @media (max-width: 736px) 
+     {
+	     &-background {
+		 @include size(100% 65vh);
+		 }
+		 
+		 &-video {
+            display: none;
+		}
+
+		&-imglive {
+			border-radius: 0 50px 50px 0;
+			padding-right: 10px;
+            margin-left: 0;
+		}
+
+		&-box {
+			position: absolute;
+			top: 90%;
+			left: 2%;
+			padding: 28px;
+			background: white;
+			border-radius: 27px 0 0 27px;
+			margin-left: 20px;  
+			width: 93%;
+			box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+		}
+
+		margin-bottom: 108px;
+	
+     }
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// CONTENT
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// QUOTE
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-quote {
+		@include span(10/12, 1/12);
+		@include margin(20px null);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// CARD
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-card {
+		@include span(11.5/12);
+		@include span-shift(0.5/12);
+		@include min-size(null 60vh);
+		@include relative(3.2% null null null);
+		@include overflow(hidden);
+		background-color: white;
+		border-radius: 20px 0 0 20px;
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+		margin-bottom: 20px;
+	}
+
+	&-cardTail {
+		@include triangle($direction: bottom, $offset: -2px 0 null, $color: _('TipPage.backgroundColor'), $size: 0.55em);
+		transition: left 0.5s $ease-in-out-quart;
+		margin: auto;
+		z-index: 1;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:HEADER
+	// --------------------------------------------------------------------------
+
+	&-cardHeader {
+		@include span(10/11.5, 0.5/11.5);
+		@include margin(24px null null null);
+	}
+
+	&-cardHeaderModel {
+		@include span(11.5/11.5);
+		@include margin(null null 5px null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-cardHeaderVersion {
+		@include span(7.75/11.5);
+		@include margin(0 null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+	&-cardHeaderPrice {
+		@include span(3.75/11.5);
+		@include margin(0 null);
+		@include font-responsive((19 / 375) * 100vw, 11px, 22px, 19px, 1.37px);
+		text-align: right;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-cardHeaderPrice::before {
+		@include relative;
+		@include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+		transition: left 0.5s $ease-in-out-quart;
+		content: attr(data-symbol);
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:GALLERY
+	// --------------------------------------------------------------------------
+
+	&-cardGallery {
+		@include relative;
+		@include span(11.5/11.5);
+		@include margin(18px null null null);
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:GALLERY:POSTER
+	// --------------------------------------------------------------------------
+
+	&-cardGalleryPoster {
+		@include relative;
+		@include span(11.5/11.5);
+		background-color: #dbdbdb;
+	}
+
+	&-cardGalleryPosterList {
+		@include relative;
+	}
+
+	&-cardGalleryPosterItem {
+		@include relative;
+	}
+
+	&-cardGalleryPosterFigure {
+		@include aspect-ratio(363, 278);
+	}
+
+	&-cardGalleryPosterFigureImage {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-cardGalleryPosterShare {
+		@include absolute(2% null null null);
+		@include span(1/11.5);
+		@include span-shift(9.5/11.5);
+	}
+
+	&-cardGalleryPosterShareButton {
+		@include size(4vw);
+		@include min-size(31px);
+		float: right;
+	}
+
+	&-cardBullet {
+		@include relative;
+		@include span(10/11.5);
+		@include span-shift(0.5/11.5);
+		@include margin(null null 18px null);
+	}
+
+	&-cardBulletList {
+		@include relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&-cardBulletItem {
+		@include size(6px);
+		@include max-size(25px);
+		@include margin(null 10px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: #b9b9b9;
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 0;
+	}
+
+	&-cardBulletItem.is-active {
+		transform: scale(3);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// SWITCH
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-switch {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include margin(36px null 34.5px null);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// BREAKPOINTS
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:BACKGROUND
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-background {
+			@include size(null 20vh);
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CONTENT
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CARD
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-card {
+			@include relative(null null null 0);
+			@include span(12/12);
+			@include min-size(null initial);
+			box-shadow: none;
+			border-radius: 0 20px 0 0;
+		}
+
+		&-cardLine {
+			@include span(10/12, 1/12);
+			@include size(null 1px);
+			border-bottom: 1px solid #b9b9b9;
+			content: " ";
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:HEADER
+		// ------------------------------------------------------------------------
+
+		&-cardHeader {
+			@include relative;
+			@include span(11/12);
+			@include span-shift(1/12);
+			@include margin(null null 11px null);
+			display: flex;
+			align-items: baseline;
+		}
+
+		&-cardHeaderModel {
+			@include size(auto null);
+			@include margin(null 7px null null);
+		}
+
+		&-cardHeaderVersion {
+			@include relative;
+			@include size(auto null);
+			@include margin(null 47px null null);
+		}
+
+		&-cardHeaderVersion.has-price::before {
+			@include size(25.5px 1px);
+			@include absolute(0 null 0 100%);
+			@include margin(auto null auto 10.5px);
+			background-color: #707070;
+			display: block;
+			content: " ";
+		}
+
+		&-cardHeaderPrice {
+			@include size(auto null);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryPoster {
+			@include column(12/12);
+			border-radius: 0 20px 0 0;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY:POSTER
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryPoster {
+			@include relative;
+			@include column(8/12);
+			@include column-shift(1/12);
+			@include overflow(hidden);
+			@include margin(0 null null null);
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+		}
+
+		&-cardGalleryPosterFigure {
+			@include aspect-ratio(651, 323);
+		}
+
+		&-cardGalleryPosterShare {
+			@include absolute(20px null null null);
+			@include span(1/12);
+			@include span-shift(11/12);
+		}
+
+		&-cardGalleryPosterShareButton {
+			@include span(1/12);
+			@include absolute(null 20px null null);
+			@include size(2vw);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY:THUMB
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryThumb {
+			@include relative;
+			@include column(2/12);
+			@include column-shift(1/12);
+			@include padding(6px null);
+			// @include size(null 33.3vw);// sem menu
+			@include size(null 27.8vw);// com menu
+			@include overflow(hidden);
+			display: flex;
+		}
+
+		&-cardGalleryThumbList {
+			@include relative;
+		}
+
+		&-cardGalleryThumbItem {
+			@include relative;
+			@include overflow(hidden);
+			background-color: #dbdbdb;
+			border-radius: 10px 10px 10px 0;
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+		}
+
+		&-cardGalleryThumbLink {
+			text-decoration: none;
+		}
+
+		&-cardGalleryThumbImage {
+			@include aspect-ratio(215, 177);
+			transition: transform 0.6s $ease-out-quart, opacity 0.5s $ease-out-expo;
+			filter: grayscale(100%);
+			opacity: 0.5;
+			display: block;
+		}
+
+		&-cardGalleryThumbImage:hover,
+		&-cardGalleryThumbImage.is-active {
+			filter: grayscale(0);
+			transform: scale3d(1.1, 1.1, 1);
+			transform-origin: center center;
+			opacity: 1;
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CARD:INFO
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-cardInfo {
+			display: flex;
+			align-items: center;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:ARTICLE
+		// ------------------------------------------------------------------------
+
+		&-cardInfoArticle {
+			@include column(8/12);
+			@include column-shift(1/12);
+			// border: 1px solid red;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:ARROW
+		// ------------------------------------------------------------------------
+
+		&-cardInfoArrow {
+			@include relative;
+			@include column(1/12);
+			@include column-shift(1/12);
+		}
+
+		&-cardInfoArrowPrev,
+		&-cardInfoArrowNext {
+			@include size(0.8vw auto);
+			@include margin(0 5px);
+		}
+
+		&-cardInfoArrowPrev {
+			@include flip(vertical);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:PAGE
+		// ------------------------------------------------------------------------
+
+		&-cardInfoPage {
+			@include relative;
+			@include column(1/12);
+			@include column-shift(1/12);
+			text-align: right;
+		}
+
+		&-cardInfoPageCurrent,
+		&-cardInfoPageFrom,
+		&-cardInfoPageSize {
+			@include font-responsive((21 / 1920) * 100vw, 11px, 23px, 21px, 1.33px);
+			font-family: 'FuturaPT Medium', sans-serif;
+			font-weight: 500;
+			color: #adaeb2;
+		}
+
+		&-cardInfoPageCurrent {
+			color: #5e6168;
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:SWITCH
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-switch {
+			@include column(6/12, 3/12);
+		}
+	}
+}
+
+.alert{
+	background-color: #fbfcff;
+	border: 1px solid #bbbdc5;
+	border-radius: 3px;
+	padding: 10px;
+	position: fixed;
+	left: 24%;
+	top: 82%;
+	width:60%;
+	z-index: 9999999;
+
+}
+
+.alert-text{
+	line-height: 21px;
+	font-size: 14px
+
+}
+
+ .textAlert{
+	 float: left;
+	 width: 78%;
+	 text-align: justify;
+	 padding-left: 1.3%;
+ }
+
+ .button{
+	float: right;
+	width: 20%;
+	padding-top:2.5%;
+	text-align: justify;
+}
+
+.botao{
+	display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    padding: 1em 2em;
+    background-color: #e50353;
+    border: solid 1px #979797;
+    color: #FFF;
+    text-align: center;
+}
+.hidden { display:none; }
+@media only screen and (max-width: 600px) {
+	.alert{
+		background-color: #fbfcff;
+		border: 1px solid #bbbdc5;
+		border-radius: 3px;
+		padding: 10px;
+		position: fixed;
+		left: 0%;
+		top: 64%;
+		width: 100%;
+	}
+
+	.textAlert {
+		float: left;
+		width: 100%;
+		text-align: justify;
+		padding-left: 1.3%;
+	}
+
+	.button {
+		float: right;
+		width: 100%;
+		padding-top: 1.5%;
+		text-align: center;
+	}
+  }
+
+  

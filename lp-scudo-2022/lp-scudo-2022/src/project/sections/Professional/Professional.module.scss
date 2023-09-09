@@ -1,0 +1,234 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+  min-height: 547px;
+  background-color: #edede3;
+  @media (max-width: 768px) {
+   padding-bottom: 50px;
+  }
+  padding-top: 0 !important;
+
+  h2 {
+    font-size: toRem(45);
+    line-height: 3rem;
+    font-weight: $font-weight-bold;
+    color: $text-button;
+
+    strong {
+      color: $primary;
+    }
+
+    img {
+      width: 52%;
+    }
+  }
+
+  @include desktop {
+    padding: calc(#{$header-size} + 14px) #{$section-horizontal-padding-desktop};
+    h1 {
+      align-items: flex-start;
+    }
+    p {
+      text-align: left;
+      font-weight: 100;
+    }
+  }
+}
+
+.mobileBackground {
+  background-color: #edede3;
+}
+
+.spacer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #edede3;
+
+  @include desktop {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .containerDesktop {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .blueGraphicsProfessional {
+      img {
+        width: 107rem;
+        position: relative;
+        right: 5rem;
+        bottom: 0.4rem;
+      }
+
+    }
+  }
+
+  
+
+  .teste {
+    display: flex;
+  }
+
+  
+  .leftArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include desktop {
+      width: 50%;
+      padding: 6% 6% 6% 6%;
+    }
+
+    .versionText {
+      margin-bottom: toRem(80);
+      color: #212652;
+      text-align: center;
+
+        p {
+          margin-bottom: toRem(25);
+          font-weight: 200;
+          font-size: toRem(30);
+          line-height: toRem(10);
+        }
+
+    .professionalText {
+
+      color: #910525;
+      font-weight: 600;
+      
+
+        } 
+    }
+    .descriptionProfessional {
+      position: relative;
+      bottom: 4rem;
+          p {
+            margin-top: 0rem;
+            font-size: 1.1rem;
+            color: #212652;
+            font-weight: 200;
+          }
+        }
+
+      
+
+  }
+
+  .rightArea {
+    width: 50%;
+    padding: 6% 6% 6% 6%;
+    max-width: 100%;
+   
+  }
+  .mobileContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+
+
+    .versionText {
+      .versionTextlogo {
+        padding: 0% 10%;
+        display: flex;
+        justify-content: center;
+        p {
+          color: #212652;
+          margin-left: 10px;
+          font-size: 2.3rem;
+          font-weight: 200;
+          padding-top: 8px;
+          text-align: center;
+        }
+
+        img {
+          object-fit: contain;
+          max-width: 80px;
+        }
+      }
+      .boxTlt {
+        p {
+          font-size: 1.8rem;
+          font-weight:700;
+          line-height: 1.5;
+          text-align: center;
+          color: #910525;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .contentImg {
+      margin-bottom: 0.7rem;
+      width: 100%;
+      margin-left: 2.1rem;
+    }
+
+    .headline {
+      font-size: clamp(
+        #{toRem(26)},
+        7vw,
+        #{toRem(33)}
+      ) !important;
+      text-transform: uppercase;
+      line-height: 1;
+      font-weight: $font-weight-bold;
+      margin-bottom: toRem(2);
+      text-align: left;
+      strong {
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    .txtMobile {
+      padding: 0% 10%;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #212652;
+   
+    }
+
+    .professionalGraphicsBlueMobile {
+      width: 100%;
+      position: relative;
+      top: 0;
+      img {
+      width: 100%;
+      }
+    }
+  }
+}
+
+.headline {
+  text-align: left;
+  font-size: clamp(1.6rem, 2vw, 1.9rem);
+  &:not(.noTopMargin) {
+    margin-top: toRem(30);
+  }
+  margin-bottom: toRem(40);
+  font-weight: 600;
+
+  strong {
+    color: $primary;
+  }
+}
+
+.cta{
+  div {
+    background-color: #212652;
+    width: 15rem;
+    @media (max-width: 768px) {
+      width: 95%;
+      margin: 0 auto 10px;
+    }
+    p{
+      color: #EDEDE3!important;
+    }
+  }
+}

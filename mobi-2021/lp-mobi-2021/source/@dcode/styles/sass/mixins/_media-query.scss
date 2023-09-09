@@ -1,0 +1,19 @@
+// @see https://css-tricks.com/logic-in-media-queries/
+@mixin media-query($args...) {
+	$mediaType: "only screen";
+	$mediaTypeKey: "media-type";
+	$args: keywords($args);
+	$expr: "";
+	@if map-has-key($args, $mediaTypeKey) {
+		$mediaType: map-get($args, $mediaTypeKey);
+		$args: map-remove($args, $mediaTypeKey);
+	}
+	@each $key, $value in $args {
+		@if $value {
+			$expr: "#{$expr} and (#{$key}: #{$value})";
+		}
+	}
+	@media #{$mediaType} #{$expr} {
+		@content;
+	}
+}

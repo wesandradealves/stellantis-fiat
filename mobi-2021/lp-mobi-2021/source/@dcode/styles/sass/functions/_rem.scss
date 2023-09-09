@@ -1,0 +1,7 @@
+@import "strip-units";
+
+@function rem($value, $base: 16) {
+	$value: strip-units($value);
+	$result: ($value / $base) * 1rem;
+	@return $result;
+}

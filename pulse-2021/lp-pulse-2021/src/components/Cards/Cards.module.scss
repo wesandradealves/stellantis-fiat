@@ -1,0 +1,203 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.positionFix {
+  top: unset;
+  bottom: toRem(36);
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  padding: 0 clamp(30px, 5vw, 6rem);
+  width: 100%;
+  height: max-content;
+}
+
+.container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 20px;
+  grid-template-areas: '. .';
+  justify-items: start;
+  align-items: start;
+  width: 100%;
+  height: max-content;
+}
+
+// First Layer
+.unitaryBox {
+  margin: 0 0.5rem 0px 0px;
+
+  // Second Layer
+  .externalBox {
+    background-color: transparent;
+    border: 1px solid $border-primary;
+    width: 112px;
+    height: 114px;
+    position: relative;
+    transition: background-color $transition-time-quick
+      $transition-easing;
+
+    .gradient {
+      opacity: 1;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.65)
+        )
+        repeat scroll 0% 0%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity $transition-time-quick
+        $transition-easing;
+    }
+    &.selected {
+      background-color: $border-primary;
+      border: 1px solid $border-primary;
+      width: 112px;
+      height: 114px;
+      position: relative;
+
+      .gradient {
+        opacity: 0;
+      }
+    }
+  }
+  // Thirdy Layer
+  .internalBox {
+    width: 112px;
+    height: 114px;
+    position: relative;
+    border: 1px solid $border-primary;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    overflow: hidden;
+
+    &:hover:after {
+      bottom: 0%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($border-primary, 0.4);
+      bottom: -100%;
+      left: 0;
+      z-index: 0;
+      transition: all $transition-time-quickest
+        $transition-easing;
+      mix-blend-mode: lighten;
+    }
+
+    h1 {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      font-size: 12px;
+      font-family: $font;
+      color: $text-primary;
+      margin: 0 0 5px 5px;
+      text-align: left;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.addCross {
+  transition: opacity $transition-time-quick $transition-easing;
+  margin: 0;
+  padding: 0;
+  top: -1%;
+  right: -1%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: $border-primary;
+  z-index: 2;
+
+  &:after {
+    content: '+';
+    font-size: 1.3rem;
+    line-height: 16px;
+    color: $text-primary;
+  }
+}
+
+.scrollCta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  width: 100%;
+
+  &.scrollCtaHorizontal {
+    align-items: center;
+    bottom: 20px;
+    padding: 0px;
+
+    p {
+      text-align: center;
+      padding-bottom: 12px;
+    }
+  }
+
+  &.scrollCtaVertical {
+    padding: 20px;
+    align-items: flex-start;
+    bottom: 0px;
+
+    p {
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: center;
+      transform: rotate(-90deg);
+      transform-origin: calc(0% + 20px);
+      width: max-content;
+      height: 6px;
+      padding-left: 15px;
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    svg {
+      @include animationMargin;
+      &:nth-child(1) {
+        animation-delay: 0ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 150ms;
+      }
+      &:nth-child(3) {
+        animation-delay: 300ms;
+      }
+    }
+  }
+
+  svg {
+    margin-bottom: 12px;
+    position: relative;
+  }
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}

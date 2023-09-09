@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@dcode/react",
+  "version": "1.0.0-alpha.0",
+  "description": "🐚 Utilities and helpers for dcode",
+  "keywords": "dcode-react-module",
+  "author": "Unkn team",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "ping": "echo \"pong!\""
+  },
+  "dependencies": {
+    "@dcode/styles": "file:../styles",
+    "@dcode/utils": "file:../utils",
+    "prop-types": "15.7.2",
+    "react": "16.8.4",
+    "react-router": "4.3.1",
+    "redux": "4.0.1",
+    "redux-devtools-extension": "2.13.8",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0"
+  }
+}

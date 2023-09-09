@@ -1,0 +1,7 @@
+@mixin animation($delay, $duration, $animation, $direction: forward, $fillmode: fowards) {
+	animation-delay: $delay;
+	animation-duration: $duration;
+	animation-name: $animation;
+	animation-fill-mode: $fillmode; // this prevents the animation from restarting!
+	animation-direction: $direction;
+}

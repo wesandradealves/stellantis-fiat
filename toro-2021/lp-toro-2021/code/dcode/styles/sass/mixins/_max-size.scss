@@ -1,0 +1,5 @@
+@import "vec2";
+
+@mixin max-size($args) {
+	@include vec2((max-width, max-height), $args);
+}

@@ -1,0 +1,6 @@
+.Pixi360 {
+  button {
+    @include fixed(50px null null 50px);
+    z-index: 99;
+  }
+}

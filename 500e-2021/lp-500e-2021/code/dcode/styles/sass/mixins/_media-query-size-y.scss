@@ -1,0 +1,37 @@
+@import "media-query-y";
+@import "../methods/_layout";
+
+@mixin media-query-size-y($sizes: null, $orientation: false) {
+	$xs: _layout('xs.h') or 568px;
+	$sm: _layout('sm.h') or 768px;
+	$md: _layout('md.h') or 960px;
+	$lg: _layout('lg.h') or 1050px;
+	$xl: _layout('xl.h') or 1080px;
+	@each $size in $sizes {
+		@if $size == xs {
+			@include media-query-y($max: /*em*/($xs), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == sm {
+			@include media-query-y($min: /*em*/($xs + 0.1), $max: /*em*/($sm), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == md {
+			@include media-query-y($min: /*em*/($sm + 0.1), $max: /*em*/($md), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == lg {
+			@include media-query-y($min: /*em*/($md + 0.1), $max: /*em*/($lg), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == xl {
+			@include media-query-y($min: /*em*/($lg + 0.1), $max: /*em*/($xl), $orientation: $orientation) {
+				@content;
+			}
+		} @else {
+			@include media-query-y($min: /*em*/($xl + 0.1), $orientation: $orientation) {
+				@content;
+			}
+		}
+	}
+}

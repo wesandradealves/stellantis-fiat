@@ -1,0 +1,5 @@
+@import "vec2";
+
+@mixin size($args) {
+	@include vec2((width, height), $args);
+}

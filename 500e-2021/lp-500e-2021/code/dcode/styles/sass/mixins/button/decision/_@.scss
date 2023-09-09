@@ -1,0 +1,197 @@
+@import '../base/@';
+
+//
+// # Button
+// >
+//
+// ## Usage:
+//
+// You have to call this file in your style:
+// ```scss
+// @include ButtonDecision(
+//	$width: auto,
+//	$height: auto,
+// );
+// ```
+//
+// The template should be something like:
+// ```html
+// <body>
+// 	<!-- Button -->
+// 	<button class="Button" data-ui="button-decision">
+// 		Confirmar
+// 	</button>
+// </body>
+// ```
+//
+@mixin ButtonDecision(
+	$fontFamily: (Ubuntu, Helvetica, Arial, sans-serif),
+	$fontSize: (4.5vw, 13px, 18px, 13px, 0),
+	$fontWeight: lighter,
+	$fontStyle: normal,
+	$borderRadius: 5px,
+	$borderWidth: 0,
+	$borderStyle: none,
+	$borderColor: transparent,
+	$border: $borderWidth $borderStyle $borderColor,
+	$textColor: #fff,
+	$textAlign: center,
+	$textDecoration: none,
+	$backgroundColor: #222,
+	$disabledBackgroundColor: #999,
+	$hoverBackgroundColor: #333,
+	$focusBackgroundColor: #333,
+	$activeBackgroundColor: #333,
+	$visitedBackgroundColor: #6B79FF,
+	$disabledTextColor: #666,
+	$hoverTextColor: $textColor,
+	$focusTextColor: $textColor,
+	$activeTextColor: $textColor,
+	$visitedTextColor: $textColor,
+	$boxShadowHLength: 0px,
+	$boxShadowVLength: 2px,
+	$boxShadowBlurRadius: 5px,
+	$boxShadowSpreadRadius: 0px,
+	$boxShadowShadowColor: rgba(0, 0, 0, 0.2),
+	$boxShadow: $boxShadowHLength $boxShadowVLength $boxShadowBlurRadius $boxShadowSpreadRadius $boxShadowShadowColor,
+	$outline: none,
+	$selectionColor: transparent,
+	$width: null,
+	$height: null,
+	$padding: em(8px) em(20px),
+	$margin: 1%,
+	$name: null,
+	$usePseudoHover: true,
+	$usePseudoFocus: false,
+	$usePseudoActive: false,
+	$usePseudoVisited: false,
+	$truncateText: true,
+	$cursor: pointer,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+	$green: #1ECD97;
+	$gray: #bbbbbb;
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Inheritance ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include ButtonBase(
+		$fontFamily,
+		$fontSize,
+		$fontWeight,
+		$fontStyle,
+		$borderRadius,
+		$borderWidth,
+		$borderStyle,
+		$borderColor,
+		$border,
+		$textColor,
+		$textAlign,
+		$textDecoration,
+		$backgroundColor,
+		$disabledBackgroundColor,
+		$hoverBackgroundColor,
+		$focusBackgroundColor,
+		$activeBackgroundColor,
+		$visitedBackgroundColor,
+		$disabledTextColor,
+		$hoverTextColor,
+		$focusTextColor,
+		$activeTextColor,
+		$visitedTextColor,
+		$boxShadowHLength,
+		$boxShadowVLength,
+		$boxShadowBlurRadius,
+		$boxShadowSpreadRadius,
+		$boxShadowShadowColor,
+		$boxShadow,
+		$outline,
+		$selectionColor,
+		$width,
+		$height,
+		$padding,
+		$margin,
+		$name,
+		$usePseudoHover,
+		$usePseudoFocus,
+		$usePseudoActive,
+		$usePseudoVisited,
+		$truncateText,
+		$cursor,
+	);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Animations ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@keyframes ButtonDecisionRotatingFx {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	transition: all 300ms $ease-in-out-quart;
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Skin ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	margin-left: 50%;
+	transform: translate3d(-50%, 0, 0);
+	transform-origin: 50% 50% 0;
+	letter-spacing: 1px;
+	text-shadow: 0;
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// N/A yet.
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&.is-hovering {
+		@include print-styles((
+			letter-spacing: 2px,
+		));
+	}
+
+	&.is-active {
+		@include print-styles((
+			letter-spacing: 3px,
+		));
+	}
+
+	&.is-loading {
+		@include hide-text;
+		@include print-styles((
+			width: 40px,
+			height: 40px,
+			border-radius: 50%,
+			border: 2px solid $gray,
+			border-left-color: $green,
+			background-color: transparent,
+			animation: ButtonDecisionRotatingFx 2s 0.25s linear infinite,
+		));
+	}
+
+	&.is-complete {
+		color: white;
+		background-color: $green;
+
+		&::after {
+			font-family: "FontAwesome";
+			content: "\f00c";
+		}
+	}
+
+	&.is-error {
+	}
+}

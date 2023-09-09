@@ -1,0 +1,163 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  //padding-top: toRem(28);
+  background-color: $background-light;
+  @include lg {
+    background-color: $background-light;
+  }
+  color:#000
+}
+
+.conditional,
+.buttonsHolder,
+.brandFooter {
+  width: 100%;
+}
+
+.buttonsHolder {
+  display: flex;
+  flex-direction: column;
+  padding: 0 toRem(26);
+  .menuButton {
+    margin-bottom: toRem(16);
+    width: 100%;
+    line-height: toRem(34);
+    
+    &:after {
+      z-index: 0 !important;
+    }
+    p {
+      font-size: toRem(18);
+    }
+    
+  }
+}
+
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: toRem(70);
+  padding-bottom: toRem(10);
+  @include desktop {
+    padding-top: toRem(45);
+    color: #000;
+  }
+  a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-indent: -2000px;
+    width: toRem(50);
+    height: toRem(50);
+    transition: background-color 0.5s, color 0.5s ease-out;
+    transition: color 0.3s ease-out;
+    color: #000;
+    border-radius: 10px;
+
+    @include lg {
+      color: #000;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: toRem(8);
+    }
+
+    &:hover,
+    &:active {
+      color: #000;
+
+    }
+
+    &:before {
+      font-family: $fontawesome-brands;
+      font-size: toRem(28);
+      content: attr(data-before);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      text-align: center;
+      line-height: toRem(50);
+      margin-left: toRem(-25);
+      margin-top: toRem(-25);
+      width: toRem(50);
+      height: toRem(50);
+      display: block;
+      text-indent: 0;
+    }
+  }
+}
+
+.footerIbamaDesktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: toRem(85);
+  img {
+    margin-top: toRem(16);
+  }
+  p {
+    width: 70%;
+    text-align: center;
+    font-size: toRem(16);
+    font-family: "Futura PT Book", Arial, sans-serif;
+  }
+}
+
+// .footerIbamaMobile {
+//   margin-bottom: toRem(20);
+//   //text-align: center;
+//   img {
+//     margin-top: toRem(16);
+//   }
+// }
+
+.brandFooter {
+  max-height: 70px;
+  overflow: hidden;
+  margin-bottom: 5%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  background-color: $background-light;
+  @include lg {
+    max-height: 100px;
+  }
+  .gapFooter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    // overflow: hidden;
+    // height: 100px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // @include lg {
+    //   justify-content: flex-end;
+    // }
+
+    img {
+      width: 70vw;
+      display: block;
+      width: 10%;
+      
+      @include lg {
+      }
+    }
+  }
+  // @include lg {
+  // }
+  // .gapFooter {
+  //   width: 100%;
+  //   height: 50px;
+  //   background-color: red;
+  // }
+}

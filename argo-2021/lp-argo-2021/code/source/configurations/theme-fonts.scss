@@ -1,0 +1,92 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Fonts
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$fontsFallback: Helvetica, sans-serif !default;
+$fonts:
+(
+	decoration:
+	(
+		family: ('FuturaPT Heavy', $fontsFallback),
+		size: (responsive: 4.5vw, min: 13px, max: 18px, fallback: 13px, lineHeightDiff: null),
+	),
+
+	title:
+	(
+		family: ('FuturaPT Heavy', $fontsFallback),
+		size: (responsive: 4.5vw, min: 20px, max: 25px, fallback: 20px, lineHeightDiff: 2px),
+	),
+
+	subtitle:
+	(
+		family: ('FuturaPT Light', $fontsFallback),
+		size: (responsive: 4.5vw, min: 26px, max: 31px, fallback: 26px, lineHeightDiff: null),
+	),
+
+	heading:
+	(
+		family: ('FuturaPT Light', $fontsFallback),
+		size: (responsive: 4.5vw, min: 52px, max: 57px, fallback: 52px, lineHeightDiff: null),
+	),
+
+	text:
+	(
+		family: ('FuturaPT Light', $fontsFallback),
+		size: (responsive: 1.6vw, min: 12px, max: 30px, fallback: 20px, lineHeightDiff: 1px),
+	),
+
+	tag:
+	(
+		family: ('FuturaPT Light', $fontsFallback),
+		size: (responsive: 4.5vw, min: 52px, max: 57px, fallback: 52px, lineHeightDiff: null),
+	),
+
+  futurapt-bold-12:
+	(
+		family: ('FuturaPT Bold', $fontsFallback),
+		style: normal,
+		weight: bold,
+		size: (
+			mobile: (responsive: (12 / 375) * 100vw, min: 10px, max: 12px, fallback: 12px, lineHeightDiff: 2.5px),
+			desktop: (responsive: (12 / 1920) * 100vw, min: 10px, max: 12px, fallback: 12px, lineHeightDiff: 2.5px),
+			fca: (responsive: (12 / 1366) * 100vw, min: 10px, max: 12px, fallback: 12px, lineHeightDiff: 2.5px),
+		),
+	),
+
+	futurapt-medium-16:
+	(
+		family: ('FuturaPT Medium', $fontsFallback),
+		style: normal,
+		weight: regular,
+		size: (
+			mobile: (responsive: (16 / 375) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+			desktop: (responsive: (16 / 1920) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+			fca: (responsive: (16 / 1366) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+		),
+	),
+
+	futurapt-bold-16:
+	(
+		family: ('FuturaPT Bold', $fontsFallback),
+		style: normal,
+		weight: bold,
+		size: (
+			mobile: (responsive: (16 / 375) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+			desktop: (responsive: (16 / 1920) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+			fca: (responsive: (16 / 1366) * 100vw, min: 10px, max: 16px, fallback: 15px, lineHeightDiff: 2.5px),
+		),
+	),
+
+	futurapt-bold-28:
+	(
+		family: ('FuturaPT Bold', $fontsFallback),
+		style: normal,
+		weight: bold,
+		size: (
+			mobile: (responsive: (18 / 375) * 100vw, min: 14px, max: 28px, fallback: 24px, lineHeightDiff: 2.5px),
+			desktop: (responsive: (28 / 1920) * 100vw, min: 14px, max: 28px, fallback: 24px, lineHeightDiff: 2.5px),
+			fca: (responsive: (28 / 1366) * 100vw, min: 14px, max: 28px, fallback: 24px, lineHeightDiff: 2.5px),
+		),
+	),
+);

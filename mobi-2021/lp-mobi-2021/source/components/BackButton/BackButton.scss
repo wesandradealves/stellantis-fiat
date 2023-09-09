@@ -1,0 +1,17 @@
+.BackButton {
+	@include relative;
+	@include padding(10.3px 15px 10.3px 12.5px);
+	background: _color('_011');
+  border-radius: 0 0 0 0;
+	border: none;
+
+	&-icon {
+		transition: fill 0.3s ease-out;
+		fill: #ffffff!important;
+		display: block;
+	}
+
+	&:hover &-icon {
+		fill: #5e6168!important;
+	}
+}

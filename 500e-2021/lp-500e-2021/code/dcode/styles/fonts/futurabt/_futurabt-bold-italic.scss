@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'futurabt-bold-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.eot');
+	src: local('FuturaBT Bold Italic'), local('FuturaBTBoldItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.svg#FuturaBTBoldItalic') format('svg');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}

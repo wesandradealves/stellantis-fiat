@@ -1,0 +1,23 @@
+.column {
+  transform: translateX(10px) skew(-17deg);
+
+  &:nth-of-type(2) {
+    transform: translateX(25px) skew(-17deg);
+  }
+
+  &:nth-of-type(3) {
+    transform: translateX(40px) skew(-17deg);
+  }
+
+  &:nth-of-type(4) {
+    transform: translateX(55px) skew(-17deg);
+  }
+}
+
+.svg {
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 27px);
+  width: 80px;
+  height: 54px;
+}

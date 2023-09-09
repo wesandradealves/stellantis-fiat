@@ -1,0 +1,403 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  padding-top: 0 !important;
+  z-index: 10;
+}
+
+.pageHeading {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .grafismoVermelho {
+
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      height: 65%;
+    }
+  }
+
+  .footerHero {
+
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+    img {
+      position: absolute;
+      bottom: -60px;
+      left: -45%;
+      width: 65rem;
+    }
+  }
+
+  .teste {
+    width: 37rem;
+    height: 100%;
+
+    z-index: 9;
+    position: relative;
+    bottom: 14.5rem;
+    right: 4rem;
+
+    @media screen and (min-width: 359px) {
+      bottom: 11rem;
+    }
+
+    @media screen and (min-width: 373px) {
+      bottom: 7rem;
+      right: 2rem;
+      height: 100%;
+    }
+
+    @media screen and (min-width: 390px) {
+      width: 43rem;
+      height: 100%;
+
+      z-index: 9;
+      position: relative;
+      bottom: 13rem;
+      right: 4rem;
+    }
+
+
+  }
+
+  .slidesContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    //margin-left: 5%;
+    height: 100%;
+    width: 100%;
+
+    .topBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .topTlt {
+        margin-top: clamp(#{toRem(40)}, 90vw, #{toRem(200)}) !important;
+        margin-right: 0;
+        width: 90%;
+        align-items: center;
+
+        p {
+          font-size: clamp(#{toRem(28)}, 8.5vw, #{toRem(48)}) !important;
+          line-height: 1.3 !important;
+          font-weight: 900;
+          text-align: center;
+          background-color: #FF001E;
+
+          &.longTlt {
+            font-size: 2.7rem;
+            line-height: 2.7rem;
+          }
+
+        }
+
+        span {
+          font-size: clamp(#{toRem(28)}, 8.5vw, #{toRem(45)}) !important;
+          color: #3B369E;
+          font-weight: 900;
+          margin-left: 1rem;
+          line-height: 2.2rem;
+
+        }
+
+        .vanSubtitle {
+          margin-top: 0.5rem;
+          span {
+            color: red;
+            font-size: 1.2rem !important;
+            line-height: 1.3rem;
+          }
+        }
+
+        img {
+          position: relative;
+          top: 7rem;
+          right: 10rem;
+          width: 80rem;
+
+
+
+
+        }
+
+        @media screen and (min-width:1023px) {
+          img {
+            width: 129%;
+            position: relative;
+            left: -4rem;
+            top: 4.8rem;
+
+          }
+        }
+
+        @media screen and (min-width:388px) {
+          position: relative;
+
+          bottom: 26%;
+        }
+
+        @media screen and (min-width:375px) {
+          position: relative;
+
+          bottom: 26%;
+        }
+      }
+
+      .topTlt2 {
+        margin-top: clamp(#{toRem(40)}, 80vw, #{toRem(80)}) !important;
+        margin-right: 0;
+        width: 100%;
+        padding: 0 6% 0 6%;
+        align-items: flex-start;
+
+        p {
+          font-size: clamp(#{toRem(28)}, 8.5vw, #{toRem(48)}) !important;
+          line-height: 1.3 !important;
+          font-weight: 700;
+          padding-left: 10px;
+          width: 18rem;
+          background-color: #910525;
+
+          &.longTlt {
+            font-size: 2.7rem;
+            line-height: 2.7rem;
+          }
+
+
+        }
+
+        span {
+          font-size: 1rem !important;
+          color: #edede3;
+          font-weight: 400;
+          margin-top: 1rem;
+          line-height: 1rem;
+          position: relative;
+          top: 0.8rem;
+          text-shadow: 1px 1px black;
+
+        }
+
+
+        @media screen and (min-width:1023px) {
+          img {
+            width: 129%;
+            position: relative;
+            left: -4rem;
+            top: 4.8rem;
+
+          }
+        }
+      }
+
+      .topTlt3 {
+        margin-top: clamp(#{toRem(40)}, 80vw, #{toRem(80)}) !important;
+        margin-right: 0;
+        width: 100%;
+        padding: 0 6% 0 6%;
+        align-items: flex-start;
+
+        p {
+          font-size: clamp(#{toRem(28)}, 8vw, #{toRem(48)}) !important;
+          line-height: 1.3 !important;
+          font-weight: 700;
+          padding-left: 10px;
+
+          &.longTlt {
+            font-size: 2.7rem;
+            line-height: 2.7rem;
+          }
+
+        }
+
+        .title {
+          width: 12.5rem;
+          background-color: #910525;
+         
+          padding-right: 10px;
+        }
+
+        .title2 {
+          width: 17.8rem;
+          background-color: #910525;
+         
+          padding-right: 10px;
+        }
+
+        span {
+          font-size: 1rem !important;
+          color: #edede3;
+          font-weight: 400;
+          margin-top: 1rem;
+          line-height: 1rem;
+          position: relative;
+          top: 0.8rem;
+          text-shadow: 1px 1px black;
+
+        }
+
+
+        @media screen and (min-width:1023px) {
+          img {
+            width: 129%;
+            position: relative;
+            left: -4rem;
+            top: 4.8rem;
+
+          }
+        }
+      }
+
+      .topTlt4 {
+        margin-top: clamp(#{toRem(40)}, 80vw, #{toRem(80)}) !important;
+        margin-right: 0;
+        width: 100%;
+        padding: 0 6% 0 6%;
+        align-items: flex-start;
+
+        p {
+          font-size: clamp(#{toRem(28)}, 8vw, #{toRem(48)}) !important;
+          line-height: 1.3 !important;
+          font-weight: 700;
+          padding-left: 10px;
+
+          &.longTlt {
+            font-size: 2.7rem;
+            line-height: 2.7rem;
+          }
+
+
+        }
+
+        .title {
+          width: 13.5rem;
+          background-color: #910525;
+         
+          padding-right: 10px;
+        }
+
+        .title2 {
+          width: 20.8rem;
+          background-color: #910525;
+          
+          padding-right: 10px;
+        }
+
+        span {
+          font-size: 1rem !important;
+          color: #edede3;
+          font-weight: 400;
+          margin-top: 1rem;
+          line-height: 1rem;
+          position: relative;
+          top: 0.8rem;
+          text-shadow: 1px 1px black;
+
+        }
+
+
+        @media screen and (min-width:1023px) {
+          img {
+            width: 129%;
+            position: relative;
+            left: -4rem;
+            top: 4.8rem;
+
+          }
+        }
+      }
+
+      .topTlt5 {
+        margin-top: clamp(#{toRem(40)}, 80vw, #{toRem(80)}) !important;
+        margin-right: 0;
+        width: 85%;
+        align-items: flex-start;
+
+        p {
+          font-size: clamp(#{toRem(28)}, 8.5vw, #{toRem(48)}) !important;
+          line-height: 1.3 !important;
+          font-weight: 700;
+          padding-left: 10px;
+          padding-right: 10px;
+          width: 10.9rem;
+          background-color: #910525;
+
+          &.longTlt {
+            font-size: 2.7rem;
+            line-height: 2.7rem;
+          }
+
+
+        }
+
+        span {
+          font-size: 1rem !important;
+          color: #edede3;
+          font-weight: 400;
+          margin-top: 1rem;
+          line-height: 1rem;
+          position: relative;
+          top: 0.8rem;
+          text-shadow: 1px 1px black;
+
+        }
+
+
+        @media screen and (min-width:1023px) {
+          img {
+            width: 129%;
+            position: relative;
+            left: -4rem;
+            top: 4.8rem;
+
+          }
+        }
+      }
+
+      p:not(.noTop) {
+        margin-top: -0.5rem;
+      }
+
+      .footerSvg {
+        img {
+          position: relative;
+          top: 20rem;
+          width: 55rem;
+          right: 8rem;
+        }
+      }
+    }
+
+    .bottomBox {
+      width: 60%;
+      margin-bottom: calc(50px + 15%);
+
+      div {
+        strong {
+          color: $mainstories-box-color;
+        }
+      }
+    }
+  }
+}

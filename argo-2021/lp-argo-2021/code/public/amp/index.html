@@ -1,0 +1,1940 @@
+<!doctype html>
+<html ⚡ lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<title>Fiat Argo</title>
+		<link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+		<!-- AMP Analytics -->
+		<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+		<!-- Carousel -->
+		<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+		<!-- Seletor Carousel -->
+		<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+		<!-- Accordion -->
+		<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+		<!-- Input Mask -->
+		<script async custom-element="amp-inputmask" src="https://cdn.ampproject.org/v0/amp-inputmask-0.1.js"></script>
+		<!-- Form -->
+		<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+		<style amp-boilerplate>
+			body {
+				-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				animation: -amp-start 8s steps(1, end) 0s 1 normal both
+			}
+			@-webkit-keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+			@-moz-keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+			@-ms-keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+			@-o-keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+			@keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+		</style>
+		<noscript>
+			<style amp-boilerplate>
+				body {
+					-webkit-animation: none;
+					-moz-animation: none;
+					-ms-animation: none;
+					animation: none
+				}
+			</style>
+	</noscript>
+	<style amp-custom>
+		@font-face {
+			font-family: 'FuturaPT Light';
+			src: url('/assets/fonts/light.woff') format('woff');
+			font-weight: 300;
+		}
+		@font-face {
+			font-family: 'FuturaPT Medium';
+			src: url('/assets/fonts/medium.woff') format('woff');
+		font-weight: 500;
+	}
+	@font-face {
+		font-family: 'FuturaPT Bold';
+		src: url('/assets/fonts/bold.woff') format('woff');
+		font-weight: 700;
+	}
+	@font-face {
+		font-family: 'FuturaPT Heavy';
+		src: url('/assets/fonts/heavy.woff') format('woff');
+		font-weight: 900;
+	}
+			.amp-carousel-button {
+				background-color: #ffbc41;
+				display: none;
+			}
+			.carousel1 .amp-carousel-button-next {
+				border-radius: 5px;
+			}
+			.carousel1 .amp-carousel-button-prev {
+				color: white;
+			}
+			amp-accordion section[expanded] .show-more {
+				display: none;
+			}
+			amp-selector [option][selected] {
+				cursor: auto;
+				outline: 1px solid rgba(0, 0, 0, 0);
+			}
+			amp-accordion section:not([expanded]) .show-less {
+				display: none;
+			}
+			amp-accordion {
+				border: none;
+			}
+			amp-accordion.hidden-header section[expanded] h4 {
+				border: none;
+			}
+			amp-accordion.sample {
+				margin: none;
+			}
+			/* HERO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			#carouselHeroPreview button.is-selected {
+				opacity: 0.5;
+			}
+			/* /HERO ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			/* FORM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			.content,
+			.content * {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				outline: none;
+			}
+			.content {
+				z-index: 999;
+				background: #bbbdc5;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				flex-direction: column;
+				width: 100vw;
+				height: 100%;
+				position: fixed;
+				overflow-x: hidden;
+				overflow-y: auto;
+				left: 0;
+				top: 0;
+				opacity: 1;
+				transition: all 500ms linear;
+			}
+			.content h1 {
+				text-align: center;
+				font-size: 20px;
+				font-weight: 700;
+				min-width: 290px;
+				max-width: 860px;
+				justify-self: center;
+				margin: 50px auto 15px auto;
+				font-family: sans-serif;
+			}
+			.content p {
+				text-align: center;
+				margin-bottom: 15px;
+				font-family: sans-serif;
+				min-width: 290px;
+				max-width: 860px;
+			}
+			.content form.contactForm {
+				display: flex;
+				margin-top: 40px;
+				flex-direction: row;
+				flex-wrap: wrap;
+				font-family: sans-serif;
+				max-width: 100%;
+			}
+			.content form .left,
+			.content form .right {
+				flex: 2;
+				margin: 15px;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				min-width: 290px;
+			}
+			.content form .left {
+				justify-content: flex-start;
+				align-items: flex-start;
+			}
+			.content form input,
+			.content form select,
+			.content form textarea {
+				border: none;
+				border-bottom: 1px solid #000;
+				background: transparent;
+				font-size: 18px;
+				margin-top: 15px;
+			}
+			.content form label {
+				display: flex;
+				flex-direction: column;
+				margin: 15px;
+				flex: 1;
+				min-width: calc(100% - 30px);
+			}
+			.content form .perfil,
+			.content form .cpf {
+				flex: initial;
+				min-width: calc(50% - 30px);
+			}
+			.content form .radio {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				margin: 0 15px;
+			}
+			.content form .radio input {
+				margin: 0;
+			}
+			.content form .concessionarias {
+				display: flex;
+				width: 100%;
+				flex-direction: column;
+			}
+			.content form .concessionarias h2 {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 30px;
+				margin-top: 50px;
+			}
+			.content form .concessionarias ul {
+				list-style: none;
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				max-height: 500px;
+				overflow-y: scroll;
+			}
+			.content form .concessionarias ul li {
+				flex: 1;
+				display: flex;
+				justify-content: flex-start;
+				align-items: baseline;
+				width: 50%;
+				min-width: 300px;
+				margin: 15px;
+			}
+			.content form .concessionarias ul li input {
+				margin: 0 15px;
+			}
+			.content form .submit {
+				margin: 15px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.content form .submit button {
+				width: 160px;
+				height: 48px;
+				background-color: #ffba00;
+				cursor: pointer;
+				margin-top: calc(40 / 1366 * 100vw);
+				border: none;
+				color: #212121;
+				font-weight: 300;
+				text-transform: bold;
+				font-style: uppercase;
+				font-size: 21px;
+			}
+			.openForm {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 10;
+			}
+			input[name="open"] {
+				display: none;
+			}
+			.openForm .close {
+				position: relative;
+				top: 20px;
+				right: 25px;
+				height: 20px;
+				width: 30px;
+				cursor: pointer;
+			}
+			.openForm .close::after,
+			.openForm .close::before {
+				content: ' ';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				border-left: 2px solid #000;
+				height: 30px;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+			.openForm .close::before {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+			input[name="open"]:checked ~ .content {
+				z-index: -1;
+				opacity: 0;
+				height: 90vh;
+				transition: all 500ms linear;
+				overflow: hidden;
+			}
+			input[name="open"]:checked ~ .openForm .close {
+				display: none;
+			}
+			input[name="open"]:checked ~ .openForm .open {
+				display: block;
+			}
+			input[name="open"]:not(:checked) ~ .openForm .close {
+				display: block;
+			}
+			input[name="open"]:not(:checked) ~ .openForm .open {
+				display: none;
+			}
+			/* /FORM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			button[data-ui-custom] {
+		text-decoration: none;
+		text-align: center;
+		font-size: 3.8vw;
+		font-family: 'FuturaPT Bold';
+		display: block;
+		margin: 10px auto;
+		border-radius: 10px;
+				padding: 8px 10px;
+				min-width: 200px;
+				background-color: #e50353;
+				color: #fff;
+				border: 0;
+			}
+			.menu-btn {
+				padding: 10px;
+				background-color: #e50353;
+				border-radius: 95px;
+				margin-right: 30px;
+				height: 25px;
+				width: 25px;
+				border-radius: 50%;
+				box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+				transition-duration: 0.5s;
+				margin-top: 10px;
+			}
+			.links {
+				padding: 10px;
+				background-color: #e50353;
+				box-shadow: 400 3px 6px 0 rgba(0, 0, 0, 0.19);
+				border-radius: 10px;
+		margin-right: 5px;
+		text-decoration: none;
+		color: white;
+		font-family: 'FuturaPT Bold';
+		font-weight: 700;
+		text-align: center;
+		font-size: 3vw;
+				text-transform: uppercase;
+			}
+			.hamburger_wrapper {
+				padding: 5px;
+				z-index: 10;
+				position: fixed;
+				top: 87%;
+				left: 78%;
+			}
+			
+			#hamburger {
+				width: 60px;
+				height: 45px;
+				position: relative;
+				cursor: pointer;
+				outline: none;
+			}
+			
+			#hamburger span {
+				display: block;
+				position: absolute;
+				height: 9px;
+				width: 100%;
+				background: #005af0;
+				border-radius: 9px;
+				opacity: 1;
+				left: 0;
+				transform: rotate(0deg);
+				transition: .5s ease-in-out;
+			}
+			
+			#hamburger span:nth-child(1) {
+				top: 0px;
+				transform-origin: left center;
+			}
+			
+			#hamburger span:nth-child(2) {
+				top: 21px;
+				transform-origin: left center;
+			}
+			
+			#hamburger span:nth-child(3) {
+				top: 42px;
+				transform-origin: left center;
+			}
+			
+			#hamburger.close .menu-btn {
+				transform: rotate(45deg);
+			}
+			
+			#hamburger.close span:nth-child(2) {
+				width: 0%;
+				opacity: 0;
+				transition: .1s;
+			}
+			
+			#hamburger.close span:nth-child(3) {
+				transform: rotate(-45deg);
+			}
+
+			#nav-menu {
+				position: relative;
+				transform: translateX(-100vw);
+				opacity: 0;
+				z-index: 10;
+				transition: transform .5s ease, opacity ease .2s;
+				position: fixed;
+				/*top: 50%;*/
+				bottom: 60px;
+				left: 45%;
+				background-color: transparent;
+				margin: 0px;
+			}
+			@media only screen and (max-width: 321px) {
+				#nav-menu {
+					position: relative;
+					transform: translateX(-100vw);
+					opacity: 0;
+					z-index: 10;
+					transition: transform .5s ease, opacity ease .2s;
+					position: fixed;
+					top: 42%;
+					left: 45%;
+					background-color: transparent;
+					margin: 0px;
+				}
+			}
+			#nav-menu.now-active {
+				transform: translateX(0);
+				transition: transform .5s ease, opacity ease .2s;
+				opacity: 1;
+				background-color: transparent;
+			}
+			.nav-list {
+				padding: 10px;
+				list-style-type: none;
+				font-size: 2em;
+				background-color: transparent;
+			}
+			.nav-list a {
+				text-decoration: none;
+				color: white;
+			}
+			.nav-list li {
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+<div id="capa" style="position: relative">
+	<div style="position: relative; display: flex; flex-flow: row wrap">
+		<div style="position: relative; box-sizing: border-box; background-color: #e60453; min-width: 50%; width: 100%; display: inline-flex; flex-wrap: wrap; flex: 1; margin-right: 0;">
+			<label for='open' class='openForm' id="simule-financiamento-topo" rel="amphtml" style="text-decoration: none;color: #fff;font-family: FuturaPT Bold, sans-serif;font-weight: 700;text-align: center;font-size: 2.5vw;width: 100%;padding: 10px 0;">
+				SIMULE UM FINANCIAMENTO
+			</label>
+		</div>
+		<div style="position: relative; box-sizing: border-box; background-color: #383838; min-width: 50%; width: 100%; display: inline-flex; flex-wrap: wrap; flex: 1; margin-right: 0;">
+			<a id="monte-o-seu-topo" rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html" style="text-decoration: none;color: #fff;font-family: FuturaPT Bold, sans-serif;font-weight: 700;text-align: center;font-size: 2.5vw;width: 100%;padding: 10px 0;">
+				MONTE O SEU
+			</a>
+		</div>
+			</div>
+			<div style="background-color: #f2f2f2; overflow: hidden; border-radius: 0 0 0 20px; margin-bottom: 26; position: relative">
+				<amp-carousel id="carouselHero-B1Features" class="carouselHero" layout="responsive" width="1125" height="1410" type="slides" style="border-radius: 0 0 0 20px; overflow: hidden" on="slideChange:carouselHeroPreview.goToSlide(index=event.index)">
+					<div data-filter="0" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-1/hero-1@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="1" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-2/hero-02@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="2" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-3/hero-03@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="3" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-4/hero-04@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="4" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-5/hero-05@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="5" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-6/hero-06@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="6" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-7/hero-07@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+					</div>
+					<div data-filter="7" class="carouselHero-item">
+						<amp-img src="/assets/hero/hero-8/hero-08@3x.jpg" width="1125" height="1410" layout="responsive" style="margin-bottom: 0; margin-top: 0" alt=""></amp-img>
+			</div>
+		</amp-carousel>
+		<amp-carousel id="carouselHeroPreview" class="carouselHero-preview" height="38" layout="fixed-height" type="carousel" style="padding: 0 24px">
+			<button type="button" id="carouselHeroPreviewButton-0" on="tap:carouselHero-B1Features.goToSlide(index=0)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 0; text-transform: uppercase;">
+				Argo
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-1" on="tap:carouselHero-B1Features.goToSlide(index=1)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				Central Multimídia
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-2" on="tap:carouselHero-B1Features.goToSlide(index=2)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				Design Interno
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-3" on="tap:carouselHero-B1Features.goToSlide(index=3)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				Câmera de ré
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-4" on="tap:carouselHero-B1Features.goToSlide(index=4)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				S-Design
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-5" on="tap:carouselHero-B1Features.goToSlide(index=5)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				Design arrojado
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-6" on="tap:carouselHero-B1Features.goToSlide(index=6)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				A maior altura do solo
+			</button>
+			<button type="button" id="carouselHeroPreviewButton-7" on="tap:carouselHero-B1Features.goToSlide(index=7)" style="color: #5e6168;font-family: FuturaPT Medium;font-weight: 500;font-size: 22;background: none;padding: 0 15px;margin: 8px 0;border: 0;border-left: 1px solid #707070; text-transform: uppercase;">
+				Pneus de uso misto
+			</button>
+		</amp-carousel>
+			</div>
+		</div>
+<div id='live-experience' style="position: relative; margin-top: 35px">
+	<div style="background-color: #ffbc41; height: 425px;margin-bottom: 85px;border-radius: 25px 0 0 25px;">
+		<div style="padding-left: 28px;padding-top: 10px;padding-bottom: 5px;">
+			<p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#quemsabefazaovivo
+			</p>
+			<p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Sabia que você pode ver o Fiat Argo online agora mesmo?</p>
+		</div>
+		<amp-img style="margin-bottom: 30px;margin-right: 20px;border-radius: 0 30px 30px 0;" alt="" src="/assets/livestore.jpg" width="375" height="214" layout="responsive"></amp-img>
+	</div>
+	<div style="height: auto; background-color: white;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);margin-bottom: 40px;border-radius: 27px 0 0 27px;margin-left: 20px;width: 338px;padding: 28px; padding-top: 10px;position: absolute; top: 250px;">
+		<p style="font-size: 4.26667vw;font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;">Fiat Live Experience</p>
+		<p style="font-size: 4.26667vw;font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168;padding-right: 28px;">Você conversa com um especialista ou entra de carona em um atendimento para conhecer tudo sobre o carro.
+		</p>
+		<div style="padding: 7px; background-color: #e50353;border-radius:15px; margin-right: 30px;">
+			<a rel="amphtml" target="_blank" href="https://live.fiat.com.br" style="text-decoration: none;">
+				<p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3vw;text-transform:uppercase">Veja ao vivo</p>
+			</a>
+		</div>
+	</div>
+</div>
+<div style="width: 100%;background-color: #ffbc41;border-radius:20px 0 0 20px" class="ficaafica">
+	<div style="padding-left: 28px;padding-top: 10px;padding-bottom: 35px;">
+		<p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#ficaadica</p>
+		<p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Quem gosta desses destaques prefere<br>essa versão:</p>
+	</div>
+</div>
+<div style="background-color:#ffbc41;height: 389px;position: relative;top:-35px;border-radius:20px 0 0 20px">
+	<div style="background-color: white;height: 420px;width: 96.5%;border-radius: 20px;position: relative; float:left;left: 15px; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+		<p style="padding-left:3%;padding-top:1%;text-transform: uppercase;color: #5e6168;font-weight: 700;font-family: 'FuturaPT Bold';font-size: 4.26667vw;">ARGO TREKKING</p>
+		<p style="padding-left:3%;text-transform: uppercase;color: #5e6168;font-weight: 500;line-height: 0px; font-family: 'FuturaPT Medium'; font-weight: 500;font-size: 4.26667vw;">1.3 FLEX MANUAL</p>
+		<amp-carousel class="carousel1" layout="responsive" height="740" width="650" type="slides">
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-1.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%;">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Design arrojado</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">E destaques que só essa versão tem.</p>
+				</div>
+			</div>
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-2.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">A maior altura do solo da categoria</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">São 210 mm de aventura e robustez.</p>
+				</div>
+			</div>
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-3.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Pneu de uso misto</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Com suspensão elevada e rodas escurecidas.</p>
+				</div>
+			</div>
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-4.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Interior e painel escurecidos</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Além do acabamento impecável e exclusivo.</p>
+				</div>
+			</div>
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-5.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Teto bicolor</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Único da categoria com esse design.</p>
+				</div>
+			</div>
+			<div class="slide">
+				<amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="/assets/dicas/Desktop/dica-desk-trekking-6.jpg" width="357" height="276" layout="responsive"></amp-img>
+				<div style="margin-left:3%">
+					<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Performance e economia</p>
+					<p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Para consumir pouco sem perder a potência.</p>
+				</div>
+			</div>
+		</amp-carousel>
+			</div>
+		</div>
+<div style="padding-left: 10%;padding-top: 20px;padding-bottom:20px">
+	<div style="background-color: #e50353;padding: 5px;width: 40%;border-radius: 15px 0 0 15px; display: inline-block;margin-right: 0px;">
+		<a rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html?version=358A470&modelCode=358&versionCode=A47&seriesCode=0&year=2020&parts=19A&color=469" style="text-decoration: none;">
+			<p style="color: white;font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center;font-size: 2.5vw;text-transform:uppercase">
+				<amp-img src="/assets/icons/car.svg" width="20" height="20" noloading></amp-img>
+				<br>MONTE O SEU
+			</p>
+				</a>
+	</div>
+	<div style="background-color: #e50353;padding: 5px;width: 40%;border-radius: 0 15px  15px  0; display: inline-block;margin-left: 0px;">
+		<label class="openForm" for="open" style="position: relative; text-decoration: none;">
+			<p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 2.5vw;text-transform:uppercase">
+				<amp-img src="/assets/icons/wheel.svg" width="20" height="20" noloading></amp-img>
+				<br>COMPRE O SEU
+			</p>
+				</label>
+			</div>
+</div>
+<div style="background-color: #ffbc41; border-radius: 0 20px 0 0;height:20vh;margin-top: 10px;">
+	<div style="padding-left: 28px;padding-top: 13px;">
+		<p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#S2</p>
+		<p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Conheça outras versões do Fiat
+			<br> Argo.
+		</p>
+	</div>
+		</div>
+<amp-carousel id="carousel" width="400" height="520" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="position:relative;top:-14px;background-color:white;border-radius: 0 20px 0 0;">
+	<div class="slide">
+		<div style="padding-top:35px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo 1.0
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Ar Condicionado</li>
+				<li>Direção Elétrica Progressiva</li>
+				<li>Alarme com Chave Canivete</li>
+					</ul>
+				</div>
+				<amp-img src="/assets/360/ARGO10/00.jpg" width="900" height="506" layout="responsive" alt="Argo 1.0" style="margin-top:40px"></amp-img>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo Drive 1.0
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Camera de Ré</li>
+				<li>Retrovisores Elétricos Tilt Down</li>
+				<li>Central Multimídia 7"</li>
+					</ul>
+					<amp-img src="/assets/360/ARGODRIVE/00.jpg" width="900" height="506" layout="responsive" alt="Argo Drive 1.0" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo Drive 1.3
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Camera de Ré</li>
+				<li>Rodas de Liga Leve 15"</li>
+				<li>Central Multimídia 7"</li>
+					</ul>
+					<amp-img src="/assets/360/ARGODRIVE13/00.jpg" width="900" height="506" layout="responsive" alt="Argo Drive 1.0" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo Trekking 1.3
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Farol com LED Design</li>
+				<li>Logos Escurecidos</li>
+				<li>Teto bicolor</li>
+					</ul>
+					<amp-img src="/assets/360/argotrekking/00.jpg" width="900" height="506" layout="responsive" alt="Argo Trekking 1.3" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo Trekking 1.8
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Rodas de liga leve com cor exclusiva</li>
+				<li>Teto bicolor</li>
+				<li>Central Multimídia com Carplay e Android Auto</li>
+					</ul>
+					<amp-img src="/assets/360/argotrekking/00.jpg" width="900" height="506" layout="responsive" alt="Argo Trekking 1.3" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo Precision 1.8
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Câmbio Automático 6 Velocidades</li>
+				<li>Ar Condicionado Digital</li>
+				<li>Keyless Enter & Go</li>
+					</ul>
+					<amp-img src="/assets/360/argoprecision/00.jpg" width="900" height="506" layout="responsive" alt="Argo Precision" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo HGT 1.8
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Rebatimento elétrico dos retrovisores</li>
+				<li>Rodas de Liga Leve Esportiva 17"</li>
+				<li>Painel com Display Colorido 7"</li>
+					</ul>
+					<amp-img src="/assets/360/argohgt/00.jpg" width="900" height="506" layout="responsive" alt="Argo Precision" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo S-Design 1.0
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Ar condicionado digital automático</li>
+				<li>Vidros elétricos traseiros</li>
+				<li>Interior escurecido</li>
+					</ul>
+					<amp-img src="/assets/360/argosdesign/00.jpg" width="900" height="506" layout="responsive" alt="Argo S-design" style="margin-top:40px"></amp-img>
+				</div>
+	</div>
+	<div class="slide">
+		<div style="padding-top:30px;padding-left: 28px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">
+				Argo S-Design 1.3
+			</p>
+			<ul style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4vw;">
+				<li>Ar condicionado digital automático</li>
+				<li>Vidros elétricos traseiros</li>
+				<li>Interior escurecido</li>
+					</ul>
+					<amp-img src="/assets/360/argosdesign13/00.jpg" width="900" height="506" layout="responsive" alt="Argo S-design" style="margin-top:40px"></amp-img>
+				</div>
+			</div>
+		</amp-carousel>
+		<amp-selector id="carouselSelector" on="select:carousel.goToSlide(index=event.targetOption)" layout="container">
+			<amp-carousel id="carouselPreview" class="carousel-preview" height="170" layout="fixed-height" type="carousel">
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="0" selected src="/assets/360/nav/10.jpg" width="108" height="107" alt="Argo 1.0" id="seletor-1_0"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px;">1.0</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="1" src="/assets/360/nav/hgt-10.jpg" width="108" height="107" alt="Argo Drive 1.0" id="seletor-drive-1_0"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Drive 1.0</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="2" src="/assets/360/nav/drive-13.jpg" width="108" height="107" alt="Argo Drive 1.3" id="seletor-drive-1_3"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Drive 1.3</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="4" src="/assets/360/nav/trekking.jpg" width="108" height="107" alt="Argo Trekking" id="seletor-trekking"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Trekking</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="5" src="/assets/360/nav/precision-18.jpg" width="108" height="107" alt="Argo Precision 1.8" id="seletor-precision-1_8"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Precision 1.8</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="6" src="/assets/360/nav/hgt-18.jpg" width="108" height="107" alt="Argo HGT 1.8" id="seletor-hgt-1_8"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">HGT 1.8</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="7" src="/assets/360/nav/s-design.jpg" width="108" height="107" alt="Argo S-Design" id="seletor-s-design"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">S-Design</p>
+				</div>
+				<div style="margin:5px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					<amp-img option="8" src="/assets/360/nav/s-design.jpg" width="108" height="107" alt="Argo S-Design 1.3" id="seletor-s-design-1_3"></amp-img>
+					<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">S-Design 1.3</p>
+				</div>
+			</amp-carousel>
+		</amp-selector>
+		<div style="padding:11%; padding-top: 0px;padding-bottom: 4.8%;">
+			<div style="padding: 7px; background-color: #e50353;border-radius:15px">
+				<a id="botao-ofertas" rel="amphtml" target="_blank" href="https://ofertas.fiat.com.br" style="text-decoration: none;">
+					<p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3vw;text-transform:uppercase">Veja as ofertas</p>
+				</a>
+			</div>
+		</div>
+		<div style="background-color: #f2f2f2;border-radius: 20px;">
+			<p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.8vw;line-height: calc(4.26667vw + 6px);padding: 6.5%;">Conheça tudo, mas tudo mesmo do seu próximo carro:</p>
+			<amp-accordion class="sample" animate style="background-color: #f2f2f2;">
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;margin-bottom: 10px;"><span style="font-size: 16px;">▾</span> Design</h4>
+					<amp-carousel id="about-design" width="400" height="490" layout="responsive" type="slides">
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Conjunto de luzes</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168"> Desenvolvido com parábolas duplas e guias de LED, os faróis emitem um facho de luz amplo, o que torna sua viagem mais segura.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Teto Bicolor</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Nenhum outro carro da categoria tem essa opção de personalização que deixa seu carro ainda mais esportivo.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Comandos no volante</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">No Fiat Argo, você controla as funções de rádio e telefone através dos comandos do volante.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Câmbio Borboleta</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">A troca de marchas pelo câmbio borboleta torna a sua pilotagem mais esportiva e emocionante.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design5@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">USB Dianteiro e Traseiro</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Com portas dianteira e traseira de USB, o Fiat Argo ajuda você a manter seu smartphone e dos passageiros sempre carregados.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design6@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Painel de instrumentos 7"</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Tecnológico e personalizável, o painel traz modernidade ao interior do Fiat Argo. E você ainda pode configurar.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/design/accordion-design7@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Apoio de Braço</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Localizado entre os bancos dianteiros, o descanso de braço vai tornar suas viagens mais confortáveis.
+								</p>
+							</div>
+						</div>
+					</amp-carousel>
+				</section>
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;margin-bottom: 10px;"><span style="font-size: 16px;">▾</span> Performance</h4>
+					<amp-carousel id="about-performance" width="400" height="580" layout="responsive" type="slides">
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/performance/accordion-performance1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Motor Firefly 1.3</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Quer performance? Esse é o seu motor. Sua taxa de compressão alta garante a eficiência energética, sem contar que ele tem uma autonomia de 600km na cidade e 700km na estrada.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/performance/accordion-performance2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Motor E.Torq 1.8</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Esse motor é para quem quer desempenho, porque ele responde rápido nas retomadas ou numa direção mais esportiva. Além disso, conta com variador de fase e bomba de óleo variável, que demanda menos torque.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/performance/accordion-performance3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Start & Stop</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para reduzir o consumo de combustível e a emissão de gases nocivos, esse sistema desliga automaticamente o motor quando o carro para. Depois, religa ao detectar o acionamento da embreagem.<br/><br/>* Opcional disponível nas versões Drive 1.0 e Drive 1.3 manual do Fiat Argo.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/performance/accordion-performance4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Direção Elétrica</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Mais leve e econômica que as versões hidráulicas, a direção elétrica progressiva  oferece respostas mais rápidas e eficientes seus comandos. Ou seja, você dirige com muito mais conforto.
+								</p>
+							</div>
+						</div>
+					</amp-carousel>
+				</section>
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;margin-bottom: 10px;"><span style="font-size: 16px;">▾</span> Tecnologia</h4>
+					<amp-carousel id="about-tecnologia" width="400" height="530" layout="responsive" type="slides">
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/tecnologia/accordion-tecnologia1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Rebatimento Elétrico</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Mais leve e econômica que as versões hidráulicas, a direção elétrica progressiva  oferece respostas mais rápidas e eficientes seus comandos. Ou seja, você dirige com muito mais conforto.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/tecnologia/accordion-tecnologia2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Retrovisor Elétrico Tilt Down</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Ao engatar a ré, esse sistema inclina o retrovisor automaticamente para te ajudar na hora de fazer a baliza.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/tecnologia/accordion-tecnologia3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Ar Condicionado Digital</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Prático e fácil de encontrar a temperatura ideal para as suas viagens.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/tecnologia/accordion-tecnologia4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Keyless</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">A tecnologia Keyless Enter N’ Go percebe quando a chave está próxima e destrava a porta do Argo. Tá vendo como sua ligação com o carro é forte?
+								</p>
+							</div>
+						</div>
+					</amp-carousel>
+				</section>
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;margin-bottom: 10px;"><span style="font-size: 16px;">▾</span> Segurança</h4>
+					<amp-carousel id="about-seguranca" width="400" height="490" layout="responsive" type="slides">
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/seguranca/accordion-seguranca1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Controle de tração e estabilidade</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para ajudar a manter o controle da direção em condições extremas, a tração e a estabilidade do Fiat Argo são controladas automaticamente.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/seguranca/accordion-seguranca2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Hill Holder</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para facilitar saídas em ladeiras, o sistema Hill Holder do Fiat Argo mantém seus freios acionados por um tempo até que o motor alcance a força necessária para o arranque.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/seguranca/accordion-seguranca3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Câmera de Ré</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Ao engatar a marcha ré, a câmera situada na parte traseira é acionada, mostrando com linhas dinâmicas os obstáculos pelo caminho direto na Central Multimídia.
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/seguranca/accordion-seguranca4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Sensor de Pressão</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para a sua segurança, o painel do Fiat Argo alerta quando está na hora de calibrar os pneus.
+								</p>
+							</div>
+						</div>
+					</amp-carousel>
+				</section>
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;margin-bottom: 10px;"><span style="font-size: 16px;">▾</span> S-Design</h4>
+					<amp-carousel id="about-s-design" width="400" height="600" layout="responsive" type="slides">
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/s-design/accordion-s-design1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Ar Condicionado Digital</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Mais conforto e praticidade para você encontrar a temperatura ideal.<br/>
+									<button data-ui-custom>SAIBA MAIS</button>
+									<button data-ui-custom>MONTE O SEU</button>
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/s-design/accordion-s-design2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Central Multimídia Uconnect 7"</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Conecte seu smartphone por Android Auto ou Apple CarPlay e deixe suas viagens com a sua cara.<br/>
+									<button data-ui-custom>SAIBA MAIS</button>
+									<button data-ui-custom>MONTE O SEU</button>
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/s-design/accordion-s-design3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Detalhes Escurecidos</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Além das rodas de liga leve 15” ou calotas 14” escurecidas, ele tem retrovisores elétricos, faróis de neblina e caracterização escurecida.<br/>
+									<button data-ui-custom>SAIBA MAIS</button>
+									<button data-ui-custom>MONTE O SEU</button>
+								</p>
+							</div>
+						</div>
+						<div class="slide">
+							<amp-img src="/assets/imagens-accordion/s-design/accordion-s-design4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							<div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								<p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Interior Escurecido</p>
+								<p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Assim como o design externo, o interior do Argo fica ainda mais especial com o acabamento escurecido e detalhes personalizados com o DNA S-Design.<br/>
+									<button data-ui-custom>SAIBA MAIS</button>
+									<button data-ui-custom>MONTE O SEU</button>
+								</p>
+							</div>
+						</div>
+					</amp-carousel>
+				</section>
+				<section>
+					<h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border: none;border: none;padding-left: 25px;background-color: #f2f2f2;"><span style="font-size: 16px;">▾</span> Galeria</h4>
+					<div>
+						<amp-carousel id="aboutGaleria"
+							width="400"
+							height="300"
+							layout="responsive"
+							type="slides"
+							on="slideChange:
+								aboutGaleriaSelector.toggle(index=event.index, value=true),
+								aboutGaleriaPreview.goToSlide(index=event.index)
+							">
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-1@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-2@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-3@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-4@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-5@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-6@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-7@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-8@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							<amp-img src="/assets/galeria/smartphone/galeria-smartphone-argo-9@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+						</amp-carousel>
+						<amp-selector id="aboutGaleriaSelector"
+							on="select:aboutGaleria.goToSlide(index=event.targetOption)"
+							layout="container">
+							<amp-carousel
+								id="aboutGaleriaPreview"
+								class="aboutGaleriaPreview"
+								height="97"
+								layout="fixed-height"
+								style="margin: 10px"
+								type="carousel">
+								<amp-img style="border-radius: 10px;" selected option="0" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-1@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="1" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-2@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="2" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-3@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="3" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-4@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="4" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-5@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="5" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-6@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="6" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-7@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="7" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-8@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+								<amp-img style="border-radius: 10px;" option="8" src="/assets/galeria/smartphone/thumbs/thumb-galeria-smartphone-argo-9@3x.jpg" width="102" height="97" alt="Fiat Argo"></amp-img>
+							</amp-carousel>
+						</amp-selector>
+					</div>
+				</section>
+			</amp-accordion>
+		</div>
+		<div style="background-color: #ffbc41;border-top:70px solid #f2f2f2;">
+			<div style="background-color: #ffbc41;border-radius: 20px 20px 0 0;position: relative;top: -14px;">
+				<div style="padding-top: 10px;padding-bottom: 35px;">
+					<div style="padding-left: 28px;">
+						<p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#quero</p>
+						<p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Já imaginou o Fiat Argo na sua garagem?</p>
+					</div>
+					<p style="margin-top:45px; text-align: center;">
+						<a id="footer-monte-o-seu" style="padding-top: 14px;padding-bottom: 14px; padding-left: 70px;padding-right: 70px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html">
+						Monte o seu
+						</a>
+					</p>
+					<p style="margin-top:50px; text-align: center;">
+						<label id="footer-simule-financiamento" class="openForm" for="open" style="position: relative; padding-top: 14px;padding-bottom: 14px; padding-left: 21px;padding-right: 21px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;">
+						Simule um financiamento
+						</label>
+					</p>
+					<p style="margin-top:50px; text-align: center;">
+						<label id="footer-compre-o-seu" class="openForm" for="open" style="position: relative; padding-top: 14px;padding-bottom: 14px; padding-left: 67px;padding-right: 67px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;">
+						Compre o seu
+						</label>
+					</p>
+					<p style="margin-top:50px; text-align: center;">
+						<a id="footer-concessionarias" style="padding-top: 14px;padding-bottom: 14px; padding-left: 53px;padding-right: 53px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://www.fiat.com.br/concessionarias.html/?">
+						Concessionárias
+						</a>
+					</p>
+					<p style="margin-top:50px; text-align: center;">
+						<a id="footer-ofertas" style="padding-top: 14px;padding-bottom: 14px; padding-left: 73px;padding-right: 73px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://ofertas.fiat.com.br/?q=argo">
+						Ofertas Fiat
+						</a>
+					</p>
+					<div style="border-bottom: 1px solid white;height: 30px;margin-right: 9%;margin-left: 9%;"></div>
+					<div style="padding-left: 28px;">
+						<div style="padding-left: 0px;text-align: center;">
+							<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);text-align: center;color: #5e6168;font-family: 'FuturaPT Light';font-weight:300;margin-right: 8%;padding-top: 20px;">
+								<a id="footer-facebook" href="https://www.facebook.com/fiatbr" target="_blank" style="color: #f6bb42;">
+									<amp-img src="/assets/icons/facebook.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img>
+								</a>
+								<a id="footer-youtube" href="https://www.youtube.com/user/fiat" target="_blank" style="color: #f6bb42;">
+									<amp-img src="/assets/icons/youtube.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img>
+								</a>
+								<a id="footer-twitter" href="https://twitter.com/fiatbr" target="_blank" style="color: #f6bb42;">
+									<amp-img src="/assets/icons/twitter.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img>
+								</a>
+								<a id="footer-instagram" href="https://www.instagram.com/fiatbr/" target="_blank" style="color: #f6bb42;">
+									<amp-img src="/assets/icons/instagram.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img>
+								</a>
+							</p>
+						</div>
+						<p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);text-align: center;color: #5e6168;font-family: 'FuturaPT Light';font-weight:300;margin-right: 8%;padding-top: 10px;">
+							A disponibilidade de itens de série, opcionais e acessórios pode variar de acordo com a versão escolhida. Verifique o Monte seu Carro. Imagens meramente ilustrativas.
+						</p>
+					</div>
+					<div style="align-content: center;">
+						<amp-img src="/assets/logos/logo-ibama@2x.png" width="40" height="50" style="margin-left: 40%;margin-top: 20px;"></amp-img>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div style="position: relative; margin-top: 0px">
+			<div id="nav-menu">
+				<ul class="nav-list">
+					<li class="links">
+						<a rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html">monte o seu</a>
+					</li>
+					<li class="links">
+						<label class="openForm" for="open" style="position: relative">simular financiamento</label>
+					</li>
+					<li class="links">
+						<label class="openForm" for="open" style="position: relative">compre o seu</label>
+					</li>
+					<li class="links">
+						<a rel="amphtml" target="_blank" href="https://www.fiat.com.br/concessionarias.html/?">concessionárias</a>
+					</li>
+					<li class="links">
+						<a rel="amphtml" target="_blank" href="https://ofertas.fiat.com.br">ofertas fiat</a>
+					</li>
+				</ul>
+			</div>
+			<div class="hamburger_wrapper menu">
+				<div  on="tap:hamburger.toggleClass(class='close'),nav-menu.toggleClass(class='now-active')" style="width: 120%;height: 120%;">
+					<div id="hamburger" tabindex="1" role="button">
+						<div class="menu-btn">
+							<amp-img alt="" src="/assets/plus.png" width="10" height="10" layout="responsive"></amp-img>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div> -->
+		<div>
+		<div>
+			 <div class="hamburger_wrapper menu">
+				<div id="hamburger" tabindex="1"  role="button" on="tap:hamburger.toggleClass(class='close'),nav-menu.toggleClass(class='now-active')">
+					<div class="menu-btn">
+						<amp-img alt="" src="/assets/plus.png" width="10" height="10"layout="responsive"></amp-img>
+					</div>
+				</div>
+			 </div>
+			 <div id="nav-menu">
+				<ul class="nav-list">
+					<li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">monte o seu</a></li>
+					<li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">simular financiamento</a></li>
+					<li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">compre o seu</a></li>
+					<li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">concessionárias</a></li>
+					<li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">ofertas fiat</a></li>
+				</ul>
+			</div>
+		<div>
+		<div>
+		<input type="checkbox" checked name="open" id="open" />
+		<div class="content">
+			<label class="openForm" for="open">
+			<span class="close"></span>
+			</label>
+			<h1>
+				Preencha o formulário abaixo e prepare-se para se surpreender com todos
+				os detalhes do seu próximo Fiat Argo.
+			</h1>
+			<p>
+				Fique tranquilo, um de nossos vendedores entrará em contato com você.
+			</p>
+			<form method="GET" class="contactForm" action="https://integradorfca.fcalatam.com.br/" target="_top">
+				<input type="hidden" name="uf" value="SP" />
+				<input type="hidden" name="cidade" value="SÃO PAULO" />
+				<input type="hidden" name="origin" value="Internet" />
+				<input type="hidden" name="suborigem" value="Landing Pages" />
+				<input type="hidden" name="productCode" value="6751260" />
+				<input type="hidden" name="SubOrigem__C" value="Landing Pages" />
+				<input type="hidden" name="CodigoProduto__c" value="6751260" />
+				<input type="hidden" name="retUrl" value="https://argo.fiat.com.br/" />
+				<input type="hidden" name="information" value="Veículo Montado pela Receptiva" />
+				<input type="hidden" name="oid" value="00DA0000000A11h" />
+				<input type="hidden" name="device" value="Mobile" />
+				<input type="hidden" name="indPhoneContact" value="true" />
+				<input type="hidden" name="indEmailContact" value="true" />
+				<input type="hidden" name="referer" value="https://argo.fiat.com.br/" />
+				<input type="hidden" name="clientId" value="null" />
+				<div class="left">
+					<label>
+					<span>Name Completo:</span>
+					<input type="text" name="firstName" required placeholder="João da Silva" />
+					</label>
+					<label>
+					<span>E-mail:</span>
+					<input type="email" name="email" required placeholder="email@exemplo.com" />
+					</label>
+					<label>
+					<span>Telefone:</span>
+					<input type="tel" name="phone" required mask-output="alphanumeric" mask="(00)_0_0000-0000" placeholder="(55) 5 5555-5555" />
+					</label>
+				</div>
+				<div class="right">
+					<label class="perfil">
+						<span>SELECIONE SEU PERFIL:</span>
+						<select name="perfil">
+							<option class="first">Selecione seu perfil</option>
+							<option value="Vendas">Pessoa Física - CPF</option>
+							<option value="Vendas Diretas - Autonomy">Pessoa com Deficiência - PcD</option>
+							<option value="Vendas Diretas - PJ - Micro empresário">Micro empresário - CNPJ</option>
+							<option value="Vendas Diretas - Taxista">Taxista</option>
+							<option value="Vendas Diretas - Produtor Rural">Produtor Rural</option>
+							<option value="Vendas Diretas - PJ - Locadora">Locadora</option>
+							<option value="Vendas Diretas - PJ - Auto Escola">Auto Escola</option>
+						</select>
+					</label>
+					<label class="cpf">
+					<span>CPF:</span>
+					<input type="text" name="cpf" mask-output="alphanumeric" mask="000.000.000-00" placeholder="000.000.000-00" />
+					</label>
+					<label>
+						<span>SELECIONE UMA VERSÃO:</span>
+						<select name="versao">
+							<option class="first">Selecione uma versão</option>
+							<option value="358A1N0">Argo 1.0 Manual Flex 4P 2020</option>
+							<option value="358A4N0">Argo Drive 1.0 Manual Flex 4P 2020</option>
+							<option value="358A4H0">Argo Drive 1.3 Manual Flex 4P 2020</option>
+							<option value="358A470">Argo Drive 1.3 GSR Flex 4P 2020</option>
+							<option value="358A7H0">Argo Trekking 1.3 Flex 4P 2020</option>
+							<option value="358A830">Argo Precision 1.8 Automático Flex 4P 2020</option>
+							<option value="358A930">Argo HGT 1.8 Automático Flex 4P 2020</option>
+						</select>
+					</label>
+					<label>
+					<span>MENSAGEM:</span>
+					<textarea name="description" rows={5} placeholder="Digite sua mensagem"></textarea>
+					</label>
+					<div class="radio">
+						<input type="checkbox" id="sms" name="send-sms" value="1" />
+						<label for="sms">Aceito Receber Comunicação via Telefone (SMS/WhatsApp)</label>
+					</div>
+					<div class="radio">
+						<input type="checkbox" id="email" name="sendemail" value="1" />
+						<label for="email">Aceito Receber Comunicação via E-mail </label>
+					</div>
+				</div>
+				<div class="concessionarias">
+					<h2>ESCOLHA UMA CONCESSIONÁRIA</h2>
+					<ul>
+						<li class="dealer" data-title="BEXP">
+							<input class="dealer-radio" name="dealer" type="radio" value="790333" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">BEXP</div>
+								<div class="address">AV GIOVANNI GRONCHI, 6328</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="AMAZONAS-BRAZ LEME JEEP">
+							<input class="dealer-radio" name="dealer" type="radio" value="790351" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">AMAZONAS-BRAZ LEME JEEP</div>
+								<div class="address">AV BRAZ LEME, 1790</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ-INTERLAGOS">
+							<input class="dealer-radio" name="dealer" type="radio" value="790376" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ-INTERLAGOS</div>
+								<div class="address">AV WASHINGTON LUIS, 3561</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ - LAPA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790377" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ - LAPA</div>
+								<div class="address">AV ERMANO MARCHETTI 656</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ-GUARULHOS">
+							<input class="dealer-radio" name="dealer" type="radio" value="790378" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ-GUARULHOS</div>
+								<div class="address">AV GUARULHOS 1814</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="BEXP-BROOKLIN">
+							<input class="dealer-radio" name="dealer" type="radio" value="790382" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">BEXP-BROOKLIN</div>
+								<div class="address">AV JURUBATUBA, 33</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ - VILA GUILHERME">
+							<input class="dealer-radio" name="dealer" type="radio" value="790389" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ - VILA GUILHERME</div>
+								<div class="address">AV JOAQUINA RAMALHO 08</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DESTAQUE SANTO ANDRE">
+							<input class="dealer-radio" name="dealer" type="radio" value="790522" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DESTAQUE SANTO ANDRE</div>
+								<div class="address">AV. D. PEDRO II, 2089</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ - CEASA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790526" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ - CEASA</div>
+								<div class="address">AV DR GASTAO VIDIGAL 1687 B</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ - SUMARE">
+							<input class="dealer-radio" name="dealer" type="radio" value="790527" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ - SUMARE</div>
+								<div class="address">AV SUMARE 1529</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DESTAQUE POA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790530" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DESTAQUE POA</div>
+								<div class="address">ROD JOAO A. DE S. CASTELLANO, 2060</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL - IMIGRANTES">
+							<input class="dealer-radio" name="dealer" type="radio" value="790573" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL - IMIGRANTES</div>
+								<div class="address">AV MIGUEL STEFANO 1.911G</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL - NACOES UNIDAS">
+							<input class="dealer-radio" name="dealer" type="radio" value="790574" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL - NACOES UNIDAS</div>
+								<div class="address">AV DAS NACOES UNIDAS 21612</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="AUTOSTAR">
+							<input class="dealer-radio" name="dealer" type="radio" value="790593" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">AUTOSTAR</div>
+								<div class="address">AV FRANCISCO MORATO 1706</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="CALTABIANO - BARRA FUNDA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790595" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">CALTABIANO - BARRA FUNDA</div>
+								<div class="address">AV PACAEMBU 343</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DIVENA - IPIRANGA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790601" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DIVENA - IPIRANGA</div>
+								<div class="address">AV DR RICARDO JAFET 2419</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="EUROPA - VILA OLIMPIA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790610" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">EUROPA - VILA OLIMPIA</div>
+								<div class="address">AV HELIO PELLEGRINO 15</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="OSTEN">
+							<input class="dealer-radio" name="dealer" type="radio" value="790613" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">OSTEN</div>
+								<div class="address">AV ALCANTARA MACHADO 1723</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL ALPHAVILLE">
+							<input class="dealer-radio" name="dealer" type="radio" value="790625" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL ALPHAVILLE</div>
+								<div class="address">AL ARAGUAIA 1993</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL - SAO BERNARDO">
+							<input class="dealer-radio" name="dealer" type="radio" value="790626" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL - SAO BERNARDO</div>
+								<div class="address">AV PEREIRA BARRETO 984</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL-INDIANOPOLIS">
+							<input class="dealer-radio" name="dealer" type="radio" value="790647" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL-INDIANOPOLIS</div>
+								<div class="address">AV INDIANOPOLIS, 2200</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="SINAL - IBIRAPUERA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790667" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">SINAL - IBIRAPUERA</div>
+								<div class="address">R ESTELA 615</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="STEFANINI OSASCO">
+							<input class="dealer-radio" name="dealer" type="radio" value="790677" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">STEFANINI OSASCO</div>
+								<div class="address">AV MANOEL PEDRO PIMENTEL 959</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="EUROPAMOTORS - AV. EUROPA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790683" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">EUROPAMOTORS - AV. EUROPA</div>
+								<div class="address">AV EUROPA, 725</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DAHRUJ ARICANDUVA">
+							<input class="dealer-radio" name="dealer" type="radio" value="790688" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DAHRUJ ARICANDUVA</div>
+								<div class="address">AV GOV ADHEMAR P BARROS 300 - ST. B</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="AMAZONAS">
+							<input class="dealer-radio" name="dealer" type="radio" value="790712" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">AMAZONAS</div>
+								<div class="address">AV ENGENHEIRO CAETANO ALVARES 3750</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DESTAQUE MOGI DAS CRUZES">
+							<input class="dealer-radio" name="dealer" type="radio" value="790728" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DESTAQUE MOGI DAS CRUZES</div>
+								<div class="address">AV VOL FERNANDO P. FRANCO, 567</div>
+							</div>
+						</li>
+						<li class="dealer" data-title="DESTAQUE ITAIM">
+							<input class="dealer-radio" name="dealer" type="radio" value="790745" />
+							<div class="input-feedback"></div>
+							<div class="details">
+								<div class="title">DESTAQUE ITAIM</div>
+								<div class="address">AV. MARECHAL TITO, 2813 - PISO 1</div>
+							</div>
+						</li>
+					</ul>
+					<div class="submit">
+						<button type="submit">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<amp-analytics type="googleanalytics" id="analytics1">
+			<script type="application/json">
+				{
+					"vars": {
+						"account": "UA-5547232-16"
+					},
+					"triggers": {
+						"trackPageview": {
+							"on": "visible",
+							"request": "pageview"
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#botao-ofertas",
+							"request": "event",
+							"vars": {
+								"eventId": "todas-as-versoes:ofertas-fiat"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#about-design",
+							"request": "event",
+							"vars": {
+								"eventId": "design:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#about-performance",
+							"request": "event",
+							"vars": {
+								"eventId": "performance:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#about-tecnologia",
+							"request": "event",
+							"vars": {
+								"eventId": "tecnologia:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#about-seguranca",
+							"request": "event",
+							"vars": {
+								"eventId": "seguranca:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#about-s-design",
+							"request": "event",
+							"vars": {
+								"eventId": "selecao:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#aboutGaleria",
+							"request": "event",
+							"vars": {
+								"eventId": "galeria:conheca-tudo:[abrir|fechar]"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#hamburger",
+							"request": "event",
+							"vars": {
+								"eventId": "menu-flutuante:ofertas-fiat"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+				
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-concessionarias",
+							"request": "event",
+							"vars": {
+								"eventId": "cta:concessionaria"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-ofertas",
+							"request": "event",
+							"vars": {
+								"eventId": "cta:ofertas-fiat"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#footer-monte-o-seu",
+							"request": "event",
+							"vars": {
+								"eventId": "cta:monte-o-seu"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-simule-financiamento",
+							"request": "event",
+							"vars": {
+								"eventId": "cta:simule-seu-financiamento"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-compre-o-seu",
+							"request": "event",
+							"vars": {
+								"eventId": "cta:compre-o-seu"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-facebook",
+							"request": "event",
+							"vars": {
+								"eventId": "redes-sociais:facebook"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#footer-youtube",
+							"request": "event",
+							"vars": {
+								"eventId": "redes-sociais:youtube"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#footer-instagram",
+							"request": "event",
+							"vars": {
+								"eventId":  "redes-sociais:instagram"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#footer-twitter",
+							"request": "event",
+							"vars": {
+								"eventId":  "redes-sociais:twitter"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-1_0",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:1.0"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-drive-1_0",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:drive-1.0"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+				
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-drive-1_3",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:drive-1.3"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+				
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-drive-gsr-1_3",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:drive-gsr-1.3"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-trekking",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:trekking"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#seletor-precision-1_8",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:precision-1.8"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#seletor-hgt-1_8",
+							"request": "event",
+							"vars": {
+								"eventId": "versoes:miniatura:hgt-1.8"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector":  "#seletor-s-design",
+							"request": "event",
+							"vars": {
+								"eventId":  "versoes:miniatura:s-design"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+		<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PMM8JJH&amp;gtm.url=SOURCE_URL" data-credentials="include">
+			<script type="application/json">
+				{
+					"triggers": {
+						"trackAnchorClicks": {
+							"on": "click",
+							"selector": "#seletor-s-design-1_3",
+							"request": "event",
+							"vars": {
+								"eventId":"versoes:miniatura:s-design-1.3"
+							}
+						}
+					}
+				}
+			</script>
+		</amp-analytics>
+	</body>
+</html>

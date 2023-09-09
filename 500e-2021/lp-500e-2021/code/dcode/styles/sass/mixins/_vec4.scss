@@ -1,0 +1,42 @@
+@mixin vec4($properties: (top, right, bottom, left), $args: null) {
+	@if length($args) == 1 {
+		@if $args != null {
+			@each $property in $properties {
+				#{$property}: $args;
+			}
+		}
+	} @else if length($args) == 2 {
+		@if nth($args, 1) != null {
+			#{nth($properties, 1)}: nth($args, 1);
+			#{nth($properties, 3)}: nth($args, 1);
+		}
+		@if nth($args, 2) != null {
+			#{nth($properties, 2)}: nth($args, 2);
+			#{nth($properties, 4)}: nth($args, 2);
+		}
+	} @else if length($args) == 3 {
+		@if nth($args, 1) != null {
+			#{nth($properties, 1)}: nth($args, 1);
+		}
+		@if nth($args, 2) != null {
+			#{nth($properties, 2)}: nth($args, 2);
+			#{nth($properties, 4)}: nth($args, 2);
+		}
+		@if nth($args, 3) != null {
+			#{nth($properties, 3)}: nth($args, 3);
+		}
+	} @else if length($args) == 4 {
+		@if nth($args, 1) != null {
+			#{nth($properties, 1)}: nth($args, 1);
+		}
+		@if nth($args, 2) != null {
+			#{nth($properties, 2)}: nth($args, 2);
+		}
+		@if nth($args, 3) != null {
+			#{nth($properties, 3)}: nth($args, 3);
+		}
+		@if nth($args, 4) != null {
+			#{nth($properties, 4)}: nth($args, 4);
+		}
+	}
+}

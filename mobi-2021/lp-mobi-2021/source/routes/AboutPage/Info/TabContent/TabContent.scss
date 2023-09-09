@@ -1,0 +1,262 @@
+.TabContent {
+	@include relative;
+	@include span(12/12);
+	@include overflow(hidden);
+	background-color: _color('_016');
+	padding-bottom: 20px;
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop.is-menu-open & {
+	}
+
+
+	// POSTER
+	// ~~~~~~
+
+	&-wrapper {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// ARROW
+	// ~~~~~
+
+	&-arrow {
+		@include absolute;
+		@include span(12/12);
+		@include size(null 100%);
+	}
+
+	&-arrowPrev,
+	&-arrowNext {
+		@include absolute(0 2.3% 0 null);
+		@include margin(auto);
+		@include size(1.8vw);
+		display: block;
+	}
+
+	&-arrowPrev {
+		@include offset(null initial null 2.3%);
+		@include flip(horizontal);
+	}
+
+
+	// POSTER
+	// ~~~~~~
+
+	&-poster {
+		@include relative;
+		@include span(12/12);
+		@include size(null percent(273/630 * 100));
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #f2f2f2;
+	}
+
+	&-posterList {
+		@include relative;
+		@include span(12/12);
+		@include size(null 100%);
+	}
+
+	&-posterItem {
+		@include relative;
+		@include span(12/12);
+		@include size(null 100%);
+	}
+
+	&-posterPicture {
+		// N/A
+	}
+
+	&-posterImage {
+		@include span(12/12);
+		@include size(null 100%);
+		object-fit: cover;
+	}
+
+	&-posterImage.is-simple {
+		@include span(12/12);
+		@include size(null 407px);
+	}
+
+	&-posterVideo {
+		@include span(12/12);
+		@include size(null 100%);
+		object-fit: cover;
+	}
+
+	&-posterLoader {
+		// N/A
+	}
+
+
+	// INFO
+	// ~~~~
+
+	&-info {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include padding(25px null 0 null);
+		@include overflow(hidden);
+	}
+
+	&-infoTitle {
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #1b1c1d;
+	}
+
+	&-infoText {
+		@include margin(null null 3px null);
+		@include font-responsive((14 / 375) * 100vw, 11px, 17px, 14px, 1.36px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #1b1c1d;
+	}
+
+	&-infoText > a[data-ui-custom],
+	&-infoText > button[data-ui-custom] {
+		@include ButtonAylen(
+			$backgroundColor: #ff8094,
+			$textColor: #ffffff,
+			$hoverTextColor: #ffffff,
+			$width: percent(get-span(6/10)),
+			$textAlign: center,
+			$margin: 32px auto 0 auto,
+			$padding: 14.6px 12.5px,
+			$borderRadius: 0px,
+			$hoverStripeColor1: #0296ff,
+			$hoverStripeColor2: #24ced1,
+			$usePseudoHover: false,
+			$usePseudoFocus: false,
+		);
+		@include font-responsive((12 / 375) * 100vw, 9px, 12px, 12px, null);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		display: block;
+	}
+
+
+	// BULLET
+	// ~~~~~~
+
+	&-bullet {
+		@include relative;
+		@include span(10/11.5);
+		@include span-shift(0.5/11.5);
+		@include margin(25px null 0 null);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-bulletPrev,
+	&-bulletNext {
+		@include relative;
+	}
+
+	&-bulletPrev {
+		@include margin(null 15px null null);
+	}
+
+	&-bulletNext {
+		@include flip(x);
+		@include margin(null null null 15px);
+	}
+
+	&-bulletList {
+		@include relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&-bulletItem {
+		@include size(6px);
+		@include max-size(25px);
+		@include margin(null 10px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: _color('_002');
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 0;
+	}
+
+	&-bulletItem.is-active {
+		transform: scale(3);
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		@include column(12/12);
+
+		&-wrapper {
+			@include relative;
+			@include span(10/12, 1/12);
+			@include padding(47px null 25px null);
+			display: flex;
+			align-items: center;
+		}
+
+		&-poster {
+			@include column(6/12, $gutter: 6%);
+			@include overflow(hidden);
+			border-radius: 0;
+			height: 22.7vw
+		}
+
+		&-posterImage {
+			object-position: 0 3%;
+			object-fit: contain;
+		}
+
+		&-info {
+			@include column(6/12, $gutter: 6%);
+			border-radius: 1px solid red;
+		}
+
+		&-infoText > a[data-ui-custom],
+		&-infoText > button[data-ui-custom] {
+			// @include ButtonAylen(
+			// 	$width: 100%,
+			// 	$textAlign: center,
+			// 	$margin: (11px 0),
+			// 	$padding: 1.5em 2em,
+			// 	$borderRadius: 12px,
+			// 	$hoverTextColor: #ffffff,
+			// 	$usePseudoHover: true,
+			// 	$usePseudoFocus: true,
+			// );
+			margin: 32px 0 0 0;
+		}
+	}
+
+	@include media-query-size-x(xs sm) {
+		&-poster {
+			height: 76.8vw;
+		}
+		&-bullet {
+			@include span(12/12, 0/12);
+			justify-content: space-between;
+		}
+		&-bulletList {
+			@include column(7/12);
+		}
+		&-bulletNext,
+		&-bulletPrev {
+			@include column(1/12);
+			margin: 0;
+		}
+	}
+}

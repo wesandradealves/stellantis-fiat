@@ -1,0 +1,107 @@
+@import '@styles/theme', '@styles/mixins';
+
+@mixin buttonHover {
+  &:not(.secondary):not(.light) {
+    .outsideBox{
+      background-color: #fff;
+      svg{
+        color: #000;
+        path{
+          fill:#000;
+        }
+      }
+    }
+    &:after {
+      background-color: #000;
+      border-color: #fff;
+    }
+  }
+  &:not(.disabled) {
+    color: $primary;
+    background-color: $background-secondary;
+
+    &.secondary {
+      color: $text-secondary;
+    }
+    &.light {
+      color: $text-secondary;
+      border-color: $secondary !important;
+    }
+  }
+}
+
+.button {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding-top: 2px;
+  position: relative;
+  transition: background-color $transition-time-quickest
+    $transition-easing;
+
+  .outsideBox{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+      color: #FF1430;
+      path{
+        fill:#FF1430;
+      }
+  }
+    
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    background-color: #fff;
+    position: absolute;
+    bottom: -7px;
+    right: -7px;
+    z-index: -116;
+    transition: all $transition-time-quickest $transition-easing;
+  }
+
+  // &.secondary {
+  //   background-color: $text-secondary;
+  // }
+  // &.light {
+  //   color: $text-secondary;
+  //   background-color: $secondary;
+  // }
+
+  // &.large {
+  //   width: 52px;
+  //   height: 52px;
+  // }
+
+  &:active {
+    @include buttonHover;
+  }
+
+  @include desktop {
+    &:hover {
+      @include buttonHover;
+    }
+  }
+
+  &.previous svg {
+    transform: rotate(180deg);
+  }
+
+  &.disabled {
+    opacity: 0.3 !important;
+    cursor: default;
+  }
+}

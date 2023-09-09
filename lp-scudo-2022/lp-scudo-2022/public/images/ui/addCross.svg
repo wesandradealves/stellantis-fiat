@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 20.5 32">
+  <g transform="translate(-7569 3952)">
+    <g>
+      <rect width="20" height="20" transform="translate(7569 -3949)" fill="#ffba0d"/>
+      <g transform="translate(6690 -4348)">
+        <text transform="translate(880.5 391)" fill="#f6f6f6" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="26">+</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

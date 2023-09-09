@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'futurabt-bold';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-bold.eot');
+	src: local('FuturaBT Bold'), local('FuturaBTBold'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.svg#FuturaBTBold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}

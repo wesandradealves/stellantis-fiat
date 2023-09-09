@@ -1,0 +1,262 @@
+@import '../base/@';
+
+//
+// # Button
+// >
+//
+// ## Usage:
+//
+// You have to call this file in your style:
+// ```scss
+// @include ButtonAylen(
+//	$width: auto,
+//	$height: auto,
+// );
+// ```
+//
+// The template should be something like:
+// ```html
+// <body>
+// 	<!-- Button -->
+// 	<button class="Button" data-ui="button-aylen">
+// 		Confirmar
+// 	</button>
+// </body>
+// ```
+//
+@mixin ButtonAylen(
+	$fontFamily: (Ubuntu, Helvetica, Arial, sans-serif),
+	$fontSize: (4.5vw, 13px, 18px, 13px, 0),
+	$fontWeight: lighter,
+	$fontStyle: normal,
+	$borderRadius: 5px,
+	$borderWidth: 0,
+	$borderStyle: none,
+	$borderColor: transparent,
+	$border: $borderWidth $borderStyle $borderColor,
+	$textColor: #37474f,
+	$textAlign: center,
+	$textDecoration: none,
+	$backgroundColor: #fff,
+	$disabledBackgroundColor: #999,
+	$hoverBackgroundColor: #333,
+	$focusBackgroundColor: #333,
+	$activeBackgroundColor: #333,
+	$visitedBackgroundColor: #6B79FF,
+	$disabledTextColor: #666,
+	$hoverTextColor: $textColor,
+	$focusTextColor: $textColor,
+	$activeTextColor: $textColor,
+	$visitedTextColor: $textColor,
+	$boxShadowHLength: 0px,
+	$boxShadowVLength: 2px,
+	$boxShadowBlurRadius: 5px,
+	$boxShadowSpreadRadius: 0px,
+	$boxShadowShadowColor: rgba(0, 0, 0, 0.2),
+	$boxShadow: $boxShadowHLength $boxShadowVLength $boxShadowBlurRadius $boxShadowSpreadRadius $boxShadowShadowColor,
+	$outline: none,
+	$selectionColor: transparent,
+	$width: null,
+	$height: null,
+	$padding: 1em 2em,
+	$margin: 0,
+	$name: null,
+	$usePseudoHover: true,
+	$usePseudoFocus: true,
+	$usePseudoActive: false,
+	$usePseudoVisited: false,
+	$truncateText: true,
+	$cursor: pointer,
+	$hoverStripeColor1: #e50353,
+	$hoverStripeColor2: #24ced1,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Inheritance ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include ButtonBase(
+		$fontFamily,
+		$fontSize,
+		$fontWeight,
+		$fontStyle,
+		$borderRadius,
+		$borderWidth,
+		$borderStyle,
+		$borderColor,
+		$border,
+		$textColor,
+		$textAlign,
+		$textDecoration,
+		$backgroundColor,
+		$disabledBackgroundColor,
+		$hoverBackgroundColor,
+		$focusBackgroundColor,
+		$activeBackgroundColor,
+		$visitedBackgroundColor,
+		$disabledTextColor,
+		$hoverTextColor,
+		$focusTextColor,
+		$activeTextColor,
+		$visitedTextColor,
+		$boxShadowHLength,
+		$boxShadowVLength,
+		$boxShadowBlurRadius,
+		$boxShadowSpreadRadius,
+		$boxShadowShadowColor,
+		none,
+		$outline,
+		$selectionColor,
+		$width,
+		$height,
+		$padding,
+		$margin,
+		$name,
+		false,
+		false,
+		false,
+		false,
+		$truncateText,
+		$cursor,
+	);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Skin ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include print-styles((
+		-webkit-backface-visibility: hidden,
+		-moz-osx-font-smoothing: grayscale,
+		vertical-align: middle,
+		overflow: hidden,
+		z-index: 1,
+	));
+
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&::before,
+	&::after {
+		@include print-styles((
+			position: absolute,
+			bottom: 100%,
+			left: 0,
+			width: 100%,
+			height: 100%,
+			z-index: -1,
+			transition: transform 0.3s,
+			transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1),
+			content: " ",
+		));
+	}
+
+	&::before {
+		@include print-styles((
+			background: $hoverStripeColor2,
+		));
+	}
+
+	&::after {
+		@include print-styles((
+			background: $hoverStripeColor1,
+		));
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@if $usePseudoHover {
+		&:hover {
+			@include print-styles((
+				color: $hoverTextColor,
+			));
+		}
+
+		&:hover::before,
+		&:hover::after {
+			@include print-styles((
+				transform: translate3d(0, 100%, 0),
+			));
+		}
+
+		&:hover::after {
+			@include print-styles((
+				transition-delay: 0.175s,
+			));
+		}
+	}
+
+	@if $usePseudoFocus {
+		&:focus {
+			@include print-styles((
+				outline: none,
+			));
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Supports ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// @see https://hover-pointer-media-query.glitch.me/
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@media (hover: none) {
+		.hover-none {
+		}
+	}
+
+	@media (hover: hover) {
+		.hover-hover {
+		}
+	}
+
+	@media (any-hover: none) {
+		.any-hover-none {
+		}
+	}
+
+	@media (any-hover: hover) {
+		.any-hover-hover {
+		}
+	}
+
+	@media (pointer: none) {
+		.pointer-none {
+		}
+	}
+
+	@media (pointer: fine) {
+		.pointer-fine {
+		}
+	}
+	@media (pointer: coarse) {
+		.pointer-coarse {
+		}
+	}
+
+	@media (any-pointer: none) {
+		.any-pointer-none {
+		}
+	}
+	@media (any-pointer: fine) {
+		.any-pointer-fine {
+		}
+	}
+
+	@media (any-pointer: coarse) {
+		.any-pointer-coarse {
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.option.hover:hover {
+		}
+	}
+}

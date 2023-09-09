@@ -1,0 +1,13 @@
+@import "../functions/random-color";
+
+@mixin edit($color: random-color(), $alpha: 0.05, $important: false) {
+  @if $important {
+    * {
+      background: rgba($color, $alpha) !important;
+    }
+  } @else {
+    * {
+      background: rgba($color, $alpha);
+    }
+  }
+}

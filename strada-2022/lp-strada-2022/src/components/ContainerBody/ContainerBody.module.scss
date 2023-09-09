@@ -1,0 +1,21 @@
+@import '@styles/theme', '@styles/mixins';
+
+.columnDivider {
+	max-width: $screen-max-size;
+	margin: 0 auto;
+
+	@include desktop {
+		padding-left: $nav-width;
+	}
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	// max-width: 1696px;
+	
+	@include desktop {
+		padding-top: 0;
+	}
+}

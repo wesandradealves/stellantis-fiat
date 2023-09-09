@@ -1,0 +1,21 @@
+{
+    "name": "Fiat Scudo",
+    "short_name": "Fiat Scudo",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "description": "Descubra uma nova experiência de condução. Experimente o melhor do conforto e economia pra você e seu negócio com o Novo Fiat Scudo. Conheça!",
+    "theme_color": "#edede3",
+    "background_color": "#edede3",
+    "display": "standalone"
+}

@@ -1,0 +1,219 @@
+//!
+//| UBUNTU MONO
+//'__________________________________________________________________________
+// mono-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// mono-cyrillic
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// mono-greek-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// mono-greek
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// mono-latin-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// mono-latin
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url("@dcode/styles/fonts/ubuntu/mono/mono-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// mono-bold-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// mono-bold-cyrillic
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// mono-bold-greek-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// mono-bold-greek
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// mono-bold-latin-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// mono-bold-latin
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold"), local("UbuntuMono-Bold"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// mono-italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// mono-italic-cyrillic
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// mono-italic-greek-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// mono-italic-greek
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// mono-italic-latin-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// mono-italic-latin
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Mono Italic"), local("UbuntuMono-Italic"), url("@dcode/styles/fonts/ubuntu/mono/mono-italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// mono-bold-italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// mono-bold-italic-cyrillic
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// mono-bold-italic-greek-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// mono-bold-italic-greek
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// mono-bold-italic-latin-ext
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// mono-bold-italic-latin
+@font-face {
+	font-family: "Ubuntu Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Mono Bold Italic"), local("UbuntuMono-BoldItalic"), url("@dcode/styles/fonts/ubuntu/mono/mono-bold-italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}

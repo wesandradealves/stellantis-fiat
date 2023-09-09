@@ -1,0 +1,132 @@
+@import '@styles/theme', '@styles/mixins';
+
+.contentHolder {
+  background-color: $button-background;
+  border: 1px solid $button-border;
+  color: $text-primary;
+  transition: background-color $transition-time-quickest $transition-easing;
+  padding: 0.8rem 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  p {
+    font-family: "Futura PT", Arial, sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+  }
+}
+
+.button {
+  position: relative;
+  display: block;
+  text-decoration: none;
+
+  &.larger {
+    .contentHolder {
+      padding: 12px 20px;
+    }
+
+    .content {
+      font-size: toRem(16);
+    }
+  }
+
+  .bg {
+    position: absolute;
+    border: 1px solid #000;
+    background-color: $primary;
+    width: 100%;
+    height: 100%;
+    left: 7px;
+    top: 7px;
+    z-index: 0;
+    transition: all $transition-time-quickest $transition-easing;
+  }
+
+  &.larger .bg {
+    left: 7px;
+    top: 7px;
+  }
+
+  border: 1px solid transparent;
+
+  .content {
+    text-align: left !important;
+    color: $text-primary;
+    font-weight: bold;
+    font-size: toRem(16);
+
+    &.withIcon:before {
+      content: attr(data-icon-code);
+      font-family: $fontawesome-brands;
+      font-size: toRem(14);
+      margin-right: 3px;
+    }
+  }
+
+  svg {
+    //color: $text-primary;
+    color: #FF1430;
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &:active {
+    .content {
+      color: #000;
+    }
+
+    svg {
+      color: #000;
+    }
+
+    .contentHolder {
+      background: #fff;
+    }
+
+    .bg {
+      background-color: #000;
+    }
+  }
+
+  // .bg {
+  //   transition: all $transition-time-quickest $transition-easing;
+  // }
+
+  // &.larger .bg {
+  //   left: 7px;
+  //   top: 7px;
+  // }
+
+  // &.secondary {
+  //   .bg {
+  //     border-color: $text-secondary;
+  //   }
+
+  //   .contentHolder {
+  //     background-color: $text-secondary;
+  //     color: $text-primary;
+  //   }
+
+  //   &:hover,
+  //   &:active {
+  //     .content {
+  //       color: $text-secondary;
+  //     }
+
+  //     border-color: $text-secondary;
+
+  //     svg {
+  //       color: $text-secondary;
+  //     }
+
+  //     .contentHolder {
+  //       background-color: $background-secondary;
+  //     }
+  //   }
+  // }
+}

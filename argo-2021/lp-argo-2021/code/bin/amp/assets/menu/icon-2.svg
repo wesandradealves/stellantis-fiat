@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.298" height="16.246" viewBox="0 0 13.298 16.246">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2,.cls-3{fill:#e50353}.cls-2{stroke:#e50353}.cls-2,.cls-4{stroke-width:.7px}.cls-2,.cls-3,.cls-4{fill-rule:evenodd}.cls-4{fill:none;stroke:#fff}
+        </style>
+    </defs>
+    <g id="Page-1" transform="translate(-.153 -.159)">
+        <g id="calculadora" transform="translate(.503 .509)">
+            <path id="Retângulo_9" d="M0 0h12.679v15.497H0z" class="cls-1" data-name="Retângulo 9"/>
+            <path id="Rectangle-9" d="M4.194 3.2a.171.171 0 0 0-.166.176V6a.171.171 0 0 0 .166.176h8.371A.171.171 0 0 0 12.732 6V3.381a.171.171 0 0 0-.166-.176z" class="cls-2" transform="translate(-2.085 -1.306)"/>
+            <path id="Rectangle-9-2" d="M3.946 10.764h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H3.946a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-1.998 -3.54)"/>
+            <path id="Rectangle-9-3" d="M8.854 10.764h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H8.854a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-3.703 -3.54)"/>
+            <path id="Rectangle-9-4" d="M13.762 10.764h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211h-2.326a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-5.406 -3.54)"/>
+            <path id="Rectangle-9-5" d="M3.946 14.574h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H3.946a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-1.998 -4.666)"/>
+            <path id="Rectangle-9-6" d="M8.854 14.574h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H8.854a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-3.703 -4.666)"/>
+            <path id="Rectangle-9-7" d="M13.762 14.574h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211h-2.326a.211.211 0 0 1-.211-.211v-1.053a.211.211 0 0 1 .211-.211z" class="cls-3" data-name="Rectangle-9" transform="translate(-5.406 -4.666)"/>
+            <path id="Rectangle-9-8" d="M3.946 18.384h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H3.946a.211.211 0 0 1-.211-.211V18.6a.211.211 0 0 1 .211-.216z" class="cls-3" data-name="Rectangle-9" transform="translate(-1.998 -5.792)"/>
+            <path id="Rectangle-9-9" d="M8.854 18.384h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211H8.854a.211.211 0 0 1-.211-.211V18.6a.211.211 0 0 1 .211-.216z" class="cls-3" data-name="Rectangle-9" transform="translate(-3.703 -5.792)"/>
+            <path id="Rectangle-9-10" d="M13.762 18.384h2.326a.211.211 0 0 1 .211.211v1.053a.211.211 0 0 1-.211.211h-2.326a.211.211 0 0 1-.211-.211V18.6a.211.211 0 0 1 .211-.216z" class="cls-3" data-name="Rectangle-9" transform="translate(-5.406 -5.792)"/>
+            <path id="Rectangle-9-11" d="M1.71.509a.449.449 0 0 0-.44.458V15.6a.449.449 0 0 0 .44.458h11.718a.449.449 0 0 0 .44-.458V.967a.449.449 0 0 0-.44-.458z" class="cls-4" data-name="Rectangle-9" transform="translate(-1.27 -.509)"/>
+        </g>
+    </g>
+</svg>

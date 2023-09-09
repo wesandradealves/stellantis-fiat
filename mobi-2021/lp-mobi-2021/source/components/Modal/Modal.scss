@@ -1,0 +1,421 @@
+.Modal,
+.Modal-overlay {
+	@include offset(0 null null 0);
+	@include size(100%);
+	z-index: 100;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// root
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Modal {
+	@include fixed;
+
+
+	// OVERLAY
+	// ~~~~~~~
+
+	&-overlay {
+		@include fixed;
+    background-color: _color('_002');
+	}
+
+
+	// DIALOG
+	// ~~~~~~
+
+	&-dialog {
+		@include absolute(0 null 0 0);
+		@include margin(auto);
+		z-index: 101;
+	}
+
+	&-dialog:focus {
+		outline: none;
+	}
+
+	&-dialogContent {
+		@include relative(0 null null 0);
+		@include span(12/12);
+		@include size(null 100%);
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		box-shadow: 0 3px 6px 0 rgba(_color('_002'), 0.1);
+		border-radius: 0 0 0 0;
+		background-color: _color('_016');
+	}
+
+
+	// CLOSE BUTTON
+	// ~~~~~~~~~~~~
+
+	&-close {
+		@include absolute(-20px null null 0);
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+		background: color('_011');
+		z-index: 1;
+	}
+
+	// &-close .CloseButton-icon {
+	// 	fill: #24ced1!important;
+	// }
+
+	// &-close:hover .CloseButton-icon {
+	// 	fill: #0296ff!important;
+	// }
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	// ~~ Desktop
+	@include media-query-size-x(lg xl unknown) {
+		@include overflow(null auto);
+
+		&-overlay {
+			background: rgba(_color('_012'), 0.60);
+		}
+
+		&-dialog {
+			// ~ Largura responsiva ~
+			// @include relative(initial);
+			// @include span(10/12, 1/12, $important: true);
+			// @include margin(5.5% null);
+
+			// ~ Largura fixa ~
+			@include relative(initial);
+			@include max-size(994px null);
+			@include min-size(null 594px);
+			@include margin(5.5% (auto!important));
+			display: flex;
+			justify-content: center;
+
+			@include size(null (auto!important));
+      background-color: _color('_002');
+			border-radius: 0;
+		}
+
+		&-dialogContent {
+			@include relative;
+			@include size(calc(100% - 46px) auto);
+			@include margin(23px);
+			border-radius: 0;
+			background-color: transparent;
+			-webkit-mask-image: initial;
+			box-shadow: none;
+		}
+
+		&-dialogContent::before {
+			@include absolute(null null 0 null);
+			@include size(100% percent((466/602) * 100));
+			box-shadow: 0 3px 6px 0 rgba(_color('_002'), 0.1);
+			border-radius: 0;
+			background-color: rgb(26, 16, 85);
+			display: block;
+			content: " ";
+		}
+
+		&-close {
+		  @include absolute(-10px -10px null null);
+			@include offset(26px -25px null initial);
+			border-radius: 0;
+		}
+	}
+
+	// ~~ Altura Resolução FCA
+	@include media-query-size-y(xs sm) {
+		@at-root .is-desktop &-dialog {
+			@include margin(0.8% null);
+		}
+	}
+
+	// ~~ Landscape Mobile
+	@include media-query-size-x(xs sm md, landscape) {
+		@include overflow(null auto);
+
+		&-dialog {
+			@include relative();
+			@include margin(initial);
+		}
+
+		&-dialogContent {
+			@include size(null auto);
+			@include min-size(null 100%);
+			@include margin(5% null);
+		}
+
+		&-close {
+			@include offset(3.5% null null null);
+    }
+	}
+
+
+	// FADE
+	// ~~~~
+
+	@keyframes modal-fade-enter {
+		from {
+			opacity: 0;
+		}
+	}
+
+	&-fade-enter {
+		animation-name: modal-fade-enter;
+		animation-timing-function: ease-in;
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-fade-leave {
+		to {
+			opacity: 0;
+		}
+	}
+
+	&-fade-leave {
+		animation-name: modal-fade-leave;
+		animation-timing-function: ease-out;
+		animation-fill-mode: both;
+	}
+
+
+	// ZOOM
+	// ~~~~
+
+	@keyframes modal-zoom-enter {
+		from {
+			transform: scale3d(.3, .3, .3);
+		}
+	}
+
+	&-zoom-enter {
+		animation-name: modal-zoom-enter;
+		animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-zoom-leave {
+		to {
+			transform: scale3d(.3, .3, .3);
+		}
+	}
+
+	&-zoom-leave {
+		animation-name: modal-zoom-leave;
+		animation-fill-mode: both;
+	}
+
+
+	// SLIDE DOWN
+	// ~~~~~~~~~~
+
+	@keyframes modal-slideDown-enter {
+		from {
+			transform: translate3d(0, -100px, 0);
+		}
+	}
+
+	&-slideDown-enter {
+		animation-name: modal-slideDown-enter;
+		animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-slideDown-leave {
+		to {
+			transform: translate3d(0, -100px, 0);
+		}
+	}
+
+	&-slideDown-leave {
+		animation-name: modal-slideDown-leave;
+		animation-fill-mode: both;
+	}
+
+
+	// SLIDE LEFT
+	// ~~~~~~~~~~
+
+	@keyframes modal-slideLeft-enter {
+		from {
+			transform: translateX(-100%);
+		}
+	}
+
+	&-slideLeft-enter {
+		animation-name: modal-slideLeft-enter;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-slideLeft-leave {
+		to {
+			transform: translateX(-103%);
+		}
+	}
+
+	&-slideLeft-leave {
+		animation-name: modal-slideLeft-leave;
+		animation-timing-function: $ease-in-out-quart;
+		animation-fill-mode: both;
+		animation-duration: 0.5s;
+	}
+
+
+	// SLIDE RIGHT
+	// ~~~~~~~~~~~
+
+	@keyframes modal-slideRight-enter {
+		from {
+			transform: translate3d(150px, 0, 0);
+		}
+	}
+
+	&-slideRight-enter {
+		animation-name: modal-slideRight-enter;
+		animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-slideRight-leave {
+		to {
+			transform: translate3d(150px, 0, 0);
+		}
+	}
+
+	&-slideRight-leave {
+		animation-name: modal-slideRight-leave;
+		animation-fill-mode: both;
+	}
+
+
+	// SLIDE UP
+	// ~~~~~~~~
+
+	@keyframes modal-slideUp-enter {
+		from {
+			transform: translate3d(0, 30px, 0);
+			opacity: 0;
+		}
+	}
+
+	&-slideUp-enter {
+		animation-name: modal-slideUp-enter;
+		animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-slideUp-leave {
+		40% {
+			opacity: 0;
+		}
+		to {
+			transform: translate3d(0, 30px, 0);
+			opacity: 0;
+		}
+	}
+
+	&-slideUp-leave {
+		animation-name: modal-slideUp-leave;
+		animation-fill-mode: both;
+	}
+
+
+	// FLIP
+	// ~~~~
+
+	@keyframes modal-flip-enter {
+		from {
+			transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+		}
+		70% {
+			transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+		}
+		to {
+			transform: perspective(400px);
+		}
+	}
+
+	&-flip-enter {
+		animation-name: modal-flip-enter;
+		animation-timing-function: ease-in;
+		animation-fill-mode: both;
+		backface-visibility: visible !important;
+	}
+
+	@keyframes modal-flip-leave {
+		from {
+			transform: perspective(400px);
+		}
+		30% {
+			transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+		}
+		to {
+			transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+		}
+	}
+
+	&-flip-leave {
+		animation-name: modal-flip-leave;
+		animation-fill-mode: both;
+		backface-visibility: visible !important;
+	}
+
+
+	// ROTATE
+	// ~~~~~~
+
+	@keyframes modal-rotate-enter {
+		from {
+			transform: rotate3d(0, 0, 1, -180deg) scale3d(.3, .3, .3);
+		}
+	}
+
+	&-rotate-enter {
+		animation-name: modal-rotate-enter;
+		animation-fill-mode: both;
+		transform-origin: center;
+	}
+
+	@keyframes modal-rotate-leave {
+		to {
+			transform: rotate3d(0, 0, 1, 180deg) scale3d(.3, .3, .3);
+		}
+	}
+
+	&-rotate-leave {
+		animation-name: modal-flip-leave;
+		animation-fill-mode: both;
+		transform-origin: center;
+	}
+
+
+	// DOOR
+	// ~~~~
+
+	@keyframes modal-door-enter {
+		from {
+			transform: scale3d(0, 1, 1);
+		}
+	}
+
+	&-door-enter {
+		animation-name: modal-door-enter;
+		animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+		animation-fill-mode: both;
+	}
+
+	@keyframes modal-door-leave {
+		60% {
+			transform: scale3d(.01, 1, 1);
+		}
+		to {
+			transform: scale3d(0, 1, .1);
+		}
+	}
+
+	&-door-leave {
+		animation-name: modal-door-leave;
+		animation-fill-mode: both;
+	}
+}

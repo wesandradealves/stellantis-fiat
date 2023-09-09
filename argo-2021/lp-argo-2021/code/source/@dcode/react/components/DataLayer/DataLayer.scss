@@ -1,0 +1,38 @@
+[data-layer-name] {
+	@include relative;
+	@include column(12/12);
+}
+
+@if $VERBOSE {
+	[data-layer-name] {
+		@include size(null 1.5em);
+		outline: 0;
+		border: 0;
+		text-align: center;
+		line-height: 1em;
+		height: 22px;
+		cursor: copy;
+		margin: 1.1% 0;
+	}
+
+	[data-layer-name]::before {
+		@include size(100% 1px);
+		@include absolute(50% null null 0);
+		background: linear-gradient(to right, transparent, #F4B400, transparent);
+		content: " ";
+	}
+
+	[data-layer-name]::after {
+		@include relative;
+		@include padding(0.1em 0.5em 0.1em 1.7em);
+		content: "~ " attr(data-layer-name) " ~";
+		display: inline-block;
+		line-height: 1.2em;
+		background: url("./data-layer.png") no-repeat 2px top;
+		background-size: contain;
+		background-color: #fcfcfa;
+		color: #4285F4;
+		border: 0.05em solid #F4B400;
+		border-radius: 5px;
+	}
+}

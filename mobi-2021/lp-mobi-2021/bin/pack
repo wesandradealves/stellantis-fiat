@@ -1,0 +1,203 @@
+#!/usr/bin/env node
+//.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//|
+//| URL: http://git.dcodehom.com.br/dcode/dotfiles
+//| Title: Project Deploy Pack
+//| Usage: node pack
+//| Copyright: 2019 Adrian C. Miranda
+//| License: Apache License
+//| Version: 1.0.0
+//|
+//'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const { join, resolve, basename, relative, sep } = require('path');
+const { execSync } = require('child_process');
+const fs = require('fs-extra');
+const archiver = require('archiver');
+const rimraf = require('rimraf');
+const moment = require('moment');
+require('moment/locale/pt-br');
+
+const pack = fs.readJsonSync('package.json', { throws: false });
+const { params, values } = parseArgv(process.argv.slice(2));
+
+const gitDir = execSync('git rev-parse --show-toplevel').toString().replace(/\n/g, '');
+const gitProjectName = basename(gitDir);
+const hotfixSuffix = '-hotfix';
+const now = moment().format('YYYYMMDDHHmm');
+const outputFilename = `${gitProjectName}-${now}${params.hotfix ? hotfixSuffix : ''}.zip`;
+const outputPath = params.o || params['output-path'] || '.';
+
+fs.ensureDir(outputPath, 0o2775, err => {
+	if (err) console.log(err);
+});
+
+if (params.clean) {
+	const cleanupFilepattern = `${gitProjectName}-${'*'}?(${hotfixSuffix}).zip`;
+	console.log('DELETING');
+	console.log('-------------------------------------------------------------------');
+	console.log(normalize(relative(resolve(outputPath), resolve(cleanupFilepattern))));
+	console.log('===================================================================');
+	rimraf(resolve(join(outputPath, cleanupFilepattern)), (err) => {
+		if (err) throw err;
+		createZip(values);
+	});
+} else createZip(values);
+
+function createZip(files) {
+	if (!values.length) return console.log('There\'s no file to compress');
+	console.log('COMPRESSING');
+	console.log('-------------------------------------------------------------------');
+	const archive = archiver('zip', { zlib: { level: 9 } });
+	const output = fs.createWriteStream(resolve(join(outputPath, outputFilename)));
+	output.on('close', closeZipProcess.bind(this, archive));
+	output.on('end', endZipProcess.bind(this, archive));
+	archive.on('warning', printWarnings);
+	archive.on('error', printErrors);
+	archive.pipe(output);
+	files.map(mapZipFiles.bind(this, archive));
+	archive.finalize();
+}
+
+function mapZipFiles(archive, srcpath) {
+	if (isDirectory(srcpath)) {
+		console.log(`${normalize(relative(resolve(outputPath), resolve(srcpath)))}/`);
+		archive.directory(srcpath);
+	} else if (isFile(srcpath) || isFifo(srcpath) || isSymbolicLink(srcpath)) {
+		console.log(normalize(relative(resolve(outputPath), resolve(srcpath))));
+		archive.file(srcpath);
+	} else if (isGlob(srcpath)) {
+		console.log(normalize(relative(resolve(outputPath), resolve(srcpath))));
+		archive.glob(srcpath);
+	} else {
+		console.log('! check out', normalize(srcpath));
+	}
+}
+
+function printWarnings(err) {
+	if (err.code === 'ENOENT') {
+		console.warn('Warning:', err.code, err.message);
+	} else {
+		throw err;
+	}
+}
+
+function printErrors(err) {
+	throw err;
+}
+
+function closeZipProcess(archive) {
+	console.log('===================================================================');
+	console.info(`${archive.pointer()} total bytes`);
+	console.log(`${outputFilename} was been created`);
+	console.log(basename(__filename), 'has been finalized and the output file descriptor was closed');
+	console.log(`check out at ${normalize(resolve(outputPath))}`);
+	if (isString(params.clean)) {
+		rimraf(resolve(params.clean), (err) => {
+			if (err) throw err;
+			process.exit(0);
+		});
+	} else process.exit(0);
+}
+
+function endZipProcess(archive) {
+	console.log('Data has been drained');
+}
+
+function isStatType(expected, value, errorHandler) {
+	try {
+		return fs.statSync(resolve(value))[`is${expected}`]();
+	} catch (error) {
+		if (isFn(errorHandler)) {
+			return errorHandler(error);
+		}
+		return false;
+	}
+}
+
+function isDirectory(value, errorHandler) {
+	return isStatType('Directory', value, errorHandler);
+}
+
+function isFile(value, errorHandler) {
+	return isStatType('File', value, errorHandler);
+}
+
+function isFifo(value, errorHandler) {
+	return isStatType('FIFO', value, errorHandler);
+}
+
+function isSymbolicLink(value, errorHandler) {
+	return isStatType('SymbolicLink', value, errorHandler);
+}
+
+function isFn(value) {
+	return typeof value === 'function';
+}
+
+function isUnavail(value) {
+	return value === undefined || value === null;
+}
+
+function isAvail(value) {
+	return isUnavail(value) === false;
+}
+
+function isString(value) {
+	return typeof value === 'string' || value instanceof String;
+}
+
+function isStringEmpty(value) {
+	return isAvail(value) && (value === '' || value.toString() === '');
+}
+
+function isExtglob(value) {
+	if (!isString(value) || isStringEmpty(value) === '') return false;
+	let match;
+	while ((match = /(\\).|([@?!+*]\(.*\))/g.exec(value))) {
+		if (match[2]) return true;
+		value = value.slice(match.index + match[0].length);
+	}
+	return false;
+}
+
+function isGlob(value, options) {
+	if (!isString(value) || isStringEmpty(value) === '') return false;
+	if (isExtglob(value)) return true;
+	let regex = /\\(.)|(^!|\*|[\].+)]\?|\[[^\\\]]+\]|\{[^\\}]+\}|\(\?[:!=][^\\)]+\)|\([^|]+\|[^\\)]+\))/;
+	let match;
+	if (options && options.strict === false) {
+		regex = /\\(.)|(^!|[*?{}()[\]]|\(\?)/;
+	}
+	while ((match = regex.exec(value))) {
+		if (match[2]) return true;
+		let idx = match.index + match[0].length;
+		const open = match[1];
+		const close = open ? chars[open] : null;
+		if (open && close) {
+			var n = value.indexOf(close, idx);
+			if (n !== -1) {
+				idx = n + 1;
+			}
+		}
+		value = value.slice(idx);
+	}
+	return false;
+}
+
+function parseArgv(argv) {
+	const params = argv.reduce((acc, key) => {
+		const match = key.match(/^(?:--?)(.+)/);
+		if (match) {
+			const [key, value] = match[1].split(/(?!--?.+)=|\s/);
+			acc.params[key] = value || true;
+		} else {
+			acc.values.push(key);
+		}
+		return acc;
+	}, { params: {}, values: [] });
+	return params;
+}
+
+function normalize(srcpath) {
+	return srcpath.replace(/\\/g, '/');
+}

@@ -1,0 +1,146 @@
+@import "theme-colors";
+@import "theme-fonts";
+@import "theme-layout";
+@import "theme-assets";
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// App
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$app:(
+
+	// ------------------------------------------------------------------------
+	//
+	// COMPONENTS
+	//
+	// ------------------------------------------------------------------------
+	App:(
+		backgroundColor: _color('_002'),
+	),
+
+  Loader:
+	(
+		zIndex: 108,
+		backgroundColor: _color('_004'),
+		backgroundColorProgress: _color('_011'),
+		backgroundColorProgressBar: _color('_002'),
+	),
+
+	Menu:(
+		height: 60px,
+    heightMobile: 45px,
+	),
+
+  MenuFixed:
+	(
+		zIndex: 99,
+		textFontNavButton: _font('proximanova-bold-12'),
+		textAlignNavButton: center,
+		textColorNavButton: _color('_001'),
+		textColorNavButtonDark: _color('_001'),
+		textColorNavButtonPrimary: _color('_001'),
+		backgroundColorNavButton: _color('_008'),
+		backgroundColor: _color('_012'),
+		shrinkHeight: 35px,
+		height: 64px,
+	),
+
+	Aside:(
+		textFont: _font('subtitle'),
+		backgroundColor: #252525,
+		textColor: #00d1fe,
+	),
+
+	Scroll: (
+		trackColor: #000,
+		indicatorColor: #f1f1f1,
+		PieceBackgroundColor: _color('_002'),
+    ThumbBackgroundColor: _color('_008'),
+	),
+
+	DataLayer:(
+		backgroundIcon: _asset('icons.google'),
+	),
+
+	Quote:(
+		textColorTitle: _color('_011'),
+		textAlignTitle: left,
+		textColor: #ffffff,
+		textAlign: left,
+	),
+
+
+	// ------------------------------------------------------------------------
+	//
+	// LAYOUTS
+	//
+	// ------------------------------------------------------------------------
+	MainPage:(
+		backgroundColor: _color('_002'),
+		textColor: yellow,
+	),
+
+	TipPage:(
+		backgroundColor: #edede3,
+	),
+
+	VersionsPage:(
+		backgroundColor: #EDEDE3,
+	),
+
+	AboutPage:(
+		backgroundColor: #ffbc41,
+	),
+
+	GalleryPage:(
+		backgroundColor: _color('_002'),
+	),
+
+	ActionPage:(
+		backgroundColor: _color('_002'),
+		textColorLegal: _color('_016'),
+		textAlignLegal: center,
+	),
+
+	OffersPage: (
+		backgroundColor: #ffbc41,
+	),
+
+	OpenEditionPage:
+  (
+		backgroundColor: _color('_002'),
+		// ----------------------------------------------------------------------
+		backgroundColorHeader: _color('_001'),
+    backgroundColorBullet: _color('_001'),
+    thumbBorderColor: _color('_001'),
+		textFontHeaderTitle: _font('title'),
+    textColorCtaTitle: _color('_001'),
+		textColorHeaderTitle: _color('_004'),
+		textAlignHeaderTitle: left,
+		// ----------------------------------------------------------------------
+		textFontInfoTitle: _font('subtitle'),
+		textColorInfoTitle: _color('_001'),
+		textAlignInfoTitle: left,
+		// ----------------------------------------------------------------------
+		textFontInfoText: _font('text'),
+		textColorInfoText: _color('_005'),
+		textAlignInfoText: left,
+		// ----------------------------------------------------------------------
+		backgroundColorActiveDetail: _color('_001'),
+		textFontThumbnail: _font('tag'),
+		textColorThumbnail: _color('_005'),
+		textAlignThumbnail: center,
+  ),
+
+  LivePage:
+	(
+		backgroundColor: _color('_016'),
+		textTitle: _font('title'),
+		textColorTitle: _color('_001'),
+		// ----------------------------------------------------------------------
+		backgroundColorButton: _color('_003'),
+		textColorButton: _color('_002'),
+		textButton: _font('tag'),
+	),
+);

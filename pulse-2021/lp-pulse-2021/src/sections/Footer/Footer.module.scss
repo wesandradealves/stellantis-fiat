@@ -1,0 +1,104 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: toRem(28);
+  background-color: $background-blue;
+
+  @include desktop {
+    padding-top: toRem(48);
+    padding-bottom: toRem(90);
+  }
+}
+
+.footerIbamaMobile {
+  margin-bottom: toRem(90);
+  text-align: center;
+
+}
+
+.conditional, .buttonsHolder {
+  width: 100%;
+}
+
+.buttonsHolder {
+  display: flex;
+  flex-direction: column;
+  padding: 0 toRem(26);
+
+  .menuButton {
+    margin-bottom: toRem(8);
+    width: 100%;
+    line-height: toRem(34);
+
+    &:after {
+      z-index: 0 !important;
+    }
+    p {
+      font-size: toRem(18);
+    }
+  }
+}
+
+.brand {
+  width: 36px;
+  height: auto;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: toRem(70);
+  padding-bottom: toRem(40);
+  @include desktop {
+    padding-top: toRem(45);
+  }
+  a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-indent: -2000px;
+    width: toRem(36);
+    height: toRem(36);
+    &:not(:last-child) {
+      margin-right: toRem(36);
+    }
+    color: $text-primary;
+    text-align: center;
+
+    &:hover,
+    &:active {
+      color: $primary;
+    }
+
+    &:before {
+      font-family: $fontawesome-brands;
+      font-size: toRem(18);
+      content: attr(data-before);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: toRem(-9);
+      margin-top: toRem(-12);
+      display: block;
+      text-indent: 0;
+    }
+  }
+}
+
+.footerIbamaDesktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    margin-top: toRem(9);
+  }
+}
+
+.mobileBrandContainer {
+  margin-bottom: toRem(50);
+}

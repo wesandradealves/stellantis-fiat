@@ -1,0 +1,53 @@
+{
+  "private": true,
+  "name": "@dcode/is",
+  "version": "1.0.0",
+  "description": "〰️ A type testing library",
+  "keywords": "dcode-is-module",
+  "author": "Adrian C. Miranda <adrian.miranda@digitalcode.com.br>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.dcodehom.com.br:8022/npm-packages/dcode-is.git"
+  },
+  "files": [
+    "array",
+    "arraylike",
+    "avail",
+    "base64",
+    "body",
+    "bool",
+    "buffer",
+    "defined",
+    "element",
+    "equal",
+    "event",
+    "exotic",
+    "fn",
+    "infinity",
+    "integer",
+    "nan",
+    "nil",
+    "number",
+    "numeric",
+    "object",
+    "primitive",
+    "regexp",
+    "string",
+    "uinteger",
+    "unavail",
+    "undef",
+    "browser.js",
+    "env.js",
+    "index.js",
+    "is.js",
+    "localhost.js",
+    "node.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

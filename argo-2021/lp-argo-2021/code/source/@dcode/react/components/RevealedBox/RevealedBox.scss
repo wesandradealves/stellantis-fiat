@@ -1,0 +1,198 @@
+.RevealedBox {
+	@keyframes goRight {
+		from { left: 0; right: 100%; }
+		40% { left: 0; right: 0; }
+		60% { left: 0; right: 0; }
+		to { left: 100%; right: 0; }
+	}
+
+	@keyframes goLeft {
+		from { left: 100%; right: 0; }
+		40% { left: 0; right: 0; }
+		60% { left: 0; right: 0; }
+		to { left: 0; right: 100%; }
+	}
+
+	@keyframes goTop {
+		from { top: 100%; bottom: 0; }
+		40% { top: 0; bottom: 0; }
+		60% { top: 0; bottom: 0; }
+		to { top: 0; bottom: 100% }
+	}
+
+	@keyframes goBottom {
+		from { top: 0; bottom: 100%; }
+		40% { top: 0; bottom: 0; }
+		60% { top: 0; bottom: 0; }
+		to { top: 100%; bottom: 0; }
+	}
+
+	@keyframes backRight {
+		from { left: 0; right: 100%; }
+		40% { left: 0; right: 0; }
+		60% { left: 0; right: 0; }
+		to { left: 0; right: 100%; }
+	}
+
+	@keyframes backLeft {
+		from { left: 100%; right: 0; }
+		40% { left: 0; right: 0; }
+		60% { left: 0; right: 0; }
+		to { left: 100%; right: 0; }
+	}
+
+	@keyframes backTop {
+		from { top: 100%; bottom: 0; }
+		40% { top: 0; bottom: 0; }
+		60% { top: 0; bottom: 0; }
+		to { top: 100%; bottom: 0 }
+	}
+
+	@keyframes backBottom {
+		from { top: 0; bottom: 100%; }
+		40% { top: 0; bottom: 0; }
+		60% { top: 0; bottom: 0; }
+		to { top: 0; bottom: 100%; }
+	}
+
+	@include relative;
+	@include overflow(hidden);
+	clear: both;
+	float: left;
+	display: block;
+
+
+	// Masks sizes
+	// ~~~~~~~~~~~
+
+	&-in.goRight,
+	&-in.goLeft,
+	&-in.backRight,
+	&-in.backLeft {
+		> span {
+			@include offset(0 null null null);
+			@include size(null 100%);
+		}
+	}
+
+	&-in.goRight.childrenSpan-2,
+	&-in.goLeft.childrenSpan-2,
+	&-in.backRight.childrenSpan-2,
+	&-in.backLeft.childrenSpan-2 {
+		> span { height: 50%; }
+		> span:nth-child(2) { top: 50%; }
+	}
+
+	&-in.goRight.childrenSpan-3,
+	&-in.goLeft.childrenSpan-3,
+	&-in.backRight.childrenSpan-3,
+	&-in.backLeft.childrenSpan-3 {
+		> span { height: 33.33333%; }
+		> span:nth-child(2) { top: 33.33333%; }
+		> span:nth-child(3) { top: 66.66666%; }
+	}
+
+	&-in.goRight.childrenSpan-4,
+	&-in.goLeft.childrenSpan-4,
+	&-in.backRight.childrenSpan-4,
+	&-in.backLeft.childrenSpan-4 {
+		> span { height: 25%; }
+		> span:nth-child(2) { top: 25%; }
+		> span:nth-child(3) { top: 50%; }
+		> span:nth-child(4) { top: 75%; }
+	}
+
+	&-in.goRight.childrenSpan-5,
+	&-in.goLeft.childrenSpan-5,
+	&-in.backRight.childrenSpan-5,
+	&-in.backLeft.childrenSpan-5 {
+		> span { height: 20%; }
+		> span:nth-child(2) { top: 20%; }
+		> span:nth-child(3) { top: 40%; }
+		> span:nth-child(4) { top: 60%; }
+		> span:nth-child(5) { top: 80%; }
+	}
+
+	&-in.goTop,
+	&-in.goBottom,
+	&-in.backTop,
+	&-in.backBottom {
+		> span { width: 100%; }
+	}
+
+	&-in.goTop.childrenSpan-2,
+	&-in.goBottom.childrenSpan-2,
+	&-in.backTop.childrenSpan-2,
+	&-in.backBottom.childrenSpan-2 {
+		> span { width: 50%; }
+		> span:nth-child(2) { left: 50%; }
+	}
+
+	&-in.goTop.childrenSpan-3,
+	&-in.goBottom.childrenSpan-3,
+	&-in.backTop.childrenSpan-3,
+	&-in.backBottom.childrenSpan-3 {
+		> span { width: 33.33333%; }
+		> span:nth-child(2) { left: 33.33333%; }
+		> span:nth-child(3) { left: 66.66666%; }
+	}
+
+	&-in.goTop.childrenSpan-4,
+	&-in.goBottom.childrenSpan-4,
+	&-in.backTop.childrenSpan-4,
+	&-in.backBottom.childrenSpan-4 {
+		> span { width: 25%; }
+		> span:nth-child(2) { left: 25%; }
+		> span:nth-child(3) { left: 50%; }
+		> span:nth-child(4) { left: 75%; }
+	}
+
+	&-in.goTop.childrenSpan-5,
+	&-in.goBottom.childrenSpan-5,
+	&-in.backTop.childrenSpan-5,
+	&-in.backBottom.childrenSpan-5 {
+		> span { width: 20%; }
+		> span:nth-child(2) { left: 20%; }
+		> span:nth-child(3) { left: 40%; }
+		> span:nth-child(4) { left: 60%; }
+		> span:nth-child(5) { left: 80%; }
+	}
+
+	// Reveal the content
+	// ~~~~~~~~~~~~~~~~~~
+	& {
+		.contentBox {
+			opacity: 0;
+		}
+
+		> span {
+			@include absolute;
+			display: block;
+			background: $backgroundBoxColor;
+		}
+	}
+
+	&-in > &-contentBox {
+		opacity: 1;
+		transition-delay: 1.05s;
+	}
+
+	// Assign animations
+	// ~~~~~~~~~~~~~~~~~
+	&-in.goRight { > span { animation: goRight 1.4s; }}
+	&-in.goLeft { > span { animation: goLeft 1.4s; }}
+	&-in.backRight {	> span { animation: backRight 1.4s; }}
+	&-in.backLeft { > span { animation: backLeft 1.4s; }}
+	&-in.goTop {	> span { animation: goTop 1.4s; }}
+	&-in.goBottom { > span { animation: goBottom 1.4s; }}
+	&-in.backTop {	> span { animation: backTop 1.4s; }}
+	&-in.backBottom { > span { animation: backBottom 1.4s; }}
+
+	// Add delay
+	// ~~~~~~~~~
+	&-in > span { animation-delay: 0.1s; }
+	&-in > span:nth-child(2) {	animation-delay: 0.2s; }
+	&-in > span:nth-child(3) {	animation-delay: 0.3s; }
+	&-in > span:nth-child(4) {	animation-delay: 0.4s; }
+	&-in > span:nth-child(5) {	animation-delay: 0.5s; }
+}

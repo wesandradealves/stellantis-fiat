@@ -1,0 +1,18 @@
+@import "pad";
+@import "clearfix";
+@import "../methods/_layout";
+
+@mixin center(
+	$max-width: _layout('grid.maxWidth') or 960px,
+	$pad: 0) {
+	@include clearfix;
+	@include pad($pad);
+	max-width: $max-width;
+	width: auto;
+	float: none;
+	display: block;
+	margin: {
+		right: auto;
+		left:  auto;
+	};
+}

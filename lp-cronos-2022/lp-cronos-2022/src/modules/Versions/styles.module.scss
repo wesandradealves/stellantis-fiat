@@ -1,0 +1,145 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  background: url('/assets/images/bg-versions.png') 0 -150px no-repeat var.$color--support;
+  background-size: contain;
+  padding-top: 37px;
+  border-bottom: 3px solid var.$grayLight;
+
+  .title {
+    width: 100%;
+    font-family: var.$bold;
+    font-size: 32px;
+    line-height: 48px;
+    color: var.$black;
+    text-align: center;
+  }
+
+  .swiperFix {
+    overflow: inherit !important;
+  }
+
+  .list {
+    max-width: 1150px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .swiper-version {
+    position: relative;
+  }
+  
+  .contentSwiperButton {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    top: 13.2vw;
+    z-index: 20;
+    
+    button:nth-child(1) {
+      left: 0;
+      transform: translate(0);
+    }
+    
+    button:nth-child(2) {
+      right: 0;
+      transform: translate(0);
+    }
+  }
+}
+
+@media only screen and (max-width: 1860px) {
+  .container {
+    background-position: 0 -0vw;
+    
+    .contentSwiperButton {
+      top: 15vw;
+      
+      button:nth-child(1) {
+        left: 60px;
+      }
+      
+      button:nth-child(2) {
+        right: 60px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  $ww: 1360;
+
+  .container {
+    padding-top: 50px;
+  
+    .title {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+
+    .list {
+      max-width: 960px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  .container {
+    padding-top: 37px;
+
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+
+    .list {
+      padding: 0 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    padding-top: 30px;
+    scroll-margin-top: 100px;
+    // background-position: top center;
+    background-position: -450px 0;
+    background-size: 200vw;
+    border-bottom: none;
+
+    .title {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 30px;
+    }
+
+    .list {
+      padding: 0;
+    }
+
+    .contentSwiperButton {
+      button:nth-child(1) {
+        left: 30px;
+      }
+      
+      button:nth-child(2) {
+        right: 30px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    background-position: -250px 0;
+  }
+}

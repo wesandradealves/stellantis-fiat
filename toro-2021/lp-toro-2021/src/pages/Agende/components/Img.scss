@@ -1,0 +1,22 @@
+.Img {
+  &::selection {
+    background: transparent;
+  }
+
+  &::-moz-selection {
+    background: transparent;
+  }
+
+  &::-webkit-selection {
+    background: transparent;
+  }
+
+  &.is-blurred {
+    filter: blur(1px);
+    transition: filter 600ms ease-out;
+  }
+
+  &.is-blurred.is-loaded {
+    filter: blur(0);
+  }
+}

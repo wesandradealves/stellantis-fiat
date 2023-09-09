@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+		<meta name="theme-color" content="#222222" />
+		<meta name="url" content="<%= htmlWebpackPlugin.options.url %>" />
+		<meta name="keywords" content="<%= htmlWebpackPlugin.options.keywords %>" />
+		<meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
+		<meta name="reply-to" content="<%= htmlWebpackPlugin.options.author %>" />
+		<meta property="fb:app_id" content="494378911142584" />
+		<meta property="og:site_name" content="<%= htmlWebpackPlugin.options.site_name %>" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+		<meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" />
+		<meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>" />
+		<meta property="og:image" content="<%= htmlWebpackPlugin.options.url %>/og.jpg" />
+		<meta property="og:image:width" content="1960" />
+		<meta property="og:image:height" content="1026" />
+		<meta property="og:image:alt" content="" />
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<link rel="icon" type="image/png" href="<%= htmlWebpackPlugin.options.url %>/favicon.png" />
+		<link rel="manifest" href="<%= htmlWebpackPlugin.options.url %>/manifest.json" crossorigin="use-credentials" />
+		<link
+			rel="sitemap"
+			type="application/xml"
+			href="<%= htmlWebpackPlugin.options.url %>/sitemap.xml"
+			title="Sitemap"
+		/>
+		<link rel="preload" href="assets/fonts/light.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/medium.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/fontello/font/fontello.woff" as="font" type="font/woff" crossorigin />
+		<link
+			rel="preload"
+			href="/assets/features/pictures/smartphone/central-multimidia.jpg"
+			as="image"
+			media="(max-width: 1045px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/mobile/agilidade.jpg"
+			as="image"
+			media="(max-width: 1045px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/mobile/design.jpg"
+			as="image"
+			type="image/jpg"
+			media="(max-width: 1045px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/bg-main__mobile.jpg"
+			as="image"
+			type="image/jpg"
+			media="(max-width: 1045px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/desktop/interior.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1045px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/desktop/design.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1045px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/desktop/agilidade.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1045px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/thumbs/desktop/motor.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1045px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/features/pictures/desktop/central-multimidia.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1045px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/bg-main.jpg"
+      		as="image"
+			type="image/jpg"
+			media="(min-width: 1025px)"
+		/>
+		<script defer type="text/javascript" src="/vendors/analytics.js">
+		</script>
+		<style>
+			@font-face {
+				font-family: 'FuturaPT Light';
+				src: url('assets/fonts/light.woff') format('woff');
+				font-weight: 300;
+			}
+			@font-face {
+				font-family: 'FuturaPT Medium';
+				src: url('assets/fonts/medium.woff') format('woff');
+				font-weight: 500;
+			}
+			@font-face {
+				font-family: 'FuturaPT Bold';
+				src: url('assets/fonts/bold.woff') format('woff');
+				font-weight: 700;
+			}
+			@font-face {
+				font-family: 'fontello';
+				src: url('assets/fonts/fontello/font/fontello.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+			body {
+				margin: 0;
+			}
+			#pre-loading {
+				width: 100vw;
+				height: 100vh;
+				background-color: #ff8094;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			#pre-loading > svg {
+				width: 2rem;
+				height: auto;
+				margin-left: 0.5rem;
+			}
+			#pre-loading > #progress {
+				width: 1.8rem;
+				height: 2px;
+				margin-top: 1rem;
+				background-color: #fff;
+			}
+			#pre-loading > #progress::after {
+				content: '';
+				display: block;
+				width: 0;
+				height: 100%;
+				background-color: #3b369e;
+				animation: progressBar 10.5s;
+				animation-fill-mode: both;
+			}
+			@keyframes progressBar {
+				0% {
+					width: 0;
+				}
+				100% {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body data-ui-prefix="ui" data-ui-version="<%= htmlWebpackPlugin.options.version %>">
+		<noscript>
+			<iframe
+				style="display: none; visibility: hidden;"
+				src="https://www.googletagmanager.com/ns.html?id=GTM-PMM8JJH"
+				width="0"
+				height="0"
+			>
+			</iframe>
+		</noscript>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div data-ui-stage="<%= htmlWebpackPlugin.options.mountId %>">
+			<main id="pre-loading">
+				<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="48%" viewBox="0 0 43.211 31.401">
+					<path d="M10.182 0L0 31.4h4.718L14.9 0z" style="fill: rgb(38, 143, 82);"></path>
+					<path
+						d="M44.382 0L34.2 31.4h4.718L49.1 0z"
+						transform="translate(-24.763)"
+						style="fill: rgb(255, 255, 255);"
+					></path>
+					<path
+						d="M78.582 0L68.4 31.4h4.718L83.3 0z"
+						transform="translate(-49.526)"
+						style="fill: rgb(255, 255, 255);"
+					></path>
+					<path
+						d="M112.782 0L102.6 31.4h4.718L117.5 0z"
+						transform="translate(-74.289)"
+						style="fill: rgb(255, 20, 48);"
+					></path>
+				</svg>
+				<div id="progress"></div>
+			</main>
+		</div>
+		<script async src="/vendors/social.js"></script>
+		<script src="/vendors/handTalk.js"></script>
+    <script defer src="https://plugin.handtalk.me/web/latest/handtalk.min.js"></script>
+	</body>
+</html>

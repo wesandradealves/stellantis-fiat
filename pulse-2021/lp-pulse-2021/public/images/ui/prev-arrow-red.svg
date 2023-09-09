@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39">
+  <g id="Componente_156_19" data-name="Componente 156 – 19" transform="translate(39 39) rotate(180)">
+    <g id="Grupo_2925" data-name="Grupo 2925" transform="translate(0 3)">
+      <rect id="Retângulo_1442" data-name="Retângulo 1442" width="36" height="36" fill="#ff1431"/>
+      <g id="Grupo_2406" data-name="Grupo 2406" transform="translate(9.604 11)">
+        <path id="Caminho_3" data-name="Caminho 3" d="M0,6.916,7.436,0l6.539,6.916" transform="translate(17.3 0) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+        <path id="Caminho_4" data-name="Caminho 4" d="M0,0V17.4" transform="translate(17.397 6.976) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+      </g>
+      <g id="Retângulo_2102" data-name="Retângulo 2102" transform="translate(39 33) rotate(180)" fill="none" stroke="#ff1431" stroke-width="1">
+        <rect width="36" height="36" stroke="none"/>
+        <rect x="0.5" y="0.5" width="35" height="35" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

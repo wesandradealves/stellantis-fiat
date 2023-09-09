@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'neue-plak-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.svg#black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}

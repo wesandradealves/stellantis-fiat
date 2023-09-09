@@ -1,0 +1,78 @@
+.MenuFixed {
+	$height: _('MenuFixed.height') or 60px;
+	$zIndex: _('MenuFixed.zIndex') or 99;
+
+	@include fixed(null null 0 0);
+	@include size(100% $height);
+	/*box-shadow: 0px -7px 251px -15px rgba(#18131f, 1);*/
+	background-color: _color('_002');
+	z-index: $zIndex;
+
+	&-nav {
+		@include relative(0 null null 0);
+		@include size(100%);
+		//transform: translateY(0);
+		//transform-origin: center center;
+	}
+
+	&-navList {
+		@include relative;
+		@include size(100%);
+		@include padding(0 2%);
+		@include margin(0);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	&-navItem {
+		@include relative;
+		@include size(100% 70%);
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+	}
+
+	&-navLink {
+		@include size(100%);
+		@include margin(0 5px);
+		@include font-responsive(_('MenuFixed.textFontNavButton.size.mobile')...);
+		font-family: _('MenuFixed.textFontNavButton.family') or $fontsFallback;
+		font-weight: _('MenuFixed.textFontNavButton.weight') or bold;
+		font-style: _('MenuFixed.textFontNavButton.style') or normal;
+		text-align: _('MenuFixed.textAlignNavButton') or center;
+		color: _('MenuFixed.textColorNavButton') or #edede3;
+		background-color: _('MenuFixed.backgroundColorNavButton') or #ff7d32;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0;
+	}
+
+	&-navLink.is-primary {
+		color: _('MenuFixed.textColorNavButtonPrimary') or #fff;
+		background-color: #ed385e;
+	}
+
+	&-navLink.is-dark {
+		color: _('MenuFixed.textColorNavButtonDark') or #fff;
+		background-color: _color('_017');
+	}
+
+	&-navLinkIcon {
+		@include size(18px);
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(xs sm md, landscape) {
+	}
+}

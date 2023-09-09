@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+		<meta name="theme-color" content="#222222" />
+		<meta name="url" content="" />
+		<meta name="keywords" content="fca,argomentos" />
+		<meta name="description" content="Fiat Argo com mais itens de série em todas as versões e novidades incríveis de design. Central Multimídia, novo logo Fiat, flag italiana na grade frontal e muito mais." />
+		<meta name="reply-to" content="Adrian Miranda <adrian.miranda@digitalcode.com.br>" />
+		<meta property="fb:app_id" content="494378911142584" />
+		<meta property="og:site_name" content="Fiat Argo 2022 – Ainda mais completo" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Fiat Argo" />
+		<meta property="og:description" content="Fiat Argo com mais itens de série em todas as versões e novidades incríveis de design. Central Multimídia, novo logo Fiat, flag italiana na grade frontal e muito mais." />
+		<meta property="og:url" content="" />
+		<meta property="og:image" content="/og.jpg" />
+		<meta property="og:image:width" content="1960" />
+		<meta property="og:image:height" content="1026" />
+		<meta property="og:image:alt" content="" />
+		<title>Fiat Argo</title>
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+		<link
+			rel="sitemap"
+			type="application/xml"
+			href="/sitemap.xml"
+			title="Sitemap"
+		/>
+		<link rel="preload" href="assets/fonts/light.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/medium.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/bold.woff" as="font" type="font/woff" crossorigin />
+		<link rel="preload" href="assets/fonts/fontello/font/fontello.woff" as="font" type="font/woff" crossorigin />
+		<link
+			rel="preload"
+			href="/assets/argomentos/pictures/desktop/poster.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1025px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/pictures/smartphone/poster.webp"
+			as="image"
+			type="image/webp"
+			media="(max-width: 1024px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/thumbs/mobile/destaque-01.webp"
+			as="image"
+			type="image/webp"
+			media="(max-width: 1024px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/thumbs/mobile/destaque-02.webp"
+			as="image"
+			type="image/webp"
+			media="(max-width: 1024px) and (orientation: portrait)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/thumbs/desk/destaque-03.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1025px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/thumbs/desk/destaque-04.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1025px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/argomentos/thumbs/desk/destaque-05.jpg"
+			as="image"
+			type="image/jpg"
+			media="(min-width: 1025px)"
+		/>
+		<link
+			rel="preload"
+			href="/assets/main-bg__mobile.svg"
+			as="image"
+			type="image/svg+xml"
+			media="(max-width: 1024px) and (orientation: portrait)"
+		/>
+		<link rel="preload" href="/assets/main-bg.webp" as="image" type="image/webp" media="(min-width: 1025px)" />
+		<link
+			rel="preload"
+			as="script"
+			href="/vendors/analytics.js"
+			onload="var script = document.createElement('script'); script.src = this.href; document.body.appendChild(script);"
+		/>
+		<style>
+			@font-face {
+				font-family: 'FuturaPT Light';
+				src: url('assets/fonts/light.woff') format('woff');
+				font-weight: 300;
+			}
+			@font-face {
+				font-family: 'FuturaPT Medium';
+				src: url('assets/fonts/medium.woff') format('woff');
+				font-weight: 500;
+			}
+			@font-face {
+				font-family: 'FuturaPT Bold';
+				src: url('assets/fonts/bold.woff') format('woff');
+				font-weight: 700;
+			}
+			@font-face {
+				font-family: 'fontello';
+				src: url('assets/fonts/fontello/font/fontello.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+			body {
+				margin: 0;
+			}
+			#pre-loading {
+				width: 100vw;
+				height: 100vh;
+				background-color: #302758;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			#pre-loading > svg {
+				width: 2rem;
+				height: auto;
+				margin-left: 0.5rem;
+			}
+			#pre-loading > #progress {
+				width: 1.8rem;
+				height: 2px;
+				margin-top: 1rem;
+				background-color: #4a2d87;
+			}
+			#pre-loading > #progress::after {
+				content: '';
+				display: block;
+				width: 0;
+				height: 100%;
+				background-color: #ffb80f;
+				animation: progressBar 10.5s;
+				animation-fill-mode: both;
+			}
+			@keyframes progressBar {
+				0% {
+					width: 0;
+				}
+				100% {
+					width: 100%;
+				}
+			}
+		</style>
+	<link href="vendor.913c674e.css" rel="stylesheet"><link href="app.2ca54f1c.css" rel="stylesheet"></head>
+	<body data-ui-prefix="ui" data-ui-version="v2.0.0">
+		<noscript>
+			<iframe
+				style="display: none; visibility: hidden;"
+				src="https://www.googletagmanager.com/ns.html?id=GTM-T7T2RQ3"
+				width="0"
+				height="0"
+			>
+			</iframe>
+		</noscript>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div data-ui-stage="@fca/argomentos">
+			<main id="pre-loading">
+				<svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="48%" viewBox="0 0 43.211 31.401">
+					<path d="M10.182 0L0 31.4h4.718L14.9 0z" style="fill: rgb(38, 143, 82);"></path>
+					<path
+						d="M44.382 0L34.2 31.4h4.718L49.1 0z"
+						transform="translate(-24.763)"
+						style="fill: rgb(255, 255, 255);"
+					></path>
+					<path
+						d="M78.582 0L68.4 31.4h4.718L83.3 0z"
+						transform="translate(-49.526)"
+						style="fill: rgb(255, 255, 255);"
+					></path>
+					<path
+						d="M112.782 0L102.6 31.4h4.718L117.5 0z"
+						transform="translate(-74.289)"
+						style="fill: rgb(255, 20, 48);"
+					></path>
+				</svg>
+				<div id="progress"></div>
+			</main>
+		</div>
+		<script async src="/vendors/social.js"></script>
+		<script async src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js?_=1517839904676"></script>
+	<script>!function(e){function r(r){for(var n,f,i=r[0],l=r[1],a=r[2],c=0,s=[];c<i.length;c++)f=i[c],o[f]&&s.push(o[f][0]),o[f]=0;for(n in l)Object.prototype.hasOwnProperty.call(l,n)&&(e[n]=l[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,i=1;i<t.length;i++){var l=t[i];0!==o[l]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={2:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="";var i=window.webpackJsonp=window.webpackJsonp||[],l=i.push.bind(i);i.push=r,i=i.slice();for(var a=0;a<i.length;a++)r(i[a]);var p=l;t()}([]);</script>
+	<script type="text/javascript" src="vendor.fa676f47.js"></script><script type="text/javascript" src="app.e550c249.js"></script></body>
+</html>

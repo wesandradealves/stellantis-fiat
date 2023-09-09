@@ -1,0 +1,77 @@
+/*
+ * <img src="assets/banner/banner_mobile_live_375x396.png"/>
+ * <img src="assets/banner/banner_desktop_live_1024x271.png"/>
+ * <img src="assets/banner/banner_mobile_live_640x675.png"/>
+ * <img src="assets/banner/banner_desktop_live_1920x509.png"/>
+ * <img src="assets/banner/banner_desktop_live_1344x356.png"/>
+ * <img src="assets/banner/banner_desktop_live_768x204.png"/>
+ */
+.Banner {
+	@include relative;
+	@include span(12/12);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// STATES
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@at-root .is-desktop & {
+		transition: left 0.5s $ease-in-out-quart;
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		@include span-shift(1.6/12);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// CONTENT
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-link {
+		@include hide-text;
+		@include size(375px 396px);
+		@include margin(0 auto 40px auto);
+		background: url("/assets/banner/375x396.jpg") no-repeat center center;
+		background-size: contain;
+		display: block;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		@include span(10/12);
+		@include span-shift(1/12);
+	}
+
+	@include media-query-size-x(lg xl unknown) {
+		&-link {
+			@include size(768px 204px);
+			background: url("/assets/banner/768x2041.jpg") no-repeat center center;
+			//border: 3px solid red;
+		}
+	}
+
+	// @include media-query-size-x(xl unknown) {
+	// 	&-link {
+	// 		@include size(1024px 271px);
+	// 		background: url("/assets/banner/banner_desktop_live_1024x271.png") no-repeat center center;
+	// 	}
+	// }
+
+	// @include media-query-size-x(lg xl unknown) {
+	// 	&-link {
+	// 		@include size(1920px 509px);
+	// 		background: url("/assets/banner/banner_desktop_live_1920x509.png") no-repeat center center;
+	// 	}
+	// }
+
+	// @include media-query-size-x(lg xl unknown) {
+	// 	&-link {
+	// 		@include size(1344px 356px);
+	// 		background: url("/assets/banner/banner_desktop_live_1344x356.png") no-repeat center center;
+	// 	}
+	// }
+}

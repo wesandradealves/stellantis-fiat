@@ -1,0 +1,8 @@
+@function str-reverse($string) {
+	$reversed-string: '';
+	@for $id from 1 through str-length($string) {
+		$char: str-slice($string, $id, $id);
+		$reversed-string: "#{$char}#{$reversed-string}";
+	}
+	@return #{$reversed-string};
+}

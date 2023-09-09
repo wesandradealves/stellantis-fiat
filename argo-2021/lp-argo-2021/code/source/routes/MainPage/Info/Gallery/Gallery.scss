@@ -1,0 +1,152 @@
+.Gallery {
+	@include relative;
+	@include span(12/12);
+	@include size(null 100%);
+
+  background: _color('_016');
+
+	// POSTER
+	// ~~~~~~
+
+	&-poster {
+		@include relative;
+		@include span(12/12);
+		@include size(null percent(273/630 * 100));
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #f2f2f2;
+		border-radius: 0 0 0 0;
+	}
+
+	&-posterList {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterItem {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterImage {
+		@include size(100%);
+		@include margin(0);
+		object-fit: cover;
+	}
+
+	&-posterImage.is-simple {
+		@include size(100% 407px);
+	}
+
+	&-posterVideo {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-posterLoader {
+		// N/A yet.
+	}
+
+
+	// INFO
+	// ~~~~
+
+	&-info {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include padding(25px null);
+		overflow-y: auto;
+	}
+
+	&-infoTitle {
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-infoText {
+		@include font-responsive((14 / 375) * 100vw, 11px, 17px, 14px, 1.36px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+
+	// THUMB
+	// ~~~~~
+
+	&-thumb {
+		@include relative;
+		@include column(10/12, 1/12);
+		@include padding(em(18px) null null null);
+	}
+
+	&-thumbList {
+		@include relative;
+		@include column(12/12);
+		@include margin(18px null 26px null);
+	}
+
+	&-thumbItem {
+		@include relative;
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #dbdbdb;
+		border-radius: 0;
+	}
+
+	&-thumbLink {
+		text-decoration: none;
+	}
+
+	&-thumbImage {
+		@include size(100%);
+		@include aspect-ratio(100, 95);
+		filter: grayscale(100%);
+		transition: transform 0.6s $ease-out-quart, opacity 0.5s $ease-out-expo;
+		opacity: 0.5;
+		display: block;
+	}
+
+	&-thumbImage:hover,
+	&-thumbImage.is-active {
+		filter: grayscale(0);
+		transform: scale3d(1.1, 1.1, 1);
+		transform-origin: center center;
+		opacity: 1;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		&-poster {
+			@include span(10/12, 1/12);
+			@include size(null 310px);
+			border-radius: 0 0 0 0;
+		}
+
+		&-infoTitle {
+			@include font-responsive((25 / 1920) * 100vw, 11px, 28px, 28px, 1.27px);
+			@include margin(null null 11px null);
+		}
+
+		&-infoText {
+			@include font-responsive((21 / 1920) * 100vw, 11px, 24px, 21px, 9.33px);
+			@include margin(0 null null null);
+		}
+
+		&-thumb {
+			@include column(8/12, 2/12);
+		}
+
+		&-thumbImage {
+			@include aspect-ratio(70, 67);
+		}
+	}
+
+	@include media-query-size-x(xs sm md, landscape) {
+	}
+}

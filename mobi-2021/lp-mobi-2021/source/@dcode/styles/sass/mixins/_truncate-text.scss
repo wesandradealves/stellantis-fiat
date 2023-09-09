@@ -1,0 +1,9 @@
+@mixin truncate-text($overflow: ellipsis) {
+	@if not index(clip ellipsis string, $overflow) {
+		@warn "truncate-text only accepts 'clip, ellipsis, string' as shorthands";
+	} @else {
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: $overflow;
+	}
+}

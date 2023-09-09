@@ -1,0 +1,13 @@
+{
+	"private": true,
+	"scripts": {
+		"install": "cd code && yarn install",
+		"build": "cd code && yarn run build",
+		"dev": "cd code && yarn run dev",
+		"lint": "echo passed",
+		"start": "cd code && yarn start"
+	},
+	"dependencies": {
+		"yarn": "^1.22.19"
+	}
+}

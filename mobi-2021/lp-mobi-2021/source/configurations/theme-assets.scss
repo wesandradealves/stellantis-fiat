@@ -1,0 +1,39 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Assets
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$assets:
+(
+	icons:(
+		facebook: '/assets/icons/facebook.svg',
+		google: '/assets/icons/google.png',
+		hand: '/assets/icons/hand.png',
+		hand-2x: '/assets/icons/hand@2x.png',
+		hand-3x: '/assets/icons/hand@3x.png',
+		instagram: '/assets/icons/instagram.svg',
+		menu-open: '/assets/icons/menu-open.svg',
+		menu-close: '/assets/icons/menu-close.png',
+		menu-close-2x: '/assets/icons/menu-close@2x.png',
+		menu-close-3x: '/assets/icons/menu-close@3x.png',
+		twitter: '/assets/icons/twitter.svg',
+		wheel: '/assets/icons/wheel.svg',
+		youtube: '/assets/icons/youtube.svg',
+	),
+
+	logos:(
+		fiat: '/assets/logos/fiat.svg',
+		ibama: '/assets/logos/logo-ibama.png',
+		ibama-2x: '/assets/logos/logo-ibama@2x.png',
+		ibama-3x: '/assets/logos/logo-ibama@3x.png',
+	),
+
+	textures:(
+		transition-1: '/assets/textures/transition/transition-1.png',
+		transition-2: '/assets/textures/transition/transition-2.png',
+		transition-3: '/assets/textures/transition/transition-3.png',
+		transition-4: '/assets/textures/transition/transition-4.png',
+		transition-5: '/assets/textures/transition/transition-5.png',
+		transition-6: '/assets/textures/transition/transition-6.png',
+	),
+);

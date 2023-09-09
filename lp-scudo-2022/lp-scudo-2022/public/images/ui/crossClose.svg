@@ -1,0 +1,25 @@
+<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10.032"
+            height="9.98"
+            viewBox="0 0 10.032 9.98"
+          >
+            <g
+              transform="translate(5.118 -8.735) rotate(45)"
+            >
+              <line
+                y2="12"
+                transform="translate(9.614 3.853)"
+                fill="none"
+                stroke="#a31345"
+                strokeWidth="2"
+              />
+              <line
+                y2="12"
+                transform="translate(15.651 9.702) rotate(90)"
+                fill="none"
+                stroke="#a31345"
+                strokeWidth="2"
+              />
+            </g>
+          </svg>

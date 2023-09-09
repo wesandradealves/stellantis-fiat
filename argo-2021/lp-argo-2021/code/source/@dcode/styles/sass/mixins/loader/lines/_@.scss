@@ -1,0 +1,139 @@
+@import '../label/@';
+
+//
+// # Loader
+// >
+//
+// ## Usage:
+//
+// ```scss
+// .Loader {
+// 	@include Loader(
+//		$lineColors: (#111, #FF3937, #E8AB3F),
+//		$lineWidth: 170px,
+//		$textAlign: right,
+// 	);
+// }
+// ```
+//
+// ```html
+// <body class="is-loading">
+// 	<!-- Loader -->
+// 	<div class="Loader" data-ui="loader-lines">
+// 		<div class="Loader-backdrop"></div>
+// 		<div class="Loader-element">
+// 			<div class="Loader-lines">
+// 				<div class="Loader-line"></div>
+// 				<div class="Loader-line"></div>
+// 				<div class="Loader-line"></div>
+// 			</div>
+// 			<div class="Loader-label">LOADING</div>
+// 		</div>
+// 	</div>
+// </body>
+// ```
+//
+@mixin LoaderLines(
+	$lineColors: (#fff, #fff, #fff),
+	$lineWidth: 70px,
+	$lineHeight: 10px,
+	$lineGutter: 2px,
+	$lineLength: length($lineColors),
+	$textAlign: left,
+	$fontSize: 16px,
+	$textColor: #fff,
+	$backdropColor: rgba(255, 255, 255, 0.9),
+	$width: $lineWidth,
+	$height: (($lineHeight + $lineGutter) * $lineLength) - $lineGutter,
+	$name: null,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Inheritance ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include LoaderLabel($backdropColor, $textColor, $textAlign, $fontSize, $width, $height, $name);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Animations ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@keyframes LoaderLineFx {
+		0% {
+			clip: rect(0, 0, $lineHeight * 2, 0);
+		}
+		30% {
+			clip: rect(0, $lineWidth, $lineHeight * 2, 0);
+		}
+		50% {
+			clip: rect(0, $lineWidth, $lineHeight * 2, 0);
+		}
+		80% {
+			clip: rect(0, $lineWidth, $lineHeight * 2, $lineWidth);
+		}
+		100% {
+			clip: rect(0, $lineWidth, $lineHeight * 2, $lineWidth);
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#{$name}-element {
+		transition: transform 700ms $ease-out-quart 0ms, visibility 700ms ease 0ms, opacity 300ms $ease-out-cubic 0ms;
+		transform: translateY(50px);
+	}
+
+	#{$name}-label {
+		top: initial;
+		transform: translateY(-63px);
+		margin-top: 10px;
+	}
+
+	#{$name}-lines {
+		width: $lineWidth;
+		height: ((($lineHeight + $lineGutter) * $lineLength) - $lineGutter);
+	}
+
+	#{$name}-line {
+		@include absolute;
+		@include size($lineWidth $lineHeight);
+		clip: rect(0, 0, $lineHeight * 2, 0);
+		@for $id from 1 through $lineLength {
+			&:nth-child(#{$id}) {
+				transition: transform (0s + (($id - 1) + .2)) ease 0;
+				transform: translateY(-33px);
+			}
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@at-root .is-loading #{$name} {
+		#{$name}-label {
+			transform: initial;
+		}
+
+		#{$name}-element {
+			transform: initial;
+		}
+
+		#{$name}-line {
+			@for $id from 1 through $lineLength {
+				&:nth-child(#{$id}) {
+					transform: translateY(0);
+					top: (($id - 1) * ($lineHeight + $lineGutter));
+					animation: LoaderLineFx 3s $ease-in-out-quart (0s + (($id - 1) * 0.25)) infinite;
+					background-color: nth($lineColors, $id);
+				}
+			}
+		}
+	}
+}

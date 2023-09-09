@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'futurabt-extra-black';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.eot');
+	src: local('FuturaBT ExtraBlack'), local('FuturaBTExtraBlack'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.svg#FuturaBTExtraBlack') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}

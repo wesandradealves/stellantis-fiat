@@ -1,0 +1,83 @@
+@import "../functions/get-layout-direction";
+@import "../functions/opposite-direction";
+@import "../functions/get-column";
+@import "../functions/percent";
+@import "../methods/_layout";
+
+@mixin column(
+	$ratios: 1,
+	$offset: 0,
+	$cycle: 0,
+	$gutter: _layout('grid.gutterWidth') or 1%,
+	$clearfix: true,
+	$nth: _layout('grid.nth') or child,
+	$important: false) {
+	$side: get-layout-direction();
+	$opposite-side: opposite-direction($side);
+	$column-widths: get-column($ratios, $gutter);
+	$margin-last: 0;
+	$margin-l: $margin-last;
+	$margin-r: nth($column-widths, 2);
+	$nth-selector: nth-child;
+
+	@if $nth == type {
+		$nth-selector: nth-of-type;
+	}
+
+	@if $offset != 0 {
+		@if $offset < 0 {
+			$offset: $offset * -1;
+			$offset: nth(get-column($offset, nth($column-widths, 2)), 1);
+			$margin-last: $offset + nth($column-widths, 2) * 2;
+			$margin-r: $margin-last;
+		} @else {
+			$offset: nth(get-column($offset, nth($column-widths, 2)), 1);
+			$margin-l: $offset + nth($column-widths, 2);
+		}
+	}
+
+	@if $clearfix {
+		@include clearfix;
+	}
+
+	$column-widths: percent(nth($column-widths, 1));
+	$margin-l: percent($margin-l);
+	$margin-r: percent($margin-r);
+
+	@if $important {
+		$column-widths: $column-widths!important;
+		$margin-l: $margin-l!important;
+		$margin-r: $margin-r!important;
+	}
+
+	width: $column-widths;
+	float: $side;
+	clear: none;
+	text-align: inherit;
+
+	margin: {
+		#{$side}: $margin-l;
+		#{$opposite-side}: $margin-r;
+	};
+
+	@if $cycle != 0 {
+		&:#{$nth-selector}(n) {
+			margin-#{opposite-direction($side)}: $margin-r;
+			float: $side;
+			clear: none;
+		}
+
+		&:#{$nth-selector}(#{$cycle}n) {
+			margin-#{opposite-direction($side)}: percent($margin-last);
+			float: opposite-direction($side);
+		}
+
+		&:#{$nth-selector}(#{$cycle}n + 1) {
+			clear: both;
+		}
+	} @else {
+		&:last-child {
+			margin-#{opposite-direction($side)}: percent($margin-last);
+		}
+	}
+}

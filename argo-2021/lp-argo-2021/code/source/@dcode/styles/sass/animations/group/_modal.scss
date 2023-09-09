@@ -1,0 +1,61 @@
+@import "../easing";
+
+// Keyframes
+// ------------------------------------------------------------------------
+@keyframes modalTransitionIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9) translateY(-20px) perspective(600px) rotateX(10deg);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0) perspective(600px) rotateX(0);
+	}
+}
+
+@keyframes modalTransitionOut {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+}
+
+// Classes
+// ------------------------------------------------------------------------
+.Modal {
+	$ref: &;
+
+	&In {
+	}
+
+	&Out {
+	}
+
+	&-appear {
+	}
+
+	&-appear-active {
+	}
+
+	&-enter {
+	}
+
+	&-enter-active {
+	}
+
+	&-enter-done {
+	}
+
+	&-exit {
+	}
+
+	&-exit-active {
+	}
+
+	&-exit-done {
+	}
+}

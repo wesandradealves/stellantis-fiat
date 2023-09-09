@@ -1,0 +1,5 @@
+@import "../methods/_layout";
+
+@mixin pad($pad: _layout('grid.marginWidth') or 2.3%) {
+  padding: { left: $pad; right: $pad; };
+}

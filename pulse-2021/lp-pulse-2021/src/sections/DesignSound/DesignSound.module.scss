@@ -1,0 +1,102 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+  min-height: 547px;
+  background-color: $background-blue;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 472px;
+    padding: calc(#{$header-size} + 14px) #{$section-horizontal-padding-desktop};
+
+    h1 {
+      align-items: flex-start;
+    }
+    p {
+      text-align: left;
+    }
+  }
+  h2 {
+    font-size: toRem(36);
+    line-height: 3rem;
+    margin-bottom: toRem(20);
+    text-align: center;
+    font-weight: $font-weight-bold;
+
+    @include desktop {
+      text-align: left;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.spacer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: $min-mobile-height;
+  max-height: 580px;
+  padding-top: 50px;
+  @include desktop {
+    min-height: 350px;
+    max-height: 400px;
+
+    padding: 2rem 0;
+    align-items: flex-start;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 550px;
+    }
+  }
+}
+
+.button {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+  > div {
+    padding: toRem(10) toRem(24) !important;
+  }
+  p {
+    font-size: toRem(21) !important;
+  }
+
+  @include desktop {
+    margin-left: 0;
+  }
+}
+
+.limiter {
+  position: relative;
+  padding: 0 #{$section-horizontal-padding-desktop};
+
+  @include desktop {
+    position: unset;
+    padding: 0;
+  }
+}
+
+.headline {
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 600;
+  color: #FF1431;
+
+  span{
+  }
+
+  @include desktop {
+    text-align: left;
+    font-size: clamp(1.6rem, 2vw, 1.9rem);
+    margin-bottom: toRem(20);
+  }
+}

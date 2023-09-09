@@ -1,0 +1,12 @@
+#!/bin/bash
+#.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#|
+#| URL: http://git.dcodehom.com.br/dcode/dotfiles
+#| Title: Project Deploy Pack
+#| Usage: sh run
+#| Copyright: 2019 Adrian C. Miranda
+#| License: Apache License
+#| Version: 1.0.0
+#|
+#'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./code/bin/run "$@";

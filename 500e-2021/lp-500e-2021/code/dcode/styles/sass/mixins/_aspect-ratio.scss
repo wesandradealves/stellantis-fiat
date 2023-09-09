@@ -1,0 +1,26 @@
+@import "size";
+@import "absolute";
+@import "relative";
+@import "../functions/percent";
+
+@mixin aspect-ratio($width, $height: $width, $childSelector: '*', $direction: y) {
+	@include relative;
+
+	&::before {
+		display: block;
+		@if index(y Y v V vertical, $direction) {
+			width: 100%;
+			padding-top: percentage($height / $width);
+		} @else {
+			width: 100%;
+			padding-top: percentage($height / $width);
+		}
+		content: " ";
+	}
+
+	@if type-of($childSelector) == string {
+		> #{$childSelector} {
+			@include absolute(0);
+		}
+	}
+}

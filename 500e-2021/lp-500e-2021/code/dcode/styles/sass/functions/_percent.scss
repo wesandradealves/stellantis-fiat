@@ -1,0 +1,6 @@
+@import "strip-units";
+
+@function percent($value) {
+  $value: strip-units($value);
+  @return $value * 1%;
+}

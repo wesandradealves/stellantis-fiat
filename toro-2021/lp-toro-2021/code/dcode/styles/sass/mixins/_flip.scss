@@ -1,0 +1,13 @@
+@mixin flip($direction: null) {
+	@if index(y Y v V vertical, $direction) {
+		transform: scaleY(-1);
+		filter: FlipV;
+		-ms-filter: "FlipV";
+	} @else if index(x X h H horizontal, $direction) {
+		transform: scaleX(-1);
+		filter: FlipH;
+		-ms-filter: "FlipH";
+	} @else {
+		transform: scale(-1, -1);
+	}
+}

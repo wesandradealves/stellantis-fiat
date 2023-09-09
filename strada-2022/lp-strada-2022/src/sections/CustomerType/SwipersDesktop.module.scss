@@ -1,0 +1,157 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.nextTab {
+  margin-left: 16px;
+  color: $text-violetRed;
+}
+
+.slideContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 350px;
+
+  @include desktop {
+    min-height: 530px;
+  }
+  @include xl {
+    min-height: 450px;
+  }
+}
+
+.slideImageContainer {
+  width: 100%;
+  height: 100%;
+  .slideImage {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// .fullBgImage {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100% !important;
+//   height: 100% !important;
+//   object-fit: cover;
+//   z-index: 0;
+//   opacity: 0.08;
+
+//   picture,
+//   img {
+//     width: 100% !important;
+//     height: 100% !important;
+//     object-fit: cover;
+//   }
+// }
+
+.swiperSlide {
+  padding: 0 #{$section-horizontal-padding-desktop};
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: #{$section-horizontal-padding-desktop};
+  min-width: 350px;
+  z-index: 4;
+
+  .arrows {
+    padding-bottom: 4px;
+    display: flex;
+
+    button:first-of-type {
+      margin-right: 8px;
+    }
+  }
+
+  .bullets {
+    margin-left: -10px;
+    margin-bottom: 28px;
+  }
+  .bullet {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      @include bulletActive($secondary);
+    }
+    @include desktop {
+      &:hover {
+        @include bulletActive($secondary);
+      }
+    }
+    span {
+      transition: all $transition-time-quick $transition-easing;
+      display: block;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.slideDetails {
+  width: 40%;
+  margin-right: toRem(48);
+  flex-shrink: 0;
+  line-height: 1.4;
+  
+  @include slideDetailSize;
+
+  h3 {
+    color: $secondary;
+    font-weight: 500;
+    font-size: toRem(18);
+  }
+
+  h2 {
+    text-align: left !important;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: clamp(#{toRem(26)}, 2vw, #{toRem(30)});
+    font-weight: bolder !important;
+    margin: toRem(12) 0;
+    padding: 0 !important;
+
+    @include maxWidth {
+      width: 70%;
+    }
+  }
+
+  .slideDescription {
+    margin-top: toRem(20);
+    font-size: toRem(16);
+    font-weight: 400;
+    .textDescription {
+      margin-bottom: toRem(20);
+    }
+    .descripitionButton {
+      margin-left: -7px;
+      &:hover div {
+        transition: unset;
+        background-color: $background-primary;
+        color: $text-primary;
+        p,
+        svg {
+          background-color: $background-primary;
+          color: $text-primary;
+        }
+      }
+    }
+  }
+}

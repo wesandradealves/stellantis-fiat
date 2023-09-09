@@ -1,0 +1,7 @@
+@import "../functions/get-span";
+@import "../functions/percent";
+
+@mixin span-width($ratio: 1){
+  $span-width: get-span($ratio);
+  width: percent($span-width);
+}

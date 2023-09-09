@@ -1,0 +1,257 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: 100%;
+  position: relative;
+  max-height: auto;
+
+  .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .containerTitle {
+      width: 55%;
+      position: relative;
+      margin-bottom: 5px;
+
+      h2 {
+        font-family: var.$bold;
+        font-size: 40px;
+        line-height: 46px;
+        font-weight: bold;
+
+        &.title {
+          color: var.$yellow;
+          text-shadow: 1px 0 0 var.$color--primary, -1px 0 0 var.$color--primary,
+            0 1px 0 var.$color--primary, 0 -1px 0 var.$color--primary,
+            1px 1px var.$color--primary, -1px -1px 0 var.$color--primary,
+            1px -1px 0 var.$color--primary, -1px 1px 0 var.$color--primary;
+          margin-bottom: 15px;
+          position: relative;
+          z-index: 2;
+        }
+
+        &.shadow {
+          font-size: 40px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: var.$cyan;
+          z-index: 1;
+          text-shadow: 4px 3px 0px var.$cyan;
+
+          span {
+            opacity: 0;
+          }
+        }
+
+        span {
+          font-size: 33px;
+          color: var.$white;
+          line-height: 48px;
+          display: block;
+          font-weight: 500;
+        }
+      }
+    }
+
+    p {
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      z-index: 1;
+      font-family: var.$regular;
+      font-size: 16px;
+      line-height: 22px;
+      color: var.$white;
+
+      strong {
+        color: var.$yellow;
+      }
+    }
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .container {
+    .content {
+      .containerTitle {
+        width: 72%;
+        margin-top: -70px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  $ww: 1360;
+
+  .container {
+    .content {
+      padding: 0 140px;
+      justify-content: flex-start;
+      margin-top: 60px;
+
+      .containerTitle {
+        width: 100%;
+        margin-bottom: 5px;
+
+        h2 {
+          font-size: 38px;
+          line-height: 46px;
+
+          &.title {
+            margin-bottom: 15px;
+          }
+
+          &.shadow {
+            font-size: 38px;
+            text-shadow: 4px 3px 0px var.$pink;
+          }
+
+          span {
+            font-size: 33px;
+            line-height: 48px;
+          }
+        }
+      }
+
+      p {
+        max-width: 400px;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    .content {
+      .containerTitle {
+        width: 70%;
+        margin-top: 0;
+
+        h2 {
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    .content {
+      .containerTitle {
+        h2 {
+          font-size: 30px;
+          line-height: 38px;
+
+          &.title {
+            margin-bottom: 10px;
+          }
+
+          &.shadow {
+            font-size: 30px;
+            text-shadow: 4px 3px 0px var.$pink;
+          }
+
+          span {
+            font-size: 33px;
+            line-height: 48px;
+          }
+        }
+      }
+
+      p {
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding-top: 44px;
+
+    .content {
+      margin-top: 41px;
+      // margin-left: 55px;
+      justify-content: flex-start;
+
+      .containerTitle {
+        h2 {
+          br {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    .content {
+      padding: 60px 20px 20px 40px;
+      justify-content: flex-start;
+
+      .containerTitle {
+        margin-bottom: 5px;
+
+        h2 {
+          font-size: 35px;
+          line-height: 38px;
+
+          &.title {
+            margin-bottom: 15px;
+          }
+
+          &.shadow {
+            font-size: 35px;
+            text-shadow: 4px 3px 0px var.$cyan;
+          }
+
+          span {
+            font-size: 27px;
+            line-height: 39px;
+          }
+        }
+      }
+
+      p {
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 22px;
+        padding-right: 50px;
+      }
+    }
+  }
+}

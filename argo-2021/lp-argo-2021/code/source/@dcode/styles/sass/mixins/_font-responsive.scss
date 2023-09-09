@@ -1,0 +1,38 @@
+@mixin font-responsive($responsive, $min, $max: false, $fallback: false, $lineHeightDiff: null) {
+	$responsiveUnitless: $responsive / ($responsive - $responsive + 1);
+	$dimension: if(unit($responsive) == vh, height, width);
+	$minBreakpoint: $min / $responsiveUnitless * 100;
+	$responsiveLH: $responsive;
+	$fallbackLH: $fallback;
+	$minLH: $min;
+	$maxLH: $max;
+	@media (max-#{$dimension}: #{$minBreakpoint}) {
+		font-size: $min;
+		@if type-of($lineHeightDiff) == number {
+			$minLH: calc(#{$min} + #{$lineHeightDiff});
+		}
+		line-height: $minLH;
+	}
+	@if $max {
+		$max-breakpoint: $max / $responsiveUnitless * 100;
+		@media (min-#{$dimension}: #{$max-breakpoint}) {
+			font-size: $max;
+			@if type-of($lineHeightDiff) == number {
+				$maxLH: calc(#{$max} + #{$lineHeightDiff});
+			}
+			line-height: $maxLH;
+		}
+	}
+	@if $fallback {
+		font-size: $fallback;
+		@if type-of($lineHeightDiff) == number {
+			$fallbackLH: calc(#{$fallback} + #{$lineHeightDiff});
+		}
+		line-height: $fallbackLH;
+	}
+	font-size: $responsive;
+	@if type-of($lineHeightDiff) == number {
+		$responsiveLH: calc(#{$responsive} + #{$lineHeightDiff});
+	}
+	line-height: $responsiveLH;
+}

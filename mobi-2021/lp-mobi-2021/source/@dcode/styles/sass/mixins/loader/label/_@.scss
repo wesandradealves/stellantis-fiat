@@ -1,0 +1,100 @@
+@import '../base/@';
+
+//
+// # Loader
+// >
+//
+// ## Usage:
+//
+// ```scss
+// .Loader {
+// 	@include LoaderLabel(
+//		$backdropColor: rgba(#fff, 0.5),
+//		$textColor: red,
+//		$textAlign: right,
+// 	);
+// }
+// ```
+//
+// ```html
+// <body class="is-loading">
+// 	<!-- Loader -->
+// 	<div class="Loader" data-ui="loader-label">
+// 		<div class="Loader-backdrop"></div>
+// 		<div class="Loader-element">
+// 			<div class="Loader-label">LOADING</div>
+// 		</div>
+// 	</div>
+// </body>
+// ```
+//
+@mixin LoaderLabel(
+	$backdropColor: rgba(0, 0, 0, 0.9),
+	$textColor: #fff,
+	$textAlign: center,
+	$fontSize: 16px,
+	$width: auto,
+	$height: auto,
+	$name: null,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Inheritance ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include LoaderBase(
+		$backdropColor,
+		$width,
+		$height,
+		$name,
+	);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Animations ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@keyframes LoaderLabelFx {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#{$name}-label {
+		@include size(100% null);
+		@include absolute(50% null null null);
+		transition: transform 700ms $ease-out-quart 0ms, visibility 300ms ease 0ms, opacity 300ms $ease-out-cubic 0ms;
+		transform: translateY(70%);
+		visibility: hidden;
+		opacity: 0;
+		color: $textColor;
+		text-align: $textAlign;
+		font-size: $fontSize;
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@at-root .is-loading #{$name} {
+		#{$name}-label {
+			transform: initial;
+			visibility: visible;
+			opacity: 1;
+			animation: LoaderLabelFx 1.5s $ease-out-sine 1.5s infinite;
+		}
+	}
+}

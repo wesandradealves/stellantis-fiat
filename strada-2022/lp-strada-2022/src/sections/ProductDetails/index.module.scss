@@ -1,0 +1,34 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: $background-white;
+  h2 {
+    padding-top: toRem(48);
+    text-align: center;
+    font-size: clamp(#{toRem(28)}, 2.6vw, #{toRem(32)});
+    font-weight: $font-weight-semibold;
+    color: $primary;
+  }
+  @include desktop {
+    padding-bottom: toRem(65) !important;
+  }
+}
+
+.scrollCta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $primary;
+  padding-bottom: toRem(30);
+  h2 {
+    width: 90%;
+    color: $text-violetRed;
+    text-align: center;
+    padding-bottom: toRem(10);
+  }
+  svg {
+    @include animationMargin;
+    color: $text-violetRed;
+  }
+}

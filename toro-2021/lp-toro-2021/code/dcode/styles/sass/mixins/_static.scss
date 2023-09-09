@@ -1,0 +1,5 @@
+@import "position";
+
+@mixin static($args: null) {
+	@include position(static, $args);
+}

@@ -1,0 +1,98 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: mixin.calcSizeVw(120, $ww);
+  height: mixin.calcSizeVw(120, $ww);
+  position: relative;
+  outline: 1px solid var.$yellow;
+  margin-right: mixin.calcSizeVw(10, $ww);
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: url(../../assets/mask-highlight.png) center no-repeat;
+    background-size: cover;
+  }
+
+  &.active {
+    &::before {
+      box-shadow: inset 0px 0px 0px 2px var.$pink;
+    }
+  }
+
+  &:hover,
+  &.active {
+    outline: 1px solid var.$cyan;
+
+    &::before {
+      background-image: url(../../assets/mask-highlight-active.png);
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: mixin.calcSizeVw(12, $ww);
+    color: var.$white;
+    font-weight: bold;
+    line-height: mixin.calcSizeVw(13, $ww);
+    z-index: 1;
+    padding: mixin.calcSizeVw(7, $ww) mixin.calcSizeVw(9, $ww);
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  $ww: 1660;
+
+  .container {
+    width: mixin.calcSizeVw(120, $ww);
+    height: mixin.calcSizeVw(120, $ww);
+    margin-right: mixin.calcSizeVw(10, $ww);
+
+    p {
+      font-size: mixin.calcSizeVw(12, $ww);
+      line-height: mixin.calcSizeVw(13, $ww);
+      padding: mixin.calcSizeVw(7, $ww) mixin.calcSizeVw(9, $ww);
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    width: calc(100% - 10px);
+    margin-right: 5px;
+    height: 2px;
+    background-color: var.$gray;
+    outline-color: transparent !important;
+
+    &:before {
+      display: none;
+    }
+
+    &.active {
+      background-color: var.$yellow;
+    }
+
+    span,
+    p,
+    img {
+      display: none !important;
+    }
+  }
+}

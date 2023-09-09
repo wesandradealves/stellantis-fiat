@@ -1,0 +1,48 @@
+import scssStyles from '@/prox/utils/scssStyles';
+import {FC, MouseEventHandler} from 'react';
+import {Arrow} from '../SvgComponents';
+import styles from './ArrowButton.module.scss';
+
+interface ArrowButtonProps {
+  previous?: boolean;
+  handleClick: MouseEventHandler<HTMLButtonElement>;
+  className?: string;
+  secondary?: boolean;
+  light?: boolean;
+  large?: boolean;
+  disabled?: boolean;
+  title: string;
+  color?: string;
+}
+
+const ArrowButton: FC<ArrowButtonProps> = ({
+                                             previous = false,
+                                             className = '',
+                                             secondary = false,
+                                             disabled = false,
+                                             light = false,
+                                             large = false,
+                                             title,
+                                             handleClick,
+                                             color
+                                           }) => {
+  return (
+      <button
+          title={title}
+          className={scssStyles([
+            styles.button,
+            previous ? styles.previous : styles.next,
+            className,
+            secondary ? styles.secondary : '',
+            light ? styles.light : '',
+            large ? styles.large : '',
+            disabled ? styles.disabled : '',
+          ])}
+          onClick={handleClick}
+      >
+        <Arrow title={title} color={color}/>
+      </button>
+  )
+};
+
+export default ArrowButton;

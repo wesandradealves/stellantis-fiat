@@ -1,0 +1,94 @@
+$fa-font-path: 'font-awesome/fonts';
+// @import 'font-awesome/scss/font-awesome.scss';
+// @import 'react-id-swiper/lib/styles/scss/swiper.scss'; // react-id-swiper@2.3.2 swiper@4.5.0
+@import 'swiper/swiper.scss'; // react-id-swiper@4.0.0 swiper@6.3.3
+
+html,
+body,
+[data-ui-stage] {
+	@include size(100%);
+	@include min-size(null 100%);
+}
+
+body {
+	@include margin(0);
+	@include padding(0);
+	font-family: sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	$backgroundColor: _('App.backgroundColor');
+	@if $backgroundColor == transparent {
+		@include bg-checker($size: 10px);
+	} @else if $backgroundColor {
+		background-color: $backgroundColor;
+	}
+}
+
+[data-ui-stage],
+[data-ui-app],
+[data-ui-section],
+[data-ui-anchor] {
+	@include relative;
+	@include span(12/12);
+}
+
+[data-ui-app] {
+	visibility: visible;
+	opacity: 1;
+}
+
+
+// STATES
+// ~~~~~~
+
+body.is-loading,
+body.is-form-open,
+body.is-locked {
+	@include overflow(hidden);
+}
+
+body.is-rendering [data-ui-app],
+body.is-loading [data-ui-app] {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.is-inactive {
+	pointer-events: none !important;
+	cursor: not-allowed !important;
+	opacity: 0.2!important;
+	transition: opacity 0.3s linear;
+}
+
+// DEVELOPMENT
+// ~~~~~~~~~~~
+
+@if $VERBOSE {
+	@include debug(
+		'#{js('REACT_APP_NAME')}',
+		'$NODE_ENV: #{$NODE_ENV}',
+		'$VERBOSE: #{$VERBOSE}',
+		'$PUBLIC_URL: #{$PUBLIC_URL}',
+		'$HTTPS: #{$HTTPS}',
+	);
+
+	[data-ui-anchor]::before {
+		@include absolute(0 null null 0);
+		@include size(100% null);
+		@include padding(0.8em null);
+		@include font-responsive((11 / 375) * 100vw, 10px, 14px, 11px, 1.33px);
+		border-top: 1px solid rgba(#ff0000, 0.8);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		border: 0;
+		outline: 0;
+		background-color: rgba(random-color(), 0.8);
+		text-shadow: 0 1px rgba(#ffffff, 0.3) !important;
+		pointer-events: none;
+		content: "[data-ui-anchor='" attr(id) "']";
+		color: rgba(#000000, 1);
+		text-align: center;
+		z-index: 1;
+	}
+}

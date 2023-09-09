@@ -1,0 +1,318 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: 100%;
+  position: relative;
+  margin-bottom: mixin.calcSizeVw(20, $ww);
+
+  label {
+    width: 100%;
+    display: inline-block;
+    font-size: mixin.calcSizeVw(14, $ww);
+    font-weight: bold;
+    line-height: mixin.calcSizeVw(20, $ww);
+  }
+
+  input {
+    margin-top: mixin.calcSizeVw(5, $ww);
+    width: 100%;
+    height: mixin.calcSizeVw(40, $ww);
+    background-color: var.$white;
+    border: 1px solid var.$color--primary;
+    padding: mixin.calcSizeVw(10, $ww);
+    font-size: mixin.calcSizeVw(12, $ww);
+    color: var.$color--primary;
+    font-weight: bold;
+    -webkit-appearance: none;
+    border-radius: 0;
+
+    &::-webkit-input-placeholder {
+      color: var.$color--primary;
+      font-size: mixin.calcSizeVw(12, $ww);
+    }
+
+    &::-moz-placeholder {
+      color: var.$color--primary;
+      font-size: mixin.calcSizeVw(12, $ww);
+    }
+
+    &:-ms-input-placeholder {
+      color: var.$color--primary;
+      font-size: mixin.calcSizeVw(12, $ww);
+    }
+
+    &:-moz-placeholder {
+      color: var.$color--primary;
+      font-size: mixin.calcSizeVw(12, $ww);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &.small {
+    width: mixin.calcSizeVw(47, $ww);
+    margin-right: mixin.calcSizeVw(5, $ww);
+  }
+
+  &.error {
+    input {
+      border-color: var.$red;
+      outline: 2px solid var.$red;
+      color: var.$red;
+
+      &::-webkit-input-placeholder {
+        color: var.$red;
+      }
+
+      &::-moz-placeholder {
+        color: var.$red;
+      }
+
+      &:-ms-input-placeholder {
+        color: var.$red;
+      }
+
+      &:-moz-placeholder {
+        color: var.$red;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  $ww: 1360;
+
+  .container {
+    width: 100%;
+    position: relative;
+    margin-bottom: mixin.calcSizeVw(20, $ww);
+
+    label {
+      width: 100%;
+      display: inline-block;
+      font-size: mixin.calcSizeVw(14, $ww);
+      font-weight: bold;
+      line-height: mixin.calcSizeVw(20, $ww);
+    }
+
+    input {
+      margin-top: mixin.calcSizeVw(5, $ww);
+      width: 100%;
+      height: mixin.calcSizeVw(40, $ww);
+      background-color: var.$white;
+      border: 1px solid var.$color--primary;
+      padding: mixin.calcSizeVw(10, $ww);
+      font-size: mixin.calcSizeVw(12, $ww);
+      color: var.$color--primary;
+      font-weight: bold;
+
+      &::-webkit-input-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &::-moz-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:-ms-input-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:-moz-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &.small {
+      width: mixin.calcSizeVw(47, $ww);
+      margin-right: mixin.calcSizeVw(5, $ww);
+    }
+
+    &.error {
+      input {
+        border-color: var.$red;
+        outline: 2px solid var.$red;
+        color: var.$red;
+
+        &::-webkit-input-placeholder {
+          color: var.$red;
+        }
+
+        &::-moz-placeholder {
+          color: var.$red;
+        }
+
+        &:-ms-input-placeholder {
+          color: var.$red;
+        }
+
+        &:-moz-placeholder {
+          color: var.$red;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  .container {
+    width: 100%;
+    position: relative;
+    margin-bottom: mixin.calcSizeVw(20, $ww);
+
+    label {
+      width: 100%;
+      display: inline-block;
+      font-size: mixin.calcSizeVw(14, $ww);
+      font-weight: bold;
+      line-height: mixin.calcSizeVw(20, $ww);
+    }
+
+    input {
+      margin-top: mixin.calcSizeVw(5, $ww);
+      width: 100%;
+      height: mixin.calcSizeVw(40, $ww);
+      background-color: var.$white;
+      border: 1px solid var.$color--primary;
+      padding: mixin.calcSizeVw(10, $ww);
+      font-size: mixin.calcSizeVw(12, $ww);
+      color: var.$color--primary;
+      font-weight: bold;
+
+      &::-webkit-input-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &::-moz-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:-ms-input-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:-moz-placeholder {
+        color: var.$color--primary;
+        font-size: mixin.calcSizeVw(12, $ww);
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &.small {
+      width: mixin.calcSizeVw(47, $ww);
+      margin-right: mixin.calcSizeVw(5, $ww);
+    }
+
+    &.error {
+      input {
+        border-color: var.$red;
+        outline: 2px solid var.$red;
+        color: var.$red;
+
+        &::-webkit-input-placeholder {
+          color: var.$red;
+        }
+
+        &::-moz-placeholder {
+          color: var.$red;
+        }
+
+        &:-ms-input-placeholder {
+          color: var.$red;
+        }
+
+        &:-moz-placeholder {
+          color: var.$red;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    input {
+      margin-top: 5px;
+      height: 40px;
+      padding: 10px;
+      font-size: 12px;
+
+      &::-webkit-input-placeholder {
+        font-size: 12px;
+      }
+
+      &::-moz-placeholder {
+        font-size: 12px;
+      }
+
+      &:-ms-input-placeholder {
+        font-size: 12px;
+      }
+
+      &:-moz-placeholder {
+        font-size: 12px;
+      }
+    }
+
+    &.small {
+      width: 50px;
+      margin-right: 5px;
+    }
+
+    &.error {
+      input {
+        border-color: var.$red;
+        outline: 2px solid var.$red;
+        color: var.$red;
+
+        &::-webkit-input-placeholder {
+          color: var.$red;
+          // font-size: 12px;
+        }
+
+        &::-moz-placeholder {
+          color: var.$red;
+          // font-size: 12px;
+        }
+
+        &:-ms-input-placeholder {
+          color: var.$red;
+          // font-size: 12px;
+        }
+
+        &:-moz-placeholder {
+          color: var.$red;
+          // font-size: 12px;
+        }
+      }
+    }
+  }
+}

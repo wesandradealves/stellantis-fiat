@@ -1,0 +1,106 @@
+@import "absolute";
+@import "relative";
+
+@mixin heading-sidelines($text-orientation: horizontal, $border: 2px, $margin: 2px, $childSelector: 'span') {
+	@if $text-orientation == horizontal {
+		line-height: 0.5;
+
+		> #{$childSelector} {
+			@include relative;
+			display: inline-block;
+
+			&::before,
+			&::after {
+				@include absolute;
+				@include size(100% null);
+				border-bottom: $border solid white;
+				content: " ";
+			}
+
+			&::before {
+				right: 100%;
+				margin-right: $margin;
+			}
+
+			&::after {
+				left: 100%;
+				margin-left: $margin;
+			}
+		}
+	} @else if $text-orientation == vertical {
+		line-height: 0.5;
+
+		> #{$childSelector} {
+			@include relative;
+			display: inline-block;
+			writing-mode: vertical-rl;
+
+			&::before,
+			&::after {
+				@include absolute(null null null 50%);
+				@include size(null 100%);
+				border-left: $border solid white;
+				content: " ";
+			}
+			&::before {
+				bottom: 100%;
+				margin-bottom: $margin;
+			}
+			&::after {
+				top: 100%;
+				margin-top: $margin;
+			}
+		}
+	} @else if $text-orientation == measure-horizontal {
+		line-height: 0.5;
+
+		> #{$childSelector} {
+			@include relative;
+			display: inline-block;
+
+			&::before,
+			&::after {
+				@include absolute;
+				@include size(null 100%);
+				border-left: $border solid white;
+				content: " ";
+			}
+
+			&::before {
+				top: 100%;
+				margin-top: $margin;
+			}
+
+			&::after {
+				bottom: 100%;
+				margin-bottom: $margin;
+			}
+		}
+	} @else if $text-orientation == measure-vertical {
+		line-height: 0.5;
+		writing-mode: vertical-rl;
+
+		> #{$childSelector} {
+			@include relative;
+			display: inline-block;
+
+			&::before,
+			&::after {
+				@include absolute;
+				@include size(100% null);
+				border-bottom: $border solid white;
+				content: " ";
+			}
+
+			&::before {
+				right: 100%;
+				margin-right: $margin;
+			}
+
+			&::after {
+				left: 100%;
+				margin-left: $margin;
+			}
+		}
+	}
+}

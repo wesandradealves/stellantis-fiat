@@ -1,0 +1,35 @@
+@mixin preload-image($preload: run) {
+	@if not variable-exists(preload-image-list) {
+		$preload-image-list: ()!global;
+	}
+	@if not variable-exists(preload-image-urls) {
+		$preload-image-urls: ()!global;
+	}
+	@if not variable-exists(preload-image-loaded) {
+		$preload-image-loaded: false!global;
+	}
+	@if $preload == run and not $preload-image-loaded {
+		$preload-image-loaded: true!global;
+		html:after {
+			content: '';
+			display: none;
+			background-image: $preload-image-urls;
+		}
+	} @else {
+		$preload-image-list: join($preload, $preload-image-list)!global;
+		$imageUrls: ();
+		@if length($preload-image-list) > 0 {
+			@for $i from 1 through length($preload-image-list) {
+				$imageUrl: nth($preload-image-list, $i);
+				$imageUrls: join(url("#{$imageUrl}"), $imageUrls);
+			}
+			$result: ();
+			@each $item in $imageUrls {
+				@if not index($result, $item) {
+					$result: append($result, $item, comma);
+				}
+			}
+			$preload-image-urls: $result!global;
+		}
+	}
+}

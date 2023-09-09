@@ -1,0 +1,276 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+@media only screen and (max-width: 2560px) {
+  .container {
+    .description {
+      width: calc(100% - 1000px);
+    }
+
+    .image {
+      width: 1000px;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  // min-height: 30vh;
+  height: 100%;
+  // display: inline-block;
+  overflow: hidden;
+  position: relative;
+  background-color: #3b369e;
+  padding: 50px 0;
+
+  .wrapper {
+    // display: flex;
+    // align-items: center;
+  }
+
+  .description {
+    // flex: 1 1 40.6667%;
+    // width: 40.6667%;
+    width: calc(100% - 880px);
+    float: left;
+    display: inline;
+
+    .containerTitle {
+      position: relative;
+    }
+
+    h2 {
+      font-family: var.$bold;
+      font-size: 64px;
+      line-height: 47px;
+      font-weight: bold;
+
+      span {
+        font-size: 35px;
+      }
+
+      &.title {
+        color: var.$yellow;
+        text-shadow: 1px 0 0 var.$color--primary, -1px 0 0 var.$color--primary,
+          0 1px 0 var.$color--primary, 0 -1px 0 var.$color--primary,
+          1px 1px var.$color--primary, -1px -1px 0 var.$color--primary,
+          1px -1px 0 var.$color--primary, -1px 1px 0 var.$color--primary;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+      }
+
+      &.shadow {
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        color: #25216f;
+        z-index: 0;
+      }
+    }
+
+    h3 {
+      font-family: var.$bold;
+      color: var.$white;
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: var.$regular;
+      color: var.$white;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+
+      strong {
+        font-family: var.$bold;
+        font-weight: bold;
+      }
+    }
+
+    .link {
+      margin-top: 2.5026vw;
+    }
+  }
+
+  .image {
+    // flex: 1 1 59.3333%;
+    // width: 59.3333%;
+    width: 880px;
+    float: left;
+    display: inline;
+
+    img {
+      width: 100% !important;
+      display: block !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1860px) {
+  .container {
+    padding: 60px 0 40px 0;
+
+    .wrapper {
+      padding-right: 60px;
+    }
+
+    .description {
+      // flex: 1 1 44.092%;
+    }
+
+    .image {
+      // flex: 1 1 55.9808%;
+      // margin-left: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1680px) {
+  .container {
+    .description {
+      width: calc(100% - 710px);
+    }
+
+    .image {
+      width: 710px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    .description {
+      width: calc(100% - 630px);
+    }
+
+    .image {
+      width: 630px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1260px) {
+  .container {
+    padding: 40px 0;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .description {
+      float: inherit;
+      // width: calc(100% - 550px);
+      width: inherit;
+      flex: 1 1 28.6041%;
+
+      h3 {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+
+        strong {
+          font-family: var.$bold;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .image {
+      width: inherit;
+      float: inherit;
+      flex: 1 1 72.6544%;
+      margin-left: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    .wrapper {
+      padding-left: 60px;
+    }
+
+    .description {
+      h3 {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+
+    .image {
+      flex: 1 1 57.6829%;
+      margin-left: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    padding: 0;
+
+    .wrapper {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .description {
+      width: 100%;
+      order: 1;
+      padding: 0 30px 30px 30px;
+      margin-right: 0;
+
+      h2 {
+        font-size: 64px;
+        line-height: 47px;
+        display: none;
+
+        span {
+          font-size: 35px;
+        }
+
+        &.title {
+          margin-bottom: 15px;
+        }
+
+        &.shadow {
+          top: 3px;
+          left: 4px;
+        }
+      }
+
+      h3 {
+        font-size: 24px;
+        line-height: 26px;
+        margin: 20px 0;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .image {
+      width: 100%;
+      order: 0;
+      margin: 10px 0;
+    }
+  }
+}

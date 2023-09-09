@@ -1,0 +1,41 @@
+@import "str-split";
+@import "number";
+
+@function map-get-deeply($map, $notation, $shouldWarn: true) {
+	$properties: str-split($notation, '.');
+	$lastProp: nth($properties, 1);
+	@each $prop, $value in $properties {
+		@if type-of($map) == 'map' {
+			@if not map-has-key($map, $prop) {
+				@if $shouldWarn {
+					@if $prop == $lastProp {
+						@warn 'The property `#{$prop}` does not exists at `$map`';
+					} @else {
+						@warn 'The property `#{$prop}` does not exists at `#{$lastProp}`';
+					}
+				}
+			}
+			@if $prop == $lastProp {
+				$lastProp: '#{$prop}';
+			} @else {
+				$lastProp: '#{$lastProp}.#{$prop}';
+			}
+			$map: map-get($map, $prop);
+		} @else if type-of($map) == 'list' {
+			$propName: nth($properties, length($properties));
+			$nodeName: nth($properties, length($properties) - 1);
+			$i: number($propName);
+			@if type-of($i) == 'number' {
+				@if $i > 0 and $i <= length($map) {
+					@return nth($map, $i);
+				}
+				@warn 'The property `#{$propName}` is out of range of (#{$map})';
+			} @else {
+				@warn 'The property `#{$propName}` is not defined at #{$nodeName}:(#{$map})';
+			}
+		} @else {
+			@warn '`#{$lastProp}` should be a map to access the property `#{$prop}`';
+		}
+	}
+	@return $map;
+}

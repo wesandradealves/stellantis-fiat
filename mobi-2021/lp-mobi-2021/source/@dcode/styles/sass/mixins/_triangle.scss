@@ -1,0 +1,22 @@
+@import "size";
+@import "absolute";
+@import "../functions/opposite-direction";
+
+// @see https://codepen.io/saeedalipoor/pen/NPyeog
+@mixin triangle($direction, $offset, $color: #fff, $size: 0.5em) {
+	@if not index(top right bottom left, $direction) {
+		@warn "Direction must be one of top, right, bottom or left.";
+	} @else {
+		@include absolute($offset);
+		@include size(0);
+		border-#{opposite-direction($direction)}: $size * 1.2 solid $color;
+		$perpendicularBorders: $size solid transparent;
+		@if $direction == top or $direction == bottom {
+			border-left: $perpendicularBorders;
+			border-right: $perpendicularBorders;
+		} @else if $direction == right or $direction == left {
+			border-bottom: $perpendicularBorders;
+			border-top: $perpendicularBorders;
+		}
+	}
+}

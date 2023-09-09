@@ -1,0 +1,5 @@
+@import "position";
+
+@mixin fixed($args: null) {
+	@include position(fixed, $args);
+}

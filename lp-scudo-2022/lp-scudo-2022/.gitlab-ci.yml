@@ -1,0 +1,46 @@
+image: 253882794486.dkr.ecr.us-east-1.amazonaws.com/build-tools:da5ef69a-java-8
+
+include:
+  - project: 'fca/architecture/IaC/cloud-digital/common-ci'
+    file: 'job-commons.yml'
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ""
+  REGION: us-east-1
+  
+services:
+  - docker:stable-dind
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  - $(aws ecr get-login --no-include-email --region "${AWS_REGION}")
+  - export IMAGE_TAG="$(echo $CI_COMMIT_SHA | head -c 8)"  
+  - VERSION=$(date +"%Y%m%d%H%M")
+  - echo $IMAGE_TAG $CI_COMMIT_REF_NAME $VERSION
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - docker build -t fiatstrada .
+    - docker tag fiatstrada:latest $REPOSITORY_URL:$IMAGE_TAG
+    - docker push $REPOSITORY_URL:$IMAGE_TAG
+
+deploy:
+    extends: .deploy-common
+    script:
+        - chmod +x version-update.sh
+        - ./version-update.sh $IMAGE_TAG $CI_COMMIT_REF_NAME $CI_COMMIT_SHORT_SHA "fiatstrada" || { echo 'task failed' ; exit 1; }
+        - git add . && git commit -am "Update module $CI_PROJECT_NAME with version $CI_COMMIT_SHORT_SHA $CI_COMMIT_REF_NAME by CI's jobs $CI_JOB_URL trigged by $GITLAB_USER_EMAIL"
+        - git push origin $CI_COMMIT_REF_NAME
+    stage: deploy
+    only:
+    - master
+    dependencies:
+        - build
+# teste

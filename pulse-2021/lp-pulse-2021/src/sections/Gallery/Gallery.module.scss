@@ -1,0 +1,224 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: $background-blue;
+  min-height: $min-mobile-height;
+  padding-top: calc(#{$header-size} + 14px) !important;
+
+  @include desktop {
+    min-height: 700px;
+    padding-top: toRem(50) !important;
+  }
+}
+.expandedGallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $background-dark;
+  z-index: 1001;
+
+  @include desktop {
+    background-color: rgba($background-dark, 0.9);
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+    z-index: 100;
+    color: $text-primary;
+  }
+
+  .controls {
+    margin: 26px 0 0 !important;
+    padding: 0 #{$section-horizontal-padding} !important;
+    max-width: 100vw;
+  }
+
+  .swiperMobile {
+    padding: 0 !important;
+  }
+}
+
+.controlsDesktop {
+  button {
+    position: absolute;
+    z-index: 1003;
+
+    &.arrowRight {
+      right: 30px;
+      top: calc(50% - 18px);
+    }
+
+    &.arrowLeft {
+      left: 30px;
+      top: calc(50% - 18px);
+    }
+  }
+}
+
+.expandIcon {
+  position: absolute;
+  z-index: 2;
+  margin: 1rem;
+  right: 0;
+  top: 0;
+}
+
+.videoHolder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.controls {
+  position: relative;
+  margin-top: toRem(26);
+  margin-bottom: toRem(36);
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 #{$section-horizontal-padding};
+  .bullet {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      @include bulletActive(#ff1431);
+    }
+    @include desktop {
+      &:hover {
+        @include bulletActive(#ff1431);
+      }
+    }
+    span {
+      transition: all $transition-time-quick $transition-easing;
+      display: block;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 60vw;
+  max-height: 400px;
+  position: relative;
+  @include desktop {
+    height: 40vw;
+    min-height: 400px;
+    max-width: unset;
+    max-height: 600px;
+    margin-right: toRem(16);
+  }
+  div,
+  img,
+  picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.galleryContainer {
+  margin-top: toRem(26);
+}
+.aligner {
+  @include desktop {
+    padding: 0 $section-horizontal-padding-desktop;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumbsDesktop {
+    flex-grow: 1;
+    width: 40%;
+    min-width: 300px;
+    max-height: 600px;
+    overflow-y: auto;
+    position: relative;
+
+    button {
+      opacity: 0.6;
+      transition: opacity $transition-time-quick
+        $transition-easing;
+      &.active {
+        opacity: 1;
+      }
+      &:nth-child(odd) {
+        margin-right: toRem(14);
+      }
+      width: calc(50% - #{toRem(22)});
+      margin-bottom: toRem(8);
+      img {
+        width: 100%;
+        max-width: unset !important;
+      }
+    }
+  }
+}
+.swiperMobile {
+  padding: 0.5rem 0 0;
+}
+.thumbs {
+  button {
+    img {
+      max-width: 130px !important;
+      margin-bottom: toRem(5);
+    }
+  }
+  .bar {
+    width: 100%;
+    height: 4px;
+    background-color: $primary;
+  }
+}
+
+.expandedSlide {
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include desktop {
+    height: 100vh;
+    padding: calc(#{$section-horizontal-padding-desktop} / 2) #{$section-horizontal-padding-desktop};
+    img {
+      max-height: calc(
+        100vh - #{$section-horizontal-padding-desktop} / 2
+      );
+    }
+  }
+}
+
+.scrollCta {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: $text-primary;
+
+  svg {
+    margin-top: 9px;
+    @include animationMargin;
+  }
+}

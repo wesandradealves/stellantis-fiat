@@ -1,0 +1,145 @@
+@import "../easing";
+
+// Keyframes
+// ------------------------------------------------------------------------
+@keyframes moveToLeft {
+	from { }
+	to { transform: translateX(-100%); }
+}
+
+@keyframes moveFromLeft {
+	from { transform: translateX(-100%); }
+}
+
+@keyframes moveToRight {
+	from { }
+	to { transform: translateX(100%); }
+}
+
+@keyframes moveFromRight {
+	from { transform: translateX(100%); }
+}
+
+@keyframes moveToTop {
+	from { }
+	to { transform: translateY(-100%); }
+}
+
+@keyframes moveFromTop {
+	from { transform: translateY(-100%); }
+}
+
+@keyframes moveToBottom {
+	from { }
+	to { transform: translateY(100%); }
+}
+
+@keyframes moveFromBottom {
+	from { transform: translateY(100%); }
+}
+
+@keyframes moveToLeftFade {
+	from { }
+	to { opacity: 0.3; transform: translateX(-100%); }
+}
+
+@keyframes moveFromLeftFade {
+	from { opacity: 0.3; transform: translateX(-100%); }
+}
+
+@keyframes moveToRightFade {
+	from { }
+	to { opacity: 0.3; transform: translateX(100%); }
+}
+
+@keyframes moveFromRightFade {
+	from { opacity: 0.3; transform: translateX(100%); }
+}
+
+@keyframes moveToTopFade {
+	from { }
+	to { opacity: 0.3; transform: translateY(-100%); }
+}
+
+@keyframes moveFromTopFade {
+	from { opacity: 0.3; transform: translateY(-100%); }
+}
+
+@keyframes moveToBottomFade {
+	from { }
+	to { opacity: 0.3; transform: translateY(100%); }
+}
+
+@keyframes moveFromBottomFade {
+	from { opacity: 0.3; transform: translateY(100%); }
+}
+
+// Classes
+// ------------------------------------------------------------------------
+.Move {
+	$ref: &;
+
+	&ToLeft {
+		animation: moveToLeft 600ms ease both;
+	}
+
+	&FromLeft {
+		animation: moveFromLeft 600ms ease both;
+	}
+
+	&ToRight {
+		animation: moveToRight 600ms ease both;
+	}
+
+	&FromRight {
+		animation: moveFromRight 600ms ease both;
+	}
+
+	&ToTop {
+		animation: moveToTop 600ms ease both;
+	}
+
+	&FromTop {
+		animation: moveFromTop 600ms ease both;
+	}
+
+	&ToBottom {
+		animation: moveToBottom 600ms ease both;
+	}
+
+	&FromBottom {
+		animation: moveFromBottom 600ms ease both;
+	}
+
+	&ToLeftFade {
+		animation: moveToLeftFade 600ms ease both;
+	}
+
+	&FromLeftFade {
+		animation: moveFromLeftFade 600ms ease both;
+	}
+
+	&ToRightFade {
+		animation: moveToRightFade 600ms ease both;
+	}
+
+	&FromRightFade {
+		animation: moveFromRightFade 600ms ease both;
+	}
+
+	&ToTopFade {
+		animation: moveToTopFade 600ms ease both;
+	}
+
+	&FromTopFade {
+		animation: moveFromTopFade 600ms ease both;
+	}
+
+	&ToBottomFade {
+		animation: moveToBottomFade 600ms ease both;
+	}
+
+	&FromBottomFade {
+		animation: moveFromBottomFade 600ms ease both;
+	}
+}

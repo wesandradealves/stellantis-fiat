@@ -1,0 +1,3 @@
+@function to-list($args...) {
+  @return append((), $args);
+}

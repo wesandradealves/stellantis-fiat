@@ -1,0 +1,21 @@
+.Guidelines {
+	@include fixed(0);
+	@include size(100%);
+	@include opacity(0.4);
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+	z-index: 999;
+	margin: auto;
+
+	&-column {
+		@include size(1px null);
+		background-color: random-color() or #20f542;
+	}
+
+	@at-root .is-mobile & {
+		&-column {
+			background-color: #20f542;
+		}
+	}
+}

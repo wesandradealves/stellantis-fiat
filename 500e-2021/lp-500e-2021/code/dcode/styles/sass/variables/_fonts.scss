@@ -1,0 +1,33 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Typography
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$fontsFallback: Arial, sans-serif !default;
+$fontsPath: '~@dcode/styles' !default;
+$fonts:
+(
+	_001:
+	(
+		family: ('Ubuntu', $fontsFallback),
+		size: (responsive: 4.5vw, min: 13px, max: 18px, fallback: 13px, lineHeightDiff: 0),
+	),
+
+	_002:
+	(
+		family: ('Ubuntu', $fontsFallback),
+		size: (responsive: 4.5vw, min: 20px, max: 25px, fallback: 20px, lineHeightDiff: 0),
+	),
+
+	_003:
+	(
+		family: ('Ubuntu', $fontsFallback),
+		size: (responsive: 4.5vw, min: 26px, max: 31px, fallback: 26px, lineHeightDiff: 0),
+	),
+
+	_004:
+	(
+		family: ('Ubuntu', $fontsFallback),
+		size: (responsive: 4.5vw, min: 52px, max: 57px, fallback: 52px, lineHeightDiff: 0),
+	),
+) !default;

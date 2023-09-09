@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "@dcode/styles",
+  "version": "1.0.0-alpha.0",
+  "description": "🐚 Utilities and helpers for dcode",
+  "keywords": "dcode-styles-module",
+  "author": "Unkn team",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "sass/",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "ping": "echo \"pong!\""
+  }
+}

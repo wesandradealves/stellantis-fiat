@@ -1,0 +1,10 @@
+@import "pad";
+
+@mixin uncenter {
+  width: none;
+  margin: {
+    right: 0;
+    left: 0;
+  };
+  @include pad(0);
+}

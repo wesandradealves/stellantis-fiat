@@ -1,0 +1,37 @@
+image: 253882794486.dkr.ecr.us-east-1.amazonaws.com/build-tools:7df65c99-node-10
+
+include:
+  - project: "fca/architecture/IaC/cloud-digital/common-ci"
+    file: "job-commons.yml"
+  
+variables:
+    DOCKER_HOST: tcp://localhost:2375
+    DOCKER_TLS_CERTDIR: ""
+    REGION: us-east-1
+    
+stages:
+    - deploy
+        
+deploy:
+    extends: .deploy-common
+    stage: deploy
+    only:
+        - master
+    when: always
+    script:
+        - cd ..
+        - npm --version
+        - node --version
+        - npm install
+        - npm run build
+        - mkdir -p infrastructure/contentsitebuilds
+        - mkdir -p infrastructure/contentsitebuilds/${CI_PROJECT_NAME}/${CI_COMMIT_SHORT_SHA}
+        - cp -rf dist/. infrastructure/contentsitebuilds/${CI_PROJECT_NAME}/${CI_COMMIT_SHORT_SHA}
+        - cd infrastructure
+        - chmod +x version-update.sh
+        - ./version-update.sh $IMAGE_TAG $CI_COMMIT_REF_NAME $CI_COMMIT_SHORT_SHA "${CI_PROJECT_NAME}" || { echo 'task failed' ; exit 1; }
+        - git add . && git commit -am "Update module $CI_PROJECT_NAME with version $CI_COMMIT_SHORT_SHA $CI_COMMIT_REF_NAME by CI's jobs $CI_JOB_URL trigged by $GITLAB_USER_EMAIL"
+        - git push origin $CI_COMMIT_REF_NAME
+    #when: manual  
+
+          

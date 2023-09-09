@@ -1,0 +1,13 @@
+@import "../functions/map-get-deeply";
+
+@function _layout($notation, $shouldWarn: true) {
+	@if variable-exists(layout) or global-variable-exists(layout) {
+		@if type-of($layout) == 'map' {
+			@return map-get-deeply($layout, $notation, $shouldWarn);
+		}
+		@error "_layout Error: The \"$layout\" variable exists but it isn't a map";
+	} @else {
+		@error "There's no \"$layout\" variable to use with the method \"_\"";
+	}
+	@return null;
+}

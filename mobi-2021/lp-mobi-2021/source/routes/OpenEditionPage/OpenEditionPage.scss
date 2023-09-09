@@ -1,0 +1,505 @@
+.pswp__caption__center {
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+.OpenEditionPage {
+	// @include edit;
+
+	@include relative;
+	@span (12/12);
+	transition: background-color 0.5s ease-out;
+	background-color: _('OpenEditionPage.backgroundColor') or #edede3;
+
+	small {
+		font-size: 65%;
+	}
+
+	.PaperClip {
+		z-index: 99;
+	}
+
+	// CONTENT
+	// ~~~~~~~
+	&-content {
+		@include relative;
+		@include span(12/12);
+		// border: 1px solid red;
+	}
+
+	// HEADER
+	// ~~~~~~
+	&-header {
+		@include relative;
+		@include span(12/12);
+	}
+
+	// CURRENT
+	// ~~~~~~~
+	&-current {
+		@include relative;
+		@include span(10/12, 1/12);
+		margin-top: 4vh;
+	}
+
+	// BUTTON
+	// ~~~~~~
+	&-button {
+		@include relative;
+		@include size(70% null);
+		background-color: _('LivePage.backgroundColorButton') or #ff7d32;
+		padding: 15px 20px 15px 20px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: _('LivePage.textColorButton') or #edede3;
+		font-size: 0.7em;
+		font-weight: 700;
+		font-family: _('LivePage.textButton.family') or $fontsFallback;
+		border-radius: 6px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		width: 18vw;
+		height: 45px;
+		margin-left: 30px;
+	}
+
+	&-button::after {
+		@include absolute(44% null null -17.5px);
+		@include size(35px 3px);
+		display: block;
+		content: ' ';
+		background-color: #ffb80f;
+	}
+
+	// TITLE
+	// ~~~~~
+	&-title {
+		font-weight: 500;
+		font-size: 1rem;
+    margin-bottom: 1.2rem; 
+	}
+
+	// GALLERY
+	// ~~~~~~~
+	&-gallery {
+		display: grid;
+		grid-gap: 5px;
+		grid-template-columns: 2fr 1fr;
+		grid-template-areas: 'poster .';
+		grid-template-rows: 400px;
+	}
+
+	// GALLERY POSTER
+	// ~~~~~~~~~~~~~~
+	&-poster {
+		position: relative;
+		grid-area: poster;
+
+		img {
+			width: 100%;
+			cursor: pointer;
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+
+	// GALLERY TITLE
+	// ~~~~~~~~~~~~~
+	&-galleryTitle {
+		font-size: 1.2rem;
+  }
+
+	&-thumbs {
+		display: grid;
+		grid-gap: 3px;
+		grid-template-columns: 1fr 1fr;
+		overflow-y: auto;
+		padding-right: 4.8px;
+	}
+
+	// GALLERY THUMB
+	// ~~~~~~~~~~~~~
+	&-thumb {
+		cursor: pointer;
+		width: 100%;
+		object-fit: cover;
+		height: 105px;
+		border: 2px solid;
+		border-color: transparent;
+		border-radius: 3px;
+	}
+
+	&-thumb:not(&-selected) {
+		filter: opacity(0.5);
+	}
+
+	// SELECTED
+	// ~~~~~~~~
+	&-selected {
+		border-color: _('OpenEditionPage.thumbBorderColor');
+	}
+
+	// CTA
+	// ~~~~~~~~~~~~~
+	&-cta {
+		height: 100px;
+		display: flex;
+		justify-content: center;
+    align-items: center;
+    margin-bottom: 1.8rem;
+	}
+
+	// CTA TITLE
+	// ~~~~~~~~~~~~~
+	&-ctaTitle {
+		color: _('OpenEditionPage.textColorCtaTitle');
+		font-size: 1.1rem;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 0;
+		width: 45vw;
+		min-width: 417px;
+		height: 45px;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+	}
+
+	// CHECKBOX
+	// ~~~~~~~~
+	.CheckBox-content {
+		&.is-disabled {
+			opacity: 0 !important;
+			visibility: hidden !important;
+		}
+	}
+
+  
+  &-zoomInBox {
+  	position: absolute;
+		top: 12px;
+		right: 20px;
+    padding: 12px;
+    width: 42px;
+    background: rgba(_color('_008'), 0.7);
+    height: 37px;
+    border-radius: 3px;
+  }
+
+	// ZOOMIN
+	// ~~~~~~
+	&-zoomIn {
+		color: #fff;
+		cursor: pointer;
+		box-sizing: border-box;
+		display: block;
+		transform: scale(1.3);
+		width: 16px;
+		height: 16px;
+		border: 2px solid;
+		border-radius: 100%;
+		background: linear-gradient(to bottom, currentColor 5px, transparent 0)
+			no-repeat 2px 5px/8px 2px;
+		margin-top: -4px;
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			width: 2px;
+			height: 8px;
+			background: currentColor;
+		}
+		&::after {
+			transform: rotate(-45deg);
+			border-radius: 3px;
+			top: 10px;
+			left: 12px;
+		}
+		&::before {
+			top: 2px;
+			left: 5px;
+		}
+	}
+
+
+
+	// SCROLLBAR
+	// ~~~~~~~~~
+	::-webkit-scrollbar {
+		width: 14px;
+		border-width: 5px;
+	}
+
+	::-webkit-scrollbar-track-piece {
+		background-color: _('Scroll.PieceBackgroundColor');
+		border-color: _color('_002');
+		border-width: 1px 6px 1px 6px;
+		border-style: solid;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 0;
+		background-color: _('Scroll.ThumbBackgroundColor');
+		border-color: _('Scroll.ThumbBackgroundColor');
+		border-style: solid;
+		border-width: 1px 3px 1px 3px;
+	}
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+	@include media-query-size-x(xs sm) {
+		&-poster {
+			img {
+				cursor: grab;
+			}
+		}
+
+		// BULLET
+		// ~~~~~~
+		&-bullet {
+			@include relative;
+			@include span(10/11.5);
+			@include span-shift(0.5/11.5);
+			@include margin(25px null 0 null);
+		}
+
+		&-bulletList {
+			@include relative;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 25px;
+		}
+
+		&-bulletItem {
+			@include size(8px);
+			@include max-size(25px);
+			@include margin(null 13px);
+			@include padding(0);
+			transition: transform 0.3s ease-out;
+			background-color: _('OpenEditionPage.backgroundColorBullet') or #edede3;
+			border-radius: 100%;
+			display: inline-block;
+			transform-origin: 50% 50%;
+			border: 0;
+		}
+
+		&-bulletItem.is-active {
+			transform: scale(3);
+		}
+
+		&-current {
+      width: 100%;
+			margin-left: 0;
+		}
+
+		&-title {
+			margin-left: 8.33333%;
+			height: 50px;
+      margin-top: .56rem;
+		}
+
+		&-title > strong::after {
+			content: '';
+			display: block;
+			margin-top: 5px;
+		}
+
+		&-gallery {
+			width: 100vw;
+			grid-gap: 0;
+			grid-template-columns: 1fr;
+			grid-template-areas: 'poster';
+		}
+
+		&-galleryTitle {
+      width: 83%;
+			margin-left: 8.33333%;
+		}
+
+		&-selected {
+			border: none;
+		}
+
+		&-cta {
+			width: 83.33333%;
+			height: 132px;
+			flex-wrap: wrap;
+			align-content: center;
+			margin-left: 8.33333%;
+			margin-top: 30px;
+			height: 112px;
+		}
+
+		&-ctaTitle {
+			width: auto;
+			min-width: auto;
+			font-size: 1rem;
+			line-height: 20px;
+		}
+
+		&-button {
+			width: 80vw;
+			margin-left: 0;
+		}
+	}
+
+  @media only screen and (min-width: 1620px) {
+    &-gallery {
+      grid-template-rows: 550px; 
+    }
+
+    &-thumb {
+      height: 135px;
+    }
+  }
+
+	@include media-query-size-x(lg xl unknown) {
+		@include span(16/16);
+
+		&-content,
+		&-current,
+		&-versions,
+		// &-cta1,
+		// &-cta2,
+		.CheckBox-content {
+			transition: left 0.75s $ease-in-out-quart, width 0.75s $ease-in-out-quart,
+				height 0.75s $ease-in-out-quart, margin-left 0.75s $ease-in-out-quart;
+		}
+
+		// CURRENT
+		// ~~~~~~~
+		&-current {
+			@include relative;
+			@include span(14/16);
+			@include span-shift(1/16);
+			// border: 1px solid green;
+			@at-root .is-menu-open & {
+				@include span(11/13);
+				@include span-shift(1/13);
+			}
+		}
+
+		&-currentInfo,
+		&-currentView {
+			@include span(10/13);
+		}
+
+		&-currentView {
+			@include margin(100px null null null);
+		}
+
+		&-currentView360 {
+			@include relative;
+			@include size(100% auto);
+			// @include span(13/13);
+		}
+
+		&-currentChoice {
+			@include absolute;
+			@include span(1/16);
+			@include span-shift(12.5/16);
+			height: 100%;
+			margin-top: 0;
+			margin-bottom: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@at-root .is-menu-open & {
+				@include span(1/13);
+				@include span-shift(12.5/16);
+			}
+		}
+
+		// VERSIONS
+		// ~~~~~~~~
+		&-versions {
+			@include absolute;
+			@include span(2/16);
+			@include span-shift(14/16);
+			@include size(null 100%);
+			@at-root .is-menu-open & {
+				@include span(2/16);
+				@include span-shift(14/16);
+				@include size(null 100%);
+			}
+		}
+
+		// CHECKBOX
+		// ~~~~~~~~
+		.CheckBox-wrapper {
+			transform: rotate(90deg);
+		}
+
+		.CheckBox-content {
+			@include max-size(150px null);
+			display: grid;
+
+			&.is-disabled {
+				opacity: 0 !important;
+				visibility: hidden !important;
+			}
+
+			@at-root .is-menu-open & {
+				@include max-size(150px null);
+			}
+		}
+
+		.CheckBox-no {
+			width: 92px;
+			margin-bottom: 58px;
+			padding-left: 8px;
+		}
+
+		.CheckBox-yes {
+			width: 81px;
+		}
+
+		// CONTENT
+		// ~~~~~~~
+		&-content {
+			@include relative(null null null 0);
+			@include span(16/16);
+			@at-root .is-menu-open & {
+				@include span-shift(3/16);
+				@include span(13/16);
+			}
+		}
+
+		// CTA
+		// ~~~~~~~~~~~
+		&-ctas {
+			@include span(11/16);
+			@include span-shift(1/16);
+			flex-direction: row;
+			margin-bottom: 46px;
+			margin-top: 40px;
+			@at-root .is-menu-open & {
+				@include span(11/16);
+				@include span-shift(1/16);
+			}
+		}
+
+		&-cta1,
+		&-cta2 {
+			margin: 0 20px;
+		}
+	}
+
+	// ~~ Altura Resolução FCA ~ até 768px de altura
+	@include media-query-size-y(xs sm md) {
+		@at-root .is-desktop & {
+			&-currentView {
+				@include margin(100px null null null);
+			}
+
+			&-currentViewLoader {
+				@include margin(-2.5% null null null);
+			}
+		}
+	}
+}

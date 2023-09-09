@@ -1,0 +1,89 @@
+//.--------------------------------------------------------------------------
+//|
+//| PROXIMA NOVA
+//|
+//'__________________________________________________________________________
+
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * proxima-nova:
+ *   - http://typekit.com/eulas/00000000000000003b9b306c
+ *   - http://typekit.com/eulas/00000000000000003b9b3068
+ *   - http://typekit.com/eulas/00000000000000003b9b306a
+ *   - http://typekit.com/eulas/00000000000000003b9b3066
+ *   - http://typekit.com/eulas/00000000000000003b9b3062
+ *   - http://typekit.com/eulas/00000000000000003b9b3063
+ *   - http://typekit.com/eulas/00000000000000003b9b3064
+ *
+ * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2020-09-03 19:50:35 UTC"}*/
+
+//| Bold
+//'--------------------------------------------------------------------------
+
+
+@font-face {
+	font-family: 'ProximaNova-Bold';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Thin
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Thin';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Regular
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Reg';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Reg.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| SBold
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-SBold';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Sbold.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Light
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Light';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}

@@ -1,0 +1,5 @@
+@import "vec4";
+
+@mixin padding($rect: null) {
+	@include vec4((padding-top, padding-right, padding-bottom, padding-left), $rect);
+}

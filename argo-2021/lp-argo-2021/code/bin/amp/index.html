@@ -1,0 +1,784 @@
+ <!doctype html>
+ <html ⚡ lang="en">
+	 <head>
+		 <meta charset="utf-8">
+		 <script async src="https://cdn.ampproject.org/v0.js"></script>
+		 <title>ARGO</title>
+		 <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+		 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+		 <!-- Menu --><script async src="https://cdn.ampproject.org/v0.js"></script>
+         <link rel="canonical" href="https://amp.dev/documentation/examples/multimedia-animations/animated_hamburger_menu/index.html">
+		 <!-- AMP Analytics --><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+		 <!-- Carousel --><script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+		 <!-- Seletor Carousel --><script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+		  <!-- Accordion --><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+		 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+		 <style amp-custom>
+		 	 @font-face {
+				 font-family: 'FuturaPT Light';
+				 src: url('fonts/light.woff') format('woff');
+				 font-weight: 300;
+			 }
+
+			 @font-face {
+				 font-family: 'FuturaPT Medium';
+				 src: url('fonts/medium.woff') format('woff');
+				 font-weight: 500;
+		 	 }
+
+			 @font-face {
+				 font-family: 'FuturaPT Bold';
+				 src: url('fonts/bold.woff') format('woff');
+				 font-weight: 700;
+			 }
+
+			 @font-face {
+				 font-family: 'FuturaPT Heavy';
+				 src: url('fonts/heavy.woff') format('woff');
+				font-weight: 900;
+			 }
+
+			 .amp-carousel-button{
+				 background-color: #ffbc41;
+			 }
+
+			 .carousel1 .amp-carousel-button-next{
+				 border-radius: 5px;
+			 }
+
+			 .carousel1 .amp-carousel-button-prev{
+				 color: white;
+			 }
+
+			 amp-accordion section[expanded] .show-more {
+				 display: none;
+			 }
+
+			 amp-selector [option][selected] {
+				 cursor: auto;
+				 outline: 1px solid rgba(0, 0, 0, 0);
+			 }
+
+			 amp-accordion section:not([expanded]) .show-less {
+		 		 display: none;
+			 }
+
+			 amp-accordion{
+				 border: none;
+			 }
+
+		 	 amp-accordion.hidden-header section[expanded] h4 {
+				 border: none;
+			 }
+
+
+			 amp-accordion.sample {
+				 margin: none;
+			 }
+
+			 .menu-btn {
+				 padding: 10px;
+				 background-color: #e50353;
+				 border-radius:95px;
+				 margin-right: 30px;
+				 height: 25px;
+				 width: 25px;
+				 border-radius: 50%;
+				 box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);
+				 transition-duration: 0.5s;
+				 margin-top: 10px;
+			 }
+
+			 .links {
+				 padding: 10px;
+				 background-color: #e50353;
+				 border-radius:10px;
+				 margin-right: 5px;
+				 text-decoration: none;
+				 color: white;
+				 font-family: 'FuturaPT Bold';
+				 font-weight: 700;
+				 text-align: center;
+				 font-size: 3vw;
+				 text-transform:uppercase;
+			 }
+
+			 .hamburger_wrapper {
+                 padding: 5px;
+				 z-index: 10;
+				 position: fixed;
+                 top: 87%;
+                 left: 78%;
+             }
+
+			 #hamburger {
+			     width: 60px;
+				 height: 45px;
+				 position: relative;
+				 cursor: pointer;
+				 outline: none;
+			 }
+
+			 #hamburger span {
+				 display: block;
+				 position: absolute;
+				 height: 9px;
+				 width: 100%;
+				 background:#005af0;
+				 border-radius: 9px;
+				 opacity: 1;
+				 left: 0;
+				 transform: rotate(0deg);
+				 transition: .5s ease-in-out;
+			 }
+
+			 #hamburger span:nth-child(1) {
+				 top: 0px;
+				 transform-origin: left center;
+			 }
+
+			 #hamburger span:nth-child(2) {
+				 top: 21px;
+				 transform-origin: left center;
+			 }
+
+			 #hamburger span:nth-child(3) {
+				 top: 42px;
+				 transform-origin: left center;
+			 }
+
+		 	 #hamburger.close .menu-btn{
+				 transform: rotate(45deg);
+			 }
+
+			 #hamburger.close span:nth-child(2) {
+				 width: 0%;
+				 opacity: 0;
+				 transition: .1s;
+			 }
+
+			 #hamburger.close span:nth-child(3) {
+				 transform: rotate(-45deg);
+			 }
+
+			 #nav-menu {
+				 position: relative;
+				 transform: translateX(-100vw);
+				 opacity: 0;
+				 z-index: 10;
+				 transition: transform .5s ease, opacity ease .2s;
+				 position: fixed;
+				 top: 330px;
+				 left: 45%;
+				 background-color: transparent;
+				 margin: 0px;
+			 }
+
+			 #nav-menu.now-active {
+				 transform: translateX(0);
+				 transition: transform .5s ease, opacity ease .2s;
+				 opacity: 1;
+				 background-color:transparent;
+			 }
+
+			 .nav-list {
+				 padding: 10px;
+				 list-style-type: none;
+				 font-size: 2em;
+				 background-color: transparent;
+
+			 }
+
+			 .nav-list a {
+				 text-decoration: none;
+				 color: white;
+			 }
+
+			 .nav-list li {
+				 margin: 5px;
+			 }
+		 </style>
+	 </head>
+
+	 <body>
+		 <div>
+			 <div class="hamburger_wrapper menu">
+				 <div id="hamburger" tabindex="1"  role="button" on="tap:hamburger.toggleClass(class='close'),nav-menu.toggleClass(class='now-active')">
+					 <div  class="menu-btn">
+					     <amp-img alt="" src="assets/plus.png" width="10" height="10"layout="responsive"></amp-img>
+					 </div>
+				 </div>
+			 </div>
+			 <div id="nav-menu">
+				  <ul class="nav-list">
+					 <li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">monte o seu</a></li>
+					 <li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">simular financiamento</a></li>
+					 <li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">compre o seu</a></li>
+					 <li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">concessionárias</a></li>
+					 <li class="links"><a rel="amphtml" target="_blank" href="https://live.fiat.com.br">ofertas fiat</a></li>
+				 </ul>
+			 </div>
+		 <div>
+
+		 <div style="background-color: #ffbc41; height: 450px;margin-bottom: 210px;border-radius: 25px 0 0 25px;">
+			 <div style="padding-left: 28px;padding-top: 10px;padding-bottom: 5px;">
+				 <p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#quemsabefazaovivo</p>
+				 <p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Sabia que você pode ver o Fiat Argo online agora mesmo?</p>
+			 </div>
+			 <amp-img style="margin-bottom: 30px;margin-right: 20px;border-radius: 0 30px 30px 0;" alt="" src="assets/livestore.jpg" width="375" height="214"layout="responsive"></amp-img>
+		 </div>
+
+		 <div style="height:6%; background-color: white;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);margin-bottom: 40px;border-radius: 27px 0 0 27px;margin-left: 20px;width: 338px;padding: 28px; padding-top: 10px;position: absolute; top: 340px;">
+			 <p style="font-size: 4.26667vw;font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;">Fiat Live Experience</p>
+			 <p style="font-size: 4.26667vw;font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168;padding-right: 28px;">Você conversa com um especialista ou entra de carona em um atendimento para conhecer tudo sobre o carro.
+			 </p>
+			 <div style="padding: 7px; background-color: #e50353;border-radius:15px; margin-right: 30px;">
+				 <a rel="amphtml" target="_blank" href="https://live.fiat.com.br" style="text-decoration: none;">
+					 <p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3vw;text-transform:uppercase">Veja ao vivo</p>
+				 </a>
+			 </div>
+		 </div>
+
+		 <div style="width: 100%;background-color: #ffbc41;border-radius:20px 0 0 20px" class="ficaafica">
+			 <div style="padding-left: 28px;padding-top: 10px;padding-bottom: 35px;">
+				 <p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#ficaadica</p>
+				 <p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Quem gosta desses destaques prefere<br>essa versão:</p>
+			 </div>
+		 </div>
+
+		 <div style="background-color:#ffbc41;height: 389px;position: relative;top:-35px;border-radius:20px 0 0 20px">
+			 <div style="background-color: white;height: 500px;width: 96.5%;border-radius: 20px;position: relative; float:left;left: 15px; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);" >
+				 <p style="padding-left:3%;padding-top:1%;text-transform: uppercase;color: #5e6168;font-weight: 700;font-family: 'FuturaPT Bold';font-size: 4.26667vw;">ARGO TREKKING</p>
+				 <p style="padding-left:3%;text-transform: uppercase;color: #5e6168;font-weight: 500;line-height: 0px; font-family: 'FuturaPT Medium'; font-weight: 500;font-size: 4.26667vw;">1.3 FLEX MANUAL</p>
+ 				 <amp-carousel class="carousel1" layout="responsive" height="740" width="650" type="slides">
+
+				 <div class="slide">
+					 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking1@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%;">
+						 	 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Design arrojado</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">E destaques que só essa versão tem.</p>
+						 </div>
+					 </div>
+
+					 <div class="slide">
+						 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking2@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%">
+							 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">A maior altura do solo da categoria</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">São 210 mm de aventura e robustez.</p>
+						 </div>
+					 </div>
+
+					 <div class="slide">
+						 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking3@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%">
+							 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Pneu de uso misto</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Com suspensão elevada e rodas escurecidas.</p>
+						 </div>
+					 </div>
+
+					 <div class="slide">
+						 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking4@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%">
+							 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Interior e painel escurecidos</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Além do acabamento impecável e exclusivo.</p>
+						 </div>
+					 </div>
+
+				     <div class="slide">
+						 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking5@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%">
+							 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Teto bicolor</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Único da categoria com esse design.</p>
+						 </div>
+					 </div>
+
+					 <div class="slide">
+						 <amp-img style="margin-bottom: 30px;margin-top: 10px;" alt="" src="assets/dicas/argo-trekking6@3x.jpg" width="357" height="276"layout="responsive"></amp-img>
+						 <div style="margin-left:3%">
+							 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);margin-top: 0px;margin-bottom: 0px;">Performance e ecnonomia</p>
+							 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;margin-top:0px">Para consumir pouco sem perder a potência.</p>
+						 </div>
+					 </div>
+				 </amp-carousel>
+			 </div>
+		 </div>
+
+		 <div style="padding-left: 10%;padding-top: 20px;padding-bottom:20px" >
+			<div style="background-color: #e50353;padding: 5px;width: 40%;border-radius: 15px 0 0 15px; display: inline-block;margin-right: 0px;">
+				 <a rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html?version=358A470&modelCode=358&versionCode=A47&seriesCode=0&year=2020&parts=19A&color=469" style="text-decoration: none;">
+					 <p style="color: white;font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center;font-size: 2.5vw;text-transform:uppercase"><amp-img src="assets/icons/car.svg" width="20" height="20" noloading></amp-img><br>MONTE O SEU</p>
+				 </a>
+			 </div>
+
+			 <div style="background-color: #e50353;padding: 5px;width: 40%;border-radius: 0 15px  15px  0; display: inline-block;margin-left: 0px;">
+				 <a rel="amphtml" target="_blank" href="https://argo.fiat.com.br/agende" style="text-decoration: none;">
+				 	 <p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 2.5vw;text-transform:uppercase"><amp-img src="assets/icons/wheel.svg" width="20" height="20" noloading></amp-img><br>COMPRE O SEU</p>
+				 </a>
+			 </div>
+		 </div>
+
+	 	 <div>
+			 <div style="background-color: #ffbc41; border-radius: 0 20px 0 0;height:20vh;margin-top: 10px;">
+				 <div style="padding-left: 28px;padding-top: 13px;">
+					 <p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#S2</p>
+					 <p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Conheça outras versões do Fiat<br> Argo.</p>
+				 </div>
+			 </div>
+
+			 <amp-carousel id="carousel" width="400" height="520" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="position:relative;top:-14px;background-color:white;border-radius: 0 20px 0 0;">
+				 <div class="slide">
+					 <div style="padding-top:35px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo 1.0</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Ar Condicionado<br>
+						     Direção Elétrica Prograssiva<br>
+						     Alarme com Chave Canivete
+					     </p>
+				     </div>
+				     <amp-img src="assets/360/argo10/00.jpg" width="400" height="330" layout="responsive" alt="Argo 1.0" style="margin-top:40px"></amp-img>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo Drive 1.0</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">
+						     Camera de Ré<br>
+						     Retrovisores Elétricos Tilt Down
+					     </p>
+					     <amp-img src="assets/360/argodrive/00.jpg" width="400" height="330" layout="responsive" alt="Argo Drive 1.0" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo Drive 1.3</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">
+						     Camera de Ré<br>
+						     Rodas de Liga Leve 15"
+					     </p>
+					     <amp-img src="assets/360/argodrive13/00.jpg" width="400" height="330" layout="responsive" alt="Argo Drive 1.0" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo Drive GSR 1.3</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">
+						     Hill Holder<br>
+						     Câmbio GSR com Paddle Shift
+					     </p>
+					     <amp-img src="assets/360/argodrivegsr13/00.jpg" width="400" height="330" layout="responsive" alt="Argo Drive GSR 1.3" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo Trekking</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Rodas de liga com pneus de uso misto<br>
+						     Teto bicolor<br>
+						     Central multimídia com Carplay e Android auto
+					     </p>
+					     <amp-img src="assets/360/argotrekking/00.jpg" width="400" height="330" layout="responsive" alt="Argo Trekking" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo Precision</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Câmbio Automático 6 Velocidades<br>
+						     Ar Condicionado Digital<br>
+						     Keyless Enter & Go
+					     </p>
+					     <amp-img src="assets/360/argoprecision/00.jpg" width="400" height="330" layout="responsive" alt="Argo Precision" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo HGT 1.8</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Rebatimento elétrico dos retrovisores<br>
+						     Rodas de Liga Leve Esportiva 17"<br>
+						     Painel com Display Colorido 7"
+					     </p>
+					     <amp-img src="assets/360/argohgt/00.jpg" width="400" height="330" layout="responsive" alt="Argo Precision" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			     <div class="slide">
+				     <div style="padding-top:30px;padding-left: 28px;">
+					     <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo S-Desing</p>
+					     <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Ar condicionado digital automático<br>
+						     Vidros elétricos traseiros<br>
+						     Interior escurecido
+					     </p>
+					     <amp-img src="assets/360/argosdesign/00.jpg" width="400" height="330" layout="responsive" alt="Argo S-design" style="margin-top:40px"></amp-img>
+				     </div>
+			     </div>
+
+			  <div class="slide">
+				 <div style="padding-top:30px;padding-left: 28px;">
+					 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.26667vw;line-height: calc(4.26667vw + 1.38px);">Argo S-Desing</p>
+					 <p style="color: #5e6168;font-family: 'FuturaPT Medium', sans-serif; font-weight: 500; font-size: 4.26667vw;">Ar condicionado digital automático<br>
+						 Vidros elétricos traseiros<br>
+						 Interior escurecido
+					 </p>
+					 <amp-img src="assets/360/argosdesign13/00.jpg" width="400" height="330" layout="responsive" alt="Argo S-design" style="margin-top:40px"></amp-img>
+				 </div>
+			 </div>
+		 </amp-carousel>
+
+		 <amp-selector id="carouselSelector" on="select:carousel.goToSlide(index=event.targetOption)" layout="container">
+			 <amp-carousel id="carouselPreview" class="carousel-preview" height="200" layout="fixed-height" type="carousel">
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="0" selected src="assets/360/nav/10.jpg" width="108" height="107" alt="Argo 1.0"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px;">1.0</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="1" src="assets/360/nav/hgt-10.jpg" width="108" height="107" alt="Argo Drive 1.0"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Drive 1.0</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="2" src="assets/360/nav/drive-13.jpg" width="108" height="107" alt="Argo Drive 1.3"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Drive 1.3</p>
+				 </div>
+
+				  <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="3" src="assets/360/nav/hgt-10.jpg" width="108" height="107" alt="Argo Drive GSR 1.3"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Drive GSR 1.3</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="4" src="assets/360/nav/trekking.jpg" width="108" height="107" alt="Argo Trekking"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Trekking</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="5" src="assets/360/nav/precision-18.jpg" width="108" height="107" alt="Argo Precision 1.8"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">Precision 1.8</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="6" src="assets/360/nav/hgt-18.jpg" width="108" height="107" alt="Argo HGT 1.8"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">HGT 1.8</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="7" src="assets/360/nav/s-design.jpg" width="108" height="107" alt="Argo S-Design"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">S-Design</p>
+				 </div>
+
+				 <div style="margin:20px;padding-left:10px;padding-right:10px;border-radius: 10px;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.1);">
+					 <amp-img option="8" src="assets/360/nav/s-design.jpg" width="108" height="107" alt="Argo S-Design 1.3"></amp-img>
+					 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);font-family: 'FuturaPT Bold', sans-serif;font-weight: 700; text-align: center; color: #5e6168;margin: 0px;margin-bottom: 5px; text-transform: uppercase;">S-Design 1.3</p>
+				 </div>
+
+			 </amp-carousel>
+		 </amp-selector>
+
+		 <div style="padding:11%; padding-top: 0px;">
+			 <div style="padding: 7px; background-color: #e50353;border-radius:15px">
+				 <a rel="amphtml" target="_blank" href="https://ofertas.fiat.com.br" style="text-decoration: none;">
+					 <p style="color: white;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3vw;text-transform:uppercase">Veja as ofertas</p>
+				 </a>
+			 </div>
+		 </div>
+	 </div>
+
+
+	 <div style="background-color: #f2f2f2;border-radius: 20px;">
+		 <p style="color: #5e6168;font-weight: 700;line-height: 0px;font-family: 'FuturaPT Bold'; font-size: 4.8vw;line-height: calc(4.26667vw + 6px);padding: 6.5%;">Conheça tudo, mas tudo mesmo do seu próximo carro:</p>
+		 <amp-accordion class="sample" animate style="background-color: #f2f2f2;">
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> Design</h4>
+					 <amp-carousel id="carousel" width="400" height="490" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)">
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/design/accordion-design1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Conjunto de luzes</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168"> Desenvolvido com parábolas duplas e guias de LED, os faróis emitem um facho de luz amplo, o que torna sua viagem mais segura.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/design/accordion-design2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Teto Bicolor</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Nenhum outro carro da categoria tem essa opção de personalização que deixa seu carro ainda mais esportivo.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/design/accordion-design3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Comandos no volante</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">No Fiat Argo, você controla as funções de rádio e telefone através dos comandos do volante.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							  <amp-img src="assets/imagens-accordion/design/accordion-design4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Câmbio Borboleta</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">A troca de marchas pelo câmbio borboleta torna a sua pilotagem mais esportiva e emocionante.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+						     <amp-img src="assets/imagens-accordion/design/accordion-design5@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">USB Dianteiro e Traseiro</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Com portas duabteura e traseira de USB, o Fiat Argo ajuda você a manter seu smartphone e dos passageiros sempre carregados.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/design/accordion-design6@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Painel de instrumentos 7"</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Tecnológico e personalizável, o painel traz modernidade ao interior do Fiat Argo. E você ainda pode configurar.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/design/accordion-design7@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Apoio de Braço</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Localizado entre os bancos dianteiros, o descanso de braço vai tornar suas viagens mais confortáveis.
+								 </p>
+							 </div>
+						 </div>
+					 </amp-carousel>
+				 </section>
+
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> Performance</h4>
+					 <amp-carousel id="carousel" width="400" height="490" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="background-color: ;">
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/performance/accordion-performance1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Motor Firefly 1.3</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Quer performance? Esse é o seu motor. Sua taxa de compressão alta garante a eficiência, sem contar que ele tem autonomia de 600km na cidade e 700km na estrada.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/performance/accordion-performance2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Motor E.Torq 1.8</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Esse motor é para quem quer desempenho, porque ele responde rápido nas retomadas ou numa direção mais esportiva. Além disso, conta com variador de fase e bomba de óleo variável, que demanda menos torque.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/performance/accordion-performance3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							  <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Start & Stop</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para reduzir o consumo de consumo de combustível e a emissão de gases nocivos, esse sistema desliga automaticamente o motor quando o carro para. Depois, religa ao detectar o acionamento da embreagem.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/performance/accordion-performance4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Direção Elétrica</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Mais leve e econômica que as versões hidráulicas, a direção elétrica prograssiva oferece oferece respostas mais rápidas e eficientes seus comandos. Ou seja, você dirige com muito mais conforto.
+								 </p>
+							 </div>
+						 </div>
+					 </amp-carousel>
+				 </section>
+
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> Tecnologia</h4>
+					 <amp-carousel id="carousel" width="400" height="490" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="background-color: ;">
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/tecnologia/accordion-tecnologia1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Rebatimento Elétrico</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Tanto para entrar quanto sair do carro, os espelhos se retraem automaticamente e o sistema Puddle Lamps ilumina o chão para você enxergar melhor.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/tecnologia/accordion-tecnologia2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Retrovisor Elétrico Tilt Down</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Ao engatar a ré, esse sistema inclina o retrovisor automaticamente para te ajudar na hora de fazer a baliza.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/tecnologia/accordion-tecnologia3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Ar Condicionado Digital</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Prático e fácil de encontrar a temperatura ideal para as suas viagens.
+								 </p>
+							 </div>
+						 </div>
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/tecnologia/accordion-tecnologia4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Keyless</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">A tecnologia Keyless Enter N' Go percebe quando a chave está proxima e destrava a porta do Argo. Tá vendo como sua ligação com o carro é forte?
+								 </p>
+							 </div>
+						 </div>
+					 </amp-carousel>
+				 </section>
+
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> Segurança</h4>
+					 <amp-carousel id="carousel" width="400" height="490" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="background-color: ;">
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/seguranca/accordion-seguranca1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Controle de tração e estabilidade</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para ajudar a manter o controle da direção em condições extremas, a tração e a estabilidade do Fiat Argo são controladas automaticamente.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/seguranca/accordion-seguranca2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Hill Holder</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para facilitar saídas em ladeiras, o sistema Hill Holder do Fiat Argo mantém seus freios acionados por um tempo até que o motor alcance a força necessária para o arranque.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/seguranca/accordion-seguranca3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Câmera de Ré</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Ao engatar a marcha ré, a câmera situada na parte traseira é acionada, mostrando com linhas dinâmicas os obstáculos pelo caminho direto na Central Multimídia.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/seguranca/accordion-seguranca3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Sensor de Pressão</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Para a sua segurança, o painel do Fiat Argo alerta quando está na hora de calibrar os pneus.
+								 </p>
+							 </div>
+						 </div>
+					 </amp-carousel>
+				 </section>
+
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border-bottom: none;border-top:none;border-left:none;border-right:none;margin-right: 25px;margin-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> S-Design</h4>
+					 <amp-carousel id="carousel" width="400" height="490" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)" style="background-color: ;">
+						  <div class="slide">
+							 <amp-img src="assets/imagens-accordion/s-design/accordion-s-design1@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Ar Condicionado Digital</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Mais conforto e praticidade para você encontrar a temperatura ideal.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/s-design/accordion-s-design2@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Central Multimídia Uconnect 7"</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Conecte seu smatphone por Android Auto ou Apple Carplay e deixe suas viagens com a sua cara.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/s-design/accordion-s-design3@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+								 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Detalhes Escurecidos</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Além das rodas de liga leve 15" ou calotas 14" escurecidas, ele tem retrovisores elétricos, faróis de neblina e caracterização escurecida.
+								 </p>
+							 </div>
+						 </div>
+
+						 <div class="slide">
+							 <amp-img src="assets/imagens-accordion/s-design/accordion-s-design4@3x.jpg" layout="responsive" width="402" height="310" style="margin-top: 10px;"></amp-img>
+							 <div style="padding-top:15px;padding-left: 28px;padding-right: 28px; background-color: white; height: 100%;">
+							 	 <p style="font-size: 4.26667vw; font-family: 'FuturaPT Bold'; font-weight: 700;text-transform: uppercase;color: #5e6168;margin-top: 25px;">Interior Escurecido</p>
+								 <p style="font-size: 3.73333vw;line-height: calc(3.73333vw + 1.36px);font-family: 'FuturaPT Medium';font-weight: 500;color: #5e6168">Assim como o design externo, o interior do Argo fica ainda mais especial com o acabamento escurecido e detalhes personalizados com o DNA S-Design.
+								 </p>
+							 </div>
+						 </div>
+					 </amp-carousel>
+				 </section>
+				 <section>
+					 <h4 style="font-family: 'FuturaPT Bold';font-weight: 700;color: #5e6168;font-size: 5.06667vw;text-transform: uppercase;padding-top: 10px;padding-bottom: 2px;border: none;border: none;padding-left: 25px;background-color: #f2f2f2;"><span style="font-size: 12px;">▾</span> Galeria</h4>
+					 <div>
+						 <amp-carousel id="carousel-gallery" width="400" height="300" layout="responsive" type="slides" on="slideChange:carouselSelector.toggle(index=event.index, value=true),carouselPreview.goToSlide(index=event.index)">
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-1@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-2@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-3@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-4@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-5@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-6@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-7@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-8@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+							 <amp-img src="assets/galeria/smartphone/galeria-smartphone-argo-9@3x.jpg" width="400" height="300" layout="responsive" alt="Fiat Argo"></amp-img>
+						 </amp-carousel>
+					 </div>
+				 </section>
+			 </amp-accordion>
+			 <div style="background-color: #ffbc41;border-top:70px solid #f2f2f2;">
+				 <div style="background-color: #ffbc41;border-radius: 20px 20px 0 0;position: relative;top: -14px;">
+				  	 <div style="padding-left: 28px;padding-top: 10px;padding-bottom: 35px;">
+						 <p style="color: #905d00; font-weight: 500;line-height: 0px;font-family: 'FuturaPT Medium';font-size: 4.8vw;">#quero</p>
+						 <p style="color: white; font-weight: 700; font-family: 'FuturaPT Bold';font-size: 4.8vw;">Já imaginou o Fiat Argo na sua garagem?</p>
+
+						 <p style="margin-top:45px; text-align: center;">
+							 <a style="padding-top: 14px;padding-bottom: 14px; padding-left: 70px;padding-right: 70px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html" style="text-decoration: none;">
+							     Monte o seu
+							 </a>
+						 </p>
+
+						 <p style="margin-top:50px; text-align: center;">
+							 <a style="padding-top: 14px;padding-bottom: 14px; padding-left: 21px;padding-right: 21px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://argo.fiat.com.br/monte.html" style="text-decoration: none;">
+								 Simule um financiamento
+						 	 </a>
+						 </p>
+
+						 <p style="margin-top:50px; text-align: center;">
+							 <a style="padding-top: 14px;padding-bottom: 14px; padding-left: 67px;padding-right: 67px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://argo.fiat.com.br/agende" style="text-decoration: none;">
+								 Compre o seu
+							 </a>
+						 </p>
+
+						 <p style="margin-top:50px; text-align: center;">
+							 <a style="padding-top: 14px;padding-bottom: 14px; padding-left: 53px;padding-right: 53px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://www.fiat.com.br/concessionarias.html/?" style="text-decoration: none;">
+								 Concessionárias
+						 	 </a>
+						 </p>
+
+						 <p style="margin-top:50px; text-align: center;">
+							 <a style="padding-top: 14px;padding-bottom: 14px; padding-left: 73px;padding-right: 73px; background-color:white;border-radius:10px;color: #37474f;font-family: 'FuturaPT Bold', sans-serif; font-weight: 700; text-align: center;font-size: 3.5vw;text-transform:uppercase;text-decoration: none;" rel="amphtml" target="_blank" href="https://ofertas.fiat.com.br/?q=argo" style="text-decoration: none;">
+								 Ofertas Fiat
+							 </a>
+						 </p>
+
+						 <div style="border-bottom: 1px solid white;height: 30px;margin-right: 9%;"></div>
+
+						 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);text-align: center;color: #5e6168;font-family: 'FuturaPT Light';font-weight:300;margin-right: 8%;padding-top: 20px;">
+							 <a href="https://www.facebook.com/fiatbr" target="_blank"><amp-img src="assets/icons/facebook.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img></a>
+							 <a href="https://www.youtube.com/user/fiat" target="_blank"><amp-img src="assets/icons/youtube.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img></a>
+							 <a href="https://twitter.com/fiatbr" target="_blank"><amp-img src="assets/icons/twitter.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img></a>
+							 <a href="https://www.instagram.com/fiatbr/" target="_blank"><amp-img src="assets/icons/instagram.svg" width="20" height="20" style="margin: 10px;" noloading></amp-img></a>
+					     </p>
+
+						 <p style="font-size: 2.93333vw;line-height: calc(2.93333vw + 1.33px);text-align: center;color: #5e6168;font-family: 'FuturaPT Light';font-weight:300;margin-right: 8%;padding-top: 10px;">
+							 A disponibilidade de itens de série, opcionais e acessórios pode variar de acordo com a versão escolhida.
+							 Verifique o Monte seu Carro. Imagens meramente ilustrativas.
+						 </p>
+
+						 <amp-img src="assets/ibama.png" width="40" height="50" style="margin-left: 40%;margin-top: 20px;"></amp-img>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </body>
+ </html>

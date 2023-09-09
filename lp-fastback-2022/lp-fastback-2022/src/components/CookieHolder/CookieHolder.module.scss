@@ -1,0 +1,44 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 4000;
+  background-color: $background-primary;
+  color: $text-on-primary;
+  > div {
+    position: relative;
+    padding: #{toRem(40)} #{toRem(25)} #{toRem(25)};
+
+    p {
+      max-width: $screen-max-size;
+      margin: 0 auto;
+    }
+
+    a,
+    p {
+      font-size: toRem(14);
+      color: #000;
+    }
+
+    .closeButton {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-color: $button-background;
+      border: 0px solid $background-primary;
+      color: $text-version;
+      &:hover,
+      &:active {
+        &:not(.disabled) {
+          color: $text-on-primary;
+          background-color: $background-primary;
+          border: 1px solid $button-background;
+        }
+      }
+
+    }
+  }
+}

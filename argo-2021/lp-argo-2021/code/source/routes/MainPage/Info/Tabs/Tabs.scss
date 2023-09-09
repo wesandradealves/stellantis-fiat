@@ -1,0 +1,676 @@
+ .Tabs {
+	@include relative;
+	@include span(12/12);
+	@include size(null 100%);
+
+	::selection {
+		background-color: transparent;
+	}
+
+
+	// POSTER
+	// ~~~~~~
+
+	&-poster {
+		@include relative;
+		@include span(12/12);
+		@include size(null (273/630 * 90vh));
+		@include overflow(hidden);
+		background: _('Modal.Tabs.backgroundColorPoster') or #edede3;
+	}
+
+	&-posterList {
+		@include relative;
+		@include span(12/12);
+		@include size(null 100%);
+	}
+
+	&-posterItem {
+		@include relative;
+		@include span(12/12);
+		@include size(null 100%);
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-posterImage {
+		@include size(100% auto);
+		object-fit: fill;
+	}
+
+	&-posterImage,
+	&-posterImage > div,
+	&-posterItem {
+		@include min-size(null 280px);
+	}
+
+	&-posterImage.is-simple {
+		@include size(100%);
+	}
+
+	&-posterImage.is-loaded + &-posterLoader {
+		opacity: 0;
+	}
+
+	&-posterPicture {
+		@include size(100% auto);
+	}
+
+	&-posterVideo {
+		@include size(100%);
+		object-fit: fill;
+		background-color: #111111;
+	}
+
+
+	// THUMB
+	// ~~~~~
+
+	&-thumb {
+		@include relative;
+		@include column(10/12, 1/12);
+		@include padding(em(18px) null null null);
+	}
+
+	&-thumbList {
+		@include relative;
+		@include column(12/12);
+		@include margin(30px null 26px null);
+	}
+
+	&-thumbItem {
+		@include relative;
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #dbdbdb;
+	}
+
+	&-thumbLink {
+		text-decoration: none;
+	}
+
+	&-thumbImage {
+		@include size(100%);
+		@include aspect-ratio(100, 95);
+		transition: transform 0.6s $ease-out-quart, opacity 0.5s $ease-out-expo;
+		filter: grayscale(100%);
+		opacity: 0.5;
+		display: block;
+	}
+
+	&-thumbImage:hover,
+	&-thumbImage.is-active {
+		filter: grayscale(0);
+		transform: scale3d(1.1, 1.1, 1);
+		transform-origin: center center;
+		opacity: 1;
+	}
+
+
+	// WRAPPER
+	// ~~~~~~~
+
+	&-card {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+ 	// ARROW
+	// ~~~~~
+
+	&-arrow,
+	&-arrowMobile {
+		@include span(10/12, 1/12);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+    justify-content: flex-start;
+	}
+
+	&-arrow {
+		@include absolute(null null null null);
+	}
+
+  &-arrowMobile {
+		@include absolute(null null null null);
+	}
+
+	&-arrowWrapper,
+	&-arrowInfo {
+		@include relative;
+		display: flex;
+		flex-direction: row;
+		// border: 1px solid red;
+	}
+
+	&-arrowWrapper {
+		@include size(100px 100%);
+		justify-content: flex-start;
+	}
+
+	&-arrowLink {
+		@include relative;
+	}
+
+	&-arrowInfo {
+		margin-left: 20px;
+		flex-direction: column;
+	}
+
+	&-arrowInfoSap {
+		@include font-responsive(_('Modal.Tabs.textFontArrowInfoSap.size.mobile')...);
+		font-family: _('Modal.Tabs.textFontArrowInfoSap.family') or $fontsFallback;
+		font-weight: _('Modal.Tabs.textFontArrowInfoSap.weight') or 700;
+		font-style: _('Modal.Tabs.textFontArrowInfoSap.style') or normal;
+		color: _('Modal.Tabs.textFontArrowInfoSapColor') or #1b1c1d;
+		margin: 0;
+	}
+
+	&-arrowInfoTitle {
+		@include font-responsive(_('Modal.Tabs.textFontArrowInfoTitle.size.mobile')...);
+		font-family: _('Modal.Tabs.textFontArrowInfoTitle.family') or $fontsFallback;
+		font-weight: _('Modal.Tabs.textFontArrowInfoTitle.weight') or 700;
+		font-style: _('Modal.Tabs.textFontArrowInfoTitle.style') or normal;
+		color: _('Modal.Tabs.textFontArrowInfoTitleColor') or #1b1c1d;
+		margin: 0;
+	}
+
+	&-arrowPrev,
+	&-arrowNext {
+		@include relative;
+		@include margin(auto);
+		@include size(46px);
+		padding: 15px 15px;
+		display: inline-block;
+		background-color: _('Modal.Tabs.backgroundColorArrowButton') or #fe5f87;
+		transition: background 400ms ease;
+
+		path {
+			fill: (_('Modal.Tabs.textColorArrowButton') or #edede3)!important;
+		}
+
+		&.is-disabled,
+		&[disabled] {
+			opacity: 0.4;
+			path {
+				fill: (_('Modal.Tabs.textColorArrowButtonDisabled') or #fff)!important;
+			}
+		}
+
+		&:hover {
+			background-color: darken(_('Modal.Tabs.backgroundColorArrowButton') or #fe5f87, 5%);
+		}
+	}
+
+	&-arrowPrev {
+		@include offset(null initial null );
+		@include flip(horizontal);
+		@include margin(null 3px null 0);
+	}
+
+  &-arrowPrevMobile,
+  &-arrowNextMobile {
+    @include absolute;
+    color: _color('_003');
+    background: none;
+  }
+
+  &-arrowPrevMobile {
+    left: 4%;
+    box-sizing: border-box;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+      transform: rotate(45deg);
+      left: 6px;
+      top: 4px;
+    }
+  }
+
+  &-arrowNextMobile {
+    right: 4%;
+    box-sizing: border-box;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-bottom: 2px solid;
+      border-right: 2px solid;
+      transform: rotate(-45deg);
+      right: 6px;
+      top: 4px
+    }
+  }
+
+
+	// CAPTION
+	// ~~~~~~~
+
+	&-posterCaption {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include margin(-7.35% null null null);
+		z-index: 2;
+	}
+
+	&-posterCaptionWrapper {
+		@include size(100% null);
+		display: flex;
+		align-items: flex-start;
+		justify-content: left;
+		flex-wrap: wrap;
+	}
+
+	&-posterCaptionIcon {
+		@include relative;
+		@include size(9% auto);
+		@include padding(2.3% 0 null 0);
+	}
+
+
+	&-posterCaptionIconBrand {
+		@include size(100%);
+	}
+
+	&-posterCaptionText {
+		@include relative;
+		@include size(91% auto);
+		font-size: _('Modal.Tabs.textSizeCaption') or 60px;
+		// font-family: _('Modal.Tabs.textFontCaption.family') or $fontsFallback;
+		// font-weight: _('Modal.Tabs.textFontCaption.weight') or bold;
+		// font-style: _('Modal.Tabs.textFontCaption.style') or normal;
+		text-align: _('Modal.Tabs.textAlignCaption') or center;
+		fill: _('Modal.Tabs.textColorCaption') or #edede3;
+	}
+
+
+	// INFO
+	// ~~~~
+
+	&-info {
+		@include relative;
+		@include span(10/12, 1/12);
+    @include overflow(hidden);
+		@include size(null auto);
+		@include padding(5% 0 0);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	&-infoTitle {
+		@include size(100% null);
+		@include margin(null null 6px null);
+		@include font-responsive(_('Modal.Tabs.textFontTitle.size.mobile')...);
+		font-family: _('Modal.Tabs.textFontTitle.family') or $fontsFallback;
+		font-weight: _('Modal.Tabs.textFontTitle.weight') or 700;
+		font-style: _('Modal.Tabs.textFontTitle.style') or normal;
+		text-align: _('Modal.Tabs.textAlignTitle') or center;
+		color: _('Modal.Tabs.textColorTitle') or #f7a834;
+		letter-spacing: normal;
+		font-stretch: normal;
+	}
+
+	&-infoText {
+		@include font-responsive(_('Modal.Tabs.textFontText.size.mobile')...);
+		font-family: _('Modal.Tabs.textFontText.family') or $fontsFallback;
+		font-weight: _('Modal.Tabs.textFontText.weight') or 500;
+		font-style: _('Modal.Tabs.textFontText.style') or normal;
+		text-align: _('Modal.Tabs.textAlignText') or center;
+		color: _('Modal.Tabs.textColorText') or #edede3;
+		letter-spacing: 0.3px;
+		font-stretch: normal;
+		margin-top: 0;
+		span {
+			color: #f7a834;
+			font-weight: 600;
+		}
+	}
+
+	&-infoText strong {
+		color: _('Modal.Tabs.textColorTextStrong') or #f7a834;
+	}
+
+
+	// PAGINATION
+	// ~~~~~~~~~~
+
+	&-pagination {
+		@include span(12/12);
+		@include absolute(null null 0 null);
+		@include size(null 76px);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&-paginationList {
+		@include relative;
+		@include size(null 100%);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-paginationItem {
+		@include size(8px);
+		@include max-size(25px);
+		@include margin(5px 13px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: _('Modal.Tabs.backgroundColorBullet');
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 1px solid #fff;
+	}
+
+	&-paginationItem.is-active {
+		background-color: _('Modal.Tabs.backgroundColorBulletActive');
+		border-color: _('Modal.Tabs.backgroundColorBulletActive');
+		transform: scale(1.5);
+	}
+
+
+	// BULLET
+	// ~~~~~~
+
+	&-bullet {
+		// @include absolute;
+		// @include span(10/11.5);
+		// @include span-shift(0.5/11.5);
+
+		@include absolute(null null 15px null);
+		@include span(12/12);
+		@include span-shift(0);
+
+		@include margin(12.5px null 2.5px null);
+		bottom: 5vh;
+		z-index: 1;
+	}
+
+	&-bulletList {
+		@include relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 0;
+	}
+
+	&-bulletItem {
+		@include size(16px);
+		@include max-size(25px);
+		@include margin(null 7px null 20px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: #fff;
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 0;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+	}
+
+	&-bulletItem.is-active {
+		transform: scale(3);
+	}
+
+	&-bulletText {
+		font-size: 11px;
+		font-weight: 600;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.82;
+		letter-spacing: 0.22px;
+		text-align: left;
+	}
+
+
+	// TAB
+	// ~~~
+
+	&-tab {
+		@include relative;
+		@include span(12/12);
+	}
+
+	&-tabList {
+		@include relative;
+		@include padding(null null null 0);
+		@include margin(0 null);
+		list-style-type: none;
+		display: inline-flex;
+		flex-direction: row;
+	}
+
+	&-tabItem {
+		@include relative;
+	}
+
+	&-tabLink {
+		@include font-responsive((11 / 375) * 100vw, 9px, 15px, 11px, 1.33px);
+		@include padding(8.5px 16px);
+		transition: background-color 0.6s $ease-in-out-quart, color 0.6s $ease-in-out-quart;
+		font-family: futura-pt, sans-serif;
+		font-weight: 700;
+		background-color: #dbdbdb;
+		color: #ffffff;
+		border: 0;
+	}
+
+	&-tabLink::before {
+		@include absolute(100% 0 null 0);
+		@include margin(auto);
+		@include triangle($direction: bottom, $offset: null 0, $color: transparent, $size: 0.5em);
+		transition: transform 0.6s $ease-out-back, border-top-color 0.2s $ease-in-out-quart;
+		transform: translateY(-100%);
+		content: " ";
+	}
+
+	&-tabLink:hover,
+	&-tabLink.is-active {
+		background-color: #ffbc41;
+		color: #ffffff;
+	}
+
+	&-tabLink.is-active::before {
+		transform: translateY(-1px);
+		border-top-color: #ffbc41;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		@include padding(62px);
+
+		.Modal-dialogContent{
+			max-height: 98vh !important;
+		}
+
+		&::before {
+			@include absolute(0 null null 0);
+			@include size(101px 100%);
+			background-color: _color('_020');
+			content: " ";
+		}
+
+
+		// ARROW
+		// ~~~~~
+
+		&-arrow {
+			@include span(12/12);
+			@include absolute(null null 0 null);
+		}
+
+		&-arrowPrev,
+		&-arrowNext {
+			@include size(46px);
+			padding: 15px 15px;
+		}
+
+
+		&-poster {
+			@include span(10/16);
+			@include size(null ((879/1211) * 100vh));
+			height: 100% !important;
+		}
+
+		&-posterImage.is-simple {
+			object-fit: scale-down;
+			object-position: top;
+		}
+
+		&-bullet {
+			@include absolute;
+			bottom: 5vh;
+			z-index: 1;
+		}
+
+		&-bulletItem {
+			@include size(8px);
+			background-color: #ffffff;
+		}
+
+
+		// CAPTION
+		// ~~~~~~~
+
+		&-posterCaption {
+			@include relative;
+			@include span(14/16, 1/16);
+			@include margin(-5.35% null null null);
+		}
+
+		&-posterCaptionWrapper {
+			@include size(70% null);
+		}
+
+
+		// INFO
+		// ~~~~
+
+		&-info {
+			@include span(6/16);
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			padding: 0 10px 0 40px;
+		}
+
+		&-infoTitle {
+			@include font-responsive(_('Modal.Tabs.textFontTitle.size.desktop')...);
+			font-family: _('Modal.Tabs.textFontTitle.family') or $fontsFallback;
+			font-weight: _('Modal.Tabs.textFontTitle.weight') or 600;
+			font-style: _('Modal.Tabs.textFontTitle.style') or normal;
+			font-stretch: normal;
+			line-height: 1.1;
+			letter-spacing: normal;
+			text-align: left;
+			color: _('Modal.Tabs.textColorTitle') or #edede3;
+			margin-bottom: 6px;
+		}
+
+		&-infoText {
+			font-size: 14px;
+			font-weight: normal;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.57;
+			letter-spacing: normal;
+			text-align: left;
+			color: _('Modal.Tabs.textColorText') or #edede3;
+		}
+
+
+		// TAB
+		// ~~~
+
+		&-tab {
+			@include span(16/16);
+		}
+
+		&-tabLink {
+			@include padding(null 30px);
+		}
+	 }
+
+
+	 // ~~ Altura Resolução FCA ~ até 768px de altura
+
+	@include media-query-size-y(xs sm) {
+		@at-root .is-desktop & {
+			&-poster {
+				// @include size(null ((579/1211) * 120vh));
+				@include size(null ((579/1211) * 100vh));
+			}
+
+			&-posterImage.is-simple {
+				@include size(100% null);
+			}
+
+			&-posterCaption {
+				margin-top: 0!important;
+			}
+
+			&-infoTitle {
+				@include font-responsive(_('Modal.Tabs.textFontTitle.size.fca')...);
+			}
+
+			&-infoText {
+				@include font-responsive(_('Modal.Tabs.textFontText.size.fca')...);
+			}
+		}
+	}
+
+	@media screen and (min-height: 769px){
+		@at-root .is-desktop & {
+			&-bullet {
+				bottom: 5vh;
+			}
+		}
+	}
+
+	@include media-query-size-y(lg) {
+		@at-root .is-desktop & {
+			&-posterPicture {
+				@include size(100% 100%);
+				background-color: #4a2d86;
+			}
+		}
+	}
+
+}

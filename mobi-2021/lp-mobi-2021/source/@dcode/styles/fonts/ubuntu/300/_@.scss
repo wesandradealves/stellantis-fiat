@@ -1,0 +1,433 @@
+//!
+//| UBUNTU 300
+//'__________________________________________________________________________
+// light-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// light-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// light-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// light-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// light-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// light-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light"), local("Ubuntu-Light"), url("@dcode/styles/fonts/ubuntu/300/light-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu"), url("@dcode/styles/fonts/ubuntu/300/latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// medium-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// medium-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// medium-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// medium-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// medium-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// medium-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("@dcode/styles/fonts/ubuntu/300/medium-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// bold-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// bold-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// bold-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// bold-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// bold-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// bold-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("@dcode/styles/fonts/ubuntu/300/bold-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// light-italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// light-italic-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// light-italic-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// light-italic-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// light-italic-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// light-italic-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 300;
+	font-display: swap;
+	src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("@dcode/styles/fonts/ubuntu/300/light-italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// italic-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// italic-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// italic-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// italic-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// italic-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("@dcode/styles/fonts/ubuntu/300/italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// medium-italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// medium-italic-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// medium-italic-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// medium-italic-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// medium-italic-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// medium-italic-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+	src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("@dcode/styles/fonts/ubuntu/300/medium-italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+// bold-italic-cyrillic-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-cyrillic-ext.woff2") format("woff2");
+	unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+// bold-italic-cyrillic
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-cyrillic.woff2") format("woff2");
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+// bold-italic-greek-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-greek-ext.woff2") format("woff2");
+	unicode-range: U+1F00-1FFF;
+}
+// bold-italic-greek
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-greek.woff2") format("woff2");
+	unicode-range: U+0370-03FF;
+}
+// bold-italic-latin-ext
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-latin-ext.woff2") format("woff2");
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+// bold-italic-latin
+@font-face {
+	font-family: "Ubuntu";
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: local("Ubuntu Bold Italic"), local("Ubuntu-BoldItalic"), url("@dcode/styles/fonts/ubuntu/300/bold-italic-latin.woff2") format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}

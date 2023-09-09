@@ -1,0 +1,25 @@
+{
+	"projects": [
+		{
+			"folder": "lp-argo-2022/",
+			"slug": "lp-argo-2022",
+			"external-access": [
+				{
+					"user": "projetos@umstudio.com",
+					"pass": "HjS27w8#2m2"
+				},
+				{
+					"user": "lp-argo",
+					"pass": "dKeAh7%3"
+				}
+			],
+			"render":"static",
+			"server":{
+				"type":"nginx",
+				"language":{
+					"type":"node"
+				}
+			}
+		}
+	]
+}

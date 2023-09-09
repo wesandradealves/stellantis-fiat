@@ -1,0 +1,21 @@
+{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node"
+        }
+      },
+      "external-access": [
+        {
+          "user": "fastback",
+          "pass": "7@28Uysm"
+        }
+      ],
+      "folder": "lp-fastback-2022/",
+      "slug": "lp-fastback-2022",
+      "render": "server-side"
+    }
+  ]
+}

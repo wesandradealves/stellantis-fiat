@@ -1,0 +1,221 @@
+//.--------------------------------------------------------------------------
+//|
+//| FUTURA BT
+//|
+//'__________________________________________________________________________
+
+
+//| Bold Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-bold-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.eot');
+	src: local('FuturaBT Bold Italic'), local('FuturaBTBoldItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold-italic.svg#FuturaBTBoldItalic') format('svg');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Bold
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-bold';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-bold.eot');
+	src: local('FuturaBT Bold'), local('FuturaBTBold'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-bold.svg#FuturaBTBold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Book Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-book-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.eot');
+	src: local('FuturaBT Book Italic'), local('FuturaBTBookItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book-italic.svg#FuturaBTBookItalic') format('svg');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Book
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-book';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-book.eot');
+	src: local('FuturaBT Book'), local('FuturaBTBook'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-book.svg#FuturaBTBook') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Extra Black Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-extra-black-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.eot');
+	src: local('FuturaBT ExtraBlack Italic'), local('FuturaBTExtraBlackItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black-italic.svg#FuturaBTExtraBlackItalic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Extra Black
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-extra-black';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.eot');
+	src: local('FuturaBT ExtraBlack'), local('FuturaBTExtraBlack'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-extra-black.svg#FuturaBTExtraBlack') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Heavy Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-heavy-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.eot');
+	src: local('FuturaBT Heavy Italic'), local('FuturaBTHeavyItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.svg#FuturaBTHeavyItalic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Heavy
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-heavy';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.eot');
+	src: local('FuturaBT Heavy'), local('FuturaBTHeavy'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy.svg#FuturaBTHeavy') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Light Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-light-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.eot');
+	src: local('FuturaBT Light Italic'), local('FuturaBTLightItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light-italic.svg#FuturaBTLightItalic') format('svg');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Light
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-light';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-light.eot');
+	src: local('FuturaBT Light'), local('FuturaBTLight'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-light.svg#FuturaBTLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+//| Medium Italic
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-medium-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.eot');
+	src: local('FuturaBT Medium Italic'), local('FuturaBTMediumItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium-italic.svg#FuturaBTMediumItalic') format('svg');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+
+//| Medium
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'futurabt-medium';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-medium.eot');
+	src: local('FuturaBT Medium'), local('FuturaBTMedium'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-medium.svg#FuturaBTMedium') format('svg');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}

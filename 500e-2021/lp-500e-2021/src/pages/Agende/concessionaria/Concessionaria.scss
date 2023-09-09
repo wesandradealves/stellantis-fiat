@@ -1,0 +1,27 @@
+.Concessionaria {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	margin: 2em;
+
+	@at-root .is-mobile & {
+		margin: 1em;
+	}
+
+	.u-radio {
+		width: 1.2em;
+		height: 1.2em;
+		border: 1px solid #979797;
+		&.is-active {
+			&::after {
+				background-color: #979797;
+			}
+		}
+	}
+
+	.info {
+		margin-left:1em;
+	}
+}

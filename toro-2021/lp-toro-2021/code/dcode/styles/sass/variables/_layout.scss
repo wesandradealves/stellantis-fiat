@@ -1,0 +1,59 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Layout
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$layout:
+(
+	xs:
+	(
+		w: 568px, // ≥47px columns(12)
+		h: 568px, // ≥47px columns(12)
+	),
+
+	sm:
+	(
+		w: 768px, // ≥64px columns(12)
+		h: 768px, // ≥64px columns(12)
+	),
+
+	md:
+	(
+		w: 1024px, // ≥85px columns(12)
+		h: 960px,  // ≥80px columns(12)
+	),
+
+	lg:
+	(
+		w: 1140px, // ≥95px columns(12)
+		h: 1050px, // ≥87px columns(12)
+	),
+
+	xl:
+	(
+		w: 1680px, // ≥140px columns(12)
+		h: 1080px, // ≥90px columns(12)
+	),
+
+	zIndex:
+	(
+		dropdown: 101,
+		sticky: 102,
+		fixed: 103,
+		modalBackdrop: 104,
+		modal: 105,
+		popover: 106,
+		tooltip: 107,
+	),
+
+	grid:
+	(
+		nth: child,
+		columns: 12,
+		maxWidth: 960px,
+		parentFirst: false,
+		gutterWidth: 1%,
+		marginWidth: 2.3%,
+		direction: LTR,
+	),
+) !default;

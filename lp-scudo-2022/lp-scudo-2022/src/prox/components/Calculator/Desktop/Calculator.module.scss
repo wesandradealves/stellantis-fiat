@@ -1,0 +1,281 @@
+@import '@/project/styles/theme',
+  '@/project/styles/theme';
+
+$paddingDefault: 0 2rem;
+
+@mixin GoogleInputArea {
+  &::placeholder {
+    color: $text-on-primary;
+    // padding-left: 0.5rem;
+  }
+}
+
+@mixin CalculationBarDisplayText {
+  text-align: right;
+  h3 {
+    font-size: 1.5625rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    color: $text-on-primary;
+    padding-bottom: 0;
+
+    strong {
+      font-size: 2.1875rem;
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 400;
+      color: $text-on-primary;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+}
+
+.resources {
+  padding-top: 40px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  flex-direction: row;
+  position: relative;
+  max-height: 33rem;
+  height: 530px;
+}
+.mapsSection {
+  padding: 1rem 1rem 1rem 5rem;
+  background: white;
+  max-width: 26.1875rem;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: space-around;
+
+  @media (min-width: 1679px) {
+    padding: 1rem 3rem 1rem 4rem;
+    margin-right: 35px;
+    margin-left: 69px;
+  }
+
+  @media (min-width: 1919px) {
+    margin-right: 83px;
+    margin-left: 80px;
+    max-width: 37.1875rem;
+  }
+
+
+  .InlineWrapper {
+    margin-top: -38px;
+    @media (min-width: 1919px) {
+      margin-top: 0px;
+    }
+
+  }
+  .separator {
+  }
+  h1 {
+    //padding-left: 1.5rem;
+    font-size: 1.25rem;
+    font-family: 'Din bold', sans-serif;
+    font-weight: 400;
+    color: #003c55;
+    padding-right: 60px;
+    margin-top: 29px;
+    margin-bottom: 22px;
+    line-height: 1.25rem;
+    @media (min-width: 1358px) {
+      margin-top: 36px;
+    }
+    @media (min-width: 1919px) {
+      font-size: 2rem;
+      margin-top: -9px;
+      line-height: 1.9rem;
+      margin-bottom: 19px;
+    }
+
+  }
+
+  input {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 1px solid black;
+    width: 86%;
+    height: 47px;
+    margin-bottom: 1rem;
+    color: black;
+    @include GoogleInputArea;
+
+    &:focus {
+      border: 1px solid $text-on-primary !important;
+    }
+
+    @media (min-width: 1919px) {
+      width: 82%;
+    }
+
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .infoDistance {
+    font-size: 1.25rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    color: red;
+    margin-bottom: 2px;
+    padding-left: 2rem;
+    padding-bottom: 12px;
+    @media (min-width: 1919px) {
+      margin-bottom: -2px;
+      font-size: 1.5rem;
+    }
+
+  }
+  .Inline {
+    display: flex;
+    flex-direction: row;
+    //margin-top: 12px;
+    img {
+      width: 7%;
+      margin-right: 0.7rem;
+
+      @media (min-width: 1919px) {
+        margin-right: 1rem;
+        margin-top: -30px;
+        margin-bottom: -49px;
+      }
+
+    }
+
+  }
+}
+
+.autonomySection {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  background-color: black;
+  padding: 29px 50px 0;
+  position: relative;
+
+  @media (min-width: 1358px) {
+    padding: 38px 50px 0;
+  }
+  @media (min-width: 1679px) {
+    padding: 48px 115px 0 178px;
+  }
+  @media (min-width: 1919px) {
+    padding: 48px 115px 0 178px;
+  }
+
+
+
+  div {
+    h2 {
+      font-family: 'Din Next LT Pro', sans-serif;
+      color: white;
+      font-size: 1.5rem;
+      padding-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: white;
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 400;
+      max-width: 350px;
+      // padding-bottom: 4.375rem;
+    }
+  }
+  .eletricAutonomy,
+  .hibrydAutonomy {
+    @media (min-width: 1679px) {
+      max-width: 320px;
+    }
+    padding-right: 30px;
+    .descriptionAutonomy {
+      height: 5.5rem;
+      font-size: 1.25rem;
+      color: white;
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 400;
+      max-width: 350px;
+    }
+
+    .tltAutonomy {
+      font-family: 'Din Next LT Pro', sans-serif;
+      color: white;
+      font-size: 1.5rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+
+  .Calculation {
+    @include CalculationBarDisplayText;
+  }
+
+  .CalculationFull {
+    @include CalculationBarDisplayText;
+    h3,
+    h3 strong {
+      color: purple;
+    }
+  }
+
+  .Advisor {
+    position: absolute;
+    bottom: 7rem;
+    background-color: $text-on-primary;
+    width: 86%;
+    border-radius: 3px;
+    bottom: 16%;
+    @media (min-width: 1679px) {
+      left: 16%;
+      width: 70%;
+    }
+    p {
+      color: $text-on-primary;
+      font-size: 1.25rem;
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 400;
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+.footer {
+  background-color: black;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  width: 100%;
+  padding: 80px 80px 36px 80px;
+
+  @media (min-width: 1679px) {
+    padding: 70px 70px 36px 80px;
+  }
+  h3 {
+    color: $text-on-primary;
+    font-size: 1rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    margin-top: -29px;
+  }
+}
+
+.maps {
+
+}

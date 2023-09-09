@@ -1,0 +1,71 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: #272727;
+  padding-top: 0;
+  
+  @include desktop {
+    //padding-top: calc(#{$header-size} + 14px);
+    //padding-bottom: clamp(#{toRem(50)}, 5vw, #{toRem(80)});
+    padding-bottom: 2rem;
+  }
+ 
+
+  h2 {
+    padding-top: toRem(48);
+    padding-left: toRem(48);
+    //text-align: center;
+    font-weight: 500;
+    color: $primary;
+  }
+  span {
+    h2 {
+      margin: 0;
+    }
+  }
+
+}
+
+.scrollCta {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: $text-secondary;
+  padding-top: 14px;
+  margin-bottom: toRem(40);
+
+  h2 {
+    width: 90%;
+    //@include scrollCtaFontSize;
+    //color: red;
+    text-align: center;
+    font-weight: 700;
+    padding: 0;
+  }
+
+  @include desktop {
+    h2 {
+    }
+  }
+
+  > div {
+    width: 300px;
+    svg {
+      margin-top: toRem(9);
+    }
+  }
+
+  > svg {
+    margin-top: toRem(20);
+    @include animationMargin;
+  }
+}
+.swiper-slide{
+  border: 1px solid red;
+  padding-bottom: 5%;
+}

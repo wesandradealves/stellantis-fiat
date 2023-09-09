@@ -1,0 +1,365 @@
+.DesktopTabs {
+	@include relative;
+	@include span(12/12);
+	@include padding(0);
+	@include margin(0 null);
+	@include border(0);
+	outline: none;
+	text-align: left;
+	font-size: 0;
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+	@include media-query-size-x(lg xl unknown) {
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+	}
+
+
+	// XXXXXX
+	// ~~~~~~
+
+	hr {
+		@include size(85% null);
+		@include margin(0 auto 25px auto);
+		border: 0.5px solid rgba(#5e6168, 0.36);
+	}
+
+	input {
+		@include absolute(null null null -9999px);
+	}
+
+	label {
+    $tabs: 6;
+    $tabGap: 3px;
+
+		@include relative;
+		@include margin(0);
+		@include padding(0);
+		@include border(0);
+    background-color: _color('_015');
+    border-right: $tabGap solid _color('_002');
+		display: inline-block;
+		outline: none;
+		cursor: pointer;
+		transition: all 0.1s;
+    width: calc(100% / #{$tabs});
+    text-align: center;
+	}
+
+  label:nth-of-type(6) {
+    border-right: none;
+  }
+
+	label > span {
+		@include font-responsive((20 / 1920) * 85vw, 11px, 28px, 26px, 1.27px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 700;
+		color: _color('_016');
+	}
+
+	label i {
+		@include border(0);
+		// @include margin(16px 8px 0 -2px);
+		@include margin(0 8px 0 -2px);
+		@include padding(0);
+		display: block;
+		float: left;
+		outline: none;
+		font-style: normal;
+		font-size: 17px;
+	}
+
+	input.is-checked + label{//,
+	// > input:checked + label {
+		cursor: default;
+		border-radius: 0 0 0 0;
+		color: _color('_002');
+
+    > span {
+      font-family: 'FuturaPT Bold', sans-serif;
+    }
+	}
+
+	input.is-checked + label::after{//,
+	// > input:checked + label::after {
+		@include absolute(null 0 10% 0);
+		@include margin(auto);
+		@include size(90% null);
+		border-bottom: 4px solid _color('_011');
+		display: block;
+		content: " ";
+	}
+
+	ul {
+		@include overflow(hidden);
+		@include relative;
+		@include margin(0);
+		@include padding(0);
+		@include border(0);
+		font-size: 13px;
+		list-style: none;
+		display: block;
+		outline: none;
+	}
+
+	ul > li {
+		@include absolute;
+		@include size(100% null);
+		@include overflow(auto);
+		@include padding(0);
+		transition: all 0.5s;
+		box-sizing: border-box;
+		opacity: 0;
+	}
+
+	.tab-content-first ~ ul .tab-content-first,
+	.tab-content-2 ~ ul .tab-content-2,
+	.tab-content-3 ~ ul .tab-content-3,
+	.tab-content-4 ~ ul .tab-content-4,
+	.tab-content-5 ~ ul .tab-content-5,
+	.tab-content-6 ~ ul .tab-content-6,
+	.tab-content-7 ~ ul .tab-content-7,
+	.tab-content-8 ~ ul .tab-content-8,
+	.tab-content-9 ~ ul .tab-content-9,
+	.tab-content-10 ~ ul .tab-content-10,
+	.tab-content-11 ~ ul .tab-content-11,
+	.tab-content-12 ~ ul .tab-content-12,
+	.tab-content-last ~ ul .tab-content-last {
+		background-color: _color('_016');
+	}
+
+
+	.tab-content-first.is-checked ~ ul .tab-content-first,
+	.tab-content-2.is-checked ~ ul .tab-content-2,
+	.tab-content-3.is-checked ~ ul .tab-content-3,
+	.tab-content-4.is-checked ~ ul .tab-content-4,
+	.tab-content-5.is-checked ~ ul .tab-content-5,
+	.tab-content-6.is-checked ~ ul .tab-content-6,
+	.tab-content-7.is-checked ~ ul .tab-content-7,
+	.tab-content-8.is-checked ~ ul .tab-content-8,
+	.tab-content-9.is-checked ~ ul .tab-content-9,
+	.tab-content-10.is-checked ~ ul .tab-content-10,
+	.tab-content-11.is-checked ~ ul .tab-content-11,
+	.tab-content-12.is-checked ~ ul .tab-content-12,
+	.tab-content-last.is-checked ~ ul .tab-content-last{//,
+	// > .tab-content-first:checked ~ ul .tab-content-first,
+	// > .tab-content-2:checked ~ ul .tab-content-2,
+	// > .tab-content-3:checked ~ ul .tab-content-3,
+	// > .tab-content-4:checked ~ ul .tab-content-4,
+	// > .tab-content-5:checked ~ ul .tab-content-5,
+	// > .tab-content-6:checked ~ ul .tab-content-6,
+	// > .tab-content-7:checked ~ ul .tab-content-7,
+	// > .tab-content-8:checked ~ ul .tab-content-8,
+	// > .tab-content-9:checked ~ ul .tab-content-9,
+	// > .tab-content-10:checked ~ ul .tab-content-10,
+	// > .tab-content-11:checked ~ ul .tab-content-11,
+	// > .tab-content-12:checked ~ ul .tab-content-12,
+	// > .tab-content-last:checked ~ ul .tab-content-last {
+		@include offset(0 null null 0);
+		@include overflow(hidden);
+		border-radius: 0 0 0 0;
+		opacity: 1;
+		z-index: 1;
+	}
+
+
+	// --------------------------------------------------------------------------
+	// EXTENSIONS
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// animation effects
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&-effect-scale > ul > li {
+		-webkit-transform: scale(0.1,0.1);
+	}
+
+	&-effect-slide-top > ul > li {
+		top: -40px;
+	}
+
+	&-effect-slide-right > ul > li {
+		left: 80px;
+	}
+
+	&-effect-slide-bottom > ul > li {
+		top: 40px;
+	}
+
+	&-effect-slide-left > ul > li {
+		left: -80px;
+	}
+
+	&-effect-slide-fade > ul > li {
+		// N/A yet.
+	}
+
+
+
+	// --------------------------------------------------------------------------
+	// LAYOUTS
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// top right
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&-layout-top-right {
+		text-align: right;
+	}
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// top center
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&-layout-top-center {
+		text-align: center;
+	}
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// top combi
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	.right {
+		float: right;
+	}
+
+
+	// --------------------------------------------------------------------------
+	// ICONS
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// icons positions
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	.icon-bolt {
+		// @include triangle($direction: bottom, $offset: 0 0 0 null, $color: #5e6168, $size: 0.2em);
+	}
+
+	&-icons-top > label {
+		text-align: center;
+	}
+
+	&-icons-top > label i {
+		float: none;
+		margin: 0 auto -10px;
+		padding-top: 17px;
+		font-size: 23px;
+		line-height: 23px;
+		text-align: center;
+	}
+
+	&-icons-right > label i {
+		float: right;
+		margin: 0 -2px 0 8px;
+	}
+
+	&-icons-bottom > label {
+		text-align: center;
+	}
+
+	&-icons-bottom > label i {
+		float: none;
+		margin: -10px auto 0;
+		padding-bottom: 17px;
+		font-size: 23px;
+		line-height: 23px;
+		text-align: center;
+	}
+
+	&-icons-only > label i {
+		float: none;
+		margin: 0 auto;
+		font-size: 23px;
+	}
+
+
+	// --------------------------------------------------------------------------
+	// RESPONSIVENESS
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// phone
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@media screen and (max-width: 767px) {
+		label {
+			display: block;
+		}
+		.right {
+			float: none;
+		}
+	}
+
+
+	// --------------------------------------------------------------------------
+	// THEMES
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// default
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	label {
+		// padding: 0 40px 0 20px;
+		// padding: 0 30px 0 5px;
+		padding: 0 5px 0 5px;
+		font-size: 13px;
+		line-height: 49px;
+	}
+
+	label:hover {
+		background: _color('_016');
+    & > span {
+      font-family: 'FuturaPT Bold', sans-serif;
+      color: _color('_002');
+    }
+	}
+
+	input.is-checked + label{//,
+	// > input:checked + label {
+		background: _color('_016');
+	}
+
+	input.is-checked + label > span{//,
+	// > input:checked + label > span {
+		color: _color('_002');
+	}
+
+	input.is-checked + label > span::after{//,
+	// > input:checked + label > span::after {
+		@include triangle($direction: bottom, $offset: 0 10px 0 null, $color: _color('_011'), $size: 0.32em);
+		@include margin(auto null);
+		display: block;
+		content: " ";
+	}
+
+	ul {
+		@include overflow(hidden);
+		border-radius: 0 0 0 0;
+		text-align: left;
+	}
+
+	// --------------------------------------------------------------------------
+	// CUSTOMIZATION
+	// --------------------------------------------------------------------------
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// height
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ul,
+	ul > li {
+    height: calc(min(35vw, max(30vw, 625px)));
+	}
+}

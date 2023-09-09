@@ -1,0 +1,461 @@
+.Menu {
+  $root: &;
+  $height: _("Menu.height") or 60px;
+  $heightMobile: _("Menu.heightMobile") or 45px;
+  $zIndex: 40;
+
+  @include absolute(0 null null 0);
+  @include size(100% null);
+  transition: border-bottom-width 0.5s $ease-in-out-quart;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+
+  // STATES
+  // ~~~~~~
+
+  &.is-top {
+    border-bottom-width: 1px;
+  }
+
+  &.is-open &-foreground {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.is-open &-aside {
+    transform: translate3d(0%, 0, 0);
+  }
+
+  // BACKGROUND
+  // ~~~~~~~~~~
+
+  &-foreground {
+    @include fixed(0 null null 0);
+    @include size(100% 100vh);
+    transition: visibility 0.5s, opacity 0.5s linear;
+    background-color: rgba(0, 0, 0, 0.22);
+    visibility: hidden;
+    opacity: 0;
+    z-index: $zIndex;
+  }
+
+  // NAVBAR
+  // ~~~~~~
+
+  &-navBar {
+    @include fixed;
+    @include span(12/12);
+    @include size(null $heightMobile);
+    background-color: _color("_002");
+    z-index: 99;
+  }
+
+  &-navBarLogo {
+    @include relative;
+    @include span(8/12);
+    @include size(null 100%);
+    // width: 83.33333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0;
+    span {
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+
+  &-navBarLogoIcon {
+    @include relative;
+    @include margin(0 10px null null);
+    display: block;
+  }
+
+  &-navBarLabel {
+    @include padding(0);
+    @include span(2/12);
+    @include size(null 100%);
+    background-color: _color("_011");
+    border: none;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  &-navBarLabelIcon {
+    margin: 0 auto;
+  }
+
+  &-navBarPin {
+    @include absolute(0 0 null null);
+    @include span(2/12);
+    @include size(null 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-navBarPinIcon {
+    @include relative;
+    @include margin(0 auto);
+    display: block;
+  }
+
+  // MENU
+  // ~~~~
+  &-aside {
+    @include absolute(1px null null 0);
+    @include min-size(230px null);
+    transition: 0.5s $ease-in-out-quart;
+    transform: translate3d(-100%, 0, 0);
+    z-index: $zIndex;
+  }
+
+  &-asideClose {
+    @include offset(1px null null 0);
+    z-index: 1;
+  }
+
+  &-asideListAnchors {
+    @include relative;
+  }
+
+  &-asideListLinks {
+    @include relative;
+  }
+
+  &-asideList {
+    width: 80vw;
+    @include relative;
+    @include margin(-20px null null null);
+    @include padding(41px 14px 19px 14px);
+    @include overflow(auto);
+    background-color: _color("_002");
+    border-radius: 0 0 0 0;
+  }
+
+  &-asideAnchor {
+    @include size(100% null);
+    @include padding(16px 13px);
+    @include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+    font-family: "FuturaPT Bold", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    display: block;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+  }
+
+  &-asideAnchor::after {
+    @include triangle(
+      $direction: right,
+      $offset: null 29px null null,
+      $color: _color("_011"),
+      $size: 0.35em
+    );
+    transition: border-left-color 0.5s $ease-in-out-quart,
+      transform 0.5s $ease-in-out-quart, opacity 0.5s $ease-in-out-quart;
+    content: " ";
+  }
+
+  &-asideAnchor.is-active::after,
+  &-asideAnchor:hover::after {
+    border-left-color: _color("_011");
+    transform: translateX(2px);
+  }
+
+  &-asideAnchor.is-active &-asideAnchorText,
+  &-asideAnchor:hover &-asideAnchorText {
+    color: _color("_011");
+  }
+
+  &-asideAnchorLink {
+    @include ButtonAylen(
+      $backgroundColor: #ff8094,
+      $textColor: #ffffff,
+      $hoverTextColor: #ffffff,
+      $width: 100%,
+      $textAlign: center,
+      $margin: 11px 0,
+      $padding: 1em 2em,
+      $borderRadius: 0,
+      $hoverStripeColor1: #0296ff,
+      $hoverStripeColor2: #24ced1,
+      $usePseudoHover: false,
+      $usePseudoFocus: false
+    );
+  }
+
+  &-asideAnchorText,
+  &-asideAnchorLinkText {
+    @include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+    transition: color 0.5s $ease-in-out-quart;
+    font-family: "FuturaPT Medium", sans-serif;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  &-asideAnchorText.sub {
+    padding-left: 30px;
+  }
+
+  &-asideList::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &-asideList::-webkit-scrollbar-thumb {
+    background-color: _color("_015");
+  }
+
+  &-asideList::-webkit-scrollbar-track {
+  }
+
+  // BREAKPOINTS
+  // ~~~~~~~~~~~
+
+  @include media-query-size-x(lg xl unknown) {
+    @include fixed(0 null null 0);
+    @include span(2/12);
+    @include size(null 100%);
+    transition: transform 0.5s $ease-in-out-quart;
+    transform: translate3d(-100%, 0, 0);
+    background-color: _color("_002");
+    box-shadow: 5px 3px 6px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 0 0 0 0;
+    z-index: 99;
+
+    &.is-open {
+      transform: translate3d(0%, 0, 0);
+    }
+
+    &.is-open &-aside {
+      transform: none;
+    }
+
+    &-foreground {
+      display: none;
+    }
+
+    &-brand {
+      @include relative;
+      @include size(null 45px);
+      @include margin(6px null 6px null);
+      @include padding(null 10px);
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    &-brandDivider {
+      @include size(1px 64%);
+      background-color: #fff;
+      display: block;
+    }
+
+    &-brandFiat {
+      @include size(45px 27px);
+      @include padding(null null null null);
+      float: left;
+    }
+
+    &-brandFiat path {
+    }
+
+    &-brandCar {
+      @include padding(null null null 10px);
+      @include size(108px auto);
+      font-family: "FuturaPT Bold";
+      float: right;
+      cursor: pointer;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    &-brandCar path {
+      fill: black;
+    }
+
+    &-navBar {
+      display: none;
+    }
+
+    &-aside {
+      $brandsHeight: 45px;
+      @include relative(0 null null 0);
+      @include size(100% calc(100% - #{$brandsHeight}));
+      @include min-size(initial null);
+      transform: none;
+    }
+
+    &-asideList {
+      @include size(100%);
+      @include margin(0 null null null);
+      @include padding(0 null null null);
+      background: none;
+      border-radius: 0;
+    }
+
+    &-asideListAnchors {
+      @include relative;
+    }
+
+    &-asideListLinks {
+      @include absolute(null 10px 23px 10px);
+      @include margin(auto);
+    }
+
+    &-asideClose {
+      @include size(3.3vw 3.3vw);
+      // @include align(absolute);
+      position: absolute;
+      @include offset(null null null 80%);
+      top: 0;
+      @include padding(0.1vw);
+      border-radius: 0% 0% 0% 5px;
+      transition: 800ms;
+      transition-delay: 200ms;
+      &.isAsideClosed {
+        position: absolute;
+        @include offset(null null null 100%);
+      }
+    }
+    .ToggleButton {
+      &-icon {
+        @include size(3vw);
+      }
+    }
+
+    &-asideAnchor {
+      @include padding(10px 0 10px 0);
+      display: flex;
+      align-items: center;
+    }
+
+    &-asideAnchor::after {
+      @include offset(null initial null null);
+      opacity: 0;
+    }
+
+    &-asideAnchor.is-active::after {
+      opacity: 1;
+    }
+
+    &-asideAnchorText {
+      @include font-responsive((19 / 1920) * 100vw, 10px, 20px, 19px, 1.37px);
+    }
+
+    &-asideAnchorText {
+      @include padding(null null null 15.9px);
+    }
+
+    &-asideAnchorLink {
+      @include ButtonAylen(
+        $backgroundColor: _color("_008"),
+        $textColor: #ffffff,
+        $hoverTextColor: #ffffff,
+        $width: 100%,
+        $textAlign: center,
+        $margin: 5px 0,
+        $padding: 0.9em 0.5em,
+        $borderRadius: 0px,
+        $hoverStripeColor1: _color("_011"),
+        $hoverStripeColor2: _color("_011"),
+        $usePseudoHover: true,
+        $usePseudoFocus: true
+      );
+    }
+
+    &-asideAnchorLink:first-of-type {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 5% 0 5% 0;
+      height: 44px;
+      img {
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        margin-right: 5px;
+        // position: relative;
+        // height: 5%;
+      }
+      @include margin(20px null null null);
+    }
+
+    &-asideAnchorLinkText {
+      @include font-responsive((14 / 1920) * 100vw, 8px, 17px, 14px, null);
+    }
+  }
+
+  @include media-query-size-x(xs sm) {
+    &-asideAnchorText.sub {
+      padding-left: 15px;
+    }
+
+    &-aside {
+      @include fixed;
+      z-index: 105;
+    }
+
+    &-asideAnchor {
+      @include padding(11px 0 11px 0);
+    }
+
+    &-asideAnchor::after {
+      display: none;
+    }
+
+    &-asideList {
+      width: 90vw;
+      height: calc(100vh - #{$heightMobile});
+      border-top: 1px solid _color("_015");
+      margin-top: 2px;
+      @include padding(15px 35px 19px 35px);
+    }
+
+    &-asideAnchorText {
+      font-size: 14px !important;
+    }
+
+    &-asideListLinks {
+      margin-top: 15px;
+    }
+
+    &-asideAnchorLink {
+      // Menu Hamburguer
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 5% 0 5% 0;
+      height: 44px;
+      img {
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        margin-right: 5px;
+        // position: relative;
+        // height: 5%;
+      }
+      @include margin(0.25em 0);
+      @include padding(0.9em 0.5em);
+    }
+  }
+
+  @include media-query-size-y(xs sm) {
+    &-asideAnchorText {
+      @include font-responsive((19 / 1920) * 100vw, 10px, 20px, 19px, 1.37px);
+    }
+
+    &-asideListLinks {
+      @include relative(null initial initial initial);
+      @include margin(initial);
+      margin-top: 15px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@function random-color($min: 0, $max: 255, $alpha: 1) {
+	$min: if($min < 0, -1, $min - 1);
+	$max: if($max > 255, 256, $max + 1);
+	$r: random($max) + $min;
+	$g: random($max) + $min;
+	$b: random($max) + $min;
+	@return rgba($r, $g, $b, $alpha);
+}

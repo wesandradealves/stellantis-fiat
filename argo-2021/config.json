@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node",
+          "version":"10.24.1"
+        }
+      },
+      "external-access": [
+        {
+          "user": "lp-argo-2021",
+          "pass": "NJIjjsi98&^54sQ"
+        }
+      ],
+      "folder": "lp-argo-2021/",
+      "slug": "lp-argo-2021",
+      "output": "code/dist",
+      "render": "static"
+    }
+  ]
+}

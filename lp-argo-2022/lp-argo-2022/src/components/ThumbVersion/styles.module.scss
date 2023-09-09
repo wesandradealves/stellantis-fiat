@@ -1,0 +1,150 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: 165px;
+  height: 104px;
+  position: relative;
+  margin: 0 15px;
+  cursor: pointer;
+
+  // &:first-child {
+  //   &.active {
+  //     margin-right: 15px;
+  //   }
+  // }
+
+  // &:last-child {
+  //   margin-right: 0;
+  // }
+
+  &:hover {
+    .bg {
+      background-color: var.$cyan;
+    }
+  }
+
+  div.content {
+    position: relative;
+    z-index: 2;
+  }
+
+  h4.title {
+    font-family: var.$bold;
+    font-size: 12px;
+    color: var.$color--primary;
+    font-weight: bold;
+    margin: 5px 0 0 40px;
+    text-transform: capitalize;
+  }
+
+  .thumb {
+    width: 120px !important;
+    display: block !important;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 1;
+
+    span {
+      position: relative;
+    }
+
+    img {
+      width: 100% !important;
+      display: block !important;
+    }
+  }
+
+  .bg {
+    width: 130px;
+    height: 66px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    background-color: var.$yellow;
+    border: 1px solid var.$color--primary;
+    transform: skewX(-20deg);
+  }
+
+  &.active {
+    width: 190px;
+    height: 120px;
+    margin-left: 0;
+
+    .thumb {
+      width: 150px !important;
+      right: 0 !important;
+    }
+
+    h4.title {
+      font-size: 16px;
+      margin: 5px 0 0 48px;
+    }
+
+    .bg {
+      width: 140px;
+      height: 88px;
+      background-color: var.$cyan;
+      margin-left: 8px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .container {
+    // margin: 0;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .container {
+    width: 170px;
+    margin: 0 0 7px 0;
+
+    &:first-child {
+      &.active {
+        margin-right: 10px;
+      }
+    }
+
+    h4.title {
+      font-size: 12px;
+      margin: 2px 0 0 40px;
+    }
+
+    .thumb {
+      width: 130px !important;
+      right: 0px;
+    }
+
+    .bg {
+      width: 140px;
+      height: 58px;
+      border: 1px solid var.$color--primary;
+    }
+
+    &.active {
+      width: 170px;
+      height: 100px;
+
+      .thumb {
+        width: 130px !important;
+      }
+
+      h4.title {
+        font-size: 15px;
+        margin: 5px 0 0 40px;
+      }
+
+      .bg {
+        width: 140px;
+        height: 68px;
+        transition: height 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@mixin user-select($value: none) {
+	-webkit-touch-callout: $value;
+	-khtml-user-select: $value;
+	-moz-user-select: -moz-#{$value};
+	user-select: $value;
+}

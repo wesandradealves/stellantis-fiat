@@ -1,0 +1,5 @@
+@import "position";
+
+@mixin relative($args: null) {
+	@include position(relative, $args);
+}

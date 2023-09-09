@@ -1,0 +1,201 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.pageHeading {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  padding-top: $header-size;
+  padding-bottom: 0px;
+  min-height: calc(100vh - 100px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: space-between;
+  background-color: $background-primary;
+
+  @include desktop {
+    height: unset;
+    padding-top: 0;
+    min-height: 576px !important;
+  }
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+
+  &.centered {
+    align-items: center;
+    justify-content: center;
+    .content {
+      margin: -12% 10% 0 auto;
+    }
+  }
+
+  h3 {
+    display: block !important;
+    font-weight: 500;
+    text-shadow: 2px 2px #{$text-secondary};
+    strong {
+      display: inline !important;
+      font-weight: 700;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin: 8% auto 0 10%;
+    width: 50%;
+    max-width: 440px;
+    height: fit-content;
+
+    @include xxl {
+      width: 30%;
+    }
+  }
+
+  .descriptionContent {
+    margin-top: #{toRem(24)};
+    font-size: 18px;
+    max-width: 500px;
+  }
+  .subContent {
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 0 4% 10% auto;
+    height: fit-content;
+  }
+}
+
+.rectangle {
+  position: absolute;
+  left: 60%;
+  top: 30%;
+  width: 100%;
+  height: 20%;
+  background-color: $primary-on-light;
+  z-index:0;
+}
+
+.heroImageHolder {
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(
+    0deg,
+    $background-primary 17%,
+    $background-white 17%
+  );
+  
+  img {
+    width: calc(100% - 20px) !important;
+    max-width: 500px;
+    height: auto !important;
+    min-height: 380px;
+  }
+  //margin-bottom: toRem(20);
+  @include desktop {
+    /*TROCAR A COM QUANDO TROCAR A IMG*/
+    // background:$background-white;
+    background: linear-gradient(
+      0deg,
+      $background-primary 13%,
+      $background-white 13%
+    );
+    img {
+      width: calc(
+        100vw - 160px- #{$section-horizontal-padding-desktop} *
+          2
+      ) !important;
+      max-width: unset;
+      height: auto !important;
+      min-height: 526px;
+      margin: 0 $section-horizontal-padding-desktop toRem(200);
+      max-height: calc(100vh - 200px);
+    }
+  }
+}
+.seeMore {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+
+  h4 {
+    position: relative;
+    img {
+      @include animationMargin;
+      left: -15px;
+      top: -22px;
+    }
+    margin: 10px 0 22px clamp(40px, 10vw, 96px);
+  }
+  img {
+    margin-right: 10px;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+  }
+}
+
+.headerTitle {
+  color: transparent;
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: $section-horizontal-padding;
+  @include desktop {
+    left: $section-horizontal-padding-desktop;
+  }
+  .rectangle {
+    position: absolute;
+    height: 100vh;
+    width: 13%;
+    top: calc(-100vh - 15px);
+    left: 12%;
+    background-color: $primary-on-light;
+  }
+  svg {
+    height: auto;
+    width: 45vw;
+  }
+}
+
+.knowTheNews {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+
+  img {
+    width: 30px;
+    margin-top: 5px;
+    @include animationMarginHorizontal;
+    padding-left: 10px;
+  }
+}
+
+.teste {
+  img {
+    top: 45px !important;
+  }
+  @include desktop {
+    img {
+      top: 0 !important;
+    }
+  }
+}

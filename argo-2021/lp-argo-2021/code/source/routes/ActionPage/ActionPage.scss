@@ -1,0 +1,274 @@
+.ActionPage {
+  content-visibility: auto;
+  contain-intrinsic-size: 100px 200px;
+
+	@include relative;
+	@include span(12/12);
+	transition: background-color 0.5s ease-out;
+	background-color: _('ActionPage.backgroundColor') or #edede3;
+	border-radius: 0 0 0 0;
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// QUOTE
+	// ~~~~~
+
+	&-quote {
+    p {
+      font-weight: 700;
+      color: _color('_003');
+    }
+		@include column(10/12, 1/12);
+		@include margin(20px null);
+	}
+
+
+	// LINKS INTERNOS/EXTERNOS
+	// ~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-nav {
+		@include relative;
+		@include span(8/12, 2/12);
+	}
+
+	&-navList {
+		@include relative;
+		@include span(12/12);
+		list-style-type: none;
+		padding-left: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	&-navItem {
+		@include relative;
+		@include span(12/12);
+	}
+
+	&-navButton {
+		@include ButtonAylen(
+      $backgroundColor: #ed385e,
+      $textColor: #fff,
+			$width: 100%,
+			$textAlign: center,
+			$margin: (11px 0),
+			$padding: 1.5em 0.25em,
+			$borderRadius: 0,
+			$hoverTextColor: #ffffff,
+			$usePseudoHover: false,
+			$usePseudoFocus: false,
+		);
+		@include font-responsive((12 / 375) * 100vw, 9px, 12px, 12px, null);
+		// @include font-responsive(_('ActionPage.textFontNavButton.size')...);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+	}
+
+
+	// REDES SOCIAIS
+	// ~~~~~~~~~~~~~
+
+	&-socialNav {
+		@include relative;
+		@include column(10/12, 1/12);
+		border-top: 1px solid white;
+		margin-top: 23px;
+	}
+
+	&-socialNavList {
+		@include relative;
+		list-style-type: none;
+		padding-left: 0;
+		margin-top: 23px;
+		margin-bottom: 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&-socialNavItem {
+		@include relative;
+		vertical-align: top;
+    display: inline-block;
+	}
+
+	&-socialNavButton {
+		@include relative;
+		text-decoration: none;
+		background-color: transparent;
+		color: _color('_003');
+		transition: background-color 0.5s;
+		border: none;
+		display: block;
+
+		.icon {
+			@include font-responsive((18 / 375) * 100vw, 1px, 25px, 11px, null);
+      font-family: "fontello";
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+     
+      /* For safety - reset parent styles, that can break glyph codes*/
+      font-variant: normal;
+      text-transform: none;
+
+      /* Font smoothing. That was taken from TWBS */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+		}
+
+		.icon-facebook {
+			padding: 10px 17.578px;
+      &::before {
+        content: '\f09a';
+      }
+		}
+
+		.icon-youtube {
+			padding: 10px 13.99px;
+      &::before {
+        content: '\f167';
+      }
+		}
+
+		.icon-twitter {
+			padding: 10px 13.12px;
+      &::before {
+        content: '\f099';
+      }
+		}
+
+		.icon-instagram {
+			padding: 10px 14px;
+      &::before {
+        content: '\f16d';
+      }
+		}
+
+		&.facebook:hover {
+			background-color: #3d5b99;
+		}
+
+		&.youtube:hover {
+			background-color: #e64a41;
+		}
+
+		&.twitter:hover {
+			background-color: #00aced;
+		}
+
+		&.instagram:hover {
+			background-color: #833AB4;
+		}
+	}
+
+
+	// LEGAL
+	// ~~~~~
+
+	&-legal {
+		@include column(10/12, 1/12);
+		@include margin(20px null);
+		@include font-responsive((11 / 375) * 100vw, 10px, 15px, 11px, 1.33px);
+		font-family: 'FuturaPT Light', sans-serif;
+		// @include font-responsive(_('ActionPage.textFontLegal.size')...);
+		text-align: _('ActionPage.textAlignLegal') or center;
+		color: _('ActionPage.textColorLegal') or #5e6168;
+	}
+
+
+	// LOGO
+	// ~~~~
+
+	&-logo {
+		@include relative;
+		@include span(12/12);
+		@include margin(null null 20px null);
+	}
+
+	&-logoIbama {
+		@include relative;
+		@include margin(0 auto);
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+  @include media-query-size-x(xs sm) {
+    content-visibility: auto;
+    contain-intrinsic-size: 100px 700px;
+  }
+
+	@include media-query-size-x(lg xl unknown) {
+		background-color: _('ActionPage.backgroundColor') or #edede3;
+
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+		&-quote,
+		&-navList {
+			display: none;
+		}
+
+		&-socialNav {
+			border-top-color: transparent;
+		}
+
+		&-socialNavButton .icon {
+			transition: color 0.5s ease-out;
+			color: #5e6168;
+		}
+
+		&-socialNavButton:hover .icon {
+			color: white;
+		}
+
+		&-navButton {
+			@include ButtonAylen(
+				$width: 100%,
+				$textAlign: center,
+				$margin: (11px 0),
+				$padding: 1.5em 2em,
+				$borderRadius: 12px,
+				$hoverTextColor: #ffffff,
+				$usePseudoHover: true,
+				$usePseudoFocus: true,
+			);
+		}
+
+		&-logo {
+			@include size(initial);
+			@include absolute(0 20px 0 null);
+			@include margin(auto);
+			display: flex;
+			align-items: center;
+		}
+	}
+}

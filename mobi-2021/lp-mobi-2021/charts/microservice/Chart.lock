@@ -1,0 +1,6 @@
+dependencies:
+- name: common
+  repository: s3://digitalcode-helm-charts/stable
+  version: 1.0.0
+digest: sha256:cb11bf69bb27a3b7a1d1bef21d47c96e25455e82b6a88e47b04fcba5c9a2229e
+generated: "2021-11-12T13:22:09.694280135-03:00"

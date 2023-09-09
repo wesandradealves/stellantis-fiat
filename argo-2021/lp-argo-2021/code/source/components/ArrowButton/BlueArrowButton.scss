@@ -1,0 +1,18 @@
+.BlueArrowButton {
+	@include relative;
+	transition: opacity 0.3s ease-out;
+	cursor: pointer;
+
+	path {
+		transition: fill 0.3s ease-out;
+	}
+
+	&.is-disabled {
+		opacity: 0;
+		cursor: default;
+	}
+
+	&.is-disabled path {
+		fill: rgba(94, 97, 104, 0.53)!important;
+	}
+}

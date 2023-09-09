@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@dcode/loader",
+  "version": "1.0.0",
+  "description": "Uma biblioteca para carregar ativos comuns da Web",
+  "keywords": "dcode-loader-module",
+  "author": "Adrian C. Miranda <adrian.miranda@digitalcode.com.br>",
+  "license": "MIT",
+  "module": "index.js",
+  "files": [
+    "animationFrame.js",
+    "bytesToSize.js",
+    "cache.js",
+    "createImageLoader.js",
+    "createTweenProgress.js",
+    "loadImage.js",
+    "loadImages.js",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.dcodehom.com.br:8022/npm-packages/dcode-loader.git"
+  },
+  "dependencies": {
+    "@dcode/is": "file:../is"
+  }
+}

@@ -1,0 +1,10 @@
+@import "offset";
+
+@mixin position($position, $offset: null) {
+	@if not index(static relative absolute fixed, $position) {
+		@warn "position only accepts 'static, relative, absolute, fixed' as shorthands";
+	} @else {
+		@include offset($offset);
+		position: $position;
+	}
+}

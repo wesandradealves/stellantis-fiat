@@ -1,0 +1,45 @@
+.CloseButton {
+	$iconWidth: 3vw;
+
+	@include relative;
+	@include overflow(hidden);
+	background-color: _('CloseButton.backgroundColor') or #ff7d32;
+	border: none;
+
+	&-icon {
+		@include absolute(null 0 0 null);
+		@include size(100%);
+		transition: transform 0.8s $ease-in-out-quart;
+		transform: rotate(45deg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	&-iconX {
+		@include absolute;
+		@include size(60% 2px);
+		transition: transform 0.8s $ease-in-out-quart;
+		background-color: _('CloseButton.backgroundColorIconX') or #f7a834;
+		display: block;
+	}
+
+	&-iconY {
+		@include absolute;
+		@include size(2px 60%);
+		transition: transform 0.8s $ease-in-out-quart;
+		background-color: _('CloseButton.backgroundColorIconY') or #f7a834;
+		display: block;
+	}
+
+	@include media-query-size-x(lg xl unknown) {
+		&:hover &-icon {
+			transform: rotate(0deg);
+		}
+
+		&:hover &-iconY {
+			transform: rotate(90deg);
+		}
+	}
+}

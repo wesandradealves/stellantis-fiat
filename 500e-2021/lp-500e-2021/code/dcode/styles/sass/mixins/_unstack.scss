@@ -1,0 +1,21 @@
+@import "../functions/get-layout-direction";
+@import "../functions/opposite-direction";
+
+@mixin unstack {
+  $side: get-layout-direction();
+  $opposite-side: opposite-direction($side);
+  width: auto;
+  text-align: $side;
+  display: inline;
+  clear: none;
+  margin: {
+    left: 0;
+    right: 0;
+  };
+  &:first-child {
+    margin-#{$side}: 0;
+  }
+  &:last-child {
+    margin-#{opposite-direction($side)}: 0;
+  }
+}

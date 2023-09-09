@@ -1,0 +1,13 @@
+@import "../functions/map-get-deeply";
+
+@function _asset($notation, $shouldWarn: true) {
+	@if variable-exists(assets) or global-variable-exists(assets) {
+		@if type-of($assets) == 'map' {
+			@return map-get-deeply($assets, $notation, $shouldWarn);
+		}
+		@error "_asset Error: The \"$assets\" variable exists but it isn't a map";
+	} @else {
+		@error "There's no \"$assets\" variable to use with the method \"_\"";
+	}
+	@return null;
+}

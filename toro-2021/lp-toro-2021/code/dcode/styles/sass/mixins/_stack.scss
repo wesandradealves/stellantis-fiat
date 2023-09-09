@@ -1,0 +1,33 @@
+@import "../functions/get-layout-direction";
+@import "../functions/opposite-direction";
+
+@mixin stack($pad: 0, $align: false) {
+  $side: get-layout-direction();
+  $opposite-side: opposite-direction($side);
+  width: 100%;
+  display: block;
+  clear: both;
+  float: none;
+  margin: {
+    left: auto;
+    right: auto;
+  };
+  &:first-child {
+    margin-#{$side}: auto;
+  }
+  &:last-child {
+    margin-#{$opposite-side}: auto;
+  }
+  @if $pad != 0 {
+    @include pad($pad);
+  }
+  @if ($align is not false) {
+    @if index(center c, $align) {
+      text-align: center;
+    } @else if index(left l, $align) {
+      text-align: left;
+    } @else if index(right r, $align) {
+      text-align: right;
+    }
+  }
+}

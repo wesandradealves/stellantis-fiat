@@ -1,0 +1,11 @@
+//| Thin
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Thin';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}

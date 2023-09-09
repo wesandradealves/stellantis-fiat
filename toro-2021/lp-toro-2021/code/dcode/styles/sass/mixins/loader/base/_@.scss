@@ -1,0 +1,115 @@
+//
+// # Loader
+// >
+//
+// ## Usage:
+//
+// You have to call this file in your style:
+// ```scss
+// .Loader {
+// 	@include LoaderBase(
+//		$backdropColor: rgba(#fff, 0.5),
+// 	);
+// }
+// ```
+//
+// The template should be something like:
+// ```html
+// <body class="is-loading">
+// 	<!-- Loader -->
+// 	<div class="Loader" data-ui="loader-1">
+// 		<div class="Loader-backdrop"></div>
+// 		<div class="Loader-element">
+// 		</div>
+// 	</div>
+// </body>
+// ```
+//
+// or yet:
+// ```html
+// <body class="is-loading">
+// 	<!-- Loader -->
+// 	<div class="Loader" data-ui="loader-base">
+// 		<div class="Loader-backdrop"></div>
+// 		<div class="Loader-element">
+//			<img src="https://media1.tenor.com/images/7d98d2290a25fdbadb1bfe263c9e40a4/tenor.gif" alt="">
+// 		</div>
+// 	</div>
+// </body>
+// ```
+//
+@mixin LoaderBase(
+	$backdropColor: rgba(0, 0, 0, 0.9),
+	$width: auto,
+	$height: auto,
+	$name: null,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Animations ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	transition: visibility 300ms $ease-out-cubic 0ms;
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Skin ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// N/A yet
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include fixed(0 null null 0);
+	@include size(100%);
+	@include print-styles((
+		visibility: hidden,
+		z-index: 9997,
+	));
+
+	#{$name}-backdrop {
+		@include absolute(0 null null 0);
+		@include size(100%);
+		@include print-styles((
+			background-color: $backdropColor,
+			transition: (visibility 300ms $ease-out-cubic 0ms, opacity 300ms $ease-out-cubic 0ms),
+			visibility: hidden,
+			opacity: 0,
+		));
+	}
+
+	#{$name}-element {
+		@include fixed(0);
+		@include size($width $height);
+		@include print-styles((
+			transition: (visibility 300ms ease 0ms, opacity 300ms $ease-out-cubic 0ms),
+			visibility: hidden,
+			opacity: 0,
+			margin: auto,
+			z-index: 1,
+		));
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@at-root .is-loading #{$name} {
+		visibility: visible;
+
+		#{$name}-backdrop {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		#{$name}-element {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

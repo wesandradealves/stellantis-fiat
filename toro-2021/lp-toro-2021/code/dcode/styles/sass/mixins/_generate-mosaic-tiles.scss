@@ -1,0 +1,42 @@
+@import "relative";
+@import "absolute";
+
+// @see https://codepen.io/unkn/pen/gEBXBE
+@mixin generate-mosaic-tiles(
+	$prefix: '.',
+	$columnWidth: 100,
+	$rowHeight: 100,
+	$gutter: 7,
+	$colsLength: 7,
+	$rowsLength: 5,
+) {
+	$prefix: unquote("#{if(str-length(#{$prefix}) == 0, '.', $prefix)}");
+
+	@include relative;
+	width: #{(($colsLength * $columnWidth) + (($colsLength - 1) * $gutter))}px;
+	height: #{(($rowsLength * $rowHeight) + (($rowsLength - 1) * $gutter))}px;
+	margin: 0;
+
+	#{$prefix}Tile {
+		@include absolute;
+	}
+
+	@for $x from 0 to $colsLength {
+		@for $y from 0 to $rowsLength {
+			$width: ($columnWidth * $x) + ($gutter * ($x - 1));
+			$height: ($rowHeight * $y) + ($gutter * ($y - 1));
+			$positionX: ($columnWidth * ($x)) + ($gutter * ($x));
+			$positionY: ($rowHeight * ($y)) + ($gutter * ($y));
+
+			#{$prefix}Tile-#{$x}-#{$y} {
+				width: #{$width}px;
+				height: #{$height}px;
+			}
+
+			#{$prefix}Matrix-#{$x}-#{$y} {
+				left: #{$positionX}px;
+				top: #{$positionY}px;
+			}
+		}
+	}
+}

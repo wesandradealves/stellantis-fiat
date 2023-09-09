@@ -1,0 +1,53 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 125px;
+  padding: 0 #{$section-horizontal-padding} #{toRem(52)};
+
+  @include desktop {
+    padding: 0 #{$section-horizontal-padding-desktop} #{toRem(52)};
+  }
+
+  .tab {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    margin-right: toRem(5);
+    flex-grow: 1;
+
+    .content {
+      position: relative;
+      z-index: 2;
+      background-color: $background-primary;
+      line-height: toRem(55);
+      color: $text-primary;
+      padding: 0 toRem(10);
+      border: 1px solid transparent;
+      transition: all $transition-time-quick $transition-easing;
+    }
+
+    &:hover, &.active {
+      .content {
+        background-color: $text-primary;
+        color: $background-primary;
+        border-color: $text-violetRed;
+      }
+    }
+
+    &.active {
+      cursor: default !important;
+      margin-left: -1px;
+      margin-right: toRem(4);
+      .content {
+        margin-right: toRem(-5);
+        margin-left: toRem(-5);
+        padding: toRem(8) toRem(15);
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}

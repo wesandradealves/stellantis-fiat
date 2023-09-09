@@ -1,0 +1,61 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  padding-top: 5rem;
+  background-color: $background-dark;
+  overflow: inherit;
+  h2 {
+    padding-top: toRem(48);
+    text-align: center;
+    font-size: clamp(#{toRem(28)}, 2.6vw, #{toRem(32)});
+    font-weight: $font-weight-semibold;
+    color: #edede3;
+  }
+  @include desktop {
+    padding-bottom: toRem(65) !important;
+  }
+}
+
+.scrollCta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #edede3;
+  padding-bottom: toRem(30);
+  h2 {
+    width: 90%;
+    color: #edede3;
+    text-align: center;
+    padding-bottom: 0.8rem;
+    font-weight: 400;
+    font-size: 2.7rem
+  }
+  svg {
+    @include animationMargin;
+    color: #edede3;
+  }
+}
+.scrollCtaMobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #edede3;
+  padding-bottom: toRem(30);
+  h2 {
+    width: 90%;
+    color: #edede3;
+    text-align: center;
+    padding-bottom: 0.8rem;
+    margin-top: -6rem;
+    font-weight: 400;
+    font-size: 1.7rem
+  }
+  svg {
+    @include animationMargin;
+    color: #edede3;
+  }
+}
+
+

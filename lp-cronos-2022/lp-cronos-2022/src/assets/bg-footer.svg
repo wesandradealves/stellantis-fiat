@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="211.139" height="30" viewBox="0 0 211.139 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="211.139" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Listras" clip-path="url(#clip-path)">
+    <g id="Listras-2" data-name="Listras" transform="translate(-254.098 -43.403)">
+      <g id="flag-color" transform="translate(254.098 43.402)">
+        <g id="Grupo_462" data-name="Grupo 462" transform="translate(0 0)">
+          <path id="Caminho_134" data-name="Caminho 134" d="M67.045,0,21.207,153.612H0L45.828,0Z" fill="#aa213f"/>
+        </g>
+        <g id="Grupo_463" data-name="Grupo 463" transform="translate(48.148 0)">
+          <path id="Caminho_135" data-name="Caminho 135" d="M463.734,0,417.906,153.612H396.7L442.527,0Z" transform="translate(-396.7)" fill="#edede3"/>
+        </g>
+        <g id="Grupo_464" data-name="Grupo 464" transform="translate(95.956 0)">
+          <path id="Caminho_136" data-name="Caminho 136" d="M857.633,0,811.805,153.612H790.6L836.429,0Z" transform="translate(-790.6)" fill="#343285"/>
+        </g>
+        <g id="Grupo_465" data-name="Grupo 465" transform="translate(144.093 0)">
+          <path id="Caminho_137" data-name="Caminho 137" d="M1254.246,0l-45.839,153.612H1187.2L1233.028,0Z" transform="translate(-1187.2)" fill="#fcaf2f"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

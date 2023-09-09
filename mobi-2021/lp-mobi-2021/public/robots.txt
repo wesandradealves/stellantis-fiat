@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+Disallow: /static
+Allow: /
+
+Sitemap: https://mobi.fiat.com.br/sitemap.xml

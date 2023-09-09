@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "@dcode/styles",
+  "version": "1.0.0",
+  "description": "📦",
+  "keywords": "dcode-styles-module",
+  "author": "Adrian C. Miranda <adrian.miranda@digitalcode.com.br>",
+  "license": "MIT",
+  "style": "sass/_@.scss",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.dcodehom.com.br:8022/npm-packages/dcode-styles.git"
+  },
+  "files": [
+    "sass",
+    "fonts",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-sass": "4.13.1",
+    "node-sass-utils": "1.1.2"
+  }
+}

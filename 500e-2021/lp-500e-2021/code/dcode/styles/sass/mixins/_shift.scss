@@ -1,0 +1,29 @@
+@import "../functions/get-layout-direction";
+@import "../functions/replace-nth";
+@import "../functions/get-column";
+@import "../functions/get-span";
+@import "../functions/percent";
+@import "../methods/_layout";
+
+@mixin shift(
+	$ratios: 0,
+	$col-or-span: column,
+	$gutter: _layout('grid.gutterWidth') or 1%,
+	$important: false) {
+	$translate: '';
+	$side: get-layout-direction();
+	@if $side == right {
+		$ratios: replace-nth($ratios, 0, nth($ratios, 1) * -1);
+	}
+	@if index(column col c, $col-or-span) {
+		$column-widths: get-column($ratios, $gutter);
+		$translate: nth($column-widths, 1) + nth($column-widths, 2);
+	} @else {
+		$translate: get-span($ratios);
+	}
+	$translate: percent($translate);
+	@if $important {
+		$translate: $translate!important;
+	}
+	left: $translate;
+}

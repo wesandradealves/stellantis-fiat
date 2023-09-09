@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no">
+		<meta name="theme-color" content="#222222">
+		<meta name="url" content="">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="reply-to" content="">
+		<meta property="fb:app_id" content="494378911142584">
+		<meta property="og:image:width" content="1960">
+		<meta property="og:image:height" content="1026">
+		<meta property="og:image:alt" content="">
+		<title>Teste Maxmind</title>
+	</head>
+	<body data-ui-prefix="ui" data-ui-version="<%= htmlWebpackPlugin.options.version %>" class="is-rendering">
+		<h1 id="maxmind">maxmind...</h1>
+		<script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js?_=1517839904676"></script>
+		<script type="text/javascript">
+			var $maxmind = document.getElementById('maxmind');
+			geoip2.city((a) => {
+				$maxmind.innerHTML = [
+					'cidade: ' + a.city.names.en,
+					'uf: ' + a.subdivisions[0].iso_code,
+				].join('<br/>');
+			}, () => {
+				$maxmind.innerHTML = [
+					'cidade: -',
+					'uf: -',
+				].join('<br/>');
+			});
+		</script>
+	</body>
+</html>

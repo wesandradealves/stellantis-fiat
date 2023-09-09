@@ -1,0 +1,122 @@
+.AboutPage {
+	$borderBottomColor: #707070;
+
+	@include relative;
+	@include span(12/12);
+
+  &-flag {
+    @include absolute(-15px 15px null null);
+    @include size(null 40px);
+    z-index: 99;
+  }
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// ACCORDION
+	// ~~~~~~~~~
+
+	&-accordion {
+		@include relative;
+		@include span(12/12);
+		background-color: _color('_002');
+		border-radius: 0 0 0 0;
+	}
+
+	&-accordionTitle {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include margin(40px null);
+		@include font-responsive((18 / 375) * 100vw, 11px, 22px, 18px, null);
+		// @include font-responsive(_('VersionsPage.textFontAccordionText.size.mobile')...);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #fff;
+	}
+
+	&-accordionList {
+		@include relative;
+		@include span(12/12);
+		@include padding(0);
+		@include margin(0);
+		list-style-type: none;
+		perspective: 900;
+	}
+
+	&-accordionItem {
+		@include relative;
+	}
+
+	&-accordionItem:last-of-type {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	&-accordionContent {
+		background-color: #fff;
+	}
+
+	&-accordionItem:last-of-type .AccordionTab-header {
+		border-bottom: none!important;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+  @include media-query-size-x(xs sm) {
+    &-accordion {
+      background-color: _color('_016'); 
+      border-bottom-right-radius: 20px;
+    }
+    &-accordionTitle {
+      color: _color('_002');
+      text-align: center;
+    }
+  }
+
+	@include media-query-size-x(lg xl unknown) {
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+		&-accordion {
+			@include padding(null null 57.6px null);
+			@include margin(null null -10px null);
+		}
+
+		&-accordion .DesktopTabs {
+			@include span(11/12, 0.5/12);
+		}
+
+		&-accordionTitle {
+			text-align: center;
+		}
+	}
+}
+
+.botoes {
+	display: inline-block;
+}

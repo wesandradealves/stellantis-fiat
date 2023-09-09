@@ -1,0 +1,29 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  // scroll-snap-align: start;
+  overflow: hidden;
+  &:not(.noPadding) {
+    padding: 14px 40px;
+  }
+  padding-top: 14px;
+  @include desktop {
+    padding-top: inherit;
+  }
+  position: relative;
+
+  &.hardHeight {
+    height: calc(100vh - #{$header-size});
+
+    @include desktop {
+      height: 100vh;
+    }
+  }
+
+  &.softHeight {
+    min-height: 550px;
+    @include desktop {
+      min-height: 460px;
+    }
+  }
+}

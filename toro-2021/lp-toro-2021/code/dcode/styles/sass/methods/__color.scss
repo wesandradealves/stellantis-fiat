@@ -1,0 +1,13 @@
+@import "../functions/map-get-deeply";
+
+@function _color($notation, $shouldWarn: true) {
+	@if variable-exists(colors) or global-variable-exists(colors) {
+		@if type-of($colors) == 'map' {
+			@return map-get-deeply($colors, $notation, $shouldWarn);
+		}
+		@error "_color Error: The \"$colors\" variable exists but it isn't a map";
+	} @else {
+		@error "There's no \"$colors\" variable to use with the method \"_\"";
+	}
+	@return null;
+}

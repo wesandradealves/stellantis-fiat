@@ -1,0 +1,22 @@
+.ArrowButton {
+	@include relative;
+	transition: opacity 0.3s ease-out;
+	cursor: pointer;
+
+	path {
+		transition: stroke 0.3s ease-out;
+	}
+
+	&:hover path {
+		stroke: #2ab4c7!important;
+	}
+
+	&.is-disabled {
+		opacity: 0.8;
+		cursor: default;
+	}
+
+	&.is-disabled path {
+		stroke: rgba(94, 97, 104, 0.53)!important;
+	}
+}

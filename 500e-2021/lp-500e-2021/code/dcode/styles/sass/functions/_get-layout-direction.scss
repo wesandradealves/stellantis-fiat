@@ -1,0 +1,6 @@
+@import "../methods/_layout";
+
+@function get-layout-direction() {
+	$direction: _layout('grid.direction') or LTR;
+  @return if($direction == RTL, right, left);
+}

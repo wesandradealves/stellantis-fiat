@@ -1,0 +1,11 @@
+//| Bold
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Bold';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}

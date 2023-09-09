@@ -1,0 +1,13 @@
+.ShareButton {
+	@include relative;
+	display: block;
+	background: none;
+	border: none;
+	padding: 0;
+
+	&-icon {
+		@include size(100%);
+		background-color: #ffffff;
+		border-radius: 100%;
+	}
+}

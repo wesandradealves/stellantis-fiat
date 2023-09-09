@@ -1,0 +1,23 @@
+﻿{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node",
+          "version": "12.22.10"
+        }
+      },
+      "external-access": [
+        {
+          "user": "lp-toro-2021",
+          "pass": "nijSNi8dRhkjx7%"
+        }
+      ],
+      "folder": "lp-toro-2021/",
+      "slug": "lp-toro-2021",
+      "output": "build",
+      "render": "static"
+    }
+  ]
+}

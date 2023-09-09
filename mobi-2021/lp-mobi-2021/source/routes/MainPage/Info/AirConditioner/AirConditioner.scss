@@ -1,0 +1,15 @@
+.AirConditioner {
+	@include relative;
+
+	&-title {
+		@include font-responsive((24 / 375) * 100vw, 11px, 27px, 24px, 1.33px);
+		font-family: 'FuturaPT Light', sans-serif;
+		font-weight: 300;
+	}
+
+	&-text {
+		@include font-responsive((14 / 375) * 100vw, 11px, 17px, 14px, 1.36px);
+		font-family: 'FuturaPT Light', sans-serif;
+		font-weight: 300;
+	}
+}

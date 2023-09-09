@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "argo-amp",
+  "scripts": {
+    "dev": "browser-sync start --cors -s ."
+  },
+  "devDependencies": {
+    "browser-sync": "2.26.7"
+  }
+}

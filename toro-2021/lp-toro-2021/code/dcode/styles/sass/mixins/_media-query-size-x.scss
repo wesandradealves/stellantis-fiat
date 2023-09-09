@@ -1,0 +1,37 @@
+@import "media-query-x";
+@import "../methods/_layout";
+
+@mixin media-query-size-x($sizes: null, $orientation: false) {
+	$xs: 568px;
+	$sm: 767px;
+	$md: 768px;
+	$lg: 1281px;
+	$xl: 1680px;
+	@each $size in $sizes {
+		@if $size == xs {
+			@include media-query-x($max: /*em*/($xs), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == sm {
+			@include media-query-x($min: /*em*/($xs + 0.1), $max: /*em*/($sm), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == md {
+			@include media-query-x($min: /*em*/($sm + 0.1), $max: /*em*/($md), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == lg {
+			@include media-query-x($min: /*em*/($md + 0.1), $max: /*em*/($lg), $orientation: $orientation) {
+				@content;
+			}
+		} @else if $size == xl {
+			@include media-query-x($min: /*em*/($lg + 0.1), $max: /*em*/($xl), $orientation: $orientation) {
+				@content;
+			}
+		} @else {
+			@include media-query-x($min: /*em*/($xl + 0.1), $orientation: $orientation) {
+				@content;
+			}
+		}
+	}
+}

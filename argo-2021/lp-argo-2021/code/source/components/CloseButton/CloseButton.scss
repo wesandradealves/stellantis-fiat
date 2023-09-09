@@ -1,0 +1,80 @@
+.CloseButton {
+	$animateIcon: false;
+	$bgColor: _color('_011');
+	$color: #fff;
+
+	background-color: $bgColor!important;
+	border-radius: 0px;
+	border: none;
+	padding: 5px;
+
+
+	// ICON
+	// ~~~~
+
+	&-icon {
+		@include size(40px);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 400ms;
+		user-select: none;
+	}
+
+	&-iconLine {
+		fill: none;
+		transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+		stroke: $color;
+		stroke-width: 5.5;
+		stroke-linecap: round;
+	}
+
+	&-iconLine--top {
+		stroke-dasharray: 40 160;
+	}
+
+	&-iconLine--middle {
+		stroke-dasharray: 40 142;
+		transform-origin: 50%;
+		transition: transform 400ms;
+	}
+
+	&-iconLine--bottom {
+		stroke-dasharray: 40 85;
+		transform-origin: 50%;
+		transition: transform 400ms, stroke-dashoffset 400ms;
+	}
+
+
+	// STATE
+	// ~~~~~
+
+	&.is-active &-icon--rotate {
+		transform: rotate(45deg) scale(1.4);
+	}
+
+	@if $animateIcon {
+		&.is-active &-iconLine--top {
+			stroke-dashoffset: -64px;
+		}
+
+		&.is-active &-iconLine--middle {
+			transform: rotate(90deg);
+		}
+
+		&.is-active &-iconLine--bottom {
+			stroke-dashoffset: -64px;
+		}
+	} @else {
+		&-iconLine--top {
+			stroke-dashoffset: -64px;
+		}
+
+		&-iconLine--middle {
+			transform: rotate(90deg);
+		}
+
+		&-iconLine--bottom {
+			stroke-dashoffset: -64px;
+		}
+	}
+}

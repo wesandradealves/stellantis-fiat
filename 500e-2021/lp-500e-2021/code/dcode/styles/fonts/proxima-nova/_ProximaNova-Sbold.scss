@@ -1,0 +1,11 @@
+//| SBold
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-SBold';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Sbold.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}

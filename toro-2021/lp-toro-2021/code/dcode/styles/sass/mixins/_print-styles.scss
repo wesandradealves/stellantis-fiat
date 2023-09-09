@@ -1,0 +1,7 @@
+@mixin print-styles($map) {
+	@each $property, $value in $map {
+		@if $value != null {
+			#{$property}: $value;
+		}
+	}
+}

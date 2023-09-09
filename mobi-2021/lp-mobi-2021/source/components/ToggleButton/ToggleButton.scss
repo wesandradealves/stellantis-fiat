@@ -1,0 +1,154 @@
+.ToggleButton {
+	$animateIcon: false;
+	$bgColor: #ff8094;
+	$bgSlipperyColor: $bgColor;
+	$color: #fff;
+
+	background-color: $bgColor;
+	border-radius: 100%;
+	border: none;
+	padding: 5px;
+
+
+	&::after,
+	&::before {
+		@include absolute(0 null null 0);
+		@include size(100%);
+		transition: transform 2s $ease-out-expo;
+		background-color: $bgColor;
+		display: block;
+		z-index: -1;
+		content: ' ';
+		border-radius: 100%;
+
+	}
+
+	&::before {
+		background-color: $bgSlipperyColor;
+		transition-delay: 0.32s;
+		transform-origin: 50% 0;
+	}
+
+	// ICON
+	// ~~~~
+
+	&-icon {
+		@include size(40px);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 400ms;
+		user-select: none;
+		margin: auto;
+
+		@include relative;
+		@include size(null 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		outline: none;
+		border-radius: 100%;
+	}
+
+	&-iconSvg {
+		@include size(100%);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 900ms;
+		user-select: none;
+		outline: none;
+	}
+
+
+	&-iconLine {
+		fill: none;
+		transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+		stroke: $color;
+		stroke-width: 5.5;
+		stroke-linecap: round;
+	}
+
+	&-iconLine--top {
+		stroke-dasharray: 40 160;
+	}
+
+	&-iconLine--middle {
+		stroke-dasharray: 30 142;
+		transform-origin: 50%;
+		transition: transform 400ms;
+	}
+
+	&-iconLine--bottom {
+		stroke-dasharray: 40 85;
+		transform-origin: 50%;
+		transition: transform 400ms, stroke-dashoffset 400ms;
+	}
+
+
+	// STATE
+	// ~~~~~
+
+	// &.is-active &-icon--rotate {
+	// 	transform: rotate(45deg);
+	// }
+
+	// @if $animateIcon {
+	// 	&.is-active &-iconLine--top {
+	// 		stroke-dashoffset: -64px;
+	// 	}
+
+	// 	&.is-active &-iconLine--middle {
+	// 		transform: rotate(90deg);
+	// 	}
+
+	// 	&.is-active &-iconLine--bottom {
+	// 		stroke-dashoffset: -64px;
+	// 	}
+	// } @else {
+	// 	&-iconLine--top {
+	// 		stroke-dashoffset: -64px;
+	// 	}
+
+	// 	&-iconLine--middle {
+	// 		transform: rotate(90deg);
+	// 	}
+
+	// 	&-iconLine--bottom {
+	// 		stroke-dashoffset: -64px;
+	// 	}
+	// }
+
+
+	&.is-slippery::before {
+		transform: translateX(100%);
+	}
+
+	&.is-slippery &-iconSvg {
+		transform: translateX(100%);
+	}
+
+	&.is-slippery::after {
+		transform: translateX(100%);
+	}
+
+	&.is-active &-icon--rotate {
+		transform: rotate(45deg);
+	}
+
+	&.is-active &-iconLine--top {
+		stroke-dashoffset: -65px;
+	}
+
+	&.is-active &-iconLine--middle {
+		stroke-dasharray: 40 142;
+		transform: rotate(90deg);
+	}
+
+	&.is-active &-iconLine--bottom {
+		stroke-dashoffset: -65px;
+	}
+
+	&.is-active {
+		position: absolute;
+		// right: 0;
+	}
+}

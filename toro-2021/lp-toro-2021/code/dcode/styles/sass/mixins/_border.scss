@@ -1,0 +1,5 @@
+@import "vec4";
+
+@mixin border($rect: null) {
+	@include vec4((border-top, border-right, border-bottom, border-left), $rect);
+}

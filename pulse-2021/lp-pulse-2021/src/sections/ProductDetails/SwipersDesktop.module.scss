@@ -1,0 +1,132 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+}
+
+.nextTab {
+  margin-left: 16px;
+}
+
+.videoWrapper {
+  min-height: 26vw;
+  width: 100%;
+  position: relative;
+
+  @include maxWidth {
+    max-height: 560px;
+    min-height: unset;
+    height: 26vw;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.slideContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 350px;
+  padding: 0 #{$section-horizontal-padding};
+
+  @include desktop {
+    min-height: 420px;
+    padding: 0 #{$section-horizontal-padding-desktop};
+  }
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  min-width: 350px;
+  z-index: 4;
+
+  .arrows {
+    padding-bottom: 4px;
+    display: flex;
+
+    button:first-of-type {
+      margin-right: 8px;
+    }
+  }
+
+  .bullets {
+    margin-left: -15px;
+    margin-bottom: clamp(10px, 1vw, 28px);
+  }
+  .bullet {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      @include bulletActive($secondary);
+    }
+    @include desktop {
+      &:hover {
+        @include bulletActive($secondary);
+      }
+    }
+    span {
+      transition: all $transition-time-quick $transition-easing;
+      display: block;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.slideImageContainer {
+  aspect-ratio: 375 / 269 !important;
+  @include desktop {
+    aspect-ratio: 61 / 39 !important;
+  }
+  picture,
+  img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.slideDetails {
+  width: 40%;
+  min-width: 350px;
+  margin-left: toRem(48);
+  flex-shrink: 0;
+  line-height: 1.4;
+
+  h3 {
+    color: $secondary;
+    font-weight: 500;
+    font-size: toRem(18);
+  }
+
+  h2 {
+    text-align: left !important;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: clamp(#{toRem(26)}, 2vw, #{toRem(30)});
+    font-weight: bolder !important;
+    margin: toRem(12) 0;
+    padding: 0 !important;
+
+    @include maxWidth {
+      width: 70%;
+    }
+  }
+
+  .slideDescription {
+    font-size: toRem(16);
+    font-weight: 500;
+  }
+}

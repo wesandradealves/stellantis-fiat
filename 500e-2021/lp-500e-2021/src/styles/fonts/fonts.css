@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "FuturaPT Light";
+  src: url("light.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "FuturaPT Medium";
+  src: url("medium.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "FuturaPT Bold";
+  src: url("bold.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "FuturaPT Heavy";
+  src: url("heavy.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "FuturaPT Demi";
+  src: url("demi.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "FuturaPT Book";
+  src: url("book.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Helvetica Neue Light";
+  src: url("HelveticaNeue-Light.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Helvetica Neue Thin";
+  src: url("HelveticaNeue-Thin.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Hero Light";
+  src: url("HeroLight.otf") format("otf");
+  font-weight: 500;
+}

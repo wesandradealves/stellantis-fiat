@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'futurabt-heavy-italic';
+	src: url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.eot');
+	src: local('FuturaBT Heavy Italic'), local('FuturaBTHeavyItalic'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.woff') format('woff'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/futurabt/futurabt-heavy-italic.svg#FuturaBTHeavyItalic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}

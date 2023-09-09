@@ -1,0 +1,21 @@
+﻿{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node"
+        }
+      },
+      "external-access": [
+        {
+          "user": "lp-strada",
+          "pass": "VlcAg6lvQvab52V7!"
+        }
+      ],
+      "folder": "lp-strada-2022/",
+      "slug": "lp-strada-2022",
+      "render": "server-side"
+    }
+  ]
+}

@@ -1,0 +1,766 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: $background-light;
+  min-height: $min-mobile-height;
+
+  @include desktop {
+
+    padding-top: 14px !important;
+    min-height: 100xvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brandImg {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+
+    @include desktop {
+      margin-top: -4rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .brandImgMobile {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    top: -1.5rem;
+
+    img {
+      width: 100%;
+
+    }
+  }
+}
+
+.arrowRight,
+.arrowLeft {
+  background-color: $background-secondary;
+}
+
+.cardFooter {
+  @include desktop {
+    background-color: transparent;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.swiperWrapper {
+  display: block;
+  padding-top: toRem(30);
+  width: 100%;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include desktop {
+    padding-top: toRem(30);
+    margin-top: 0rem;
+  }
+  @media screen and (min-width: 1324px) {
+    margin-top: -5rem;
+    margin-bottom: 3rem;
+  }
+  @media screen and (min-width: 1336px) {
+    margin-bottom: -5.5rem;
+  }
+
+  @media screen and (min-width: 1438px) {
+    margin-top: 0rem;
+  }
+
+
+}
+
+.swiperSlide {
+  padding: 0;
+
+  @include desktop {
+    padding: 0 #{$section-horizontal-padding-desktop};
+  }
+  @media screen and (min-width: 1324px) {
+    padding:0 clamp(115px, 4vw, 90px);
+  }
+  @media screen and (min-width: 1438px) {
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: center;
+
+
+  @media screen and (min-width:1024px){
+    flex-direction: row-reverse;
+    align-items: normal;
+  }
+}
+
+.aligner {
+  display: flex;
+  flex-direction: column;
+
+  .carInfo {
+    padding: 0 #{$section-horizontal-padding};
+    display: flex;
+    z-index: 100;
+
+    @include desktop {
+      width: 100% !important;
+      padding: 0;
+      align-self: center;
+
+      > div {
+        display: flex;
+
+
+      }
+    }
+  }
+
+  &.isActive {
+    .right .trapezoid {
+      right: calc(0% - 300px);
+      opacity: 1;
+
+      @include xl {
+        right: calc(0% - 250px);
+      }
+
+      @include maxWidth {
+        right: -10%;
+      }
+    }
+
+    .carInfo .trapezoid {
+      left: calc(0% - 200px);
+      opacity: 1;
+    }
+  }
+
+
+  .details {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20%;
+    padding: 0 10px;
+    margin: 2rem 0;
+
+    @include desktop {
+      padding: 0;
+      min-height: 170px;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .cardsDetails {
+    background-color: #A11846;
+    height: 6.8em;
+    margin: 0 8px;
+    width: 6em;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media screen and (min-width: 1352px) {
+      margin-top: 0;
+
+    }
+
+    .cardsImg {
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        object-fit: cover; /* or object-fit: contain; */
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .cardsText {
+      height: 3em;
+      text-align: center;
+      width: 100%;
+      padding-top: 3px;
+      padding-bottom: 5px;
+      font-weight: 600;
+      color: $text-light;
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: clamp(10px, 3vw, 14px);
+        @include desktop {
+          font-size: clamp(10px, 0.67vw, 14px);
+        }
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: 10%;
+    right: 0;
+    position: relative;
+    margin-bottom: 1rem;
+
+
+  }
+
+  .subTextMobile {
+    color: $text-dark;
+    margin: 1.4rem 0;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+
+      @include desktop {
+        font-weight: 600;
+      }
+
+      strong {
+        color: $primary;
+      }
+    }
+  }
+
+  @include desktop {
+    .row > div {
+      width: 40%;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 3rem;
+    }
+  }
+
+  .rightBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop {
+      align-items: flex-start;
+    }
+  }
+}
+
+.versionText {
+  color: $text-dark;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    width: 20rem;
+  }
+
+  .subText {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  strong {
+    color: $primary;
+  }
+
+  .versionTextlogo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @media screen and (min-width: 1352px) {
+      justify-content: flex-start;
+    }
+
+    img {
+      object-fit: contain;
+      width: 85%;
+      position: relative;
+      bottom: 0;
+    }
+  }
+}
+
+.versionTextName {
+  text-align: center;
+  font-size: clamp(0.2rem, 10vw, 2.1rem);
+  color: #891039;
+  margin-top: 5px;
+
+  @include desktop {
+    font-size: clamp(0.2rem, 10vw, 2.1rem);
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+.trapezoid {
+  margin-top: toRem(32);
+  height: calc(100% - 60px);
+  width: auto;
+}
+
+
+.previous {
+  position: absolute !important;
+  left: 10px;
+  top: calc(28% - 0px);
+  z-index: 4;
+  width: 12% !important;
+  height: 5% !important;
+  background-color: $background-secondary;
+
+  @include desktop {
+    left: 30px;
+    top: calc(55% - 120px);
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+.previousVerions{
+  background-color: #891039;
+  svg{
+    path{
+      stroke:#EDEDE3 ;
+    }
+  }
+  @media screen and (min-width: 1324px) {
+    left: 85px!important;
+  }
+  @media screen and (min-width: 1336px) {
+    left: 30px;
+  }
+}
+
+
+.next {
+  position: absolute !important;
+  right: 10px;
+  top: calc(28% - 0px);
+  z-index: 4;
+  width: 12% !important;
+  height: 5% !important;
+  background-color: $background-secondary;
+
+  @include desktop {
+    right: 30px;
+    top: calc(55% - 120px);
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}
+
+.nextVerions{
+  background-color: #891039;
+  svg{
+    transform: rotate(0deg)!important;
+    path{
+      stroke:#EDEDE3;
+    }
+  }
+  @media screen and (min-width: 1324px) {
+    right: 70px!important;
+  }
+  @media screen and (min-width: 1336px) {
+    right: 30px;
+  }
+ }
+
+.buttonHolder {
+  width: 100%;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: toRem(56);
+
+  @include desktop {
+    justify-content: normal;
+    align-items: unset;
+    padding-right: 8px;
+  }
+}
+
+.swiperSlideMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    padding-bottom: 35px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 12px;
+
+    picture {
+      max-width: 175px;
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 20vw;
+  }
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: toRem(26);
+  padding: 0 $section-horizontal-padding;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4rem;
+
+  @include desktop {
+    padding: 0 clamp(20px, 2vw, 90px);
+    margin-bottom: 4rem;
+  }
+
+  @include xl {
+    padding: 0 $section-horizontal-padding-desktop;
+  }
+
+  &.mobile {
+    padding: 0 0 4px;
+  }
+
+  button {
+
+    @include desktop {
+      margin-right: toRem(16);
+    }
+
+    @include xl {
+      margin-right: toRem(30);
+    }
+
+    &:focus-visible {
+      outline: $text-secondary double 2px;
+      outline-offset: toRem(10);
+    }
+
+
+    .btnContent {
+      color: $primary;
+      line-height: toRem(38);
+      white-space: nowrap;
+      position: relative;
+      font-size: 17px;
+      font-family: 'Futura';
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      border: 1px solid #212652;
+      margin-left: 3.3rem;
+      width:150px;
+
+        .boxLeft{
+          width: 12px;
+          height: 15px;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          background-color: #212652;
+        }
+        .boxRigth{
+          width: 12px;
+          height: 15px;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          background-color: #212652;
+        }
+        .name {
+          display: block;
+          transition: all $transition-time-quick $transition-easing;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          color: #910525;
+        }
+    }
+    .btnContentMobile {
+      color: $primary;
+      line-height: toRem(38);
+      white-space: nowrap;
+      position: relative;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      border: 1px solid #212652;
+      margin-left: 1.9rem;
+      width: 116px;
+      margin-top: 0;
+
+        .boxLeft{
+          width: 15px;
+          height: 15px;
+          background-color: #212652;
+        }
+        .boxRigth{
+          width: 15px;
+          height: 15px;
+          margin-right: -1px;
+          background-color: #212652;
+        }
+        .name {
+          display: block;
+          transition: all $transition-time-quick $transition-easing;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          color: #910525;
+        }
+    }
+
+    .hoverBg,.activeBg, .outIndexBg  {
+      width: 150px;
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      margin-left: 53px;
+      background-color: #212652;
+      transform-origin: bottom center;
+    }
+    
+    .activeBg, .outIndexBg {
+      height: 120px;
+    }
+
+    .hoverBg {
+      height: 0px;
+      transform: scale(1, 0);
+      transition: all .3s ease-in;
+    }
+
+    .activeBg {
+      animation: scaling .3s ease-in;
+    }
+
+    .outIndexBg{
+      opacity: 0;
+      animation-duration: 0.3s;
+      // animation-name: desScaling;
+    }
+
+    .outIndexBgMobile, .activeBgMobile{
+      width: 115px;
+      z-index: -1;
+      position: absolute;
+      bottom: 30px;
+      margin-left: 31px;
+      transform-origin: bottom center;
+    }
+
+    .activeBgMobile {
+      animation: scaling .3s ease-out;
+    }
+
+    .outIndexBgMobile {
+      height: 110px;
+      background-color: #212652;
+      opacity: 0;
+      animation: desScaling .3s ease-out;
+    }
+    
+
+    &.active {
+      .btnContent{
+        border: unset;
+        .boxLeft,
+        .boxRigth{
+          background-color: #EDEDE3;
+        }
+        .name {
+          color: $text-button;
+          font-weight: 800;
+          font-size: 1rem;
+        }
+      }
+      .activeBg {
+        background-color: #212652;
+        transform-origin: bottom center;
+        transform: scale(1, 1);
+        transition: all .3s ease-out;
+      }
+
+      .btnContentMobile{
+        border: unset;
+        .boxLeft{
+          background-color: #EDEDE3;
+        }
+        .boxRigth{
+          background-color: #EDEDE3;
+        }
+        .name {
+          color: $text-button;
+          font-weight: 800;
+          font-size: 1rem;
+        }
+      }
+
+      .activeBgMobile {
+        height: 90px;
+        background-color: #212652;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      .name {
+        text-decoration: none;
+      }
+      .hoverBg {
+        height: 130px;
+        transform: scale(1, 1);
+        transition: all .3s ease-in;
+      }
+
+      .btnContent{
+        border: unset;
+        .boxLeft{
+          background-color: #EDEDE3;
+        }
+        .boxRigth{
+          background-color: #EDEDE3;
+        }
+        .name {
+          color: $text-button;
+          font-weight: 800;
+          font-size: 1rem;
+        }
+      }
+
+    }
+
+  }
+}
+
+.versionName {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: clamp(20px, 2vw, 50px);
+
+  p {
+    color: $text-secondary;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    font-size: clamp(1.3rem, 5vw, #{toRem(45)});
+    white-space: nowrap;
+  }
+}
+
+.productImageContainer {
+  min-height: 20px;
+}
+
+
+.thumbImageContainer {
+  aspect-ratio: 3 / 2 !important;
+  padding-top: 7%;
+  min-height: 88px;
+}
+
+.productImage {
+  position: relative;
+  transition-property: all;
+  transition-duration: $transition-time-quick;
+  transition-timing-function: $transition-easing;
+  opacity: 0 !important;
+  left: 320px;
+  z-index: 2;
+
+  &.isVisible {
+    opacity: 1 !important;
+    left: 0;
+  }
+}
+
+.scrollCta {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  color: $text-primary;
+  padding-top: 14px;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+
+  h2{
+    font-size: 2rem;
+    font-weight: 400;
+    @media (max-width: 768px) {
+      text-align: center;    }
+    }
+  svg {
+    margin-top: 9px;
+    @include animationMargin;
+  }
+}
+
+.cta{
+  @media (max-width: 768px) {
+  }
+  div {
+    background-color: #212652;
+    @media (max-width: 768px) {
+      width: 95%;
+      margin: 0 auto 10px;
+    }
+    p{
+      color: #EDEDE3!important;
+    }
+  }
+}
+
+@keyframes desScaling {
+   0%   {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, .1);
+  }
+}
+
+@keyframes scaling {
+  0%   {transform: scale(1, .1);}
+  100% {transform: scale(1, 1);}
+}

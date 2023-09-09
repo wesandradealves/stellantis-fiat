@@ -1,0 +1,484 @@
+.MainPage {
+  @include relative;
+  @include span(12/12);
+  background-color: #edede3 or _('MainPage.backgroundColor');
+  //margin-top: _('Menu.height') or 0;
+  // margin-top: 80px;
+
+  @keyframes jump {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-5px);
+    }
+  }
+
+  .fa {
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .fa-angle-down {
+    &::before {
+      content: '\f107';
+    }
+  }
+
+  div.scrollTip {
+    @include absolute(null 0 20px 0);
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+
+    i {
+      color: #fff;
+      font-size: 2.5rem;
+      line-height: 30px;
+      animation: jump 1s infinite;
+      animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    color: #fff;
+    width: 40%;
+    min-width: 350px;
+    height: 70px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  // STATES
+  // ~~~~~~
+
+  @at-root .is-desktop & {
+    &-content {
+      transition: left 0.5s $ease-in-out-quart;
+    }
+  }
+
+  @at-root .is-desktop.is-menu-open & {
+    &-content {
+      @include span-shift(1/12);
+    }
+    div.scrollTip {
+      @include span-shift(1/12);
+    }
+  }
+
+  // BACKGROUND
+  // ~~~~~~~~~~
+
+  &-background {
+    @include absolute(0 null null 0);
+    @include size(100% null);
+    // margin-top: -(_('Menu.height') or 0);
+  }
+
+  // CONTENT
+  // ~~~~~~~
+
+  &-content {
+    @include relative;
+    @include span(12/12);
+    height: 90vh;
+  }
+
+  // HEADER
+  // ~~~~~~
+
+  &-header {
+    @include relative;
+    @include span(8/12);
+    @include span-shift(2/12);
+    margin-top: 15vw;
+    display: flex;
+    align-items: center;
+    // justify-content: flex-end;
+  }
+
+  &-headerTitle {
+    @include font-responsive((18 / 375) * 100vw, 11px, 22px, 18px, null);
+    font-family: 'FuturaPT Bold', sans-serif;
+    text-align: center;
+    color: _color('_001');
+    margin-top: 29px;
+    margin-bottom: 12px;
+
+    & mark {
+      padding: 0 5px;
+      background-color: transparent;
+      color: _color('_011');
+    }
+  }
+
+  &-headerText {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #010101;
+  }
+
+  &-mediumTitle {
+    font-family: 'FuturaPT Medium', sans-serif;
+    font-style: oblique;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.32px;
+    line-height: 22px;
+  }
+  &-heavyTitle {
+    font-family: 'FuturaPT Bold', sans-serif;
+    font-style: oblique;
+    letter-spacing: 0.32px;
+    font-size: 35px;
+    line-height: 31px;
+  }
+
+  &-headerTitleLogo {
+    @include size(null 21px);
+    margin: 0 auto;
+  }
+
+  &-headerSubtitle {
+    @include font-responsive((15 / 375) * 100vw, 11px, 17px, 15px, 6px);
+    font-family: 'FuturaPT Bold', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  // GALLERY
+  // ~~~~~~~
+
+  &-gallery {
+    position: absolute;
+    bottom: 10%;
+    @include span(12/12);
+    overflow: hidden;
+
+  }
+
+  &-galleryControlPrevIcon {
+    @include flip(horizontal);
+  }
+
+  // BREAKPOINTS
+  // ~~~~~~~~~~~
+
+  @media (max-width: 350px) {
+    div.scrollTip {
+      min-width: 100vw;
+    }
+
+    &-header {
+      top: 5px;
+      zoom: 0.8;
+    }
+  }
+
+  @include media-query-size-x(lg xl unknown) {
+    $galleryDebugAR: false;
+    padding-bottom: 60px;
+
+    // CONTENT
+    // ~~~~~~~
+
+    // GALLERY:LIST
+    // ~~~~~~~~~~~~
+    
+    &-galleryList {
+      @include relative;
+      @include span(10/12, 1/12);
+      margin-bottom: 30.5px;
+      margin-top: 320px;
+    }
+
+    &-content {
+      @include relative(null null null 0);
+      @include span(10/12, 1/12);
+    }
+
+    &-background {
+      // top: 3vw;
+      top: 0;
+    }
+
+    // HEADER
+    // ~~~~~~
+
+    // GALLERY:LINK
+    // ~~~~~~~~~~~~
+
+    &-galleryLink {
+      text-decoration: none;
+    }
+
+    // GALLERY:THUMB
+    // ~~~~~~~~~~~~~
+
+    &-galleryThumb {
+      @include relative;
+    }
+
+    // GALLERY:CONTROL
+    // ~~~~~~~~~~~~~~~
+
+    &-galleryControl {
+      @include relative;
+    }
+
+    &-galleryControlWrapper {
+      @include relative;
+    }
+
+    &-galleryControlPrev,
+    &-galleryControlNext {
+      @include relative;
+      @include size(2.5vw);
+      transition: opacity 0.5s $ease-in-out-quart;
+      border-radius: 0;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: _color('_008');
+      border: none;
+      display: inline-block;
+    }
+
+    &-galleryControlPrev.is-disable,
+    &-galleryControlNext.is-disable {
+      cursor: default;
+      opacity: 0.2;
+    }
+
+    &-galleryControlPrevIcon {
+      @include flip(horizontal);
+    }
+
+    // BREAKPOINTS
+    // ~~~~~~~~~~~
+
+    @include media-query-size-x(lg xl unknown) {
+      $galleryDebugAR: false;
+      padding-bottom: 60px;
+
+      // CONTENT
+      // ~~~~~~~
+
+      &-content {
+        @include relative(null null null 0);
+        @include span(10/12, 1/12);
+      }
+
+      &-background {
+        // top: 3vw;
+        top: 0;
+      }
+
+      // HEADER
+      // ~~~~~~
+
+      &-header {
+        @include span(8/10);
+        @include span-shift(1/10);
+        padding-right: 15px;
+        margin-bottom: 15px;
+        margin-top: 2.5vw;
+      }
+
+      &-headerTitle {
+        @include margin(0 null);
+      }
+
+      &-headerTitleLogo {
+        @include size(null 36.5px);
+        float: right;
+      }
+
+      &-headerSubtitle {
+        @include font-responsive((29 / 1920) * 100vw, 11px, 29px, 29px, 1.27px);
+        @include column(5/10);
+        letter-spacing: 0.15px;
+      }
+
+      &-headerText {
+        margin-top: 0px;
+        margin-left: 15px;
+        color: #010101;
+      }
+
+      &-mediumTitle {
+        font-family: 'FuturaPT Medium', sans-serif;
+        font-style: oblique;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.32px;
+        line-height: 27px;
+      }
+      &-heavyTitle {
+        font-family: 'FuturaPT Bold', sans-serif;
+        font-style: oblique;
+        letter-spacing: 0.32px;
+        font-size: 37px;
+        line-height: 37px;
+        margin-left: -1px;
+      }
+
+      // GALLERY:GRID
+      // ~~~~~~~~~~~~
+
+      &-gallery {
+        @include margin(null null 0 null);
+        @if $galleryDebugAR {
+          border: 1px solid random-color();
+        }
+      }
+
+      &-galleryGrid {
+        @include span(8/10);
+        @include span-shift(1/10);
+      }
+
+      // GALLERY:POSTER
+      // ~~~~~~~~~~~~~~
+
+      &-galleryPoster {
+        @include column(5/10);
+        @if $galleryDebugAR {
+          border: 1px solid random-color();
+        }
+      }
+
+      // GALLERY:LIST
+      // ~~~~~~~~~~~~
+      &-galleryList {
+        overflow: hidden!important;
+        @include column(5/10);
+        @include overflow(hidden);
+        @include aspect-ratio(630, 450);
+        margin-left: 440px;
+        margin-top: 0;
+        
+        // float: right;
+        // @include padding(null null 25px null);
+        // border: 1px solid red;
+      }
+
+      // GALLERY:ITEM
+      // ~~~~~~~~~~~~
+
+      &-galleryItem {
+        @include relative;
+        @include size(null 50%);
+        @if $galleryDebugAR {
+          border: 1px solid random-color();
+        }
+      }
+
+      // GALLERY:THUMB
+      // ~~~~~~~~~~~~~
+
+      &-galleryThumb {
+        @include align(horizontal);
+        @include size(90% null);
+      }
+
+      // GALLERY:CONTROL
+      // ~~~~~~~~~~~~~~~
+
+      &-galleryControl {
+        @include absolute;
+        @include span(1/12);
+        @include span-shift(10/12);
+        @include align(vertical);
+      }
+
+      &-galleryControlWrapper {
+        @include padding(null null 35% 35%);
+      }
+
+      &-galleryControlPrev,
+      &-galleryControlNext {
+        @include margin(5px null);
+        display: block;
+      }
+
+      // C2A (CALL TO ACTION)
+      // ~~~~~~~~~~~~~~~~~~~~
+
+      &-c2a {
+        @include relative;
+        @include span(12/12);
+      }
+
+      &-c2aButton {
+        @include relative;
+        @include margin(0 auto);
+        background-color: transparent;
+        text-align: center;
+        display: block;
+        border: 0;
+      }
+
+      &-c2aButtonIcon {
+        animation: c2a-frames 2s $ease-out-back infinite;
+      }
+    }
+
+    @include media-query-size-x(xs sm) {
+      div.scrollTip {
+        bottom: 0;
+        min-width: 50vw;
+      }
+      &-header {
+        @include padding(6px);
+        // height: 120px;
+        // margin-top: 80px;
+      }
+
+      &-headerTitle {
+        text-align: left;
+        font-weight: 700;
+        font-size: 1em;
+        line-height: 16px;
+        margin: 0;
+      }
+
+      // &-background {
+      //   // margin-top: 15px;
+      // }
+    }
+
+    // ANIMATIONS
+    // ~~~~~~~~~~
+
+    @keyframes c2a-frames {
+      0% {
+        transform: translateY(0);
+        opacity: 0.1;
+      }
+      60% {
+        transform: translateY(8px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(15px);
+        opacity: 0;
+      }
+    }
+  }
+}

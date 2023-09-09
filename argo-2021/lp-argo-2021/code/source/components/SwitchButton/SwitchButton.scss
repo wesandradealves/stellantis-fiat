@@ -1,0 +1,105 @@
+.SwitchButton {
+	$bgColor: #e50353;
+	@include relative;
+
+	&-title {
+		@include font-responsive((20 / 375) * 100vw, 11px, 22px, 20px, null);
+		@include margin(null 25px null null);
+		text-align: center;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		flex-shrink: 0;
+		color: #5e6168;
+	}
+
+	&-list {
+		@include size(100% null);
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		flex-direction: row;
+	}
+
+	&-item {
+		@include relative;
+		@include padding(14.6px 12.5px);
+		display: block;
+		background: none;
+		text-decoration: none;
+		background-color: $bgColor;
+		border: none;
+		margin: 0 1px;
+		flex-grow: 1;
+	}
+
+	&-item:first-child {
+		border-radius: 0 0 0 0;
+	}
+
+	&-item:last-child {
+		border-radius: 0 0 0 0;
+	}
+
+	&-itemText {
+		@include font-responsive((10 / 375) * 100vw, 7px, 13px, 10px, null);
+		@include margin(2% null null null);
+		transition: color 0.3s ease-out;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		text-align: center;
+		color: #fff;
+		display: block;
+	}
+
+	&-itemIcon {
+		display: flex;
+		justify-content: center;
+	}
+
+	&-item.is-single {
+		border-radius: 0!important;
+	}
+
+	&-item.no-icon &-itemText {
+		margin-top: 0;
+	}
+
+	&-item.is-inline {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-item.is-inline &-itemText {
+		display: inline;
+		margin-top: 0;
+	}
+
+	&-item.is-inline &-itemIcon {
+		display: inline;
+		margin-right: 2%;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		display: flex;
+		align-items: center;
+
+		&-title {
+			@include margin(null 16.9px null null);
+			@include font-responsive((22 / 1920) * 100vw, 11px, 25px, 22px, 0.91px);
+			text-align: right;
+		}
+
+		&-item {
+			@include padding(14.6px 12.5px);
+		}
+
+		&-itemText {
+			@include font-responsive((14 / 1920) * 100vw, 11px, 17px, 14px, 0.96px);
+		}
+	}
+}

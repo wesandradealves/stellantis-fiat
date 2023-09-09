@@ -1,0 +1,81 @@
+const MenuList = [
+  {
+    id: 1,
+    name: 'Novidades Toro',
+    ref: 'toro-2022',
+    link: '#toro-2022',
+    menu: true,
+  },
+  // {
+  //   id: 2,
+  //   name: 'FIAT CONNECT////ME',
+  //   ref: 'services',
+  //   link: '#services',
+  //   menu: true,
+  // },
+  {
+    id: 3,
+    name: 'Versões',
+    ref: 'todas-as-versoes',
+    link: '#versions',
+    menu: true,
+  },
+  {
+    id: 4,
+    name: 'Fotos',
+    ref: 'galeria',
+    link: '#galeria',
+    menu: true,
+  },
+  {
+    id: 5,
+    name: 'Design',
+    ref: 'Design',
+    link: '#design',
+    menu: true,
+  },
+  {
+    id: 6,
+    name: 'Interior',
+    ref: 'interior',
+    link: '#interior',
+    accordion: true,
+  },
+  {
+    id: 7,
+    name: 'Performance',
+    ref: 'performance',
+    link: '#performance',
+    accordion: true,
+  },
+  {
+    id: 8,
+    name: 'Tecnologia',
+    ref: 'tecnologia',
+    link: '#tecnologia',
+    accordion: true,
+  },
+  {
+    id: 9,
+    name: 'Segurança',
+    ref: 'seguranca',
+    link: '#seguranca',
+    accordion: true,
+  },
+  {
+    id: 10,
+    name: 'Acessórios',
+    ref: 'acessorios',
+    link: '#Acessórios',
+    accordion: true,
+  },
+  {
+    id: 11,
+    name: 'Pacotes de serviços',
+    ref: 'pacotes-de-servicos',
+    link: '#Pacotes de serviços',
+    accordion: true,
+  },
+];
+
+export default MenuList;

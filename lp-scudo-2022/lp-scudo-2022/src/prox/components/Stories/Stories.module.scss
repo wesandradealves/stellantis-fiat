@@ -1,0 +1,231 @@
+@import '@styles/theme';
+@import '@styles/animations';
+@import '@styles/mixins';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .previous {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    height: calc(100% - 34px);
+    z-index: 4;
+  }
+
+  .next {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    height: calc(100% - 34px);
+    z-index: 4;
+  }
+}
+
+.story {
+  position: absolute;
+  user-select: none;
+
+  img {
+    user-select: none;
+  }
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: bottom;
+  z-index: 0;
+}
+
+.story {
+  &,
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.clickCta {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  top: 2rem;
+  left: 13.5rem;
+  height: 20px;
+  color: #212652;
+
+  p {
+    font-size: 0.8rem;
+    position: relative;
+    
+  }
+
+  img {
+    margin-left: 8px;
+    animation-name: 'pointer';
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.imageHolder {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.scrollCta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+
+  p {
+    font-size: 1rem;
+  }
+
+  &.scrollCtaHorizontal {
+    align-items: center;
+    bottom: 5%;
+    padding: 0px;
+
+    p {
+      text-align: center;
+      padding-bottom: 12px;
+    }
+  }
+
+  &.scrollCtaVertical {
+    padding: 20px;
+    align-items: flex-start;
+    bottom: 5%;
+
+    p {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      text-align: center;
+      transform: rotate(-90deg);
+      transform-origin: calc(0% + 20px);
+      width: max-content;
+      height: 6px;
+      padding-left: 15px;
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    svg {
+      @include animationMargin;
+      &:nth-child(1) {
+        animation-delay: 0ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 150ms;
+      }
+      &:nth-child(3) {
+        animation-delay: 300ms;
+      }
+    }
+  }
+
+  svg {
+    margin-bottom: 12px;
+    position: relative;
+  }
+}
+
+.container {
+  position: relative;
+  justify-items: start;
+  overflow: hidden;
+  background-color: $background-primary;
+  align-items: start;
+  width: 100%;
+  height: calc(100vh - #{$header-size});
+  min-height: calc(#{$min-mobile-height} - 44px);
+}
+
+.loadinBar {
+  animation-name: 'loading';
+  width: 100%;
+  height: 100%;
+  background-color: $secondary;
+}
+
+.nextTopic {
+  position: absolute;
+  right: toRem(8);
+  bottom: 11%;
+  color: $text-primary;
+  font-weight: bold;
+  font-size: toRem(18);
+  z-index: 2;
+
+  svg {
+    color: $text-light;
+    margin-left: toRem(9);
+    height: toRem(12);
+    width: auto;
+  }
+}
+
+.gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(0deg, rgba($background-primary,1) 0%, rgba($background-primary,0) 100%);
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  height: 34px;
+  display: flex;
+  z-index: 2;
+  justify-content: space-between;
+
+  .barItemHolder {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  .barItem {
+    width: 100%;
+    height: 4px;
+    background-color: $background-secondary;
+    &.hasGone {
+      background-color: #910525;
+    }
+  }
+}

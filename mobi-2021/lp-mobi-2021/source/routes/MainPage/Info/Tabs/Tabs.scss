@@ -1,0 +1,207 @@
+.Tabs {
+	@include relative;
+	@include span(12/12);
+	@include size(null 100%);
+	
+
+
+	// POSTER
+	// ~~~~~~
+
+	&-poster {
+		@include relative;
+		@include span(12/12);
+		@include size(null (273/630 * 100vh));
+		@include overflow(hidden);
+		background-color: #f2f2f2;
+	}
+
+	&-posterList {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterItem {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterImage {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-posterImage.is-simple {
+		@include size(100% 407px);
+	}
+
+	&-posterVideo {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-modalWithVideo{
+		background-color: #EDEDE3;
+		padding: 0 0 0 5%;
+
+		Argomento.frame{
+			background-color: red;
+		}
+	}
+
+	&-thumbVideo{
+		position: absolute;
+		top: 0;
+		background-color: transparent;
+	}
+	&-thumbImage{
+		@include size(100%);
+		object-fit: cover;
+	}
+	&-thumbImageIsTransparent{
+		visibility: hidden;
+	}
+	
+	
+	// INFO
+	// ~~~~
+	
+	&-info {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include padding(25px null);
+		overflow-y: auto;
+	}
+
+	&-infoWithVideo{
+		margin-top: 18%;
+		margin-bottom: -8%;
+		margin-left: 5%;
+		// color: white!important;
+	}
+
+	&-infoTitle {
+		@include font-responsive((16 / 375) * 100vw, 20px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: _color('_003');
+	}
+
+	&-infoText {
+		@include font-responsive((14 / 375) * 100vw, 20px, 17px, 14px, 1.36px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+
+	// TAB
+	// ~~~
+
+	&-tab {
+		@include relative;
+		@include span(12/12);
+	}
+
+	&-tabList {
+		@include relative;
+		@include padding(null null null 0);
+		@include margin(0 null);
+		list-style-type: none;
+		display: inline-flex;
+		flex-direction: row;
+	}
+
+	&-tabItem {
+		@include relative;
+	}
+
+	&-tabItem:last-child &-tabLink {
+		border-radius: 0 0 0 0;
+	}
+
+	&-tabLink {
+		@include font-responsive((11 / 375) * 100vw, 9px, 15px, 11px, 1.33px);
+		@include padding(8.5px 16px);
+		transition: background-color 0.6s $ease-in-out-quart, color 0.6s $ease-in-out-quart;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		background-color: #dbdbdb;
+		color: #ffffff;
+		border: 0;
+	}
+
+	&-tabLink::before {
+		@include absolute(100% 0 null 0);
+		@include margin(auto);
+		@include triangle($direction: bottom, $offset: null 0, $color: transparent, $size: 0.5em);
+		transition: transform 0.6s $ease-out-back, border-top-color 0.2s $ease-in-out-quart;
+		transform: translateY(-100%);
+		content: " ";
+	}
+
+	&-tabLink:hover,
+	&-tabLink.is-active {
+		background-color: #ffbc41;
+		color: #ffffff;
+	}
+
+	&-tabLink.is-active::before {
+		transform: translateY(-1px);
+		border-top-color: #ffbc41;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		&-poster {
+			@include span(10/12, 1/12);
+			@include size(null 310px);
+			border-radius: 0 0 0 0;
+		}
+		&-modalWithVideo{
+			width: 100%;
+			margin-left: 0;
+			@include size(null 510px);
+			background-color: transparent;
+			padding: 0;
+			display: flex;
+			justify-content: center
+		}
+
+		&-tab {
+			@include span(10/12, 1/12);
+		}
+
+		&-tabLink {
+			@include padding(null 30px);
+		}
+
+		&-tabItem:first-child &-tabLink {
+			border-radius: 0 0 0 0;
+		}
+
+		&-tabItem:last-child &-tabLink {
+			border-radius: 0 0 0 0;
+		}
+		&-infoWithVideo{
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left:0;
+			display: flex;
+			width: 100%;
+			margin-bottom: -2%;
+			justify-self:center;
+			justify-content: center;
+			color: #dbdbdb;
+		}
+		&-infoTitleWithVideo{
+			color: white;
+		}
+	}
+
+	@include media-query-size-x(xs sm md, landscape) {
+	}
+}

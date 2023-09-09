@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "FuturaPT Light";
+  src: url("light.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "FuturaPT Medium";
+  src: url("medium.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "FuturaPT Bold";
+  src: url("bold.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "FuturaPT Heavy";
+  src: url("heavy.woff") format("woff");
+  font-weight: 700;
+}

@@ -1,0 +1,18 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  h2 {
+    padding-top: toRem(48);
+    text-align: center;
+    padding-bottom: toRem(32);
+    font-size: clamp(#{toRem(28)}, 2.6vw, #{toRem(32)});
+    font-weight: $font-weight-regular;
+  }
+  background-color: $background-blue;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: toRem(30) !important;
+  @include desktop {
+    padding-bottom: toRem(65) !important;
+  }
+}

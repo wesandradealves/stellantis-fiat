@@ -1,0 +1,226 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.row {
+  display: flex;
+
+  .col {
+    width: 50%;
+    margin-right: mixin.calcSizeVw(15, $ww);
+    display: flex;
+    justify-content: flex-start;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.containerForm {
+  margin-top: mixin.calcSizeVw(40, $ww);
+}
+
+.containerCheckbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  margin-right: mixin.calcSizeVw(60, $ww);
+  display: flex;
+
+  label {
+    font-size: mixin.calcSizeVw(10, $ww);
+    line-height: mixin.calcSizeVw(12, $ww);
+    font-weight: 500;
+    display: flex;
+
+    a {
+      color: var.$color--primary;
+    }
+  }
+
+  &.error {
+    label {
+      color: var.$red;
+
+      a {
+        color: var.$red;
+      }
+
+      &:before {
+        border-color: var.$red !important;
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    & + label:before {
+      content: "";
+      margin-right: mixin.calcSizeVw(10, $ww);
+      display: inline-block;
+      vertical-align: text-top;
+      min-width: mixin.calcSizeVw(20, $ww);
+      height: mixin.calcSizeVw(20, $ww);
+      background: white;
+      display: flex;
+      border: 1px solid var.$color--primary;
+    }
+
+    &:disabled + label {
+      color: #b8b8b8;
+      cursor: auto;
+    }
+
+    &:checked + label:after {
+      content: "";
+      position: absolute;
+      left: mixin.calcSizeVw(5, $ww);
+      top: mixin.calcSizeVw(9, $ww);
+      background: var.$color--primary;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 var.$color--primary, 4px 0 0 var.$color--primary,
+        4px -2px 0 var.$color--primary, 4px -4px 0 var.$color--primary,
+        4px -6px 0 var.$color--primary, 4px -8px 0 var.$color--primary;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  $ww: 1360;
+
+  .row {
+    .col {
+      margin-right: mixin.calcSizeVw(15, $ww);
+    }
+  }
+
+  .containerForm {
+    margin-top: mixin.calcSizeVw(40, $ww);
+  }
+
+  .checkbox {
+    margin-right: mixin.calcSizeVw(60, $ww);
+
+    label {
+      font-size: mixin.calcSizeVw(10, $ww);
+      line-height: mixin.calcSizeVw(12, $ww);
+    }
+
+    label {
+      font-size: mixin.calcSizeVw(10, $ww);
+      line-height: mixin.calcSizeVw(12, $ww);
+      font-weight: 500;
+      display: flex;
+    }
+
+    input[type="checkbox"] {
+      & + label:before {
+        content: "";
+        margin-right: mixin.calcSizeVw(10, $ww);
+        min-width: mixin.calcSizeVw(20, $ww);
+        height: mixin.calcSizeVw(20, $ww);
+      }
+
+      &:checked + label:after {
+        content: "";
+        left: mixin.calcSizeVw(5, $ww);
+        top: mixin.calcSizeVw(9, $ww);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  .row {
+    .col {
+      margin-right: mixin.calcSizeVw(15, $ww);
+    }
+  }
+
+  .containerForm {
+    margin-top: mixin.calcSizeVw(40, $ww);
+  }
+
+  .checkbox {
+    margin-right: mixin.calcSizeVw(60, $ww);
+
+    label {
+      font-size: mixin.calcSizeVw(10, $ww);
+      line-height: mixin.calcSizeVw(12, $ww);
+    }
+
+    input[type="checkbox"] {
+      & + label:before {
+        content: "";
+        margin-right: mixin.calcSizeVw(10, $ww);
+        min-width: mixin.calcSizeVw(20, $ww);
+        height: mixin.calcSizeVw(20, $ww);
+      }
+
+      &:checked + label:after {
+        content: "";
+        left: mixin.calcSizeVw(5, $ww);
+        top: mixin.calcSizeVw(9, $ww);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .row {
+    display: block;
+
+    .col {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .containerForm {
+    margin-top: 30px;
+  }
+
+  .containerCheckbox {
+    display: block;
+  }
+
+  .checkbox {
+    margin: 0 0 30px 0;
+
+    label {
+      font-size: 10px;
+      line-height: 12px;
+    }
+
+    input[type="checkbox"] {
+      & + label:before {
+        content: "";
+        margin-right: 15px;
+        min-width: 20px;
+        height: 20px;
+      }
+
+      &:checked + label:after {
+        content: "";
+        left: 5px;
+        top: 9px;
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.AccordionTab {
+	$buttonColor: #5e6168;
+	$borderBottomColor: rgba(#707070, 0.45);
+	$borderBottomColorOpened: #f2f2f2;
+	$buttonBackgroundColor: transparent;
+
+	@include relative;
+	@include span(12/12);
+	background-color: $buttonBackgroundColor;
+
+	&-button {
+		@include absolute(null 0 null null);
+		@include size(3em);
+		@include margin(0);
+		@include padding(0);
+		outline: 0;
+		border: 0;
+		background: none;
+		pointer-events: none;
+		text-indent: -9999%;
+		display: none;
+	}
+
+	&-button::before {
+		@include absolute(50% null null 50%);
+		@include size(4px 12px);
+		display: block;
+		border-radius: 0.3em;
+		background-color: $buttonBackgroundColor;
+		transform: translate(75%, -50%) rotate(45deg);
+		transform-origin: 50%;
+		transition: all 0.25s ease-in-out;
+		content: ' ';
+	}
+
+	&-button::after {
+		@include absolute(50% null null 50%);
+		@include size(4px 12px);
+		display: block;
+		border-radius: 0.3em;
+		background-color: $buttonBackgroundColor;
+		transform: translate(-75%, -50%) rotate(-45deg);
+		transform-origin: 50%;
+		transition: all 0.25s ease-in-out;
+		content: ' ';
+	}
+
+	&-header {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include font-responsive((17 / 375) * 100vw, 11px, 22px, 19px, 1.37px);
+		@include overflow(hidden);
+		@include padding(1em 0);
+		transition: border-color 0.7s $ease-out-expo;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #fff;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		border-bottom: 1px solid $borderBottomColor;
+		cursor: pointer;
+	}
+
+	&-headerIcon {
+		@include relative;
+		@include triangle($direction: right, $offset: 0 0 0 null, $color: #5e6168, $size: 0.2em);
+		transition: transform 0.3s $ease-out-back;
+		vertical-align: middle;
+		display: inline-block;
+		margin: auto;
+	}
+
+	&-header.no-icon {
+		cursor: default;
+	}
+
+	&-header.no-icon &-headerIcon {
+		display: none;
+	}
+
+	&-article {
+		@include span(12/12);
+		@include size(null auto);
+		@include max-size(null 0);
+		@include overflow(hidden);
+		transition: max-height 0.6s $ease-out-expo;
+	}
+
+	&:last-child &-article {
+		border-bottom: none;
+	}
+
+	&-articleWrapper {
+		@include relative;
+	}
+
+	&.is-open &-button::before,
+	&.is-open &-button::after {
+		@include size(null 14px);
+	}
+
+	&.is-open &-button::before {
+		transform: translate(0, -50%) rotate(-45deg);
+	}
+
+	&.is-open &-button::after {
+		transform: translate(0, -50%) rotate(45deg);
+	}
+
+	&.is-open &-headerIcon {
+		@include triangle($direction: bottom, $offset: 0 0 0 null, $color: #5e6168, $size: 0.2em);
+	}
+
+	.icon {
+		font-family: 'fontello';
+		font-style: normal;
+		font-weight: normal;
+		display: inline-block;
+
+		/* For safety - reset parent styles, that can break glyph codes*/
+		font-variant: normal;
+		text-transform: none;
+
+		/* Font smoothing. That was taken from TWBS */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon-angle-down {
+		&::before {
+			content: '\f107';
+		}
+	}
+
+	.icon {
+		color: _color('_011');
+		font-size: 27px;
+		margin-right: 20px;
+		transition: width 0.3s, height 0.3s, transform 0.3s;
+	}
+
+	&.is-open .icon {
+		transform: rotate(180deg);
+		margin-left: 0px;
+		transition: width 0.3s, height 0.3s, transform 0.3s;
+	}
+
+	&.is-open &-article {
+		@include size(null auto);
+		@include max-size(null 100vh);
+		transition: max-height 0.6s $ease-out-expo;
+	}
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(xs sm md landscape) {
+		&.is-open &-article {
+			@include max-size(null 300vh);
+		}
+    &-header {
+      color: _color('_002');
+    }
+	}
+}

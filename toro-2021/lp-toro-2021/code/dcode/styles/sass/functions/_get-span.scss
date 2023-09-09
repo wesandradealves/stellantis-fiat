@@ -1,0 +1,6 @@
+@import "strip-units";
+
+@function get-span($ratio: 1) {
+	$ratio: strip-units($ratio, $force:true);
+	@return $ratio * 100;
+}

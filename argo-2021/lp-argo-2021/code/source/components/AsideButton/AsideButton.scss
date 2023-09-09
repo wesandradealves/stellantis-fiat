@@ -1,0 +1,45 @@
+.AsideButton {
+	$bgColor: _color('_002');
+	$color: #fff;
+
+	@include size(20px 83px);
+	background-color: $bgColor;
+	border-radius: 0 0 0 0;
+	box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.16);
+	border: none;
+	padding: 5px;
+
+
+	// ICON
+	// ~~~~
+
+	&-icon {
+		@include relative(null 2px null null);
+		transition: all 400ms;
+		margin-left: 1px;
+	}
+
+	&-iconPath {
+		@include relative;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 400ms, opacity 400ms;
+		user-select: none;
+		fill: $color;
+		fill-rule: evenodd;
+		opacity: 0.398;
+	}
+
+
+	// STATE
+	// ~~~~~
+
+	&:hover &-iconPath {
+		opacity: 1;
+	}
+
+	&.is-active &-icon {
+		@include offset(null 1px null null);
+		@include flip(horizontal);
+	}
+}

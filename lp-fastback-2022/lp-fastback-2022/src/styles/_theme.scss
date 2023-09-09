@@ -1,0 +1,82 @@
+/* COLLORS */
+
+$background-primary: #ffffff;
+$background-secondary: #000000;
+  
+$background-light: #edede3;
+$background-dark: #000;
+$background-grey: #2E2B28;
+$bullet-color: #000;
+$tabs-color: #77b861;
+$mainstories-box-color: #62b566;
+$primary: #FFF;
+$line-header: #2E2B28;
+$secondary: #92d0db;
+$text-primary: #ffffff;
+$text-secondary: #22274f;
+$text-light: #FFF;
+$text-dark: #272727;
+$text-button: #edede4;
+$trace-color: #f8b413;
+$button-background: #000;
+$button-border: #fff;
+$text-on-primary: #000000;
+$text-menu-link: #ffffff;
+$hr-color: #9fcfd9;
+$border-color: #17131e;
+$scrollbar-track: rgba($primary, 0.23);
+$scrollbar-body: $primary;
+$border-primary: #f6bb43;
+$background-gradient: #aac156;
+$top-down-gradient: linear-gradient(
+  0deg,
+  #aac156 0%,
+  #47be7a 80%
+);
+$card-color: #CBCBCB;
+$stories-color: #E63D3D;
+$text-version: #E63D3D;
+$background-red: #E63D3D;
+
+/* FONTS */
+$font: 'Futura PT', Arial, sans-serif; 
+$font-secondary: 'Futura PT', Arial, sans-serif;
+$fontawesome: 'font awesome';
+$fontawesome-brands: 'font awesome brands';
+
+$font-weight-thin: 100;
+$font-weight-ultralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+$font-weight-extrablack: 900;
+
+/* TRANSITIONS  */
+$transition-time: 400ms;
+$transition-time-quick: 200ms;
+$transition-time-quickest: 50ms;
+$transition-easing: ease-in-out;
+
+/* SCREEN SIZES */
+$screen-sm-min: 576.1px;
+$screen-md-min: 768.1px;
+$screen-lg-min: 992.1px;
+$screen-desktop-min: 1024.1px;
+$screen-xl-min: 1200.1px;
+$screen-xxl-min: 1920.1px;
+$screen-max-size: 2560px;
+
+/* OTHERS VALUES */
+$border-size: clamp(8px, 2vh, 18px);
+$btn-radius-layout: 10px 0;
+$thumb-radius-layout: 0;
+$section-horizontal-padding: clamp(40px, 4vw, 90px);
+$section-horizontal-padding-desktop: clamp(70px, 4vw, 90px);
+
+$min-mobile-height: 568px;
+$container-max-width: 1280px;
+$header-size: 44px;
+$header-size-desktop: 65px;
+$nav-width: 250px;

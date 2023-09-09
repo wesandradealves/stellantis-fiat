@@ -1,0 +1,4 @@
+include:
+  - project: adtsys/pipeline-templates
+    ref: master
+    file: /Jobs/Common/Setup-multiproject-pipeline.gitlab-ci.yml

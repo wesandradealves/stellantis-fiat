@@ -1,0 +1,150 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.container {
+  width: 100%;
+  max-width: 1770px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 15px auto;
+  // padding: 0 170px; 
+
+  .thumb {
+    flex: 0 0 calc(50.6419% - 20px);
+    position: relative;
+    display: flex;
+    
+    &::after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      border: 2px solid var.$red;
+    }
+    
+    img {
+      border: 2px solid var.$yellow;
+      height: 100% !important;
+      position: relative !important;
+      z-index: 1;
+    }
+  }
+
+  .content {
+    flex: 0 0 44.4507%;
+    margin-left: 4.1666%;
+    color: var.$white;
+
+    p {
+      font-family: var.$book;
+      font-size: 24px;
+      letter-spacing: 0.8px;
+      line-height: 26px;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-family: var.$bold;
+      font-size: 28px;
+      line-height: 32px;
+      font-weight: bold;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      position: relative;
+      padding-top: 11px;
+      // margin-left: 40px;
+
+      br {
+        display: none;
+
+        &.desktop {
+          display: block;
+        }
+      }
+
+      &:before {
+        content: '';
+        width: 8px;
+        height: 50px;
+        background-color: var.$yellow;
+        position: absolute;
+        top: -5px;
+        left: -24px;
+        transform: skewY(-20deg) rotate(25deg);
+      }
+    }
+
+    a {
+      max-width: 240px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .container {
+    padding: 0 150px;
+
+    .thumb {
+      flex: 0 0 62.8318%;
+    }
+
+    .content {
+      flex: 0 0 31.5044%;
+      // margin-left: 4.4935%;
+
+      h4{
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .container {
+    padding: 0 50px;
+    justify-content: space-between;
+
+    .thumb {
+      flex: 0 0 calc(63.5416% - 20px);
+    }
+
+    .content {
+      h4{
+        // margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    .thumb {
+      flex: 0 0 calc(64.5058% - 20px);
+    }
+
+    .content {
+      h4 {
+        &::before {
+          content: '';
+          height: 40px;
+          top: 6px;
+        }
+
+      }
+
+      p{
+        line-height: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.Quote {
+	@include relative;
+
+	&-hgroup {
+		@include relative;
+	}
+
+	&-title {
+		@include font-responsive((18 / 375) * 100vw, 11px, 22px, 18px, null);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: _('Quote.textColorTitle') or #905d00;
+		text-align: _('Quote.textAlignTitle') or left;
+		margin-bottom: 7px;
+	}
+
+	&-text {
+		@include font-responsive((18 / 375) * 100vw, 11px, 22px, 18px, null);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: _('Quote.textColor') or #ffffff;
+		text-align: _('Quote.textAlign') or left;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		text-align: left;
+
+		&-hgroup {
+			float: left
+		}
+
+		&-title {
+			float: right;
+		}
+
+		&-text {
+			float: right;
+			margin-right: 10px;
+		}
+	}
+}

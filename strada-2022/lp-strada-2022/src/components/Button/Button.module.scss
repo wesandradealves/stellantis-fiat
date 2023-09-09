@@ -1,0 +1,47 @@
+@import '@styles/theme', '@styles/mixins';
+
+.button {
+  position: relative;
+  background-color: $primary;
+  display: flex;
+  padding: 0 toRem(35) 0 toRem(24);
+  border: #707070;
+  color: #edede3;
+  line-height: toRem(46);
+  text-align: center;
+  height: toRem(46);
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: toRem(19);
+  width: 100%;
+
+  @include sm {
+    padding: 0 toRem(75) 0 toRem(32);
+    font-size: toRem(19);
+    width: max-content;
+  }
+  @include desktop {
+    &:hover {
+      .circle {
+        width: toRem(60);
+      }
+    }
+  }
+
+  .circle {
+    width: toRem(40);
+    height: toRem(40);
+    position: absolute;
+    top: calc(50% - #{toRem(20)});
+    right: 4px;
+    background-color: $secondary;
+    border-radius: toRem(20);
+    flex-shrink: 0;
+    transition: width $transition-time-quick $transition-easing;
+
+    img {
+      position: relative;
+      bottom: 2px;
+    }
+  }
+}

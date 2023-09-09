@@ -1,0 +1,894 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.container {
+  background-color: #272727;
+  min-height: $min-mobile-height;
+  @include desktop {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.brandImg {
+  text-align: center;
+  z-index: 5;
+  display: flex;
+  //margin-bottom: 3rem;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .brand {
+    width: 19rem;
+    margin-left: 2%;
+    @include desktop {
+      width: 40%;
+      padding-left: 3rem;
+    }
+  }
+  .detailWraper{
+    width: 100%;
+    display: flex;
+    position: absolute;
+
+    
+    .detailsWrap {
+      background-color: #FFB80F;
+      -webkit-mask:  url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDI0IDEyIj4KCTxyZWN0IGlkPSJSZWN0YW5nbGVfMjc1OCIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMjc1OCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjEyIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDApIi8+Cgk8cGF0aCBpZD0iUGF0aF80NjMzIiBkYXRhLW5hbWU9IlBhdGggNDYzMyIgZD0iTTEzMi41ODQsMCwxMjksMTEuMDQ2aDEuNjU5TDEzNC4yNDMsMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjguOTAxIDAuNTIzKSIgZmlsbD0iIzAwMCIvPgo8L3N2Zz4KICA=");
+      mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDI0IDEyIj4KCTxyZWN0IGlkPSJSZWN0YW5nbGVfMjc1OCIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMjc1OCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjEyIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDApIi8+Cgk8cGF0aCBpZD0iUGF0aF80NjMzIiBkYXRhLW5hbWU9IlBhdGggNDYzMyIgZD0iTTEzMi41ODQsMCwxMjksMTEuMDQ2aDEuNjU5TDEzNC4yNDMsMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjguOTAxIDAuNTIzKSIgZmlsbD0iIzAwMCIvPgo8L3N2Zz4KICA=");
+      width: 100%;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+      height: 10px;
+      svg{
+        fill: #FFB80F;
+      }
+      // span {
+      //   width: 0.5%;
+      //   height: 10px;
+      //   margin: 0 6% 0 0;
+      //   padding: 0;
+      //   background-color: $trace-color;
+      //   display: inline-block;
+      //   -webkit-transform: skew(-20deg); /* Chrome, Opera */
+      //   -ms-transform: skew(-20deg); /* IE */
+      //   transform: skew(-20deg); /* Padrão */
+      // }
+    }
+
+    .detailsWrapMobile {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      span {
+        width: 1.5%;
+        height: 10px;
+        margin: 0 23% 0 0;
+        padding: 0;
+        background-color: $trace-color;
+        display: inline-block;
+        -webkit-transform: skew(-20deg); /* Chrome, Opera */
+        -ms-transform: skew(-20deg); /* IE */
+        transform: skew(-20deg); /* Padrão */
+      }
+      .flag{
+        background-color: transparent;
+      }
+    }
+  }
+  .cardHeader {
+    display: flex;
+    flex-direction: row;
+    //padding: 0 1.5rem;
+    width: 80%;
+    //transform: skew(-18deg);
+    @include desktop {
+      //transform: skew(-20deg);
+      width: 22.8%;
+    }
+
+    .selectedBg {
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      transition: height $transition-time $transition-easing;
+      width: 100%;
+      z-index: -1;
+
+      &.active {
+        background-color: $button-background;
+        transition: height $transition-time $transition-easing;
+        height: 100%;
+        border-left: 0px solid white;
+        border-right: 0px solid white;
+        border-bottom: none;
+        z-index: -1;
+        background-color: #fff ;
+      }
+      &.teste{
+        background-color: #FFB80F;
+      }
+    }
+
+
+    button {
+      //background-color: #000;
+      position: relative;
+      padding: 0;
+      z-index: 10;
+      width: 125px;
+      //border: 1px solid blue;
+      margin-left: 1px;
+      &.active {
+        .selectedBg {
+          height: 100%;
+        }
+      }
+
+      .bgButton{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #000;
+        top: 0;
+        transform: skew(-20deg); /* Padrão */
+      }
+
+      p {
+        color: $text-light;
+        font-size: toRem(11);
+        line-height: toRem(38);
+        white-space: nowrap;
+        position: relative;
+        bottom: 20px;
+        padding-top: 1rem;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        // -webkit-transform: skew(18deg); /* Chrome, Opera */
+        // -ms-transform: skew(18deg); /* IE */
+        //     transform: skew(18deg); /* Padrão */
+        font-family: "Futura PT Extra", Arial, sans-serif;
+        font-weight: 900;
+
+        .name {
+          display: block;
+          transition: all $transition-time-quick $transition-easing;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          font-weight: bold;
+          text-transform: uppercase;
+          line-height: 1;
+          margin-left: -10%;
+        }
+
+        .outline {
+          position: absolute;
+          left: 4px;
+          top: 4px;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $border-color;
+          z-index: 0;
+        }
+
+        &.active {
+          .name {
+            border-bottom: $button-background;
+            color: #000;
+          }
+        }
+      }
+    }
+    .buttonHeaderMobile{
+      width: 100px;
+    }
+  }
+}
+
+
+
+.cardFooter {
+  height: 360px;
+  position: absolute;
+  left: -5%;
+  transform: skew(-2deg, -8deg);
+  background-color: $background-light;
+  width: 110%;
+  z-index: 0;
+
+  bottom: -13%;
+  @media (max-width: 1439px) {
+    bottom: -25%;
+  }
+}
+
+.cardFooterMobile{
+  height: 65%;
+  position: absolute;
+  bottom: -5%;
+  transform: skew(-2deg, -8deg);
+  background-color: $background-light;
+  width: 120%;
+  left: -10%;
+  z-index: 0;
+}
+
+.swiperWrapper {
+  display: block;
+  padding-top: toRem(30);
+  width: 100%;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include desktop {
+    padding-top: 0;
+  }
+}
+
+.swiperSlide {
+  padding: 0;
+
+  @include desktop {
+    padding: 0 #{$section-horizontal-padding-desktop};
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column-reverse;
+  //justify-content: flex-end;
+  align-items: center;
+
+  @include desktop {
+    flex-direction: row-reverse;
+    align-items: normal;
+  }
+}
+
+.aligner {
+  display: flex;
+  flex-direction: column;
+
+  .carInfo {
+    display: flex;
+    margin-top: 5.5rem;
+
+    @include desktop {
+      padding: 0 #{$section-horizontal-padding};
+      margin-top: 8.5rem;
+      width: 65% !important;
+      padding: 0;
+      align-self: center;
+      margin-top: 0;
+
+      > div {
+        display: flex;
+      }
+    }
+  }
+
+  &.isActive {
+    .right .trapezoid {
+      right: calc(0% - 300px);
+      opacity: 1;
+
+      @include xl {
+        //right: calc(0% - 250px);
+      }
+
+      @include maxWidth {
+        //right: -10%;
+      }
+    }
+
+    .carInfo .trapezoid {
+      left: calc(0% - 200px);
+      opacity: 1;
+    }
+  }
+
+  .details {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 20%;
+    padding: 0 10px;
+    margin: 2rem 0;
+
+    @include desktop {
+      padding: 0;
+      min-height: 170px;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .cardsDetails {
+    //background-color: #272727;
+    //height: 9em;
+    width: 6em;
+    margin: 0 8px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    @include desktop {
+      width: 6.5em;
+      margin: 0 3px;
+    }
+
+    .cardsImg {
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      margin-right: 7px;
+
+      @include desktop {
+        margin-right: 0;
+      }
+      img {
+        border-radius:5px ;
+        object-fit: cover; /* or object-fit: contain; */
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .cardsText {
+      height: 3em;
+      text-align: center;
+      width: 100%;
+      padding-top: 3px;
+      padding-bottom: 5px;
+      font-weight: 600;
+      color: #000;
+      font-family: 'Futura PT Extra', Arial, sans-serif;
+      font-weight: 900;
+      @include desktop {
+        color: $text-light;
+      }
+      display: flex;
+      align-items: center;
+      p {
+        font-size: clamp(10px, 0.7vw, 11px);
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: 30%;
+    right: 0;
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 100%;
+
+    @include desktop {
+      width: auto;
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .subTextMobile {
+    color: $text-dark;
+    margin: 1.4rem 0;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+
+      @include desktop {
+        font-weight: 600;
+      }
+
+      strong {
+        color: $primary;
+      }
+    }
+  }
+
+  @include desktop {
+    .row > div {
+      //width: 40%;
+      justify-content: center;
+      align-items: flex-start;
+      //margin-left: 3rem;
+    }
+  }
+
+  .rightBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    margin-top: 40px;
+    @include desktop {
+      margin-top: 11%;
+      margin-left: 18%;
+      align-items: flex-start;
+      height: auto;
+      position: static;
+      background-color: transparent;
+      max-width: 300px;
+    }
+  }
+}
+
+.versionText {
+  color: $text-dark;
+  display: flex;
+  flex-direction: column;
+  margin-top: -2rem;
+  width: 100%;
+
+  @include desktop {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+  }
+
+  .subText {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  strong {
+    color: $primary;
+  }
+
+  // .versionTextlogo {
+  //   display: flex;
+  //   justify-content: center;
+
+  //   span {
+  //     color: $text-version;
+  //     font-weight: bold;
+  //   }
+
+  //   p {
+  //     color: $text-version;
+  //     font-size: 18px;
+  //   }
+
+  //   @include desktop {
+  //     justify-content: flex-start;
+  //   }
+
+  //   h2 {
+  //     color: $primary;
+  //     margin-left: 10px;
+  //     font-size: 25px;
+
+  //     @include desktop {
+  //       padding-top: 6px;
+  //       font-size: 1.4rem;
+  //     }
+  //   }
+
+  //   img {
+  //     object-fit: contain;
+  //     max-width: 80px;
+  //   }
+  // }
+
+  .versionTextWraper{
+    display: flex;
+    .versionTextName {
+      width: 60%;
+      //font-size: clamp(3rem, 10vw, 3.5rem);
+      line-height: 1;
+      font-style: italic;
+      font-family: 'Futura PT Extra', Arial, sans-serif;
+      font-weight: 900;
+      font-size: toRem(40);
+      @include desktop {
+        color: $text-light;
+        //font-size: clamp(2rem, 5.2vw, 3.5rem);
+        //font-size: clamp(4.6rem, 10vw, 3.1rem);
+        // font-size: 40px;
+        // text-align: left;
+        // margin-top: 0;
+        // line-height: inherit;
+      }
+    }
+
+    .logoAbarthWrap{
+      width: 40%;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      img{
+        width: 100%;
+        height: 70%;
+      }
+    }
+  }
+
+  .versionNameSvg{
+    width: 100%;
+    // margin-bottom:-15px;
+    // margin-top: 15px;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+
+.trapezoid {
+  margin-top: toRem(32);
+  height: calc(100% - 60px);
+  width: auto;
+}
+
+.previous {
+  position: absolute !important;
+  left: 10px;
+  top: calc(28% - 120px);
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  //width: 12% !important;
+  //height: 5% !important;
+
+  @include desktop {
+    left: 30px;
+    top: calc(70% - 120px);
+    //width: 3.5rem !important;
+    //height: 4rem !important;
+  }
+}
+
+.next {
+  position: absolute !important;
+  right: 10px;
+  top: calc(28% - 120px);
+  z-index: 4;
+  //width: 12% !important;
+  //height: 5% !important;
+  width: 40px;
+  height: 40px;
+  @include desktop {
+    right: 30px;
+    top: calc(70% - 120px);
+    //width: 3.5rem !important;
+    //height: 4rem !important;
+  }
+}
+
+.buttonHolder {
+  width: 100%;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: toRem(56);
+
+  @include desktop {
+    justify-content: normal;
+    align-items: unset;
+    padding-right: 8px;
+  }
+  
+}
+
+.cta {
+  margin-bottom: toRem(12);
+  //width: 23.5rem !important;
+  color: $text-button;
+  @include desktop {
+    width: 100%!important;
+    padding-right: 0;
+  }
+
+  > div {
+    padding: 0.8rem 1.2rem;
+    color: $text-button;
+  }
+
+  p {
+    font-size: toRem(14)!important;
+    color: $text-button;
+  }
+
+}
+
+.swiperSlideMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    padding-bottom: 35px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 12px;
+
+    picture {
+      max-width: 175px;
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 20vw;
+  }
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: toRem(26);
+  padding: 0 $section-horizontal-padding;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4rem;
+    
+
+  @include desktop {
+    padding: 0 clamp(20px, 2vw, 90px);
+    margin-bottom: 4rem;
+  }
+
+  @include xl {
+    padding: 0 $section-horizontal-padding-desktop;
+  }
+
+  &.mobile {
+    padding: 0 0 4px;
+  }
+
+  button {
+    @include desktop {
+      margin-right: toRem(16);
+    }
+
+    @include xl {
+      margin-right: toRem(30);
+    }
+
+    &:focus-visible {
+      outline: $text-secondary double 2px;
+      outline-offset: toRem(10);
+    }
+
+    .activeBg {
+      position: absolute;
+      background-color: transparent;
+      border-radius: 50%;
+      z-index: -1;
+      margin-top: 50px;
+      margin-left: 6px;
+
+      @include desktop {
+        margin-top: 70px;
+        margin-left: 15px;
+      }
+    }
+
+    &.active {
+      .activeBg {
+        background-color: $primary;
+      }
+
+      .name {
+        color: $text-button;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      .name {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      color: $primary;
+      line-height: toRem(38);
+      white-space: nowrap;
+      position: relative;
+      font-size: 20px;
+      font-weight: 500;
+
+      .name {
+        display: block;
+        transition: all $transition-time-quick $transition-easing;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.versionName {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: clamp(20px, 2vw, 50px);
+
+  p {
+    color: $text-secondary;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    font-size: clamp(1.7rem, 8vw, #{toRem(64)});
+    white-space: nowrap;
+  }
+}
+
+.productImageContainer {
+  min-height: 210px;
+}
+
+.thumbImageContainer {
+  position: relative;
+  z-index: 10;
+  aspect-ratio: 3 / 2 !important;
+  padding-top: 2%;
+  margin-left: 10px;
+  //max-width: 180px !important;
+  max-width: 100% !important;
+  //transform: skew(20deg);
+  @include desktop{
+    min-height: 90px;
+  }
+}
+
+.productImage {
+  position: relative;
+  transition-property: all;
+  transition-duration: $transition-time-quick;
+  transition-timing-function: $transition-easing;
+  opacity: 0 !important;
+  left: 320px;
+  z-index: 2;
+
+  &.isVisible {
+    opacity: 1 !important;
+    left: 0;
+  }
+}
+
+
+
+.scrollCta {
+  .scrollCtaWrraper{
+
+  }
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-top: 3.5rem;
+  margin-bottom: -5rem;
+  @include desktop {
+    margin-bottom: 3.5rem;
+  }
+  h2 {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0;
+    justify-content: center;
+    font-size: toRem(32);
+    font-weight: 100;
+    @include desktop {
+      font-size: toRem(24);
+    }
+    strong {
+      margin-left: 5px;
+      font-family: "Futura PT", Arial, sans-serif;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+
+  svg {
+    margin-top: 9px;
+    @include animationMargin;
+  }
+  
+}
+
+.barBtn{
+  width: 100%;
+  height: 5%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  &.active{
+  background-color: #268F52;
+  }
+
+  &.teste{
+    background-color:#FF1430 ;
+    }
+}
+
+.bgFastbackDestop{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -25%;
+  left: 0;
+  //background-color: #ffffff26;
+  z-index: -1;
+  svg{
+    height: 100%;
+    width: 100%;
+    path{
+      fill: #999891;
+      opacity: 0.2;
+    }
+  }
+}
+
+.bgFastbackMobile{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //background-color: #ffffff26;
+  z-index: -1;
+  svg{
+    height: 100%;
+    width: 100%;
+    path{
+      fill: 999891;
+    }
+  }
+}
+
+.displayFlag{
+  display: none;
+}
+
+.infoWrapMobile{
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 300px;
+  @include desktop {
+      max-width: 340px;
+      margin-bottom: 2rem;
+    }
+  .details {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .cardsDetails {
+    margin: 0 ;
+  }
+}

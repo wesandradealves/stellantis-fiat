@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'neue-plak-narrow-extra-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-narrow-extra-black.svg#narrow-extra-black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'neue-plak-cond-extra-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-cond-extra-black.svg#cond-extra-black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'neue-plak-wide-extra-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-wide-extra-black.svg#wide-extra-black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'neue-plak-extra-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-extra-black.svg#extra-black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'neue-plak-comp-extra-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-comp-extra-black.svg#comp-extra-black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'neue-plak-black';
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.eot');
+	src: local('Neue Plak'), url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/neue-plak/neue-plak-black.svg#black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}

@@ -1,0 +1,125 @@
+@import '@styles/theme';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .previous {
+    position: absolute;
+    left: 4%;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 4;
+  }
+
+  .next {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 4;
+  }
+}
+
+.story {
+  position: absolute;
+  user-select: none;
+
+  img {
+    user-select: none;
+    width: 56%;
+  }
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: bottom;
+  z-index: 0;
+}
+
+.story {
+  &,
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.clickCta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  top: 40px;
+  height: 20px;
+
+  img {
+    margin-left: 16px;
+    animation-name: 'pointer';
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.imageHolder {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  position: relative;
+  justify-items: start;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  margin-top: -11vh;
+}
+
+.loadinBar {
+  animation-name: 'loading';
+  width: 100%;
+  height: 100%;
+  background-color: $secondary;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+  height: 34px;
+  display: flex;
+  z-index: 1;
+  justify-content: space-between;
+
+  .barItemHolder {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  .barItem {
+    width: 100%;
+    height: 4px;
+    background-color: $background-secondary;
+    &.hasGone {
+      background-color: $secondary;
+    }
+  }
+}

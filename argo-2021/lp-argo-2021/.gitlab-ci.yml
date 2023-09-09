@@ -1,0 +1,35 @@
+image: 253882794486.dkr.ecr.us-east-1.amazonaws.com/build-tools:154c3a69-node-10
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375/
+  DOCKER_DRIVER: overlay2
+  GIT_SUBMODULE_STRATEGY: "recursive"
+  BRANCH: "${CI_COMMIT_REF_NAME}"
+  PROD_URLS: '["argomentos.fiat.com.br","argomentos.fcalatam.com.br"]'
+
+services:
+  - docker:18-dind
+
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: 
+    - ci/scripts/build.sh
+
+deploy:
+  stage: deploy
+  script: 
+    - echo "This build is for $BRANCH"
+    - export TF_VAR_branch=$BRANCH
+    - export TF_VAR_production_dns=$PROD_URLS
+    - ci/scripts/deploy.sh
+
+destroy:
+  stage: deploy
+  script: 
+    - ci/scripts/destroy.sh
+  when: manual

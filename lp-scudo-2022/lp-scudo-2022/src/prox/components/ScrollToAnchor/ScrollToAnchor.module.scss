@@ -1,0 +1,11 @@
+@import '@styles/animations';
+
+.link {
+  img {
+    @include animationMargin;
+  }
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+}

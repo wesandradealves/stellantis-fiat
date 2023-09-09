@@ -1,0 +1,399 @@
+@import '@styles/theme', '@styles/mixins', '@styles/animations';
+
+.inputSelectHolder {
+  min-height: 60px;
+
+  &.s1 {
+    position: relative;
+  }
+}
+
+#versionLabelSelected {
+  z-index: 11;
+  //border-top: 1px solid #999999;
+  border: 1.5px solid #212652;
+
+  &:after {
+    content: "\f078";
+    font-family: "font awesome";
+    position: absolute;
+    right: 1rem;
+    top: -webkit-calc(50% - 3px);
+    top: calc(50% - 5px);
+    font-size: 14px;
+    width: 12px;
+    height: 12px;
+    font-style: normal !important;
+    pointer-events: none;
+    z-index: 3;
+    font-style: normal;
+  }
+}
+
+.inputSelect {
+  position: absolute;
+  left: 0;
+  min-height: 52px;
+  height: unset;
+  overflow-y: auto;
+  max-height: 260px;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background-color: #edede3;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  max-height: 850px;
+
+
+  @include desktop {
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: toRem(20);
+    color: $background-secondary;
+    font-weight: 600;
+    font-family: $text-primary;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include desktop {
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+
+  .wrapperField {
+    > div {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+
+    .ddd {
+      flex: 0;
+      width: 60px;
+      margin-right: toRem(10);
+    }
+
+    input:not(.ddd) {
+      width: 100%;
+      flex: 1;
+    }
+  }
+
+  .headerText {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    position: relative;
+
+    @include desktop {
+      margin-top: 2rem;
+
+    }
+
+
+    p {
+
+      @include desktop {
+        margin-left: 1rem;
+        margin-top: 1rem;
+
+
+      }
+    }
+
+    @include desktop {
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    span {
+      margin-bottom: 1.5625rem;
+      height: 5px;
+      width: 5rem;
+      background-color: $text-secondary;
+      margin-top: 1.3rem;
+      left: 0;
+      bottom: 0;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 2vw, 1.7rem);
+    }
+  }
+
+  .mainFields {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 26px 0;
+    justify-items: stretch;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: toRem(20) 0 0 0;
+    max-width: $screen-lg-min;
+    margin: 0 auto;
+
+    .doubleColumn {
+      text-align: left;
+      color: $text-red;
+      font-weight: bold;
+      font-size: 0.9rem;
+      z-index: 2;
+    }
+
+    @include lg {
+      .doubleColumn {
+        grid-column: span 2;
+      }
+      grid-template-columns: 1fr 1fr;
+      gap: 1vw 56px;
+    }
+  }
+}
+
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  @include desktop {
+    flex-direction: row;
+
+  }
+}
+
+.loading {
+  position: absolute;
+  width: 40px;
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+}
+
+.disclaimer {
+  margin-top: toRem(35);
+  margin-right: 0;
+
+  @include desktop {
+    margin-right: 7rem;
+    margin-top: toRem(30);
+    font-size: clamp(0.8rem, 0.7vw, 1.5rem);
+
+  }
+
+  a {
+    font-weight: 400;
+    font-family: $font;
+  }
+
+  font-size: 11px;
+}
+
+.field {
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all $transition-time $transition-easing;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  label.optionEmpty {
+    font-size: clamp(0.625rem, 1.1vw, 1rem) !important;
+    text-align: left !important;
+  }
+
+  label {
+    font-size: 17px;
+    color: #212652;
+    flex-direction: column;
+
+    small {
+      font-size: toRem(16);
+      font-weight: 100;
+      opacity: 0.8;
+    }
+  }
+
+  .select {
+    margin-top: 8px;
+
+    label {
+      font-size: toRem(16);
+    }
+  }
+
+  .emptyOptionLabel {
+    font-style: oblique;
+  }
+
+  input {
+    color: $background-secondary;
+    border: 1.5px solid $background-secondary;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    background-color: $background-white;
+    padding: 0 toRem(14);
+    line-height: 52px;
+    flex: 1;
+
+
+  }
+
+
+  .errorActive {
+    /* border: 1px solid red; */
+  }
+
+
+  ::placeholder {
+    color: $background-secondary;
+    font-size: 13px;
+  }
+
+
+  //color: #ffffff;
+  //border: 1px solid #999999;
+  //border-radius: 7px;
+  //font-size: 1.2rem;
+  //margin-top: 8px;
+  //background-color: #333333;
+  //padding: 0 0.875rem;
+  //line-height: 52px;
+  //flex: 1 1;
+
+  textarea {
+    font-family: $font;
+    color: black;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 0 toRem(14);
+    line-height: 52px;
+    flex: 1;
+  }
+}
+
+
+.bottomForm {
+  padding-top: clamp(40px, 7vw, 90px);
+  padding-bottom: clamp(40px, 7vw, 90px);
+}
+
+.buttonContainer {
+  margin-top: toRem(30);
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  @include desktop {
+    margin-top: toRem(60);
+  }
+
+  button {
+
+    //border: 1px solid white;
+
+    @include desktop {
+      height: 50px;
+      width: 100%;
+      padding-right: 0;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.modal {
+  max-width: 345px;
+
+  @include desktop {
+
+    max-width: 460px;
+  }
+
+  button {
+    padding: 0;
+    margin-top: 0;
+    height: 36px;
+    line-height: 1;
+    width: 36px;
+    position: absolute;
+    top: -43px;
+    right: -44px;
+    border-radius: 0 !important;
+    color: $background-secondary;
+  }
+}
+
+.recaptchaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: clamp(20px, 3vw, 40px);
+}
+
+@media (max-width: 992px) {
+  .doubleColumn {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .emailField {
+    grid-row: 3;
+  }
+}
+
+.formButton {
+  background-color: $background-secondary;
+  width: 15rem;
+
+  p {
+    color: $text-button !important;
+    font-size: 18px !important;
+  }
+
+  &:hover {
+    font-weight: normal;
+  }
+}
+
+.borderTop {
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 3px;
+  position: absolute;
+  background: linear-gradient(
+                  90deg,
+                  black 0%,
+                  red 20%,
+                  red 80%,
+                  black 100%
+  );
+}

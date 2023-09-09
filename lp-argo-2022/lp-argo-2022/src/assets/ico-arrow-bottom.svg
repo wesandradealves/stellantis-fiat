@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47.765" height="35.615" viewBox="0 0 47.765 35.615">
+  <defs>
+    <filter id="seta" x="0" y="0" width="47.765" height="35.615" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#seta)">
+    <path id="seta-2" data-name="seta" d="M0,0,14.34,13.335,26.949,0" transform="translate(10.36 7.46)" fill="none" stroke="#ffb80f" stroke-width="4"/>
+  </g>
+</svg>

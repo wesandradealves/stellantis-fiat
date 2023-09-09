@@ -1,0 +1,13 @@
+@function replace-nth($list, $index, $value) {
+  // Fallback for Sass 3.2
+  @if function-exists("set-nth") != true {
+    $result: ();
+    $index: if($index < 0, length($list) + $index + 1, $index);
+    @for $id from 1 through length($list) {
+      $result: append($result, if($id == $index, $value, nth($list, $id)));
+    }
+    @return $result;
+  }
+  // Sass 3.3+
+  @return set-nth($list, $index, $value);
+}

@@ -1,0 +1,23 @@
+@function reverse-list($list) {
+  // Fallback for Sass 3.2
+  @if function-exists("set-nth") != true {
+    $result: ();
+    @for $id from length($list) * -1 through -1 {
+      $item: nth($list, abs($id));
+      @if length($item) > 1 and $recursive {
+        $result: append($result, reverse-list($item, $recursive));
+      } @else {
+        $result: append($result, $item);
+      }
+    }
+    @return $result;
+  }
+  // Sass 3.3+
+  @for $id from 1 through ceil(length($list)/2) {
+    $tmp: nth($list, $id);
+    $tmp: if(length($tmp) > 1 and $recursive, reverse($tmp, $recursive), $tmp);
+    $list: set-nth($list, $id, nth($list, -$id));
+    $list: set-nth($list, -$id, $tmp);
+  }
+  @return $list;
+}

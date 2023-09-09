@@ -1,0 +1,232 @@
+.OffersCard {
+	@include relative;
+	@include span(12/12);
+	@include size(null 100%);
+	@include padding(28px 0);
+	background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+
+
+	// HEADER
+	// ~~~~~~
+
+	&-header {
+		@include relative;
+	}
+
+	&-headerModel {
+		@include margin(0 0 5px 0);
+		@include padding(0 28px);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 2px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+		text-transform: uppercase;
+	}
+
+	&-headerVersion {
+		@include margin(0 0 5px 0);
+		@include padding(0 28px);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 2px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+		text-transform: uppercase;
+	}
+
+	&-headerCar {
+		@include relative;
+		@include padding(0 10px);
+		@include margin(18px null);
+	}
+
+	&-headerCarImage {
+		display: block;
+	}
+
+	&-headerCondition {
+		@include margin(0 null);
+		@include padding(0 28px);
+		@include font-responsive((10 / 375) * 100vw, 9px, 14px, 10px, 1.4px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+		text-transform: uppercase;
+	}
+
+	&-headerPrice {
+		@include margin(0 null);
+		@include padding(0 28px);
+		@include font-responsive((20 / 375) * 100vw, 11px, 23px, 20px, 1.35px);
+		font-family: 'FuturaPT Heavy', sans-serif;
+		font-weight: 900;
+		color: #5e6168;
+		text-transform: uppercase;
+	}
+
+	&-headerPrice::before {
+		@include relative;
+		@include margin(null 3px null null);
+		@include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+		content: attr(data-symbol);
+		transition: left 0.5s $ease-in-out-quart;
+	}
+
+
+	// FEATURE
+	// ~~~~~~~
+
+	&-feature {
+		@include size(100% null);
+		@include padding(0 28px);
+		@include margin(22px null 10.5px null);
+	}
+
+	&-featureList {
+		@include relative;
+		@include size(100% null);
+		@include padding(10px 4px);
+		list-style-type: none;
+		border-top: 1px solid #707070;
+		border-bottom: 1px solid #707070;
+		text-align: center;
+	}
+
+	&-featureList > *,
+	&-featureList > * > *,
+	&-featureList > * > * > * {
+		@include size((100%!important) null);
+	}
+
+	&-featureItem {
+		@include size(100% null);
+		@include font-responsive((14 / 375) * 100vw, 10px, 14px, 14px, 1.71px);
+		font-family: 'FuturaPT Heavy', sans-serif;
+		font-weight: 900;
+		letter-spacing: 0.17px;
+		text-align: center;
+		color: #5e6168;
+		text-transform: uppercase;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+
+	// PART
+	// ~~~~
+
+	&-part {
+		@include relative;
+		@include padding(0 28px);
+		@include margin(0 null);
+	}
+
+	&-partList {
+		@include relative;
+		@include size(100% null);
+		@include min-size(null 40px);
+		@include margin(null null 15px null);
+		@include padding(0 4px);
+		list-style-type: none;
+		text-align: center;
+	}
+
+	&-partItem {
+		@include relative;
+		@include margin(0 4px 0 0);
+		@include font-responsive((10 / 375) * 100vw, 9px, 11px, 10px, 5.4px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		letter-spacing: 0.17px;
+		text-align: center;
+		color: #5e6168;
+		text-transform: uppercase;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&-partButton {
+		@include ButtonAylen(
+			$backgroundColor: #ff8094,
+			$textColor: #ffffff,
+			$hoverTextColor: #ffffff,
+			$width: 100%,
+			$textAlign: center,
+			$margin: 11px 0,
+			$padding: 1em 0.5em,
+			$borderRadius: 12px,
+			$hoverStripeColor1: #0296ff,
+			$hoverStripeColor2: #24ced1,
+			$usePseudoHover: false,
+			$usePseudoFocus: false,
+		);
+		@include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, 1.39px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		&-headerModel {
+			@include font-responsive((16 / 1920) * 100vw, 11px, 19px, 16px, 2px);
+		}
+		&-headerVersion {
+			@include font-responsive((16 / 1920) * 100vw, 11px, 19px, 16px, 2px);
+		}
+
+		&-headerCondition {
+			@include font-responsive((10 / 1920) * 100vw, 9px, 14px, 10px, 1.4px);
+		}
+
+		&-headerPrice {
+			@include font-responsive((20 / 1920) * 100vw, 11px, 23px, 20px, 1.35px);
+		}
+
+		&-headerPrice::before {
+			@include font-responsive((12 / 1920) * 100vw, 11px, 15px, 12px, null);
+		}
+
+		&-featureItem {
+			@include font-responsive((14 / 1920) * 100vw, 10px, 20px, 17px, 1.71px);
+		}
+
+		&-partList {
+			@include size(null initial);
+			@include min-size(null 40px);
+		}
+
+		&-partItem {
+			@include font-responsive((10 / 1920) * 100vw, 9px, 14px, 10px, 5.4px);
+		}
+
+		&-partButton {
+			@include font-responsive((12 / 1920) * 100vw, 11px, 15px, 12px, 1.39px);
+		}
+	}
+}
+
+// .letter {
+//   display: inline-block;
+//   position: relative;
+//   float: left;
+//   transform: translateZ(25px);
+//   transform-origin: 50% 50% 25px;
+// }
+
+// .letter.out {
+//   transform: rotateX(90deg);
+//   transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+// }
+
+// .letter.behind {
+//   transform: rotateX(-90deg);
+// }
+
+// .letter.in {
+//   transform: rotateX(0deg);
+//   transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+// }

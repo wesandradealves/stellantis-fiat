@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62.623" height="22.395" viewBox="0 0 62.623 22.395">
+  <g id="Fiat" transform="translate(-86 -11)">
+    <path id="Union_7" data-name="Union 7" d="M21.787,16.022,21.775,1.847H19.658V0H26.84V1.847H24.7l.012,14.175Zm-4.331,0c0-.428-.024-5.921-.289-7.243H14.2v7.243H11.5V0h5.907c2.815,4.375,2.863,11.948,2.779,16.022Zm-3.3-9.1h2.887s-.12-.885-.349-1.935A11.785,11.785,0,0,0,15.6,1.828H14.16Zm-7.206,9.1V0H9.913V16.022ZM0,16.022V0H5.738V1.847H2.959V6.912H5.125V8.769H2.959v7.253Z" transform="translate(86 14.488)" fill="#edede3"/>
+    <g id="Group_4137" data-name="Group 4137" transform="translate(-136.258 -32.402)">
+      <g id="flag-color" transform="translate(254.098 43.402)">
+        <g id="Group_462" data-name="Group 462" transform="translate(0 0)">
+          <path id="Path_134" data-name="Path 134" d="M9.775,0,3.092,22.4H0L6.681,0Z" fill="#268f52"/>
+        </g>
+        <g id="Group_463" data-name="Group 463" transform="translate(7.02 0)">
+          <path id="Path_135" data-name="Path 135" d="M406.473,0l-6.681,22.4H396.7L403.381,0Z" transform="translate(-396.7)" fill="#fff"/>
+        </g>
+        <g id="Group_464" data-name="Group 464" transform="translate(13.99 0)">
+          <path id="Path_136" data-name="Path 136" d="M800.373,0l-6.681,22.4H790.6L797.281,0Z" transform="translate(-790.6)" fill="#fff"/>
+        </g>
+        <g id="Group_465" data-name="Group 465" transform="translate(21.008 0)">
+          <path id="Path_137" data-name="Path 137" d="M1196.975,0l-6.683,22.4H1187.2L1193.882,0Z" transform="translate(-1187.2)" fill="#fc1430"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

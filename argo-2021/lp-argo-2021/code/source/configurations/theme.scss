@@ -1,0 +1,146 @@
+@import "theme-colors";
+@import "theme-fonts";
+@import "theme-layout";
+@import "theme-assets";
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// App
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$app:(
+
+	// ------------------------------------------------------------------------
+	//
+	// COMPONENTS
+	//
+	// ------------------------------------------------------------------------
+	App:(
+		backgroundColor: #EDEDE3,
+	),
+
+  Loader:
+	(
+		zIndex: _layout('zIndex.loader'),
+		backgroundColor: _color('_004'),
+		backgroundColorProgress: _color('_011'),
+		backgroundColorProgressBar: _color('_002'),
+	),
+
+	Menu:(
+		height: 60px,
+    heightMobile: 45px,
+	),
+
+  MenuFixed:
+	(
+		zIndex: 99,
+		textFontNavButton: _font('futurapt-bold-12'),
+		textAlignNavButton: center,
+		textColorNavButton: _color('_001'),
+		textColorNavButtonPrimary: _color('_004'),
+		backgroundColorNavButton: _color('_008'),
+		backgroundColor: _color('_012'),
+		shrinkHeight: 35px,
+		height: 64px,
+	),
+
+	Aside:(
+		textFont: _font('subtitle'),
+		backgroundColor: #252525,
+		textColor: #00d1fe,
+	),
+
+	Scroll: (
+		trackColor: #000,
+		indicatorColor: #f1f1f1,
+	),
+
+	DataLayer:(
+		backgroundIcon: _asset('icons.google'),
+	),
+
+	Quote:(
+		textColorTitle: _color('_011'),
+		textAlignTitle: left,
+		textColor: #ffffff,
+		textAlign: left,
+	),
+
+	CloseButton:(
+		backgroundColor: _color('_018'),
+		backgroundColorIconX: _color('_016'),
+		backgroundColorIconY: _color('_016'),
+	),
+
+	Modal:(
+		zIndex: _layout('zIndex.modal'),
+		zIndexBackdrop: _layout('zIndex.modalBackdrop'),
+		backgroundColorOverlay: _color('_020'),
+		backgroundColorDialog: _color('_016'),
+		backgroundColorClose: _color('_001'),
+
+		Tabs:(
+			textSizeCaption: 60px,
+			backgroundColorPoster: _color('_013'),
+			// textFontCaption: _font('proximanova-extra-black-40'),
+			textColorCaption: _color('_002'),
+			textAlignCaption: left,
+			textFontTitle: _font('futurapt-bold-28'),
+			textColorTitle: _color('_018'),
+			textAlignTitle: left,
+			textFontText: _font('futurapt-medium-16'),
+			textColorText: _color('_019'),
+			textColorTextStrong: _color('_012'),
+			textAlignText: left,
+			//
+			textFontArrowInfoSap: _font('futurapt-medium-16'),
+			textFontArrowInfoSapColor: #1b1c1d,
+			textFontArrowInfoTitle: _font('futurapt-bold-16'),
+			textFontArrowInfoTitleColor: #1b1c1d,
+			//
+			backgroundColorBullet: _color('_001'),
+			backgroundColorBulletActive: _color('_018'),
+			backgroundColorArrowButton: _color('_018'),
+			textColorArrowButton: _color('_016'),
+			textColorArrowButtonDisabled: _color('_001'),
+		),
+	),
+
+
+	// ------------------------------------------------------------------------
+	//
+	// LAYOUTS
+	//
+	// ------------------------------------------------------------------------
+	MainPage:(
+		backgroundColor: transparent,
+		textColor: yellow,
+	),
+
+	TipPage:(
+		backgroundColor: _color('_002'),
+	),
+
+	VersionsPage:(
+		backgroundColor: _color('_002'),
+	),
+
+	AboutPage:(
+		backgroundColor: #ffbc41,
+	),
+
+	GalleryPage:(
+		backgroundColor: _color('_002'),
+	),
+
+	ActionPage:(
+		backgroundColor: #edede3,
+		textColorLegal: #5e6168,
+		textAlignLegal: center,
+	),
+
+	OffersPage: (
+		backgroundColor: #ffbc41,
+	),
+);

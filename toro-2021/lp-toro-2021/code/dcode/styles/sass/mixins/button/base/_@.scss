@@ -1,0 +1,264 @@
+//
+// # Button
+// >
+//
+// ## Usage:
+//
+// You have to call this file in your style:
+// ```scss
+// .Button {
+// 	@include ButtonBase(
+//		$width: auto,
+//		$height: auto,
+// 	);
+// }
+// ```
+//
+// The template should be something like:
+// ```html
+// <body>
+// 	<!-- Button -->
+// 	<button class="Button" data-ui="button-base">
+// 		Iniciar
+// 	</button>
+// </body>
+// ```
+//
+@mixin ButtonBase(
+	$fontFamily: (Ubuntu, Helvetica, Arial, sans-serif),
+	$fontSize: (4.5vw, 13px, 18px, 13px, 0),
+	$fontWeight: lighter,
+	$fontStyle: normal,
+	$borderRadius: 5px,
+	$borderWidth: 0,
+	$borderStyle: none,
+	$borderColor: transparent,
+	$border: $borderWidth $borderStyle $borderColor,
+	$textColor: #fff,
+	$textAlign: center,
+	$textDecoration: none,
+	$backgroundColor: #222,
+	$disabledBackgroundColor: #999,
+	$hoverBackgroundColor: #333,
+	$focusBackgroundColor: #333,
+	$activeBackgroundColor: #333,
+	$visitedBackgroundColor: #6B79FF,
+	$disabledTextColor: #666,
+	$hoverTextColor: $textColor,
+	$focusTextColor: $textColor,
+	$activeTextColor: $textColor,
+	$visitedTextColor: $textColor,
+	$boxShadowHLength: 0px,
+	$boxShadowVLength: 2px,
+	$boxShadowBlurRadius: 5px,
+	$boxShadowSpreadRadius: 0px,
+	$boxShadowShadowColor: rgba(0, 0, 0, 0.2),
+	$boxShadow: $boxShadowHLength $boxShadowVLength $boxShadowBlurRadius $boxShadowSpreadRadius $boxShadowShadowColor,
+	$outline: none,
+	$selectionColor: transparent,
+	$width: null,
+	$height: null,
+	$padding: em(8px) em(20px),
+	$margin: 1%,
+	$name: null,
+	$usePseudoHover: true,
+	$usePseudoFocus: false,
+	$usePseudoActive: false,
+	$usePseudoVisited: false,
+	$truncateText: true,
+	$cursor: pointer,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Animations ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include print-styles((
+		transition: (
+			background-color 300ms $ease-out-cubic 0ms,
+			letter-spacing 300ms $ease-out-cubic 0ms,
+			border-color 300ms $ease-out-cubic 0ms,
+			visibility 300ms $ease-out-cubic 0ms,
+			filter 300ms $ease-out-cubic 0ms,
+			color 300ms $ease-out-cubic 0ms
+		),
+	));
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Skin ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// text format
+	@include font-responsive($fontSize...);
+	@include print-styles((
+		font-smoothing: always,
+		text-decoration: $textDecoration,
+		font-family: $fontFamily,
+		font-weight: $fontWeight,
+		font-style: $fontStyle,
+		color: $textColor,
+	));
+
+	// box format
+	@include print-styles((
+		cursor: $cursor,
+		outline: $outline,
+		background-color: $backgroundColor,
+		margin: $margin,
+		padding: $padding,
+	));
+
+	// border format
+	@include print-styles((
+		border: $border,
+		border-radius: $borderRadius,
+	));
+
+	// shadow
+	@include print-styles((
+		box-shadow: $boxShadow,
+	));
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Structure ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// lock the elements on area
+	@include relative;
+	@include print-styles((
+		width: $width,
+		height: $height,
+	));
+
+	// align text vertically
+	@include print-styles((
+		vertical-align: middle,
+		display: inline-block,
+	));
+
+	// align text horizontally
+	@include print-styles((
+		text-align: $textAlign,
+	));
+
+	// truncate text
+	@if $truncateText {
+		@include print-styles((
+			text-overflow: ellipsis,
+			white-space: nowrap,
+			overflow: hidden,
+		));
+	}
+
+	// user interactions
+	@include print-styles((
+		user-select: none,
+		cursor: $cursor,
+	));
+
+	// reset
+	@include print-styles((
+		zoom: 1,
+	));
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ FF: normalize ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&::-moz-focus-inner {
+		@include print-styles((
+			padding: 0,
+			border: 0,
+		));
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Color selection ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&::selection {
+		@include print-styles((
+			background-color: $selectionColor,
+		));
+	}
+
+	&::moz-selection {
+		@include print-styles((
+			background-color: $selectionColor,
+		));
+	}
+
+	&::webkit-selection {
+		@include print-styles((
+			background-color: $selectionColor,
+		));
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ States ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	&.is-disabled,
+	&[disabled] {
+		@include print-styles((
+			background-color: $disabledBackgroundColor,
+			color: $disabledTextColor,
+		));
+	}
+
+	&.is-hovering {
+		@include print-styles((
+			background-color: $hoverBackgroundColor,
+			color: $hoverTextColor,
+		));
+	}
+
+	&.is-onfocus {
+		@include print-styles((
+			background-color: $focusBackgroundColor,
+			color: $focusTextColor,
+		));
+	}
+
+	&.is-active {
+		@include print-styles((
+			background-color: $activeBackgroundColor,
+			color: $activeTextColor,
+		));
+	}
+
+	&.is-visited {
+		@include print-styles((
+			background-color: $visitedBackgroundColor,
+			color: $visitedTextColor,
+		));
+	}
+
+	@if $usePseudoHover {
+		&:hover {
+			@extend .is-hovering;
+		}
+	}
+
+	@if $usePseudoFocus {
+		&:focus {
+			@extend .is-onfocus;
+		}
+	}
+
+	@if $usePseudoActive {
+		&:active {
+			@extend .is-active;
+		}
+	}
+
+	@if $usePseudoVisited {
+		&:visited {
+			@extend .is-visited;
+		}
+	}
+}

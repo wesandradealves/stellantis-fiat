@@ -1,0 +1,71 @@
+@import "../functions/get-layout-direction";
+@import "../functions/opposite-direction";
+@import "../functions/get-span";
+@import "../functions/percent";
+@import "../methods/_layout";
+
+@mixin span(
+	$ratio: 1,
+	$offset: 0,
+	$cycle: 0,
+	$clearfix: true,
+	$nth: _layout('grid.nth') or child,
+	$important: false) {
+	$side: get-layout-direction();
+	$opposite-side: opposite-direction($side);
+	$span-width: get-span($ratio);
+	$margin-r: 0;
+	$margin-l: $margin-r;
+	$nth-selector: nth-child;
+
+	@if $nth == type {
+		$nth-selector: nth-of-type;
+	}
+
+	@if $offset != 0 {
+		@if $offset < 0 {
+			$offset: $offset * -1;
+			$margin-r: get-span($offset);
+		} @else {
+			$margin-l: get-span($offset);
+		}
+	}
+
+	@if $clearfix {
+		@include clearfix;
+	}
+
+	$span-width: percent($span-width);
+	$margin-l: percent($margin-l);
+	$margin-r: percent($margin-r);
+
+	@if $important {
+		$span-width: $span-width!important;
+		$margin-l: $margin-l!important;
+		$margin-r: $margin-r!important;
+	}
+
+	float: $side;
+	clear: none;
+	text-align: inherit;
+	width: $span-width;
+	margin: {
+		#{$side}: $margin-l;
+		#{$opposite-side}: $margin-r;
+	};
+
+	@if $cycle != 0 {
+		&:#{$nth-selector}(n) {
+			float: $side;
+			clear: none;
+		}
+
+		&:#{$nth-selector}(#{$cycle}n) {
+			float: opposite-direction($side);
+		}
+
+		&:#{$nth-selector}(#{$cycle}n + 1) {
+			clear: both;
+		}
+	}
+}

@@ -1,0 +1,92 @@
+.OpenEditionHeader {
+    $backgroundColorHeader: _('OpenEditionPage.backgroundColorHeader') or #a31445;
+    @include relative;
+    @include span(12/12);
+    @include padding(20px null);
+	transition: background-color 0.5s ease-out;
+    background-color: $backgroundColorHeader;
+
+	&::before {
+		@include triangle(
+			$direction: bottom,
+			$offset: null 0 -0.55em 0,
+			$color: $backgroundColorHeader,
+			$size: 0.55em
+		);
+		margin: auto;
+		z-index: 1;
+		content: ' ';
+	}
+
+	&-wrapper {
+    height: 55px;
+		@include relative;
+		@include span(10/12, 1/12);
+		display: flex;
+		align-items: center;
+	}
+
+	&-title {
+		@include relative(null null null 0);
+		@include span(8/12);
+		@include margin(0);
+	}
+
+	&-titleText {
+		@include font-responsive(_('OpenEditionPage.textFontHeaderTitle.size.mobile')...);
+		font-family: _('OpenEditionPage.textFontHeaderTitle.family') or $fontsFallback;
+		font-weight: _('OpenEditionPage.textFontHeaderTitle.weight');
+		font-style: _('OpenEditionPage.textFontHeaderTitle.style');
+		text-align: _('OpenEditionPage.textAlignHeaderTitle') or left;
+		color: _('OpenEditionPage.textColorHeaderTitle') or #f7a834;
+		float: left;
+	}
+
+	&-icon {
+		@include relative;
+		@include span(4/12);
+	}
+
+	&-iconImage {
+		@include max-size(163px null);
+		float: right;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+  @include media-query-size-x(xs sm) {
+    &-title {
+      width: 80%;
+    }
+  }
+
+	@include media-query-size-x(lg xl unknown) {
+		@include relative;
+		@include span(16/16);
+
+		&-wrapper {
+			@include relative;
+			@include span(14/16, 1/16);
+			transition: left 0.75s $ease-in-out-quart,
+			width 0.75s $ease-in-out-quart,
+			height 0.75s $ease-in-out-quart,
+			margin-left 0.75s $ease-in-out-quart;
+			@at-root .is-menu-open & {
+				@include span(11/13, 1/13);
+			}
+		}
+	}
+
+	// ~~ Altura Resolução FCA ~ até 768px de altura
+
+	@include media-query-size-y(xs sm) {
+		@at-root .is-desktop & {
+		}
+	}
+
+	// ~~ landscape
+
+	@include media-query-size-x(xs sm md, landscape) {
+	}
+}

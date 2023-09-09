@@ -1,0 +1,15 @@
+@import "reverse-list";
+@import "../methods/_layout";
+
+@function get-column(
+	$ratios: 1,
+	$gutter: _layout('grid.gutterWidth') or 1%,
+	$parent-first: _layout('grid.parentFirst') or false) {
+	$ratios: if(not $parent-first, reverse-list($ratios), $ratios);
+	$width: 100;
+	@each $ratio in $ratios {
+		$gutter: $gutter / $width * 100;
+		$width: 100 * $ratio - $gutter + $ratio * $gutter;
+	}
+	@return $width $gutter;
+}

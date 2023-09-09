@@ -1,0 +1,44 @@
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  //color: $background-secondary;
+  font-size: large;
+  cursor: pointer;
+  padding: 16px 0 16px 20px;
+  width: 100%;
+  border-top: 4px solid #000 !important;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: all $transition-time linear;
+
+  p {
+    font-size: toRem(19);
+  }
+}
+
+.accordion.active + .panel {
+  padding-bottom: 26px;
+  max-height: 40000px;
+}
+
+.accordion > .chevron {
+  transition: all $transition-time-quick $transition-easing;
+  transform: rotate(0);
+  margin-left: -10px;
+  margin-right: toRem(16);
+}
+
+.accordion.active > .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  padding-bottom: 0;
+  background-color: transparent;
+  max-height: 0;
+  overflow: hidden;
+  transition: all $transition-time linear;
+  position: relative;
+}

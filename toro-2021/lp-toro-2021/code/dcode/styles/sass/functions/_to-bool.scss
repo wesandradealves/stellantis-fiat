@@ -1,0 +1,10 @@
+@function to-bool($value) {
+	@return not (
+		$value == null or
+		$value == nil or
+		$value == "" or
+		$value == 0 or
+		$value == () or
+		$value == false
+	);
+}

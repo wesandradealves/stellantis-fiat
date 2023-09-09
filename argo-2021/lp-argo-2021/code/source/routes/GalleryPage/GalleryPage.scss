@@ -1,0 +1,246 @@
+.GalleryPage {
+	@include relative;
+	@include span(12/12);
+	@include overflow(hidden);
+	padding-bottom: 90px;
+  background-color: _color('_002');
+
+
+	// STATES
+	// ~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+  &-flag {
+    position: absolute;
+    right: 15px;
+    top: -15px;
+    z-index: 99;
+    height: 60px;
+  }
+
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// WRAPPER
+	// ~~~~~~~
+
+	&-card {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// POSTER
+	// ~~~~~~
+
+	&-poster {
+		@include relative;
+		@include span(12/12);
+		@include size(null percent(273/630 * 100));
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #f2f2f2;
+	}
+
+	&-posterList {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterItem {
+		@include relative;
+		@include size(100%);
+	}
+
+	&-posterImage {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-posterImage.is-simple {
+		@include size(100% 407px);
+	}
+
+	&-posterVideo {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-posterLoader {
+		// N/A
+	}
+
+	// POSTER:C2A
+	// ~~~~~~~~~~
+
+	&-posterC2A {
+		@include size(260px null);
+		@include align(both);
+		z-index: 4!important;
+	}
+
+
+	// INFO
+	// ~~~~
+
+	&-info {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include padding(25px null);
+		overflow-y: auto;
+	}
+
+	&-infoTitle {
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #2ab4c7;
+	}
+
+	&-infoText {
+		@include font-responsive((14 / 375) * 100vw, 11px, 17px, 14px, 1.36px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+
+	// THUMB
+	// ~~~~~
+
+	&-thumb {
+		@include relative;
+		@include column(10/12, 1/12);
+		@include padding(em(18px) null null null);
+	}
+
+	&-thumbList {
+		@include relative;
+		@include column(12/12);
+		@include margin(30px null 26px null);
+	}
+
+	&-thumbItem {
+		@include relative;
+		@include overflow(hidden);
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		background-color: #dbdbdb;
+		border-radius: 0;
+	}
+
+	&-thumbLink {
+		text-decoration: none;
+	}
+
+	&-thumbImage {
+		@include size(100%);
+		@include aspect-ratio(100, 95);
+		transition: transform 0.6s $ease-out-quart, opacity 0.5s $ease-out-expo;
+		filter: grayscale(100%);
+		opacity: 0.5;
+		display: block;
+	}
+
+	&-thumbImage:hover,
+	&-thumbImage.is-active {
+		filter: grayscale(0);
+		transform: scale3d(1.1, 1.1, 1);
+		transform-origin: center center;
+		opacity: 1;
+	}
+
+
+	// BULLET
+	// ~~~~~~
+
+	&-bullet {
+		@include relative;
+		@include span(10/11.5);
+		@include span-shift(0.5/11.5);
+		@include margin(27px null 0 null);
+	}
+
+	&-bulletList {
+		@include relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&-bulletItem {
+		@include size(6px);
+		@include max-size(25px);
+		@include margin(null 10px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: _color('_011');
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 0;
+	}
+
+	&-bulletItem.is-active {
+		transform: scale(3);
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		padding-bottom: 50.9px;
+
+		&-background {
+			@include size(100% 20vh);
+			@include absolute(0 null null 0);
+			background-color: _('GalleryPage.backgroundColor') or #ffbc41;
+			border-radius: 0 0 0 0;
+		}
+
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+		&-quote {
+			@include span(10/12, 1/12);
+			@include margin(20px null);
+		}
+
+		&-card {
+			@include span(10/12, 1/12);
+		}
+
+		&-cardTail {
+			@include triangle($direction: bottom, $offset: -2px 0 null, $color: _('VersionsPage.backgroundColor'), $size: 0.55em);
+			margin: auto;
+			z-index: 1;
+			content: " ";
+		}
+
+		&-posterC2A {
+			@include offset(initial 10px 10px initial);
+			@include size(260px auto);
+			transform: none!important;
+		}
+	}
+}

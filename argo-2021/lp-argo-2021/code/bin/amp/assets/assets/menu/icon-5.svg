@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.758" height="22.906" viewBox="0 0 20.758 22.906">
+	<defs>
+		<style>
+			.cls-1 { fill: #fff; stroke: #fff; stroke-width: 0.7px; fill-rule: evenodd; }
+			.cls-2,
+			.cls-3 { fill: #e50353; }
+			.cls-2 { stroke: #e50353; stroke-width:0.5px; }
+			.cls-3 { font-size: 7px; font-family: FuturaPT-Medium, FuturaPT; font-weight: 500; }
+		</style>
+	</defs>
+	<g id="Page-1" transform="translate(3.854 3.26)">
+		<g id="ofertas" transform="rotate(10 22.128 -13.73)">
+			<path id="Rectangle-9" d="M.154 5.376A.563.563 0 0 0 0 5.763v12.994a.563.563 0 0 0 .563.563h9.475a.563.563 0 0 0 .563-.563V5.763a.563.563 0 0 0-.154-.387L5.4.041 5.39.036a.13.13 0 0 0-.184.005z" class="cls-1" transform="rotate(-45 9.048 3.748)"/>
+			<circle id="Oval-3" cx="1.117" cy="1.117" r="1.117" class="cls-2" transform="rotate(-45 11.144 -3.007)"/>
+			<text id="_" class="cls-3" data-name="$" transform="rotate(-45 25.698 -7.189)">
+				<tspan x="0" y="0">$</tspan>
+			</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,5 @@
+@import "vec4";
+
+@mixin offset($rect: null) {
+	@include vec4((top, right, bottom, left), $rect);
+}

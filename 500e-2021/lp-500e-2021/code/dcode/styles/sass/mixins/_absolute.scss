@@ -1,0 +1,5 @@
+@import "position";
+
+@mixin absolute($args: null) {
+	@include position(absolute, $args);
+}

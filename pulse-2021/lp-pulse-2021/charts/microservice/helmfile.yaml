@@ -1,0 +1,58 @@
+---
+repositories:
+  - name: digitalcode-stable
+    url: s3://digitalcode-helm-charts/stable
+
+releases:
+  - name: {{ requiredEnv "PROJECT_SLUG" }}
+    namespace: {{ requiredEnv "K8S_NAMESPACE" }}
+    chart: .
+    values:
+      - fullnameOverride: {{ requiredEnv "PROJECT_SLUG" }}
+        deployments:
+          - subset: v1
+            image:
+              repository: {{ requiredEnv "CI_APPLICATION_REPOSITORY" }}
+              tag: {{ env "CI_APPLICATION_TAG" | default "latest" }}
+        port:
+          name: http
+          number: 8080
+          servicePort: 80
+        readinessProbe:
+          enabled: true
+          tcpSocket:
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 3
+          initialDelaySeconds: 5
+        livenessProbe:
+          enabled: true
+          tcpSocket:
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 3
+          initialDelaySeconds: 10
+        resources:
+          enabled: true
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 128Mi
+        reverseProxy:
+          enabled: {{ env "ENABLE_REVERSE_PROXY" | default "false" }}
+          image:
+            repository: {{ env "REVERSE_PROXY_IMAGE" | default "" }}
+            tag: {{ env "REVERSE_PROXY_TAG" | default "" }}
+          port:
+            name: http
+            number: 80
+            servicePort: 80
+            protocol: TCP
+        ingress:
+          enabled: true
+          host: {{ requiredEnv "K8S_INGRESS_HOST" }}
+          auth:
+            basic:
+              credentials: {{ env "HTPASSWD_USERS" | default list }}

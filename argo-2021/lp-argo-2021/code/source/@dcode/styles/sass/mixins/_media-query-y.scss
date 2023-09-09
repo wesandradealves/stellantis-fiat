@@ -1,0 +1,7 @@
+@import "media-query";
+
+@mixin media-query-y($min: false, $max: false, $orientation: false) {
+	@include media-query($min-height: $min, $max-height: $max, $orientation: $orientation) {
+		@content;
+	}
+}

@@ -1,0 +1,11 @@
+@import "get-span";
+
+@function get-span-left($ratio: 1) {
+  $margin-l: 0;
+  @if $ratio != 0 {
+		@if $ratio >= 0 {
+			$margin-l: get-span($ratio);
+		}
+	}
+  @return $margin-l;
+}

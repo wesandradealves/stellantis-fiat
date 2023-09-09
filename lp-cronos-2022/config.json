@@ -1,0 +1,25 @@
+{
+	"projects": [
+		{
+			"folder": "lp-cronos-2022/",
+			"slug": "lp-cronos-2022",
+			"external-access": [
+				{
+					"user": "projetos@umstudio.com",
+					"pass": "mSwmWij@92"
+				},
+				{
+					"user": "lp-cronos",
+					"pass": "SOPsjs631jhH"
+				}
+			],
+			"render":"static",
+			"server":{
+				"type":"nginx",
+				"language":{
+					"type":"node"
+				}
+			}
+		}
+	]
+}

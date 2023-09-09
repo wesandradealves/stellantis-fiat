@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node",
+          "version":"10"
+        }
+      },
+      "external-access": [
+        {
+          "user": "alkylvai",
+          "pass": "VlcAg6lvQvab52V7!"
+        }
+      ],
+      "folder": "lp-mobi-2021/",
+      "slug": "lp-mobi-2021",
+      "output": "dist",
+      "render": "static"
+    }
+  ]
+}

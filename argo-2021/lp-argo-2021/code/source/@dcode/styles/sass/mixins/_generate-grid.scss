@@ -1,0 +1,36 @@
+@import "shift";
+@import "column";
+@import "../functions/get-layout-direction";
+@import "../methods/_layout";
+
+@mixin generate-grid(
+	$prefix: 'u',
+	$columns: _layout('grid.columns') or 12,
+	$gutter: _layout('grid.gutterWidth') or 1%) {
+  @if str-length(#{$prefix}) == 0 {
+    $prefix: 'u';
+  }
+  $prefix: unquote("#{$prefix}-");
+  [class*="#{$prefix}"] {
+    $side: get-layout-direction();
+    float: $side;
+    clear: none;
+  }
+  @each $length in $columns {
+    @for $size from 1 through $length {
+      @if length($columns) > 1 {
+        $suffix: unquote("x#{$length}");
+      } @else {
+        $suffix: '';
+      }
+      .#{$prefix}#{$size}#{$suffix} {
+        @include column($size / $length);
+      }
+      @if $size < $length {
+        .#{$prefix}offset-#{$size}#{$suffix} {
+          @include shift($size / $length);
+        }
+      }
+    }
+  }
+}

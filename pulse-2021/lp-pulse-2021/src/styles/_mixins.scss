@@ -1,0 +1,66 @@
+@use 'sass:math';
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$screen-desktop-min}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
+@mixin maxWidth {
+  @media (min-width: #{$screen-max-size}) {
+    @content;
+  }
+}
+
+@mixin bulletActive($color) {
+  span {
+    background-color: $color;
+  }
+}
+
+@mixin backgroundQuery($src, $src2x, $src3x) {
+  background-image: $src;
+
+  @include desktop {
+    background-image: $src2x;
+  }
+
+  @include xl() {
+    background-image: $src3x;
+  }
+}
+
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem;
+  @return $remValue;
+}

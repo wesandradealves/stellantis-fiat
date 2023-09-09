@@ -1,0 +1,123 @@
+@import "../easing";
+
+// Keyframes
+// ------------------------------------------------------------------------
+@keyframes connection {
+  0% {
+  	visibility: visible;
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0;
+  }
+  64% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  84% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 0;
+  }
+  100% {
+  	visibility: hidden;
+    opacity: 0;
+  }
+}
+
+// Classes
+// ------------------------------------------------------------------------
+.Connection {
+	$ref: &;
+
+	&In {
+		opacity: 1;
+		animation-duration: 2000ms;
+		animation-timing-function: steps(17);
+		animation-delay: 0;
+		animation-iteration-count: 1;
+		animation-direction: reverse;
+		animation-fill-mode: forwards;
+		animation-play-state: running;
+		animation-name: connection;
+	}
+
+	&Out {
+		opacity: 0;
+		animation-duration: 2000ms;
+		animation-timing-function: steps(17);
+		animation-delay: 0;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-fill-mode: forwards;
+		animation-play-state: running;
+		animation-name: connection;
+	}
+
+	&-appear {
+		opacity: 1;
+		animation: 2000ms steps(17) 0 1 reverse forwards running connection;
+	}
+
+	&-appear#{$ref}-appear-active {
+	}
+
+	&-enter {
+		opacity: 1;
+		animation: 2000ms steps(17) 0 1 reverse forwards running connection;
+	}
+
+	&-enter#{$ref}-enter-active {
+	}
+
+	&-enter-done {
+		opacity: 1;
+		animation: 2000ms steps(17) 0 1 reverse forwards running connection;
+	}
+
+	&-exit {
+		opacity: 0;
+		animation: 2000ms steps(17) 0 1 normal forwards running connection;
+	}
+
+	&-exit#{$ref}-exit-active {
+	}
+
+	&-exit-done {
+		opacity: 0;
+		animation: 2000ms steps(17) 0 1 normal forwards running connection;
+	}
+}

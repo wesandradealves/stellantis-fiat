@@ -1,0 +1,47 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+button.link {
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: var.$regular;
+  font-size: 15px;
+  color: var.$color--support;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  border-bottom: 1px solid var.$color--support;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  text-align: left;
+
+  &:hover {
+    color: var.$yellow;
+  }
+
+  &.active {
+    font-size: 16px;
+    color: var.$yellow;
+    border-color: var.$cyan;
+    font-weight: bold;
+    letter-spacing: normal;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  button.link {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: var.$white;
+    }
+
+    &.active {
+      font-size: 20px;
+    }
+  }
+}

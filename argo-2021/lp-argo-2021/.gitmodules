@@ -1,0 +1,6 @@
+[submodule "common-infrastructure"]
+	path = common-infrastructure
+	url = ../../../../../fca/architecture/IaC/cloud-digital/common-infrastructure.git
+[submodule "ci"]
+	path = ci
+	url = ../ci.git

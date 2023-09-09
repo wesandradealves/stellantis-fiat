@@ -1,0 +1,133 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+}
+
+.nextTab {
+  margin-left: 16px;
+}
+
+.slideImageContainer {
+  aspect-ratio: 375 / 269 !important;
+  @include desktop {
+    aspect-ratio: 61 / 39 !important;
+  }
+  picture,
+  img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.controls {
+  position: absolute;
+  top: clamp(200px, 50vw, 400px);
+  margin-top: toRem(20);
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 #{$section-horizontal-padding};
+  .bullet {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      span {
+        background-color: #ff1431;
+      }
+    }
+    span {
+      transition: all $transition-time-quick $transition-easing;
+      display: block;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.videoWrapper {
+  min-height: 26vw;
+  width: 100%;
+  position: relative;
+
+  @include maxWidth {
+    max-height: 560px;
+    min-height: unset;
+    height: 26vw;
+  }
+
+  iframe {
+    width: 100vw;
+    height: clamp(200px, 50vw, 400px);
+    @include desktop {
+      height: 56.25vw;
+    }
+    object-fit: contain;
+  }
+}
+
+.slideImageContainer {
+  height: clamp(200px, 50vw, 400px) !important;
+
+  img {
+    height: clamp(200px, 50vw, 400px) !important;
+  }
+}
+
+.accordionTopic {
+  margin: 0 #{$section-horizontal-padding};
+  width: calc(
+    100% - #{$section-horizontal-padding} - #{$section-horizontal-padding}
+  );
+}
+
+.slideContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.slideDetails {
+  min-width: 350px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  padding-left: $section-horizontal-padding;
+  padding-right: $section-horizontal-padding;
+  padding-bottom: 2rem;
+  background-color: $background-secondary;
+  color: $text-secondary;
+  min-height: 350px;
+  padding-top: toRem(70);
+
+  h3 {
+    color: $text-secondary;
+    font-weight: 500;
+    font-size: toRem(18);
+  }
+
+  h2 {
+    text-align: left !important;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: clamp(#{toRem(26)}, 2vw, #{toRem(30)});
+    font-weight: bolder !important;
+    margin: toRem(12) 0;
+    padding: 0 !important;
+
+    @include maxWidth {
+      width: 70%;
+    }
+  }
+
+  .slideDescription {
+    font-size: toRem(16);
+    font-weight: 500;
+  }
+}

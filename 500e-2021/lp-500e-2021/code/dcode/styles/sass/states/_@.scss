@@ -1,0 +1,47 @@
+.is-cloak,
+.x-is-cloak,
+[is\:cloak],
+[is-cloak],
+[data-is-cloak],
+[x-is-cloak] {
+	display: none !important;
+}
+
+.is-disabled,
+[disabled],
+[data-state="disabled"] {
+	pointer-events: none !important;
+	cursor: not-allowed !important;
+}
+
+.is-opaque {
+	opacity: 0 !important;
+}
+
+.is-visible {
+	visibility: visible !important;
+}
+
+.is-hidden {
+	visibility: hidden !important;
+}
+
+.is-block {
+	display: block !important;
+}
+
+.is-none {
+	display: none !important;
+}
+
+.is-unselectable {
+	user-select: none !important;
+}
+
+.is-lowercase {
+	text-transform: lowercase !important;
+}
+
+.is-uppercase {
+	text-transform: uppercase !important;
+}

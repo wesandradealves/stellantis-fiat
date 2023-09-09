@@ -1,0 +1,25 @@
+@import "relative";
+@import "absolute";
+@import "size";
+
+@mixin on-circle($item-count, $circle-size, $item-size, $total-angle, $init-angle) {
+  @include relative;
+  @include size($circle-size);
+  border-radius: 50%;
+  padding: 0;
+  list-style: none;
+  > * {
+    @include absolute(50% null null 50%);
+    @include size($item-size);
+    display: block;
+    margin: -($item-size / 2);
+    $angle: ($total-angle / $item-count);
+    $rot: $init-angle;
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg );
+      }
+      $rot: $rot + $angle;
+    }
+  }
+}

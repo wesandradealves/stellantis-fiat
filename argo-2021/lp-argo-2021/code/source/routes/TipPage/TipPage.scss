@@ -1,0 +1,706 @@
+.pswp__img {
+  object-fit: contain;
+}
+
+.pswp__counter {
+  font-family: 'FuturaPT Medium';
+  color: _color('_011');
+}
+
+.pswp__button.pswp__button--close {
+  background-color: _color('_011');
+}
+
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  background-color: _color('_011');
+}
+
+.pswp__bg {
+  background: rgba(_color('_004'), 0.97);
+}
+
+.pswp__caption__center {
+	text-align: center;
+  font-family: 'FuturaPT Bold';
+	font-size: 1.4rem;
+  color: _color('_011');
+}
+
+.TipPage {
+	@include relative;
+	@include span(12/12);
+	margin-bottom: 20px;
+
+  // SCROLLBAR
+	// ~~~~~~~~~
+	::-webkit-scrollbar {
+		width: 14px;
+		border-width: 5px;
+	}
+
+	::-webkit-scrollbar-track-piece {
+		background-color: _color('_002');
+		border-color: _color('_016');
+		border-width: 1px 6px 1px 6px;
+		border-style: solid;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: _color('_011');
+		border-color: _color('_016');
+		border-style: solid;
+		border-width: 0px 2px 0px 2px;
+	}
+
+  ::-webkit-scrollbar-button {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 10px;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url('/assets/chevron-down.svg');
+  }
+
+  ::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url('/assets/chevron-up.svg');
+  }
+
+  // ZOOMIN
+	// ~~~~~~
+  &-zoomInBox {
+  	position: absolute !important;
+		top: 12px !important;
+		right: 20px !important;
+    padding: 12px !important;
+    width: 42px;
+    background: rgba(_color('_011'), 0.7);
+    height: 37px;
+    border-radius: 3px;
+    z-index: 1;
+  }
+
+	&-zoomIn {
+		color: #fff;
+		cursor: pointer;
+		box-sizing: border-box;
+		display: block;
+		transform: scale(1.3);
+		width: 16px;
+		height: 16px;
+		border: 2px solid;
+		border-radius: 100%;
+		background: linear-gradient(to bottom, currentColor 5px, transparent 0)
+			no-repeat 2px 5px/8px 2px;
+		margin-top: -4px;
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			width: 2px;
+			height: 8px;
+			background: currentColor;
+		}
+		&::after {
+			transform: rotate(-45deg);
+			border-radius: 3px;
+			top: 10px;
+			left: 12px;
+		}
+		&::before {
+			top: 2px;
+			left: 5px;
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// STATES
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	@at-root .is-desktop & {
+		&-content {
+			transition: left 0.5s $ease-in-out-quart;
+		}
+
+		&-background {
+			border-radius: 0 0 0 0;
+		}
+	}
+
+	@at-root .is-desktop.is-menu-open & {
+		&-content {
+			@include span-shift(1/12);
+		}
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// BACKGROUND
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-background {
+		@include size(100% 70vh);
+		@include absolute(0 null null 0);
+		background-color: _('TipPage.backgroundColor') or #ffbc41;
+		border-radius: 0 0 0 0;
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// CONTENT
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-content {
+		@include relative;
+		@include span(12/12);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// QUOTE
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-quote {
+		@include span(10/12, 1/12);
+		@include margin(50px null 25px null);
+		width: 80%;
+		height: 100%;
+		line-height: 2rem;
+		color: #ffbc41;
+		font-size: 26px;
+		font-family: 'FuturaPT Bold';
+		strong{
+			color: white
+		}
+	}
+	&-quote2 {
+		@include span(10/12, 1/12);
+		@include margin(50px null 15px null);
+		color: #ffbc41;
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// CARD
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-card {
+		@include span(11.5/12);
+		@include span-shift(0.5/12);
+		@include min-size(null 60vh);
+		@include relative(3.2% null null null);
+		@include overflow(hidden);
+		background-color: _color('_016');
+		border-radius: 0 0 0 0;
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+		margin-bottom: 20px;
+
+	}
+
+	&-cardTail {
+		@include triangle($direction: bottom, $offset: -2px 0 null, $color: _('TipPage.backgroundColor'), $size: 0.55em);
+		transition: left 0.5s $ease-in-out-quart;
+		margin: auto;
+		z-index: 1;
+		display: none;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:HEADER
+	// --------------------------------------------------------------------------
+	&-cardWing{
+		background-color: #fab303;
+		position: absolute;
+		width: 45%;
+		height: 1.5%;
+		top: 0;
+	}
+	&-cardHeaderContainer{
+		// justify-content: flex-start;
+		// @include size(null 100%);
+		display: flex;
+		background-color: #4a2d87;
+		padding: 0 5% 0 5%;
+	}
+	&-cardHeader {
+		height: 56px;
+		@include span(10/11.5, 0/11.5);
+		// padding: 0 5% 0 0%;
+		@include margin(null null null null);
+		// @include margin(24px null null null);
+		display: flex;
+		justify-items: center;
+		// align-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	&-cardHeaderModel {
+		@include span(11.5/11.5);
+		@include margin(10px 0 5px 20px);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		text-align: center;
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+		align-content: center;
+	}
+
+	&-cardHeaderVersion {
+		// @include span(7.75/11.5);
+		// @include margin(0 null);
+		// @include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		// font-family: 'FuturaPT Medium', sans-serif;
+		// font-weight: 500;
+		// color: #5e6168;
+	}
+
+	&-cardHeaderPrice {
+		// @include span(3.75/11.5);
+		// @include margin(0 null);
+		// @include font-responsive((19 / 375) * 100vw, 11px, 22px, 19px, 1.37px);
+		// text-align: right;
+		// font-family: 'FuturaPT Bold', sans-serif;
+		// font-weight: 700;
+		// color: #5e6168;
+	}
+
+	&-cardHeaderPrice::before {
+		// @include relative;
+		// @include font-responsive((12 / 375) * 100vw, 11px, 15px, 12px, null);
+		// transition: left 0.5s $ease-in-out-quart;
+		// content: attr(data-symbol);
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:GALLERY
+	// --------------------------------------------------------------------------
+
+	&-cardGallery {
+		@include relative;
+		@include span(11.5/11.5);
+		@include margin(18px null null null);
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:GALLERY:POSTER
+	// --------------------------------------------------------------------------
+
+	&-cardGalleryPoster {
+		@include relative;
+		@include span(11.5/11.5);
+		background-color: #dbdbdb;
+	}
+
+	&-cardGalleryPosterList {
+		@include relative;
+	}
+
+	&-cardGalleryPosterItem {
+		@include relative;
+	}
+
+	&-cardGalleryPosterFigure {
+		@include aspect-ratio(363, 278);
+	}
+
+	&-cardGalleryPosterFigureImage {
+		@include size(100%);
+		object-fit: cover;
+	}
+
+	&-cardGalleryPosterShare {
+		@include absolute(2% null null null);
+		@include span(1/11.5);
+		@include span-shift(9.5/11.5);
+	}
+
+	&-cardGalleryPosterShareButton {
+		@include size(4vw);
+		@include min-size(31px);
+		float: right;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:GALLERY:THUMB
+	// --------------------------------------------------------------------------
+
+	&-cardGalleryThumb {
+		// display: none;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:INFO
+	// --------------------------------------------------------------------------
+
+	&-cardInfo {
+		@include relative;
+		@include span(11.5/11.5);
+		@include margin(18px null null null);
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:INFO:ARTICLE
+	// --------------------------------------------------------------------------
+
+	&-cardInfoArticle {
+		@include relative;
+		@include span(10.5/11.5, 0.5/11.5);
+	}
+
+	&-cardInfoArticleTitle {
+		@include relative;
+		@include margin(0 null 8px null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Bold', sans-serif;
+		font-weight: 700;
+		color: #5e6168;
+	}
+
+	&-cardInfoArticleText {
+		@include relative;
+		@include margin(2px null 23px null);
+		@include font-responsive((16 / 375) * 100vw, 11px, 19px, 16px, 1.38px);
+		font-family: 'FuturaPT Medium', sans-serif;
+		font-weight: 500;
+		color: #5e6168;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:INFO:ARROW
+	// --------------------------------------------------------------------------
+
+	&-cardInfoArrow {
+		// display: none;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:INFO:PAGE
+	// --------------------------------------------------------------------------
+
+	&-cardInfoPage {
+		// display: none;
+	}
+
+	// --------------------------------------------------------------------------
+	// CARD:BULLET
+	// --------------------------------------------------------------------------
+
+	&-cardBullet {
+		@include relative;
+		@include span(10/11.5);
+		@include span-shift(0.5/11.5);
+		@include margin(null null 18px null);
+	}
+
+	&-cardBulletList {
+		@include relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&-cardBulletItem {
+		@include size(6px);
+		@include max-size(25px);
+		@include margin(null 10px);
+		@include padding(0);
+		transition: transform 0.3s ease-out;
+		background-color: _color('_011');
+		border-radius: 100%;
+		display: inline-block;
+		transform-origin: 50% 50%;
+		border: 0;
+	}
+
+	&-cardBulletItem.is-active {
+		transform: scale(3);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// SWITCH
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	&-switch {
+		@include relative;
+		@include span(10/12, 1/12);
+		@include margin(36px null 34.5px null);
+	}
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// BREAKPOINTS
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  @include media-query-size-x(xs sm) {
+  }
+
+	@include media-query-size-x(lg xl unknown) {
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:BACKGROUND
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-background {
+			@include size(null 20vh);
+		}
+
+    &-cardGalleryPosterFigure {
+      height: 35vw;
+    }
+
+	  &-cardGalleryPosterFigureImage {
+		  object-position: center;
+    }
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CONTENT
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		&-content {
+			@include relative(null null null 0);
+			@include span(10/12, 1/12);
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CARD
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-card {
+			@include relative(null null null 0);
+			@include span(12/12);
+			@include min-size(null initial);
+			box-shadow: none;
+			border-radius: 0 0 0 0;
+		}
+
+		&-cardLine {
+			@include span(10/12, 1/12);
+			@include size(null 1px);
+			border-bottom: 1px solid #b9b9b9;
+			content: " ";
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:HEADER
+		// ------------------------------------------------------------------------
+		&-cardWing{
+			background-color: #fab303;
+			position: absolute;
+			width: 100%;
+			height: 10%;
+			top: 0;
+		}
+		&-cardHeader {
+			@include relative;
+			@include span(11/12);
+			@include span-shift(1/12);
+			@include margin(null null null null);
+			width: 183px;
+			display: flex;
+			align-content: center;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-cardHeaderModel {
+			@include size(auto null);
+			// @include margin(null 7px null null);
+		}
+
+		&-cardHeaderVersion {
+			@include relative;
+			@include size(auto null);
+			// @include margin(null 47px null null);
+		}
+
+		&-cardHeaderVersion.has-price::before {
+			@include size(25.5px 1px);
+			@include absolute(0 null 0 100%);
+			@include margin(auto null auto 10.5px);
+			background-color: #707070;
+			display: block;
+			content: " ";
+		}
+
+		&-cardHeaderPrice {
+			@include size(auto null);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryPoster {
+			@include column(12/12);
+			border-radius: 0 0 0 0;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY:POSTER
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryPoster {
+			@include relative;
+			@include column(8/12);
+			@include column-shift(1/12);
+			@include overflow(hidden);
+			@include margin(0 null null null);
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+		}
+
+		&-cardGalleryPosterFigure {
+			@include aspect-ratio(651, 323);
+		}
+
+		&-cardGalleryPosterShare {
+			@include absolute(20px null null null);
+			@include span(1/12);
+			@include span-shift(11/12);
+		}
+
+		&-cardGalleryPosterShareButton {
+			@include span(1/12);
+			@include absolute(null 20px null null);
+			@include size(2vw);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:GALLERY:THUMB
+		// ------------------------------------------------------------------------
+
+		&-cardGalleryThumb {
+			@include relative;
+			@include column(2/12);
+			@include column-shift(1/12);
+			@include padding(0px null);
+			// @include size(null 33.3vw);// sem menu
+			@include size(null 35vw);// com menu
+			overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+		}
+
+		&-cardGalleryThumbList {
+			@include relative;
+      width: 100%;
+      margin-right: 10px;
+
+      & :last-child {
+        margin-bottom: 0;
+      }
+		}
+
+		&-cardGalleryThumbItem {
+			@include relative;
+			@include overflow(hidden);
+			background-color: #dbdbdb;
+			border-radius: 0 0 0 0;
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      margin-bottom: 11.250px;
+		}
+
+		&-cardGalleryThumbLink {
+			text-decoration: none;
+		}
+
+		&-cardGalleryThumbImage {
+			@include size(100% null);
+			@include aspect-ratio(215, 177);
+			transition: transform 0.6s $ease-out-quart, opacity 0.5s $ease-out-expo;
+			filter: grayscale(100%);
+			opacity: 0.5;
+			display: block;
+		}
+
+		&-cardGalleryThumbImage:hover,
+		&-cardGalleryThumbImage.is-active {
+			filter: grayscale(0);
+			transform: scale3d(1.1, 1.1, 1);
+			transform-origin: center center;
+			opacity: 1;
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:CARD:INFO
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-cardInfo {
+			display: flex;
+			align-items: center;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:ARTICLE
+		// ------------------------------------------------------------------------
+
+		&-cardInfoArticle {
+			@include column(8/12);
+			@include column-shift(1/12);
+			// border: 1px solid red;
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:ARROW
+		// ------------------------------------------------------------------------
+
+		&-cardInfoArrow {
+			@include relative;
+			@include column(1/12);
+			@include column-shift(1/12);
+		}
+
+		&-cardInfoArrowPrev,
+		&-cardInfoArrowNext {
+			@include size(0.8vw auto);
+			@include margin(0 5px);
+		}
+
+		&-cardInfoArrowPrev {
+			@include flip(vertical);
+		}
+
+		// ------------------------------------------------------------------------
+		// BREAKPOINT:CARD:INFO:PAGE
+		// ------------------------------------------------------------------------
+
+		&-cardInfoPage {
+			@include relative;
+			@include column(1/12);
+			@include column-shift(1/12);
+			text-align: right;
+		}
+
+		&-cardInfoPageCurrent,
+		&-cardInfoPageFrom,
+		&-cardInfoPageSize {
+			@include font-responsive((21 / 1920) * 100vw, 11px, 23px, 21px, 1.33px);
+			font-family: 'FuturaPT Medium', sans-serif;
+			font-weight: 500;
+			color: #adaeb2;
+		}
+
+		&-cardInfoPageCurrent {
+			color: #5e6168;
+		}
+
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// BREAKPOINT:SWITCH
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		&-switch {
+			@include column(6/12, 3/12);
+		}
+	}
+}

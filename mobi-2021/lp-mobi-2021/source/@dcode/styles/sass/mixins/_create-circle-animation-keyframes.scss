@@ -1,0 +1,16 @@
+@mixin create-circle-animation-keyframes($i, $animTime, $totalTime, $delay) {
+	@include keyframes(circle#{$i}) {
+		0% {
+			@include transform(translateX(0));
+		}
+		#{($i * $delay) / $totalTime * 100}% {
+			@include transform(translateX(0));
+		}
+		#{($i * $delay + $animTime) / $totalTime * 100}% {
+			@include transform(translateX(60px));
+		}
+		100% {
+			@include transform(translateX(60px));
+		}
+	}
+}

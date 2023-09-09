@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366.296" height="565" viewBox="0 0 1366.296 565">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_372" data-name="Rectangle 372" width="1366" height="564.782" fill="#0d9451" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_1130" data-name="Rectangle 1130" width="441.593" height="15.217" fill="#4a2d87" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_368" data-name="Rectangle 368" width="434.393" height="26.217" fill="#4a2d87" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <rect id="Rectangle_370" data-name="Rectangle 370" width="441.593" height="26.217" fill="#4a2d87" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2773" data-name="Group 2773" transform="translate(6859 13972.098)">
+    <g id="Group_2772" data-name="Group 2772" transform="translate(-6859 -13972.098)">
+      <g id="Group_2710" data-name="Group 2710">
+        <rect id="Rectangle_367" data-name="Rectangle 367" width="1366" height="564.782" transform="translate(0 0.098)" fill="#85d6dd"/>
+        <g id="Mask_Group_6" data-name="Mask Group 6" transform="translate(0 0.098)" clip-path="url(#clip-path)">
+          <path id="Path_1026" data-name="Path 1026" d="M586.115,460.343V407.022H0V125.314S1.177,58.643,2.318,58.465c.964-.149,33.748-.047,43.938-.011V46.786H59.107V33.015H79.031V25.146h9v7.869H95.1V39.9h7.711V25.146h7.713v-11.8h16.066V26.13h4.5V48.754h1.928V35.966h11.567V32.031h30.849v5.411h17.994V47.77h12.854V43.835h8.355V33.015H230.7V39.9h9.64V26.13h14.14V39.9h5.141V56.623h10.925V47.77h16.71v-5.9h8.354v-8.36h32.134V50.23h18.637V41.868h10.282V20.229H388.8v8.852h6.343V12.021H418.6V26.279h19.577l17.03-.15v-6.7h30.468V7.73H501.8V0h21.071V7.73h27.96v-5.2h22.143V13.785h7.791v7.546h32.612V2.526H647v7.682h17.1V22.372h23.124v-5.8h26.165V27.307h15.652v9.3h6.741V47.692h16.3V22.372h21.075v7.8H796.42v8.018h13.574V30.17h11.763V26.24h9.186V14.875H872.2V38.188h18.153V49.7h7.784V43.86h6.409V30.17h6.927V43.86h10.911V51.13h15.829V63.842h3.329V58.881h9.319V73.549h24.053V82.4h6.344V65.342h23.456V79.6h19.575l17.03-.15v-6.7h30.468v-11.7h16.129v-7.73h21.07v7.73h27.962v-5.2h22.142V67.106h7.791v7.546h32.613V55.847h33.62v7.682h17.1V75.694h23.125v-5.8h26.165V80.628h15.652v9.3h6.741v11.082h16.3V75.694h21.076v7.8h23.263v8.018h13.574V83.491h11.763V79.561h9.185V68.2h41.254V91.509h18.154v11.516h7.783V97.181h6.411V83.491h6.927v13.69H1508.5v7.269h15.827v12.712h3.331V112.2h9.317v33.421l8.213,314.72Z" transform="translate(1391.714 273.838) rotate(180)" fill="#ffb700"/>
+        </g>
+        <g id="Mask_Group_200" data-name="Mask Group 200" transform="translate(924.703 549.783)" clip-path="url(#clip-path-2)">
+          <path id="Union_18" data-name="Union 18" d="M543.335,0,427.394,114.952ZM514.575,0,398.633,114.952ZM485.146,0,369.2,114.952ZM456.385,0,340.444,114.952ZM430.3,0,314.358,114.952ZM401.54,0,285.6,114.952ZM372.11,0,256.169,114.952ZM343.35,0,227.409,114.952ZM315.927,0,199.985,114.952Zm-28.76,0L171.225,114.952ZM257.737,0,141.8,114.952ZM228.977,0,113.035,114.952ZM202.892,0,86.95,114.952ZM174.131,0,58.19,114.952ZM144.7,0,28.761,114.952ZM115.941,0,0,114.952Z" transform="translate(-8.482 -74.936)" fill="none" stroke="#4a2d87" stroke-width="15"/>
+        </g>
+        <g id="Group_2555" data-name="Group 2555" transform="translate(1366.296) rotate(90)">
+          <g id="Group_2545" data-name="Group 2545">
+            <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(0 799.504) rotate(-90)" clip-path="url(#clip-path-3)">
+              <path id="Union_14" data-name="Union 14" d="M543.335,0,427.394,114.952ZM514.575,0,398.633,114.952ZM485.146,0,369.2,114.952ZM456.385,0,340.444,114.952ZM430.3,0,314.358,114.952ZM401.54,0,285.6,114.952ZM372.11,0,256.169,114.952ZM343.35,0,227.409,114.952ZM315.927,0,199.985,114.952Zm-28.76,0L171.225,114.952ZM257.737,0,141.8,114.952ZM228.977,0,113.035,114.952ZM202.892,0,86.95,114.952ZM174.131,0,58.19,114.952ZM144.7,0,28.761,114.952ZM115.941,0,0,114.952Z" transform="translate(-83.482 -74.936)" fill="none" stroke="#4a2d87" stroke-width="8"/>
+            </g>
+            <g id="Mask_Group_7" data-name="Mask Group 7" transform="translate(0 1168.504) rotate(-90)" clip-path="url(#clip-path-3)">
+              <path id="Union_17" data-name="Union 17" d="M543.335,0,427.394,114.952ZM514.575,0,398.633,114.952ZM485.146,0,369.2,114.952ZM456.385,0,340.444,114.952ZM430.3,0,314.358,114.952ZM401.54,0,285.6,114.952ZM372.11,0,256.169,114.952ZM343.35,0,227.409,114.952ZM315.927,0,199.985,114.952Zm-28.76,0L171.225,114.952ZM257.737,0,141.8,114.952ZM228.977,0,113.035,114.952ZM202.892,0,86.95,114.952ZM174.131,0,58.19,114.952ZM144.7,0,28.761,114.952ZM115.941,0,0,114.952Z" transform="translate(-83.482 -74.936)" fill="none" stroke="#4a2d87" stroke-width="8"/>
+            </g>
+            <g id="Mask_Group_5" data-name="Mask Group 5" transform="translate(0 441.593) rotate(-90)" clip-path="url(#clip-path-5)">
+              <path id="Union_16" data-name="Union 16" d="M543.335,0,427.394,114.952ZM514.575,0,398.633,114.952ZM485.146,0,369.2,114.952ZM456.385,0,340.444,114.952ZM430.3,0,314.358,114.952ZM401.54,0,285.6,114.952ZM372.11,0,256.169,114.952ZM343.35,0,227.409,114.952ZM315.927,0,199.985,114.952Zm-28.76,0L171.225,114.952ZM257.737,0,141.8,114.952ZM228.977,0,113.035,114.952ZM202.892,0,86.95,114.952ZM174.131,0,58.19,114.952ZM144.7,0,28.761,114.952ZM115.941,0,0,114.952Z" transform="translate(-8.482 -74.936)" fill="none" stroke="#4a2d87" stroke-width="15"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

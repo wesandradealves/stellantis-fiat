@@ -1,0 +1,22 @@
+﻿{
+  "projects": [
+    {
+      "server": {
+        "type": "nginx",
+        "language": {
+          "type": "node"
+        }
+      },
+      "external-access": [
+        {
+          "user": "lp-500e-2021",
+          "pass": "djk&25sbvKn&"
+        }
+      ],
+      "folder": "lp-500e-2021/",
+      "slug": "lp-500e-2021",
+      "render": "static",
+      "output": "build"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  position: relative;
+  z-index: 1;
+  background-size: clamp(310px, 70%, 490px);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-color: $background-white;
+  padding-top: clamp(78px, 7vw, 40px);
+
+  h2 {
+    color: black;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .mainFields {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 16px;
+    justify-items: start;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+
+    > div {
+      width: 100%;
+    }
+
+    @include lg {
+      grid-template-columns: 1fr 1fr;
+      gap: 42px 56px;
+    }
+    padding-top: clamp(40px, 6vw, 60px);
+  }
+}
+
+.field {
+  label {
+    font-size: 1.4rem;
+    color: black;
+  }
+  .select {
+    margin-top: 8px;
+  }
+  input {
+    color: black;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    background-color: $background-white;
+    padding: 0 toRem(14);
+    line-height: 50px;
+    width: calc(100% - #{toRem(28)});
+  }
+
+  textarea {
+    color: black;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    background-color: $background-white;
+    padding: 0 toRem(14);
+    line-height: 50px;
+    width: calc(100% - #{toRem(28)});
+  }
+}
+
+.bottomForm {
+  padding-top: clamp(40px, 7vw, 90px);
+  padding-bottom: clamp(40px, 7vw, 90px);
+}
+
+.buttonContainer {
+  margin-top: toRem(60);
+  margin-bottom: toRem(60);
+
+  button {
+    width: 100%;
+    max-width: 460px;
+    font-size: toRem(22);
+
+    @include desktop {
+      width: 280px;
+      font-size: toRem(19);
+    }
+  }
+
+  @include desktop {
+    margin-top: toRem(48);
+  }
+}
+
+.modal {
+  max-width: 400px;
+
+  button {
+    padding: 0;
+    margin-top: 0;
+    height: 36px;
+    line-height: 1;
+    width: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 !important;
+  }
+}
+
+.recaptchaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: clamp(20px, 3vw, 40px);
+}

@@ -1,0 +1,27 @@
+.Background {
+	@include relative(0 null null 0);
+	@include span(12/12);
+	@include size(null auto);
+	margin-top: -(_('Menu.height'));
+
+	&-picture {
+		@include relative;
+		@include span(12/12);
+	}
+
+	&-img {
+		@include size(100% null);
+	}
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+		@include absolute(0 null null null);
+		@include margin(0 null null null);
+
+		&-picture {
+			@include column(12/12);
+		}
+	}
+}

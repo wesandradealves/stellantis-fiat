@@ -1,0 +1,19 @@
+//!
+//| GILROY
+//'__________________________________________________________________________
+// ExtraBold
+@font-face {
+	font-family: "Gilroy ExtraBold";
+	src: url("@dcode/styles/fonts/gilroy/extrabold.woff2") format("woff2"), url("@dcode/styles/fonts/gilroy/extrabold.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+// Light
+@font-face {
+	font-family: "Gilroy Light";
+	src: url("@dcode/styles/fonts/gilroy/light.woff2") format("woff2"), url("@dcode/styles/fonts/gilroy/light.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

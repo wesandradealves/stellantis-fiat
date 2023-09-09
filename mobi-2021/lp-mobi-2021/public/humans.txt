@@ -1,0 +1,14 @@
+﻿/* TEAM */
+Your title: FCA
+Site: imprensa.sp@fcagroup.com
+Twitter: @fcagroup.
+Location: São Paulo, Brasil.
+
+/* THANKS */
+Name: A, M, E
+
+/* SITE */
+Last update: 2019/02/08
+Standards: HTML5, CSS3, ES6
+Components: Unkn, React
+Software: Sublime Text 3

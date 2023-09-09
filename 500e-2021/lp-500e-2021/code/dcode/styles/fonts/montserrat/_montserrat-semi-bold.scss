@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'montserrat-semi-bold';
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.eot');
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.woff') format('woff'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-semi-bold.svg#semi-bold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}

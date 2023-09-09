@@ -1,0 +1,11 @@
+//| Light
+//'--------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'ProximaNova-Light';
+	src: local('Proxima Nova'),
+		url('#{$fontsPath}/fonts/proxima-nova/ProximaNova-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}

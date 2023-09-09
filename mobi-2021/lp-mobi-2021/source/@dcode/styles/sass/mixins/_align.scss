@@ -1,0 +1,33 @@
+@import "position";
+@import "offset";
+
+@mixin align($direction: both, $position: absolute, $percentage: 50%) {
+  $percentageX: null;
+  $percentageY: null;
+  @if length($percentage) == 1 and nth($percentage, 1) != null {
+    $percentageX: nth($percentage, 1);
+    $percentageY: nth($percentage, 1);
+  } @else if length($percentage) == 2 {
+    @if nth($percentage, 1) != null {
+      $percentageX: nth($percentage, 1);
+    }
+    @if nth($percentage, 2) != null {
+      $percentageY: nth($percentage, 2);
+    }
+  }
+  @include position($position, null null null null);
+  transform-style: preserve-3d;
+  @if index(horizontal h, $direction) {
+    left: $percentageX;
+    transform: translateX(-$percentageX);
+  } @else if index(vertical v, $direction) {
+    top: $percentageY;
+    transform: translateY(-$percentageY);
+  } @else if index(none, $direction) {
+    @include offset(auto null null auto);
+    transform: translate(0, 0);
+  } @else {
+    @include offset($percentageY null null $percentageX);
+    transform: translate(-$percentageX, -$percentageY);
+  }
+}

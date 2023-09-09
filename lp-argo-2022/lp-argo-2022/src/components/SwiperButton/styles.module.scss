@@ -1,0 +1,76 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.button {
+  width: 40px !important;
+  height: 34px !important;
+  background-color: var.$yellow;
+  outline: 1px solid var.$color--primary;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateX(-50%) skewX(-20deg);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var.$yellow;
+    }
+  }
+
+  &.buttonPrev {
+    left: 70px;
+  }
+
+  &.buttonNext {
+    right: 40px;
+  }
+
+  &:hover {
+    background-color: var.$cyan;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  .ico {
+    width: 9px;
+    height: 18px;
+    margin-top: 3px;
+    transform: skewX(20deg);
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .button {
+    width: 40px !important;
+    height: 34px !important;
+
+    &:hover {
+      background-color: var.$yellow;
+    }
+
+    &.buttonPrev {
+      left: 40px;
+    }
+
+    &.buttonNext {
+      right: 0;
+    }
+
+    .ico {
+      width: 9px;
+      height: 18px;
+      margin-top: 2px;
+    }
+  }
+}

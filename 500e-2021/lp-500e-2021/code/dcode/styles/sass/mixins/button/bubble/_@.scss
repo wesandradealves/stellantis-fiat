@@ -1,0 +1,174 @@
+@import '../base/@';
+
+//
+// # Button
+// >
+//
+// ## Usage:
+//
+// You have to call this file in your style:
+// ```scss
+// .Button {
+// 	@include ButtonBubble(
+//		$width: auto,
+//		$height: auto,
+// 	);
+// }
+// ```
+//
+// The template should be something like:
+// ```html
+// <body>
+//	<!-- Button -->
+//	<button class="Button" data-ui="button-base">
+//		Iniciar
+//	</button>
+// </body>
+// ```
+// The behavior should be something like:
+// ```js
+// $(document).on('mouseenter', '.Button', function(evt) {
+//	var $target = $(this);
+//	var spanFx = $target.find('span');
+//	var parentOffset = $target.offset();
+//	var relX = evt.pageX - parentOffset.left;
+//	var relY = evt.pageY - parentOffset.top;
+//	if (!spanFx[0]) {
+//		$target.append($('<span data-ui-fx="hover" style="top:'+ relY +'; left:'+ relX +'"></span>'));
+//	} else spanFx.css({ top: relY, left: relX });
+// }).on('mousemove', '.Button', function(evt) {
+//	var $target = $(this);
+//	var spanFx = $target.find('span');
+//	var parentOffset = $target.offset();
+//	var relX = evt.pageX - parentOffset.left;
+//	var relY = evt.pageY - parentOffset.top;
+//	if (!spanFx[0]) {
+//		$target.append($('<span data-ui-fx="hover" style="top:'+ relY +'; left:'+ relX +'";"></span>'));
+//	} else spanFx.css({ top: relY, left: relX });
+// });
+// ```
+//
+@mixin ButtonBubble(
+	$fontFamily: (Ubuntu, Helvetica, Arial, sans-serif),
+	$fontSize: (4.5vw, 13px, 18px, 13px, 0),
+	$fontWeight: lighter,
+	$fontStyle: normal,
+	$borderRadius: 5px,
+	$borderWidth: 0,
+	$borderStyle: none,
+	$borderColor: transparent,
+	$border: $borderWidth $borderStyle $borderColor,
+	$textColor: #fff,
+	$textAlign: center,
+	$textDecoration: none,
+	$backgroundColor: #222,
+	$disabledBackgroundColor: #999,
+	$hoverBackgroundColor: #333,
+	$focusBackgroundColor: #333,
+	$activeBackgroundColor: #333,
+	$visitedBackgroundColor: #6B79FF,
+	$disabledTextColor: #666,
+	$hoverTextColor: $textColor,
+	$focusTextColor: $textColor,
+	$activeTextColor: $textColor,
+	$visitedTextColor: $textColor,
+	$boxShadowHLength: 0px,
+	$boxShadowVLength: 2px,
+	$boxShadowBlurRadius: 5px,
+	$boxShadowSpreadRadius: 0px,
+	$boxShadowShadowColor: rgba(0, 0, 0, 0.2),
+	$boxShadow: $boxShadowHLength $boxShadowVLength $boxShadowBlurRadius $boxShadowSpreadRadius $boxShadowShadowColor,
+	$outline: none,
+	$selectionColor: transparent,
+	$width: null,
+	$height: null,
+	$padding: em(8px) em(20px),
+	$margin: 1%,
+	$name: null,
+	$usePseudoHover: true,
+	$usePseudoFocus: false,
+	$usePseudoActive: false,
+	$usePseudoVisited: false,
+	$truncateText: true,
+	$cursor: pointer,
+) {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Variables ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$name: #{$name or &};
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ Inheritance ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	@include ButtonBase(
+		$fontFamily,
+		$fontSize,
+		$fontWeight,
+		$fontStyle,
+		$borderRadius,
+		$borderWidth,
+		$borderStyle,
+		$borderColor,
+		$border,
+		$textColor,
+		$textAlign,
+		$textDecoration,
+		$backgroundColor,
+		$disabledBackgroundColor,
+		$hoverBackgroundColor,
+		$focusBackgroundColor,
+		$activeBackgroundColor,
+		$visitedBackgroundColor,
+		$disabledTextColor,
+		$hoverTextColor,
+		$focusTextColor,
+		$activeTextColor,
+		$visitedTextColor,
+		$boxShadowHLength,
+		$boxShadowVLength,
+		$boxShadowBlurRadius,
+		$boxShadowSpreadRadius,
+		$boxShadowShadowColor,
+		$boxShadow,
+		$outline,
+		$selectionColor,
+		$width,
+		$height,
+		$padding,
+		$margin,
+		$name,
+		$usePseudoHover,
+		$usePseudoFocus,
+		$usePseudoActive,
+		$usePseudoVisited,
+		$truncateText,
+		$cursor,
+	);
+
+
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// ~ FX: click ~
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	>span[data-ui-fx="hover"] {
+		@include absolute;
+		@include size(22vw);
+		display: block;
+		background-color: rgba(0, 0, 0, 0.2);
+		border-radius: 100%;
+		transition: transform 300ms ease-in-out, visibility 300ms ease 0ms, opacity 300ms ease-in-out 0ms;
+		transform: translate(-50%, -50%) scale(0);
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&.is-hovering {
+		color: $hoverTextColor;
+
+		&>span[data-ui-fx="hover"] {
+			transform: translate(-50%, -50%) scale(1);
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

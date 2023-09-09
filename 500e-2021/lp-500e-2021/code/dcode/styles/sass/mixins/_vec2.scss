@@ -1,0 +1,16 @@
+@mixin vec2($properties: (width, height), $args: null) {
+	@if length($args) == 1 {
+		@if $args != null {
+			@each $property in $properties {
+				#{$property}: $args;
+			}
+		}
+	} @else if length($args) == 2 {
+		@if nth($args, 1) != null {
+			#{nth($properties, 1)}: nth($args, 1);
+		}
+		@if nth($args, 2) != null {
+			#{nth($properties, 2)}: nth($args, 2);
+		}
+	}
+}

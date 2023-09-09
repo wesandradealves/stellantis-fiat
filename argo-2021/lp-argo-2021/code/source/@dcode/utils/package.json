@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@dcode/utils",
+  "version": "1.0.0-alpha.0",
+  "description": "🐚 Utilities and helpers for dcode",
+  "keywords": "dcode-utils-module",
+  "author": "Unkn team",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "browser/",
+    "env/",
+    "events/",
+    "is/",
+    "preloader/",
+    "react/",
+    "serviceWorker/",
+    "xtras/",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "ping": "echo \"pong!\""
+  }
+}

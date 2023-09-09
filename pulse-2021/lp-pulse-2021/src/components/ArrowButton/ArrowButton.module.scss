@@ -1,0 +1,116 @@
+@import '@styles/theme', '@styles/mixins';
+
+@mixin buttonHover {
+  &:not(.secondary):not(.light) {
+    border-width: 1px !important;
+    border-style: solid !important;
+  }
+  &:not(.disabled) {
+    color: $primary;
+    background-color: $background-secondary;
+
+    &:after {
+      border-color: $background-secondary;
+    }
+    &.secondary {
+      color: $text-secondary;
+    }
+    &.light {
+      color: $text-secondary;
+      border-color: $secondary !important;
+      &:after {
+        border-color: $secondary !important;
+      }
+    }
+  }
+}
+
+.button {
+  flex-shrink: 0;
+  background-color: $primary;
+  &.secondary {
+    background-color: $text-secondary;
+
+    &:after {
+      border: 1px solid $text-secondary;
+    }
+  }
+  &.light {
+    color: $text-secondary;
+    background-color: $secondary;
+
+    &:after {
+      border: 1px solid $secondary;
+    }
+  }
+  color: $text-primary;
+  width: 36px;
+  height: 36px;
+  &.large {
+    width: 52px;
+    height: 52px;
+  }
+  position: relative;
+  transition: background-color $transition-time-quickest
+    $transition-easing;
+
+  &:active {
+    @include buttonHover;
+  }
+
+  @include desktop {
+    &:hover {
+      @include buttonHover;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    border: 1px solid $primary;
+    width: 35px;
+    height: 35px;
+    left: 3px;
+    top: 3px;
+    z-index: -1;
+    transition: all $transition-time-quickest $transition-easing;
+  }
+
+  &:active {
+    &:not(.disabled) {
+      &:after {
+        left: 0px !important;
+        top: 0px !important;
+        width: 33px;
+        height: 33px;
+        border-color: $primary !important;
+      }
+      &.secondary:after {
+        border-color: $text-secondary !important;
+      }
+      &.light:after {
+        border-color: $secondary !important;
+      }
+    }
+  }
+  &.large:after {
+    width: 49px;
+    height: 49px;
+    left: 4px;
+    top: 4px;
+    border-color: $secondary !important;
+  }
+
+  &.previous:after {
+    left: -4px;
+  }
+
+  &.previous svg {
+    transform: rotate(180deg);
+  }
+
+  &.disabled {
+    opacity: 0.3 !important;
+    cursor: default;
+  }
+}

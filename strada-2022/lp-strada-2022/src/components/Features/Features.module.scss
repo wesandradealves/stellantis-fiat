@@ -1,0 +1,33 @@
+@import '@styles/theme', '@styles/mixins';
+
+.container {
+  margin-top: 20%;
+  height: 100vh;
+  padding-top: 0;
+
+  @include desktop{
+    margin: 0;
+    height: inherit;
+  }
+  h2 {
+    padding-top: toRem(48); 
+    text-align: center;
+    padding-bottom: toRem(32);
+    font-size: clamp(#{toRem(28)}, 2.6vw, #{toRem(32)});
+    font-weight: $font-weight-semibold;
+    color: $primary;
+  }
+  background-color: $background-primary;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: toRem(30) !important;
+  @include desktop {
+    padding-bottom: toRem(65) !important;
+    background-color: $background-white;
+  }
+
+  .title{
+    color: $text-violetRed;
+  }
+}

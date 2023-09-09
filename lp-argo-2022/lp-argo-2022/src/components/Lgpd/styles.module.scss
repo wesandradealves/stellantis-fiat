@@ -1,0 +1,73 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.containerLgpd {
+  width: 100%;
+  padding: 20px;
+  background-color: var.$cyan;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+
+  .wrapperLgpd {
+    flex: 0 0 calc(100% - 200px);
+    color: var.$color--primary;
+
+    h2{
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 16px;
+      font-family: var.$regular;
+      margin-right: 20px;
+
+      a {
+        color: var.$yellow;
+
+        &:hover {
+          color: var.$white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .containerLgpd {
+    display: flex;
+    flex-direction: column;
+
+    .wrapperLgpd {
+      flex: 1 1 100%;
+      margin-bottom: 20px;
+
+      h2{
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 16px;
+        font-family: var.$regular;
+        margin-right: 20px;
+
+        a {
+          color: var.$yellow;
+
+          &:hover {
+            color: var.$white;
+          }
+        }
+      }
+    }
+
+    a {
+      margin-bottom: 0;
+    }
+  }
+}

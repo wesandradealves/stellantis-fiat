@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="127" height="21" viewBox="0 0 127 21">
+  <g id="LOGO_MENU" data-name="LOGO MENU" transform="translate(-34 -28)">
+    <text id="FIAT" transform="translate(34 45)" fill="#edede3" font-size="16" font-family="Futura-Bold, Futura" font-weight="700" letter-spacing="0.01em"><tspan x="0" y="0">FIAT</tspan></text>
+    <text id="ARGO" transform="translate(107 45)" fill="#edede3" font-size="16" font-family="Futura-Bold, Futura" font-weight="700" letter-spacing="0.01em"><tspan x="0" y="0">ARGO</tspan></text>
+    <g id="Fiat_Flag" data-name="Fiat Flag" transform="translate(75.001 29.507)">
+      <path id="Caminho_149" data-name="Caminho 149" d="M502.99,300.235l-6.325,19.493h2.927l6.325-19.493Z" transform="translate(-490.81 -300.235)" fill="#edede3"/>
+      <path id="Caminho_150" data-name="Caminho 150" d="M322.894,300.235l-6.325,19.493H319.5l6.325-19.493Z" transform="translate(-316.57 -300.235)" fill="#268f52"/>
+      <path id="Caminho_151" data-name="Caminho 151" d="M683.085,300.235l-6.325,19.493h2.928l6.325-19.493Z" transform="translate(-665.05 -300.235)" fill="#edede3"/>
+      <path id="Caminho_152" data-name="Caminho 152" d="M863.181,300.235l-6.325,19.493h2.928l6.325-19.493Z" transform="translate(-839.29 -300.235)" fill="#ff1430"/>
+    </g>
+  </g>
+</svg>

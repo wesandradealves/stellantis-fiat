@@ -1,0 +1,14 @@
+@import '@styles/theme', '@styles/mixins';
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: $primary;
+  font-size: inherit;
+  font-weight: 900;
+  h2{
+    font-style: italic;
+    font-family: "Futura PT Book", Arial, sans-serif;
+  }
+}
+

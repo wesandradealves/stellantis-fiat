@@ -1,0 +1,65 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+button.link {
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: var.$book;
+  font-size: 16px;
+  color: var.$color--support;
+  letter-spacing: 0.8px;
+  padding: 4px;
+  text-align: left;
+  font-weight: bold;
+
+  &:hover {
+    font-family: var.$book;
+    color: var.$yellow;
+  }
+
+  &.active {
+    font-family: var.$book;
+    font-size: 16px;
+    color: var.$yellow;
+  }
+}
+
+@media only screen and (max-width: 1360px) {
+  $ww: 1360;
+
+  button.link {
+    font-size: mixin.calcSizeVw(16, $ww);
+    padding: mixin.calcSizeVw(4, $ww) 0;
+
+    &.active {
+      font-size: mixin.calcSizeVw(16, $ww);
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  $ww: 1100;
+
+  button.link {
+    font-size: mixin.calcSizeVw(16, $ww);
+    padding: mixin.calcSizeVw(5, $ww) 0;
+
+    &.active {
+      font-size: mixin.calcSizeVw(16, $ww);
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  button.link {
+    font-size: 18px;
+    padding: 5px 5px 5px 0;
+
+    &.active {
+      font-size: 20px;
+    }
+  }
+}

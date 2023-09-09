@@ -1,0 +1,21 @@
+{
+	"projects": [
+		{
+			"folder": "lp-scudo-2022/",
+			"slug": "lp-scudo-2022",
+			"external-access": [
+				{
+					"user": "lp-scudo",
+					"pass": "jxuAs7%2@"
+				}
+			],
+			"render": "server-side",
+			"server":{
+				"type":"nginx",
+				"language":{
+					"type":"node"
+				}
+			}
+		}
+	]
+}

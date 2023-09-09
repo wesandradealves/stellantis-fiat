@@ -1,0 +1,83 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/assets/images/loading-red.gif") center no-repeat
+    rgba(var.$black, 0.7);
+  background-size: 50px;
+  z-index: 1000;
+
+  .close {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    z-index: 1000;
+    right: mixin.calcSizeVw(15, $ww);
+    top: mixin.calcSizeVw(15, $ww);
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      width: 100% !important;
+      position: relative !important;
+    }
+  }
+
+  .wrapperGallery {
+    width: 100%;
+    height: 100%;
+
+    > div {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .modal {
+    .close {
+      right: 15px;
+      top: 15px;
+    }
+
+    .wrapperGallery {
+      .full {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

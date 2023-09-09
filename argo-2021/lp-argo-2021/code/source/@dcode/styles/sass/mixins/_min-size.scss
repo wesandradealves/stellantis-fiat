@@ -1,0 +1,5 @@
+@import "vec2";
+
+@mixin min-size($args) {
+	@include vec2((min-width, min-height), $args);
+}

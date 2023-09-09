@@ -1,0 +1,54 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * futura-pt:
+ *   - http://typekit.com/eulas/000000000000000000010091
+ *   - http://typekit.com/eulas/000000000000000000010092
+ *   - http://typekit.com/eulas/000000000000000000013365
+ *   - http://typekit.com/eulas/000000000000000000010095
+ * futura-pt-bold:
+ *   - http://typekit.com/eulas/00000000000000003b9af1e4
+ *   - http://typekit.com/eulas/00000000000000003b9af1e5
+ * futura-pt-condensed:
+ *   - http://typekit.com/eulas/000000000000000000012039
+ *   - http://typekit.com/eulas/00000000000000000001203a
+ *   - http://typekit.com/eulas/00000000000000000001203d
+ *   - http://typekit.com/eulas/00000000000000000001203e
+ *
+ * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
+ */
+
+//!
+//| FUTURA PT
+//'__________________________________________________________________________
+// Light
+@font-face {
+	font-family: 'FuturaPT Light';
+	src: url('@dcode/styles/fonts/futura/light.woff') format('woff');
+	font-weight: 300;
+	font-display: swap;
+}
+// Medium
+@font-face {
+	font-family: 'FuturaPT Medium';
+	src: url('@dcode/styles/fonts/futura/medium.woff') format('woff');
+	font-weight: 500;
+	font-display: swap;
+}
+// Bold
+@font-face {
+	font-family: 'FuturaPT Bold';
+	src: url('@dcode/styles/fonts/futura/bold.woff') format('woff');
+	font-weight: 700;
+	font-display: swap;
+}
+// Heavy
+@font-face {
+	font-family: 'FuturaPT Heavy';
+	src: url('@dcode/styles/fonts/futura/heavy.woff') format('woff');
+	font-weight: 900;
+	font-display: swap;
+}

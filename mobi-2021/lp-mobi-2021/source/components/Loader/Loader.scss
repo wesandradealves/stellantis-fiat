@@ -1,0 +1,78 @@
+.Loader {
+	$backgroundColor: _('Loader.backgroundColor') or #18131f;
+	$backgroundColorProgress: _('Loader.backgroundColorProgress') or rgba(255, 255, 255, 0.25);
+	$backgroundColorProgressBar: _('Loader.backgroundColorProgressBar') or #fff;
+	$zIndex: _('Loader.zIndex');
+
+
+	// BACKGROUND
+	// ~~~~~~~~~~
+
+	&-background {
+		@include fixed(0 null null 0);
+		@include size(100%);
+		display: flex;
+		flex-direction: column;
+		z-index: $zIndex;
+	}
+
+	&-backgroundSlice {
+		flex: 1;
+		background-color: $backgroundColor;
+	}
+
+
+	// CONTENT
+	// ~~~~~~~
+
+	&-wrapper {
+		@include absolute(50% null null 50%);
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+
+	// BRAND
+	// ~~~~~
+
+	&-brand {
+		@include relative;
+		@include overflow(hidden);
+		@include padding(0);
+		@include margin(0 0 1rem 0);
+	}
+
+	&-brandImage {
+		@include size(2rem auto);
+		display: inline-block;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+
+	// PROGRESS
+	// ~~~~~~~~
+
+	&-progress {
+		@include relative;
+		@include size(1.8rem 1px);
+		@include overflow(hidden);
+		transform-origin: left;
+		background-color: $backgroundColorProgress;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&-progressBar {
+		@include absolute(0 null null 0);
+		@include size(100%);
+		background-color: $backgroundColorProgressBar;
+		transform-origin: left;
+	}
+
+
+	// BREAKPOINTS
+	// ~~~~~~~~~~~
+
+	@include media-query-size-x(lg xl unknown) {
+	}
+}

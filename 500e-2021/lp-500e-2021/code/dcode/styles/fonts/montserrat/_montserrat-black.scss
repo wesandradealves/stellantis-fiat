@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'montserrat-black';
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-black.eot');
+	src: local('Montserrat'), url('#{$fontsPath}/fonts/montserrat/montserrat-black.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-black.woff2') format('woff2'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-black.woff') format('woff'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-black.ttf') format('truetype'),
+		url('#{$fontsPath}/fonts/montserrat/montserrat-black.svg#black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}

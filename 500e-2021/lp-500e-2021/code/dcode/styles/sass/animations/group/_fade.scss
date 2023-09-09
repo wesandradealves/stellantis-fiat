@@ -1,0 +1,40 @@
+@import "../easing";
+
+// Keyframes
+// ------------------------------------------------------------------------
+@keyframes fade {
+	to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+	from { }
+	to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+}
+
+// Classes
+// ------------------------------------------------------------------------
+.Fade {
+	$ref: &;
+	animation: fade 300ms $ease-out-cubic both;
+
+	&In {
+		animation: fadeIn 500ms both ease-out;
+	}
+
+	&Out {
+		animation: fadeOut 500ms both ease-in;
+	}
+
+	&-appear,
+	&-enter {
+		animation: fadeIn 500ms both ease-out;
+	}
+
+	&-exit {
+		animation: fadeOut 500ms both ease-in;
+	}
+}

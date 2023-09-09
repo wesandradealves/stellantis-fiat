@@ -1,0 +1,10 @@
+@import "percent";
+@import "get-column";
+@import "reverse-list";
+@import "../methods/_layout";
+
+@function column-gutter(
+	$ratios: 1,
+	$gutter: _layout('grid.gutterWidth') or 1%) {
+  @return percent(nth(get-column($ratios, $gutter), 2));
+}

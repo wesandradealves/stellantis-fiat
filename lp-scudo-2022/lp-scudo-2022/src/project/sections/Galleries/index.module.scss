@@ -1,0 +1,62 @@
+@import '@styles/theme', '@styles/mixins';
+
+.swiperSlide {
+  background-color: #2D3365;
+
+  @include desktop {
+    background-color: transparent;
+  }
+}
+
+.container {
+  background-color: $background-light;
+  padding-top: 0 !important;
+  @include desktop {
+    //min-height: 700px;
+    padding-top: toRem(50) !important;
+    padding-bottom: toRem(50) !important;
+  }
+}
+
+
+.scrollCta {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: $text-secondary;
+  z-index: 99;
+  padding: 0 3.3rem;
+  margin-bottom: 1rem;
+
+  @include desktop {
+    padding-top: 14px;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  svg {
+    -webkit-animation-name: "margin";
+    animation-name: "margin";
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    width: 100%;
+    height: 0.8rem;
+
+
+    @include desktop {
+      height: 1rem;
+    }
+  }
+}

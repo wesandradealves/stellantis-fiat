@@ -1,0 +1,64 @@
+$background-primary: #18131F;
+$background-secondary: #EDEDE3;
+$background-blue: #222652;
+$background-dark: #0B0C0D;
+$background-grey: #25242f;
+$bullet-color: #CCCDCE;
+$primary: #FD1330;
+$secondary: #92D0DB;
+$text-primary: #EDEDE3;
+$text-secondary: #22274F;
+$text-on-primary: #3A369E;
+$text-menu-link: #231E1C;
+$text-banner-description: #CCCCCC;
+$hr-color: #9FCFD9;
+$border-color: #17131E;
+$font: 'Futura', Roboto, Helvetica Neue, sans-serif;
+$font-secondary: Helvetica Neue, Arial, sans-serif;
+$fontawesome: 'font awesome';
+$fontawesome-brands: 'font awesome brands';
+$scrollbar-track: rgba($primary, 0.23);
+$scrollbar-body: $primary;
+$border-primary: #F6BB43;
+$border-size: clamp(8px, 2vh, 18px);
+
+// Abarth
+$font-abarth: 'FuturaSTD';
+$abarth-primary-bg: #FEDB00;
+$abarth-full-black: #000000;
+
+
+
+$section-horizontal-padding: clamp(40px, 4vw, 90px);
+$section-horizontal-padding-desktop: clamp(70px, 4vw, 90px);
+
+$min-mobile-height: 568px;
+
+$container-max-width: 1280px;
+
+$font-weight-thin: 100;
+$font-weight-ultralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+$font-weight-extrablack: 900;
+
+$header-size: 44px;
+$header-size-desktop: 65px;
+
+$transition-time: 400ms;
+$transition-time-quick: 200ms;
+$transition-time-quickest: 50ms;
+$transition-easing: ease-in-out;
+
+$nav-width: 224px;
+
+$screen-sm-min: 576.1px;
+$screen-md-min: 768.1px;
+$screen-lg-min: 992.1px;
+$screen-desktop-min: 1024.1px;
+$screen-xl-min: 1200.1px;
+$screen-xxl-min: 1920.1px;
+$screen-max-size: 2560px;

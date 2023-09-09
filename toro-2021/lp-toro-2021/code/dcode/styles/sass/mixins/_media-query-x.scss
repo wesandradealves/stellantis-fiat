@@ -1,0 +1,8 @@
+@import "media-query";
+
+@mixin media-query-x($min: false, $max: false, $orientation: false) {
+	@include media-query($min-width: $min, $max-width: $max, $orientation: $orientation) {
+		@content;
+	}
+}
+

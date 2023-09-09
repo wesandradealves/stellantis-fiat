@@ -1,0 +1,89 @@
+@keyframes margin {
+  0% {
+    margin-bottom: 12px;
+    margin-top: 0px;
+    opacity: 0.2;
+  }
+  20% {
+    margin-bottom: 0px;
+    margin-top: 12px;
+    opacity: 1;
+  }
+  80% {
+    margin-bottom: 0px;
+    margin-top: 12px;
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 12px;
+    margin-top: 0px;
+    opacity: 0.2;
+  }
+}
+
+@keyframes pointer {
+  0% {
+    margin-left: 18px;
+    margin-right: 0px;
+    opacity: 0.6;
+  }
+  10% {
+    margin-left: 12px;
+    margin-right: 6px;
+    opacity: 1;
+  }
+  90% {
+    margin-left: 12px;
+    margin-right: 6px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 18px;
+    margin-right: 0px;
+    opacity: 0.6;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes loadIn {
+  0% {
+    position: relative;
+    left: 100%;
+  }
+  100% {
+    position: relative;
+    left: 0%;
+  }
+}
+
+@keyframes loadIn {
+  0% {
+    position: relative;
+    left: 100%;
+  }
+  100% {
+    position: relative;
+    left: 0%;
+  }
+}
+
+@mixin animationMargin {
+  animation-name: 'margin';
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@mixin animationLoadIn($delay, $duration) {
+  animation-name: 'loadIn';
+  animation-duration: $duration;
+  animation-iteration-count: 1;
+  animation-delay: $delay;
+}

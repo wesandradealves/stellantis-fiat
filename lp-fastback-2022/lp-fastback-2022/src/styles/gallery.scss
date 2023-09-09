@@ -1,0 +1,29 @@
+.box1x1 {
+  cursor: pointer;
+  grid-column-end: span 1;
+  grid-row-end: span 1;
+}
+
+.box1x2 {
+  cursor: pointer;
+  grid-column-end: span 1;
+  grid-row-end: span 2;
+}
+
+.box2x3 {
+  cursor: pointer;
+  grid-column-end: span 2;
+  grid-row-end: span 3;
+}
+
+.box2x2 {
+  cursor: pointer;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+
+.box3x2 {
+  cursor: pointer;
+  grid-column-end: span 3;
+  grid-row-end: span 2;
+}

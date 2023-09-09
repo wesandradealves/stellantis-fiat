@@ -1,0 +1,133 @@
+@import '../../../../src/styles/theme.scss',
+  '../../../../src/styles/mixins.scss';
+
+$paddingDefault: 0 2rem;
+
+@mixin GoogleInputArea {
+  &::placeholder {
+    color: $terciary;
+    // padding-left: 0.5rem;
+  }
+}
+
+@mixin CalculationBarDisplayText {
+  text-align: right;
+
+  h3 {
+    height: auto;
+    font-size: 0.7rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 800;
+    color: $terciary;
+    padding-bottom: 0;
+
+    strong {
+      font-size: 1.1rem;
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 800;
+      color: $terciary;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $infoText;
+  padding: 0 30px;
+}
+
+.Header {
+  h2 {
+    padding: 30px 0px;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1.041;
+    text-align: center;
+    color: $white;
+  }
+
+  input {
+    padding-left: 0.5rem;
+    border: 1px solid $terciary;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 1rem;
+    color: $white;
+    background-color: $infoText;
+    @include GoogleInputArea;
+
+    &:focus {
+      border: 1px solid $terciary !important;
+    }
+  }
+
+  .infoDistance {
+    font-size: 1.25rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    color: $white;
+    padding-top: 0;
+  }
+
+  iframe {
+      width: 100%;
+      height: 100%;
+  }
+}
+
+.SplitScreen {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  color: $white;
+  padding-top: 2.2rem;
+  margin-bottom: 2.2rem;
+  .Eletric,
+  .Hibryd {
+    width: 100%;
+    h2 {
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 800;
+      font-size: 1.375rem;
+    }
+    h3 {
+      font-family: 'Din Next LT Pro', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      height: 5rem;
+    }
+
+    .Description {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .Calculation {
+    @include CalculationBarDisplayText;
+  }
+  .CalculationFull {
+    @include CalculationBarDisplayText;
+    h3,
+    h3 strong {
+      color: $purple;
+    }
+  }
+}
+
+.Advisor {
+  background-color: $darkBlue;
+  width: 85%;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 5.125rem;
+  h4 {
+    color: $terciary;
+    font-size: 1.25rem;
+    font-family: 'Din Next LT Pro', sans-serif;
+    font-weight: 400;
+    padding: 1rem 1rem;
+  }
+}

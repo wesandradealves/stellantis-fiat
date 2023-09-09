@@ -1,0 +1,112 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+$ww: 1920;
+
+.sidebar {
+  min-width: 224px;
+  height: 100%;
+  background-color: #1F1F1F;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: auto;
+  -webkit-box-shadow: 5px 0px 6px 1px rgba(0, 0, 0, 0.29);
+  box-shadow: 5px 0px 6px 1px rgba(0, 0, 0, 0.29);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .logo {
+    width: 155px;
+    margin: 16px 35px 30px 35px;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .listMenu {
+    width: inherit;
+    margin: 0 13px 30px 13px;
+
+    &:last-child {
+      width: calc(98% - 26px);
+    }
+
+    li {
+      list-style: none;
+
+      > ul {
+        margin-left: 20px;
+
+        li {
+          list-style: disc;
+          color: var.$white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .sidebar {
+    max-width: 300px;
+    position: absolute;
+    top: 44px;
+    left: -300px;
+    box-shadow: none;
+    transition: 0.15s ease-in-out;
+    z-index: 100;
+
+    &.open {
+      width: 100%;
+      display: block;
+      position: fixed;
+      top: 44px;
+      left: 0;
+      padding: 0 10px 10px 10px;
+      z-index: 1000;
+
+      .overlay {
+        content: "";
+        width: calc(100% - 300px);
+        height: 100%;
+        display: block;
+        background-color: #000;
+        opacity: 0.2;
+        position: fixed;
+        top: 44px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        transition: opacity 1s ease-in-out;
+      }
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .listMenu {
+      margin: 10px 0 30px 0;
+
+      &:last-child {
+        width: 94%;
+        margin-bottom: 0;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
